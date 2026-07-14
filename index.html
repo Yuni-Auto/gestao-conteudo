@@ -1482,7 +1482,19 @@ async function pullFromGitHub(silent) {
       setSyncStatus(getGhToken() ? 'warn' : 'offline', 'Nenhum dado na nuvem ainda');
       return false;
     }
-    if (!res.ok) throw new Error('HTTP ' + res.status);
+    if (res.status === 403 || res.status === 429) {
+      const remaining = res.headers.get('x-ratelimit-remaining');
+      const resetHeader = res.headers.get('x-ratelimit-reset');
+      if (remaining === '0' && resetHeader) {
+        const resetDate = new Date(Number(resetHeader) * 1000);
+        const mins = Math.max(1, Math.ceil((resetDate - Date.now()) / 60000));
+        setSyncStatus('error', `Limite de requisições da API atingido — tente de novo em ~${mins} min`);
+      } else {
+        setSyncStatus('error', 'GitHub bloqueou a requisição (403) — tente de novo mais tarde');
+      }
+      return false;
+    }
+    if (!res.ok) { setSyncStatus('error', `Erro da nuvem (HTTP ${res.status}) — usando dados locais`); return false; }
     const json = await res.json();
     ghFileSha = json.sha;
     const raw = b64DecodeUnicode(json.content.replace(/\n/g, ''));
@@ -1514,7 +1526,13 @@ async function pullFromGitHub(silent) {
     setSyncStatus('ok', 'Sincronizado ✓');
     return true;
   } catch (e) {
-    setSyncStatus('offline', 'Offline — usando dados locais');
+    // TypeError de fetch geralmente é falha de rede/DNS/bloqueio (ex: bloqueador
+    // de conteúdo barrando api.github.com), diferente de um erro de resposta HTTP.
+    if (e instanceof TypeError) {
+      setSyncStatus('offline', 'Sem conexão com a nuvem (rede ou bloqueador de conteúdo) — usando dados locais');
+    } else {
+      setSyncStatus('offline', 'Offline — usando dados locais');
+    }
     return false;
   }
 }
