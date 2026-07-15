@@ -952,6 +952,28 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot4"
+    },
+    {
+      "id": 45,
+      "titulo": "[caroussel] Programa de estágio",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-15",
+      "status": "ideia",
+      "plataformas": [
+        "li"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot3"
     }
   ],
   "partners": [
@@ -1151,5 +1173,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-15T16:28:14.350Z"
+  "_updatedAt": "2026-07-15T16:30:02.893Z"
 }
