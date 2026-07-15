@@ -958,20 +958,19 @@
       "titulo": "[caroussel] Programa de estágio Agosto",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-07-15",
-      "status": "ideia",
+      "status": "publicada",
       "plataformas": [
         "li"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot3"
     }
@@ -1173,5 +1172,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-15T16:30:28.139Z"
+  "_updatedAt": "2026-07-15T16:30:40.673Z"
 }
