@@ -854,7 +854,7 @@
     },
     {
       "id": 42,
-      "titulo": "[carousel] Programa de estágio",
+      "titulo": "[carousel] Programa de estágio Agosto",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -865,7 +865,7 @@
       ],
       "scenes": [],
       "data": "2026-07-13",
-      "status": "publicada",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -1173,5 +1173,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-15T16:30:02.893Z"
+  "_updatedAt": "2026-07-15T16:30:20.624Z"
 }
