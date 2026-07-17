@@ -260,34 +260,35 @@
       "titulo": "[carousel] Coisas legais que aprendi sendo Tech Lead",
       "desc": "",
       "data": "2026-07-17",
-      "status": "afazer",
+      "status": "ideia",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "formato": "Carousel",
       "inspiracoes": [],
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": " Comunicação evita mais problemas do que o código resolve",
+          "texto": "Grande parte do dia não foi programando, mas alinhando prioridades, tirando dúvidas e garantindo que todos estivessem na mesma página."
+        },
+        {
+          "titulo": "Confiar na equipe faz toda a diferença.",
+          "texto": "Ninguém precisa fazer tudo sozinho. Delegar e confiar nas pessoas cria um ambiente muito mais saudável e eficiente."
+        },
+        {
+          "titulo": "Pedir ajuda não diminui a liderança. Pelo contrário, fortalece o time.",
           "texto": ""
         },
         {
-          "titulo": "",
+          "titulo": "Liderança é muito mais sobre pessoas do que sobre código.",
           "texto": ""
         },
         {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
+          "titulo": "Liderar não é ter todas as respostas.",
+          "texto": "Achei que precisaria resolver tudo sozinha. Na prática, percebi que um bom líder faz perguntas, conecta pessoas e toma decisões junto com o time."
         }
       ],
       "scenes": [],
@@ -1188,5 +1189,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-17T11:25:42.623Z"
+  "_updatedAt": "2026-07-17T11:44:26.619Z"
 }
