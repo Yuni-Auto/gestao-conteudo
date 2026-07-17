@@ -257,10 +257,10 @@
     },
     {
       "id": 19,
-      "titulo": "[carousel] Coisas legais que aprendi ou fiz no último mês",
+      "titulo": "[carousel] Coisas legais que aprendi sendo Tech Lead",
       "desc": "",
       "data": "2026-07-17",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -291,7 +291,7 @@
         }
       ],
       "scenes": [],
-      "requiredTag": null
+      "requiredTag": "slot15"
     },
     {
       "id": 20,
@@ -1188,5 +1188,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-17T11:24:14.497Z"
+  "_updatedAt": "2026-07-17T11:25:26.160Z"
 }
