@@ -257,42 +257,25 @@
     },
     {
       "id": 19,
-      "titulo": "[carousel] Coisas legais que aprendi sendo Tech Lead",
+      "titulo": "[carousel] Coisas legais que aprendi ou fiz no último mês",
       "desc": "",
-      "data": "2026-07-17",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
       "formato": "Carousel",
       "inspiracoes": [],
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": " Comunicação evita mais problemas do que o código resolve",
-          "texto": "Grande parte do dia não foi programando, mas alinhando prioridades, tirando dúvidas e garantindo que todos estivessem na mesma página."
-        },
-        {
-          "titulo": "Confiar na equipe faz toda a diferença.",
-          "texto": "Ninguém precisa fazer tudo sozinho. Delegar e confiar nas pessoas cria um ambiente muito mais saudável e eficiente."
-        },
-        {
-          "titulo": "Pedir ajuda não diminui a liderança. Pelo contrário, fortalece o time.",
+          "titulo": "",
           "texto": ""
-        },
-        {
-          "titulo": "Liderança é muito mais sobre pessoas do que sobre código.",
-          "texto": ""
-        },
-        {
-          "titulo": "Liderar não é ter todas as respostas.",
-          "texto": "Achei que precisaria resolver tudo sozinha. Na prática, percebi que um bom líder faz perguntas, conecta pessoas e toma decisões junto com o time."
         }
       ],
       "scenes": [],
-      "requiredTag": "slot15"
+      "requiredTag": null
     },
     {
       "id": 20,
@@ -573,8 +556,8 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-07-21",
-      "status": "publicada",
+      "data": "2026-07-20",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -960,7 +943,7 @@
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-07-17",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1189,5 +1172,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-17T11:44:26.619Z"
+  "_updatedAt": "2026-07-18T23:50:26.941Z"
 }
