@@ -1022,21 +1022,28 @@
       "titulo": "[carousel] uma garota e suas diferentes vidas",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-07-22",
       "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null
     }
@@ -1238,5 +1245,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:37:22.280Z"
+  "_updatedAt": "2026-07-19T23:38:23.607Z"
 }
