@@ -985,7 +985,7 @@
       ],
       "scenes": [],
       "data": "2026-08-02",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1247,5 +1247,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:39:45.525Z"
+  "_updatedAt": "2026-07-19T23:41:07.222Z"
 }
