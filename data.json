@@ -756,7 +756,7 @@
     },
     {
       "id": 40,
-      "titulo": "Vocabulário da programação",
+      "titulo": "[carousel] Vocabulário da programação",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -774,8 +774,8 @@
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "ideia",
+      "data": "2026-07-19",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -1172,5 +1172,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:15:05.417Z"
+  "_updatedAt": "2026-07-19T23:15:45.707Z"
 }
