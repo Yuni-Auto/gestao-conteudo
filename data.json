@@ -1007,8 +1007,8 @@
           "cena": ""
         }
       ],
-      "data": "",
-      "status": "ideia",
+      "data": "2026-08-24",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1215,5 +1215,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:33:14.840Z"
+  "_updatedAt": "2026-07-19T23:34:45.965Z"
 }
