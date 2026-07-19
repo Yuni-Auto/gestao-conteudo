@@ -1048,6 +1048,27 @@
         "https://www.instagram.com/p/Da38wfDjN0N/?igsh=cTZ3cWFoNnF0bDZm"
       ],
       "requiredTag": null
+    },
+    {
+      "id": 49,
+      "titulo": "3 projetos para iniciantes",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-07-19",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot5"
     }
   ],
   "partners": [
@@ -1247,5 +1268,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:41:07.222Z"
+  "_updatedAt": "2026-07-19T23:41:11.077Z"
 }
