@@ -876,7 +876,7 @@
     },
     {
       "id": 43,
-      "titulo": "Calendário de eventos do mês",
+      "titulo": "[carousel] Calendário de eventos do mês",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -894,8 +894,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-27",
-      "status": "ideia",
+      "data": "",
+      "status": "publicada",
       "plataformas": [
         "ig"
       ],
@@ -1172,5 +1172,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:15:59.423Z"
+  "_updatedAt": "2026-07-19T23:16:16.079Z"
 }
