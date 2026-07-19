@@ -759,31 +759,24 @@
     },
     {
       "id": 40,
-      "titulo": "[carousel] Vocabulário da programação",
+      "titulo": "[reels] Vocabulário da programação",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "Setup",
-          "texto": ""
-        },
-        {
-          "titulo": "Mouse",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
         }
       ],
-      "scenes": [],
       "data": "2026-07-20",
       "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot9"
     },
@@ -1220,5 +1213,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:30:40.189Z"
+  "_updatedAt": "2026-07-19T23:31:04.776Z"
 }
