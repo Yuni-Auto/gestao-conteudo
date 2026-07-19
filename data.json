@@ -973,28 +973,6 @@
       "requiredTag": "slot3"
     },
     {
-      "id": 46,
-      "titulo": "[carousel] 3 projetos para iniciantes",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-08-02",
-      "status": "pesquisar",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot5"
-    },
-    {
       "id": 47,
       "titulo": "[reels] Review do meu mouse Logi de 1 mês",
       "desc": "",
@@ -1268,5 +1246,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:41:28.380Z"
+  "_updatedAt": "2026-07-19T23:41:42.120Z"
 }
