@@ -507,11 +507,12 @@
           "cena": "Olhar feliz e agradecer"
         }
       ],
-      "data": "",
+      "data": "2027-01-19",
       "status": "ideia",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -1196,5 +1197,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:25:30.461Z"
+  "_updatedAt": "2026-07-19T23:26:03.485Z"
 }
