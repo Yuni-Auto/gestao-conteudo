@@ -777,8 +777,8 @@
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "publicada",
+      "data": "2026-07-20",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -1220,5 +1220,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:27:34.001Z"
+  "_updatedAt": "2026-07-19T23:30:13.753Z"
 }
