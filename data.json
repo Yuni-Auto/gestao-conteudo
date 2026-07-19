@@ -1029,7 +1029,7 @@
     },
     {
       "id": 49,
-      "titulo": "3 projetos para iniciantes",
+      "titulo": "[carousel] 3 projetos para iniciantes",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1246,5 +1246,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:41:42.120Z"
+  "_updatedAt": "2026-07-19T23:41:48.568Z"
 }
