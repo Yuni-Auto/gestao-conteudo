@@ -746,10 +746,11 @@
           "cena": ""
         }
       ],
-      "data": "",
+      "data": "2026-07-19",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -1173,5 +1174,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:20:03.521Z"
+  "_updatedAt": "2026-07-19T23:20:09.407Z"
 }
