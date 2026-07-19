@@ -771,13 +771,15 @@
         }
       ],
       "data": "2026-07-20",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DahJBQXxx5y/?igsh=MXg5bjltN2NoMXI2YQ=="
+      ],
       "requiredTag": "slot9"
     },
     {
@@ -1213,5 +1215,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:31:04.776Z"
+  "_updatedAt": "2026-07-19T23:33:14.840Z"
 }
