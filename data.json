@@ -975,6 +975,27 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot3"
+    },
+    {
+      "id": 46,
+      "titulo": "3 projetos para iniciantes",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-07-20",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot5"
     }
   ],
   "partners": [
@@ -1174,5 +1195,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:22:58.750Z"
+  "_updatedAt": "2026-07-19T23:23:52.811Z"
 }
