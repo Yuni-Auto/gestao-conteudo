@@ -998,6 +998,29 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5"
+    },
+    {
+      "id": 47,
+      "titulo": "[reels] Review do meu mouse Logi de 1 mês",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1197,5 +1220,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:26:42.850Z"
+  "_updatedAt": "2026-07-19T23:27:34.001Z"
 }
