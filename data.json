@@ -991,7 +991,8 @@
       "data": "2026-07-20",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Carousel",
       "inspiracoes": [],
@@ -1195,5 +1196,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-19T23:23:52.811Z"
+  "_updatedAt": "2026-07-19T23:24:01.225Z"
 }
