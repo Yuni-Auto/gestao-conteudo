@@ -260,7 +260,7 @@
       "titulo": "[carousel] Coisas legais que aprendi ou fiz no último mês",
       "desc": "",
       "data": "",
-      "status": "ideia",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1246,5 +1246,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-20T15:59:49.920Z"
+  "_updatedAt": "2026-07-20T16:00:02.619Z"
 }
