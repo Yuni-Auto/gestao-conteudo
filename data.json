@@ -770,16 +770,14 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-20",
-      "status": "roteiro",
+      "data": "2026-07-21",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DahJBQXxx5y/?igsh=MXg5bjltN2NoMXI2YQ=="
-      ],
+      "inspiracoes": [],
       "requiredTag": "slot9"
     },
     {
@@ -1246,5 +1244,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-21T02:17:47.660Z"
+  "_updatedAt": "2026-07-21T02:18:00.263Z"
 }
