@@ -259,8 +259,8 @@
       "id": 19,
       "titulo": "[carousel] Coisas legais que aprendi ou fiz no último mês",
       "desc": "",
-      "data": "",
-      "status": "ideia",
+      "data": "2026-07-20",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -275,7 +275,7 @@
         }
       ],
       "scenes": [],
-      "requiredTag": null
+      "requiredTag": "slot15"
     },
     {
       "id": 20,
@@ -771,7 +771,7 @@
         }
       ],
       "data": "2026-07-20",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1246,5 +1246,5 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-20T16:36:37.370Z"
+  "_updatedAt": "2026-07-21T02:17:47.660Z"
 }
