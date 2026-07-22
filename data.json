@@ -649,7 +649,7 @@
       ],
       "scenes": [],
       "data": "2026-07-26",
-      "status": "legenda",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1246,5 +1246,5 @@
   ],
   "requiredPostsByMonth": {},
   "requiredPostsHistory": [],
-  "_updatedAt": "2026-07-22T18:37:47.084Z"
+  "_updatedAt": "2026-07-22T18:37:49.999Z"
 }
