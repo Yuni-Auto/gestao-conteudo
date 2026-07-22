@@ -1244,5 +1244,7 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-21T02:18:00.263Z"
+  "requiredPostsByMonth": {},
+  "requiredPostsHistory": [],
+  "_updatedAt": "2026-07-22T18:30:28.740Z"
 }
