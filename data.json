@@ -1013,16 +1013,14 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-22",
-      "status": "pesquisar",
+      "data": "2026-07-26",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Carousel",
-      "inspiracoes": [
-        "https://www.instagram.com/p/Da38wfDjN0N/?igsh=cTZ3cWFoNnF0bDZm"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     },
     {
@@ -1244,7 +1242,353 @@
       "rot": 2
     }
   ],
-  "requiredPostsByMonth": {},
-  "requiredPostsHistory": [],
-  "_updatedAt": "2026-07-22T23:01:19.776Z"
+  "requiredPostsByMonth": {
+    "2026-07": [
+      {
+        "key": "slot1",
+        "title": "Dump do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot2",
+        "title": "Um problema = uma solução",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot3",
+        "title": "Programa de estágio",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot4",
+        "title": "Trends",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot5",
+        "title": "3 projetos para iniciantes",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot6",
+        "title": "Um dia comigo no home office",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot8",
+        "title": "Conteúdo para te deixar inteligente",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot9",
+        "title": "Vocabulário da programação",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot11",
+        "title": "Calendário de eventos do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot13",
+        "title": "Minha rotina sendo engenheira de software",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot14",
+        "title": "Achadinhos de setup",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot15",
+        "title": "Coisas legais que aprendi ou fiz no último mês",
+        "formato": "Carousel",
+        "tag": "post"
+      }
+    ]
+  },
+  "requiredPostsHistory": [
+    {
+      "date": "2026-07-22T22:57:50.672Z",
+      "monthKey": "2026-07",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22T22:57:27.765Z",
+      "monthKey": "2026-07",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22T22:57:09.896Z",
+      "monthKey": "2026-07",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    }
+  ],
+  "_updatedAt": "2026-07-22T23:02:24.373Z"
 }
