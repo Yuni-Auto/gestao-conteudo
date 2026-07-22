@@ -770,8 +770,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-22",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1246,5 +1246,5 @@
   ],
   "requiredPostsByMonth": {},
   "requiredPostsHistory": [],
-  "_updatedAt": "2026-07-22T18:35:06.237Z"
+  "_updatedAt": "2026-07-22T18:36:52.365Z"
 }
