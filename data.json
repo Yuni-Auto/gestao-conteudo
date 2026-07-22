@@ -87,8 +87,8 @@
       "id": 11,
       "titulo": "[carousel] Conteúdo para te deixar inteligente",
       "desc": "Seu network como dev júnior começa com quem você decide ser. ⚡️👩🏾‍💻\n\nEntão o network de um dev júnior que cresce de verdade tem 3 pilares:\n\n1. Identidade: aja como quem você quer ser 🪞\n\n2. Comunicação: aprenda a se expressar com clareza 🗣️\n\n3. Mentalidade: pare de esperar a hora certa 🧠\n\nO carrossel aqui em cima tem as habilidades essenciais que ninguém te conta sobre networking na área de tech. Vai do básico ao que realmente faz diferença.\n\n#dev #tech #tecnologia #network #programacao",
-      "data": "",
-      "status": "ideia",
+      "data": "2026-07-07",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -204,7 +204,7 @@
       "titulo": "[reels] Minha rotina sendo engenheira de software",
       "desc": "",
       "data": "2026-07-09",
-      "status": "ideia",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -259,8 +259,8 @@
       "id": 19,
       "titulo": "[carousel] Coisas legais que aprendi ou fiz no último mês",
       "desc": "",
-      "data": "",
-      "status": "ideia",
+      "data": "2026-07-20",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -275,7 +275,7 @@
         }
       ],
       "scenes": [],
-      "requiredTag": null
+      "requiredTag": "slot15"
     },
     {
       "id": 20,
@@ -374,8 +374,8 @@
           "cena": ""
         }
       ],
-      "data": "",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -507,11 +507,12 @@
           "cena": "Olhar feliz e agradecer"
         }
       ],
-      "data": "",
+      "data": "2027-01-19",
       "status": "ideia",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -556,8 +557,8 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-07-15",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -647,8 +648,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-29",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -726,7 +727,8 @@
       "data": "",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -748,7 +750,8 @@
       "data": "",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -756,31 +759,24 @@
     },
     {
       "id": 40,
-      "titulo": "Vocabulário da programação",
+      "titulo": "[reels] Vocabulário da programação",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "Setup",
-          "texto": ""
-        },
-        {
-          "titulo": "Mouse",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
         }
       ],
-      "scenes": [],
-      "data": "2026-07-22",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot9"
     },
@@ -854,7 +850,7 @@
     },
     {
       "id": 42,
-      "titulo": "[carousel] Programa de estágio",
+      "titulo": "[carousel] Programa de estágio Agosto",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -876,7 +872,7 @@
     },
     {
       "id": 43,
-      "titulo": "Calendário de eventos do mês",
+      "titulo": "[carousel] Calendário de eventos do mês",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -894,8 +890,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-27",
-      "status": "ideia",
+      "data": "",
+      "status": "publicada",
       "plataformas": [
         "ig"
       ],
@@ -943,7 +939,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-17",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -952,6 +948,103 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot4"
+    },
+    {
+      "id": 45,
+      "titulo": "[caroussel] Programa de estágio Agosto",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-07-15",
+      "status": "publicada",
+      "plataformas": [
+        "li"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot3"
+    },
+    {
+      "id": 47,
+      "titulo": "[reels] Review do meu mouse Logi de 1 mês",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-08-24",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 48,
+      "titulo": "[carousel] Uma garota e suas diferentes vidas",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-07-22",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [
+        "https://www.instagram.com/p/Da38wfDjN0N/?igsh=cTZ3cWFoNnF0bDZm"
+      ],
+      "requiredTag": null
+    },
+    {
+      "id": 49,
+      "titulo": "[carousel] 3 projetos para iniciantes",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-08-03",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot5"
     }
   ],
   "partners": [
@@ -1096,12 +1189,12 @@
         "clicks": 50
       },
       "Jul 26": {
-        "seguidores": 8115,
-        "views": 104392,
-        "alcance": 57770,
-        "eng": 12083,
-        "conteudo": 2,
-        "clicks": 59
+        "seguidores": 8341,
+        "views": 119579,
+        "alcance": 72801,
+        "eng": 15239,
+        "conteudo": 5,
+        "clicks": 72
       }
     },
     "tt": {
@@ -1114,11 +1207,11 @@
         "clicks": 0
       },
       "Jul 26": {
-        "seguidores": 997,
-        "views": 1347,
-        "alcance": 424,
-        "eng": 75,
-        "conteudo": 2,
+        "seguidores": 993,
+        "views": 1172,
+        "alcance": 571,
+        "eng": 90,
+        "conteudo": 3,
         "clicks": 0
       }
     },
@@ -1151,5 +1244,353 @@
       "rot": 2
     }
   ],
-  "_updatedAt": "2026-07-14T14:45:37.055Z"
+  "requiredPostsByMonth": {
+    "2026-07": [
+      {
+        "key": "slot1",
+        "title": "Dump do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot2",
+        "title": "Um problema = uma solução",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot3",
+        "title": "Programa de estágio",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot4",
+        "title": "Trends",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot5",
+        "title": "3 projetos para iniciantes",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot6",
+        "title": "Um dia comigo no home office",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot8",
+        "title": "Conteúdo para te deixar inteligente",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot9",
+        "title": "Vocabulário da programação",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot11",
+        "title": "Calendário de eventos do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot13",
+        "title": "Minha rotina sendo engenheira de software",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot14",
+        "title": "Achadinhos de setup",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot15",
+        "title": "Coisas legais que aprendi ou fiz no último mês",
+        "formato": "Carousel",
+        "tag": "post"
+      }
+    ]
+  },
+  "requiredPostsHistory": [
+    {
+      "date": "2026-07-22T22:57:50.672Z",
+      "monthKey": "2026-07",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22T22:57:27.765Z",
+      "monthKey": "2026-07",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22T22:57:09.896Z",
+      "monthKey": "2026-07",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    }
+  ],
+  "_updatedAt": "2026-07-22T22:57:53.174Z"
 }
