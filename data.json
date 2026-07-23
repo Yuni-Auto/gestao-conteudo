@@ -339,29 +339,6 @@
       "requiredTag": null
     },
     {
-      "id": 22,
-      "titulo": "[reels] Quando esperar clareou... Clareou!",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot4"
-    },
-    {
       "id": 23,
       "titulo": "[reels] Review do meu fone da Red Dragon de 6 meses",
       "desc": "",
@@ -1564,5 +1541,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:29:05.294Z"
+  "_updatedAt": "2026-07-23T00:30:05.348Z"
 }
