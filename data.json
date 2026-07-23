@@ -985,14 +985,13 @@
         }
       ],
       "data": "2026-07-22",
-      "status": "publicada",
+      "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DbHVwedxe-c/?igsh=cHN6dGMwN2g1a2t1"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     }
   ],
@@ -1549,5 +1548,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:32:16.577Z"
+  "_updatedAt": "2026-07-23T00:37:16.124Z"
 }
