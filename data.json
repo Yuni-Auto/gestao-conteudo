@@ -1043,6 +1043,28 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5"
+    },
+    {
+      "id": 50,
+      "titulo": "[reels] trabalhando no bug 3",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-22",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1590,5 +1612,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-22T23:20:42.498Z"
+  "_updatedAt": "2026-07-23T00:12:43.998Z"
 }
