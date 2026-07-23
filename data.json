@@ -1209,7 +1209,7 @@
   "brainstormNotes": [
     {
       "id": 5,
-      "text": "",
+      "text": "[carousel] E você, quantos planos têm?",
       "x": 119.52734375,
       "y": 113.50390625,
       "color": "white",
@@ -1564,5 +1564,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:28:23.680Z"
+  "_updatedAt": "2026-07-23T00:28:30.109Z"
 }
