@@ -900,56 +900,6 @@
       "requiredTag": "slot11"
     },
     {
-      "id": 44,
-      "titulo": "[carousel] E você, quantos planos têm?",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot4"
-    },
-    {
       "id": 45,
       "titulo": "[caroussel] Programa de estágio Agosto",
       "desc": "",
@@ -1614,5 +1564,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:22:05.222Z"
+  "_updatedAt": "2026-07-23T00:28:23.680Z"
 }
