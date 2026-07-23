@@ -266,9 +266,7 @@
         "tt"
       ],
       "formato": "Carousel",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DbHVwedxe-c/?igsh=cHN6dGMwN2g1a2t1"
-      ],
+      "inspiracoes": [],
       "carouselLegenda": "",
       "slides": [
         {
@@ -1616,5 +1614,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:21:52.713Z"
+  "_updatedAt": "2026-07-23T00:22:05.222Z"
 }
