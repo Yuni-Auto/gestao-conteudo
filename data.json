@@ -1189,7 +1189,7 @@
       "text": "[carousel] E você, quantos planos têm?",
       "x": 906.54296875,
       "y": 102.6796875,
-      "color": "white",
+      "color": "yellow",
       "rot": 2
     },
     {
@@ -1549,5 +1549,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:30:30.158Z"
+  "_updatedAt": "2026-07-23T00:30:33.175Z"
 }
