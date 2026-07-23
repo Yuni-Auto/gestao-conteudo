@@ -1187,16 +1187,16 @@
     {
       "id": 5,
       "text": "[carousel] E você, quantos planos têm?",
-      "x": 119.52734375,
-      "y": 113.50390625,
+      "x": 906.54296875,
+      "y": 102.6796875,
       "color": "white",
       "rot": 2
     },
     {
       "id": 6,
       "text": "[reels] Quando esperar clareou... Clareou!",
-      "x": 78,
-      "y": 68,
+      "x": 339.84765625,
+      "y": 117.12890625,
       "color": "gray",
       "rot": -2.1
     }
@@ -1549,5 +1549,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-23T00:30:15.224Z"
+  "_updatedAt": "2026-07-23T00:30:30.158Z"
 }
