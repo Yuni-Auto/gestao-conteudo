@@ -994,6 +994,28 @@
         "https://www.instagram.com/reel/DbHVwedxe-c/?igsh=cHN6dGMwN2g1a2t1"
       ],
       "requiredTag": null
+    },
+    {
+      "id": 51,
+      "titulo": "[carousel] CPF, CLT e CNPJ",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-24",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1549,5 +1571,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-24T00:11:33.876Z"
+  "_updatedAt": "2026-07-24T00:12:26.249Z"
 }
