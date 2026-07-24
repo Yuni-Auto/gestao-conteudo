@@ -1045,6 +1045,30 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5"
+    },
+    {
+      "id": 50,
+      "titulo": "[reels] eu evitando dizer",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-24",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
+      ],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1246,5 +1270,5 @@
   ],
   "requiredPostsByMonth": {},
   "requiredPostsHistory": [],
-  "_updatedAt": "2026-07-24T16:51:05.459Z"
+  "_updatedAt": "2026-07-24T16:54:35.513Z"
 }
