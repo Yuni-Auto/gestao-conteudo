@@ -1015,7 +1015,7 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": "slot4"
     }
   ],
   "partners": [
@@ -1571,5 +1571,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-24T00:12:26.249Z"
+  "_updatedAt": "2026-07-24T00:12:36.307Z"
 }
