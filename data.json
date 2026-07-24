@@ -1093,6 +1093,30 @@
         "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
       ],
       "requiredTag": null
+    },
+    {
+      "id": 52,
+      "titulo": "[reels] meu fone",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-24",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
+      ],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1294,5 +1318,5 @@
   ],
   "requiredPostsByMonth": {},
   "requiredPostsHistory": [],
-  "_updatedAt": "2026-07-24T16:54:52.675Z"
+  "_updatedAt": "2026-07-24T16:55:12.359Z"
 }
