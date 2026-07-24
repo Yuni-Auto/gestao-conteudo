@@ -91,6 +91,30 @@
         "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
       ],
       "requiredTag": null
+    },
+    {
+      "id": 8,
+      "titulo": "[reels] trabalhar no PC é facil",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-23",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
+      ],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -189,5 +213,5 @@
   ],
   "requiredPostsByMonth": {},
   "requiredPostsHistory": [],
-  "_updatedAt": "2026-07-24T02:40:12.612Z"
+  "_updatedAt": "2026-07-24T02:41:07.438Z"
 }
