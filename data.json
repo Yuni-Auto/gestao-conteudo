@@ -339,29 +339,6 @@
       "requiredTag": null
     },
     {
-      "id": 22,
-      "titulo": "[reels] Quando esperar clareou... Clareou!",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot4"
-    },
-    {
       "id": 23,
       "titulo": "[reels] Review do meu fone da Red Dragon de 6 meses",
       "desc": "",
@@ -748,7 +725,7 @@
         }
       ],
       "data": "",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -900,56 +877,6 @@
       "requiredTag": "slot11"
     },
     {
-      "id": 44,
-      "titulo": "[carousel] E você, quantos planos têm?",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        },
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot4"
-    },
-    {
       "id": 45,
       "titulo": "[caroussel] Programa de estágio Agosto",
       "desc": "",
@@ -1013,16 +940,14 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-22",
-      "status": "pesquisar",
+      "data": "2026-07-26",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Carousel",
-      "inspiracoes": [
-        "https://www.instagram.com/p/Da38wfDjN0N/?igsh=cTZ3cWFoNnF0bDZm"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     },
     {
@@ -1045,6 +970,52 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5"
+    },
+    {
+      "id": 50,
+      "titulo": "[reels] trabalhando no bug 3",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-22",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DbHVwedxe-c/?igsh=cHN6dGMwN2g1a2t1"
+      ],
+      "requiredTag": null
+    },
+    {
+      "id": 51,
+      "titulo": "[carousel] CPF, CLT e CNPJ",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-24",
+      "status": "roteiro",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot4"
     }
   ],
   "partners": [
@@ -1237,11 +1208,19 @@
   "brainstormNotes": [
     {
       "id": 5,
-      "text": "",
-      "x": 119.52734375,
-      "y": 113.50390625,
-      "color": "white",
+      "text": "[carousel] E você, quantos planos têm?",
+      "x": 906.54296875,
+      "y": 102.6796875,
+      "color": "yellow",
       "rot": 2
+    },
+    {
+      "id": 6,
+      "text": "[reels] Quando esperar clareou... Clareou!",
+      "x": 852.7734375,
+      "y": 302.23046875,
+      "color": "yellow",
+      "rot": -2.1
     }
   ],
   "requiredPostsByMonth": {
@@ -1592,5 +1571,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-22T22:57:53.174Z"
+  "_updatedAt": "2026-07-24T00:29:18.150Z"
 }
