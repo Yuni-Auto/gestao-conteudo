@@ -21,6 +21,10 @@
 
   .shell { display: flex; height: 100vh; overflow: hidden; }
 
+  .mobile-menu-btn { display: none; position: fixed; top: 12px; left: 12px; z-index: 160; width: 38px; height: 38px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 17px; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; }
+  .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 150; }
+  .sidebar-backdrop.open { display: block; }
+
   /* Sidebar */
   .sidebar { width: 230px; min-width: 230px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 22px 14px; gap: 4px; }
   .sidebar-logo { font-size: 14px; font-weight: 600; padding: 0 8px 18px; display: flex; align-items: center; gap: 8px; }
@@ -87,13 +91,34 @@
   /* Stats */
   .stats-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 18px 26px 0; }
   .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 15px; }
+
+  .agenda-section { margin: 8px 26px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+  .agenda-section-title { font-size: 13px; font-weight: 700; margin: 0 0 12px; color: var(--text-1); }
+  .agenda-section-title-row { display: flex; align-items: center; justify-content: space-between; }
+  .agenda-section-count { font-size: 11.5px; font-weight: 700; color: var(--text-2); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
+  .agenda-section-range { font-size: 11.5px; color: var(--text-3); margin: -6px 0 12px; }
+  .agenda-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+  .agenda-empty { font-size: 12.5px; color: var(--text-3); font-style: italic; padding: 10px 2px; grid-column: 1 / -1; }
+  .agenda-item { display: flex; flex-direction: column; gap: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; cursor: pointer; transition: filter 0.1s; }
+  .agenda-item:hover { filter: brightness(0.97); }
+  .agenda-item-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .agenda-item-main { flex: 1; min-width: 0; }
+  .agenda-item-title { font-size: 13px; font-weight: 600; color: var(--text-1); }
+  .agenda-item-sub { font-size: 11.5px; color: var(--text-3); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .agenda-item-badge { flex-shrink: 0; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--text-2); }
+  .agenda-strategy-post { cursor: pointer; }
+  .agenda-strategy-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .agenda-strategy-date { font-size: 11px; color: var(--text-3); white-space: nowrap; flex-shrink: 0; }
+  .agenda-strategy-tags { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .agenda-week-cal { display: grid; grid-template-columns: repeat(7, 1fr); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .agenda-subheading { grid-column: 1 / -1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-3); margin-bottom: 2px; }
   .stat-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
   .stat-value { font-size: 24px; font-weight: 600; }
 
   .content-area { padding: 18px 26px 40px; display: flex; flex-direction: column; gap: 22px; }
 
   /* Week calendar */
-  .week-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .week-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-top: 18px; }
   .week-header { padding: 13px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
   .week-title { font-size: 13px; font-weight: 600; }
   .week-header-left { display: flex; align-items: center; gap: 14px; }
@@ -144,8 +169,8 @@
   .week-post-plat-icon.pt { background: #fde8ef; color: #e60023; }
   .week-post-plat-icon.tw { background: #e8f4ff; color: #0f141a; }
   .week-post-fmt { font-size: 10px; color: var(--text-3); font-weight: 500; }
-  .week-post-partner-row { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 3px; }
-  .week-post-partner { font-size: 9.5px; font-weight: 700; color: #5b50c8; background: #f1eefb; border-radius: 5px; padding: 1px 5px; line-height: 1.5; white-space: nowrap; }
+  .week-post-partner-row { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .week-post-partner { font-size: 11px; font-weight: 600; color: #5b30b8; background: #f0eafe; border-radius: 999px; padding: 2px 9px; line-height: 1.5; white-space: nowrap; display: inline-flex; align-items: center; gap: 3px; }
   .plat-ig { border-left: 3px solid #f6b9cd; }
   .plat-tt { border-left: 3px solid #c9c9c9; }
   .plat-li { border-left: 3px solid #aecbef; }
@@ -154,6 +179,7 @@
   .plat-ig-li { border-left: 3px solid #d8b4e2; }
   .plat-tt-li { border-left: 3px solid #aecbef; }
   .plat-all { border-left: 3px solid #c9c4ea; }
+  .plat-todo { border-left: 3px solid #f0c14b; }
   /* plat-* classes below are used only for plat-pills in the list/table (not the week calendar) */
   .plat-ig-bg { background: #fde8ef; color: #b5223a; border-color: #f9c8d8; }
   .plat-tt-bg { background: #e8e8e8; color: #222; border-color: #d0d0d0; }
@@ -170,6 +196,10 @@
   .list-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .list-header { padding: 13px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
   .list-title { font-size: 13px; font-weight: 600; }
+  .list-title-row { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+  .list-collapse-btn { width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 11px; transition: transform 0.15s; }
+  .list-collapse-btn:hover { background: var(--bg); }
+  .list-collapse-btn.collapsed { transform: rotate(-90deg); }
   .filter-row { display: flex; gap: 5px; flex-wrap: wrap; }
   .filter-chip { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); transition: all 0.1s; }
   .filter-chip:hover { background: var(--bg); }
@@ -209,6 +239,7 @@
   .st-legenda        { background: #e5eefe; color: #2a4db0; } .st-legenda .status-dot        { background: #5882e8; }
   .st-design         { background: #fef0e5; color: #a04010; } .st-design .status-dot         { background: #e87a40; }
   .st-pronto         { background: #f0eafe; color: #5b30b8; } .st-pronto .status-dot         { background: #9b70e8; }
+  .st-acriar         { background: #fdf3d9; color: #8a6a00; } .st-acriar .status-dot         { background: #e8b930; }
   .st-programada     { background: #f5ede3; color: #7a5025; } .st-programada .status-dot     { background: #c8905a; }
   .st-publicada      { background: #e4f7ee; color: #1a6b40; } .st-publicada .status-dot      { background: #2dbe6c; }
 
@@ -699,13 +730,56 @@
     padding:7px 12px; border-radius:8px; cursor:pointer; white-space:nowrap; display:flex; align-items:center; justify-content:space-between; gap:10px;
   }
   .brain-toolbar-option:hover { background:rgba(255,255,255,.1); }
-  .brain-toolbar-option.active { color:#a99cf0; }
+  .brain-toolbar-option.active { color:#a99cf0; }  /* ══════════════════════════════════════════════════════════════════════
+     RESPONSIVO — tablet (iPad) e celular
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* Tablet: até 1180px (cobre iPad na vertical e a maioria na horizontal) */
+  @media (max-width: 1180px) {
+    .sidebar { width: 200px; min-width: 200px; }
+    .stats-row { grid-template-columns: repeat(3, 1fr); }
+    .an-data-row, .an-data-grid, .analytics-row-2, .analytics-row-3 { grid-template-columns: 1fr; }
+    .week-grid, .month-grid, .agenda-week-cal { grid-template-columns: repeat(7, minmax(120px, 1fr)); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  /* Tablet estreito / celular grande: até 900px — menu vira gaveta lateral */
+  @media (max-width: 900px) {
+    .mobile-menu-btn { display: flex; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; height: 100vh; z-index: 155;
+      transform: translateX(-100%); transition: transform 0.2s ease;
+      box-shadow: 0 0 24px rgba(0,0,0,0.18);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .topbar { padding: 12px 16px 12px 58px; flex-wrap: wrap; row-gap: 8px; }
+    .topbar > div { flex-wrap: wrap; }
+    .modal-overlay { padding: 0; align-items: flex-end; }
+    .modal { max-width: 100%; width: 100%; max-height: 92vh; border-radius: 16px 16px 0 0; }
+    .modal-meta, .nf-meta-grid, .form-row { grid-template-columns: 1fr; }
+    .strategy-header { padding: 12px 14px 12px 54px; }
+  }
+
+  /* Celular: até 600px */
+  @media (max-width: 600px) {
+    body { font-size: 14px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 12px 12px 0; }
+    .topbar-title, .analytics-topbar-title { font-size: 14px; }
+    .modal-hero { padding: 18px 16px 14px; }
+    .modal-body { padding: 14px 16px; }
+    .new-modal-footer-actions { flex-wrap: wrap; }
+    .week-grid, .month-grid, .agenda-week-cal { grid-template-columns: repeat(7, minmax(105px, 1fr)); }
+    .analytics-kpi-row { grid-template-columns: repeat(2, 1fr) !important; }
+    .strategy-controls { width: 100%; justify-content: flex-start; }
+    .agenda-section { margin: 6px 14px; padding: 14px; }
+  }
 </style>
 </head>
 <body>
 <div class="shell">
+  <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Abrir menu">☰</button>
+  <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
 
-  <aside class="sidebar">
+  <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-logo">✦ Content Studio</div>
 
     <div class="nav-section-title">Criação</div>
@@ -754,19 +828,50 @@
       <div class="topbar">
         <div class="topbar-title">🗝️ Brainstorm Board</div>
         <div style="display:flex; gap:8px;">
-          <div class="strat-menu">
-            <button class="btn" onclick="toggleStrategyMenu(event,'strat-menu-list-brainstorm')">🗝️ Estratégia ▾</button>
-            <div class="strat-menu-list" id="strat-menu-list-brainstorm">
-              <button type="button" onclick="closeStrategyMenu(); openStrategyModal();">⚙️ Gerenciar itens</button>
-              <button type="button" onclick="closeStrategyMenu(); openStrategyHistoryModal();">🕘 Histórico</button>
-            </div>
-          </div>
           <button class="btn" onclick="clearBrainstormBoard()">🗑️ Limpar quadro</button>
           <button class="btn btn-primary" onclick="addBrainstormNote()">+ Nova nota</button>
         </div>
       </div>
       <div class="brain-canvas-wrap" onpointerdown="deselectBrainNote()">
         <div class="brain-canvas" id="brain-canvas"></div>
+      </div>
+    </div>
+
+    <div id="view-agenda" style="display:none; flex-direction:column; flex:1; min-height:0; overflow-y:auto;">
+      <div class="topbar">
+        <div class="topbar-title">🕐 Agenda semanal</div>
+        <div class="strategy-month">
+          <button type="button" class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="goToAgendaToday()">Hoje</button>
+          <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(-1)">&#8249;</button>
+          <div class="strategy-month-label" id="agenda-week-label">semana</div>
+          <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(1)">&#8250;</button>
+        </div>
+      </div>
+
+      <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="stat-card"><div class="stat-label">Posts nessa semana</div><div class="stat-value" id="ag-stat-total">0</div></div>
+        <div class="stat-card"><div class="stat-label">Em progresso</div><div class="stat-value" id="ag-stat-progress">0</div></div>
+        <div class="stat-card"><div class="stat-label">Estratégia pendente (mês)</div><div class="stat-value" id="ag-stat-strategy">0</div></div>
+        <div class="stat-card"><div class="stat-label">Parceiros com entrega pendente</div><div class="stat-value" id="ag-stat-partners">0</div></div>
+      </div>
+
+      <div class="agenda-section">
+        <div class="agenda-section-title agenda-section-title-row">
+          <span>🗝️ Estratégia da semana</span>
+          <span class="agenda-section-count" id="agenda-strategy-count">0/0</span>
+        </div>
+        <div class="agenda-section-range" id="agenda-strategy-range"></div>
+        <div id="agenda-strategy-list" class="agenda-list"></div>
+      </div>
+
+      <div class="agenda-section">
+        <div class="agenda-section-title">📅 Posts da semana</div>
+        <div class="agenda-week-cal" id="agenda-progress-grid"></div>
+      </div>
+
+      <div class="agenda-section">
+        <div class="agenda-section-title">🤝 Meta de entregas dos parceiros</div>
+        <div id="agenda-partners-list" class="agenda-list"></div>
       </div>
     </div>
 
@@ -824,18 +929,18 @@
             <div class="strategy-title" id="strategy-title">Estratégia mensal dos 15 posts obrigatórios</div>
             <div class="strategy-controls">
               <div class="strategy-month">
+                <div class="strat-menu">
+                  <button class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="toggleStrategyMenu(event,'strat-menu-list-gestao')">🗝️ Estratégia ▾</button>
+                  <div class="strat-menu-list" id="strat-menu-list-gestao">
+                    <button type="button" onclick="closeStrategyMenu(); openStrategyModal();">⚙️ Gerenciar itens</button>
+                    <button type="button" onclick="closeStrategyMenu(); openStrategyHistoryModal();">🕘 Histórico</button>
+                  </div>
+                </div>
                 <button type="button" class="strategy-month-btn" onclick="changeStrategyMonth(-1)">&#8249;</button>
                 <div class="strategy-month-label" id="strategy-month-label">mês</div>
                 <button type="button" class="strategy-month-btn" onclick="changeStrategyMonth(1)">&#8250;</button>
               </div>
-              <div class="strategy-count"><span id="strategy-progress">0/15 criados</span><span>marca quando o post tiver a tag de estratégia</span></div>
-              <div class="strat-menu">
-                <button class="btn" style="padding:6px 12px;font-size:12px;" onclick="toggleStrategyMenu(event,'strat-menu-list-gestao')">🗝️ Estratégia ▾</button>
-                <div class="strat-menu-list" id="strat-menu-list-gestao">
-                  <button type="button" onclick="closeStrategyMenu(); openStrategyModal();">⚙️ Gerenciar itens</button>
-                  <button type="button" onclick="closeStrategyMenu(); openStrategyHistoryModal();">🕘 Histórico</button>
-                </div>
-              </div>
+              <div class="strategy-count"><span id="strategy-progress">0/15 criados</span></div>
             </div>
           </div>
           <div class="strategy-checklist" id="strategy-checklist"></div>
@@ -864,28 +969,33 @@
 
       <div class="list-section">
         <div class="list-header">
-          <div class="list-title" id="list-title">Todos os conteúdos</div>
-          <div class="filter-row">
+          <div class="list-title-row" onclick="toggleContentTable()">
+            <button type="button" class="list-collapse-btn" id="list-collapse-btn">▾</button>
+            <div class="list-title" id="list-title">Todos os conteúdos</div>
+          </div>
+          <div class="filter-row" onclick="event.stopPropagation()">
             <button class="filter-chip active" onclick="setFilter('todos',this)">Todos</button>
             <button class="filter-chip" onclick="setFilter('todo',this)">To-do</button>
             <button class="filter-chip" onclick="setFilter('progress',this)">In progress</button>
             <button class="filter-chip" onclick="setFilter('complete',this)">Complete</button>
           </div>
         </div>
-        <table class="post-table">
-          <thead>
-            <tr>
-              <th>Título</th>
-              <th>Plataforma</th>
-              <th>Formato</th>
-              <th>Status</th>
-              <th>Publicação</th>
-              <th>Dias</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="post-tbody"></tbody>
-        </table>
+        <div id="post-table-wrap">
+          <table class="post-table">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Plataforma</th>
+                <th>Formato</th>
+                <th>Status</th>
+                <th>Publicação</th>
+                <th>Dias</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="post-tbody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
     </div>
@@ -2400,6 +2510,15 @@ function renderList() {
       </td>
     </tr>`;
   }).join('');
+}
+
+function toggleContentTable() {
+  const wrap = document.getElementById('post-table-wrap');
+  const btn = document.getElementById('list-collapse-btn');
+  const collapsed = wrap.style.display !== 'none';
+  wrap.style.display = collapsed ? 'none' : '';
+  btn.classList.toggle('collapsed', collapsed);
+  localStorage.setItem('content-manager-table-collapsed', collapsed ? '1' : '0');
 }
 
 function setFilter(f, btn) {
@@ -4117,7 +4236,6 @@ function renderBarChart(id, data, key, color) {
 
 /* ─── Misc ──────────────────────────────────────────────────────────────── */
 const PLACEHOLDER_META = {
-  agenda:        { icon:'🕐', title:'Agenda semanal',    text:'Em breve você vai poder planejar sua semana de gravações e publicações por aqui.' },
   inspiracoes:   { icon:'🎭', title:'Inspirações',       text:'Em breve você vai poder reunir referências e conteúdos que te inspiram por aqui.' },
   colaboracoes:  { icon:'👥', title:'Colaborações',      text:'Em breve você vai poder gerenciar parcerias de conteúdo e collabs por aqui.' },
   parceiros:     { icon:'💼', title:'Parceiros',         text:'Em breve você vai poder acompanhar marcas e parceiros comerciais por aqui.' },
@@ -4163,6 +4281,195 @@ function saveBrainstorm() {
 
 let brainstormNotes = loadBrainstorm();
 let brainNextId = brainstormNotes.length ? Math.max(...brainstormNotes.map(n => Number(n.id) || 0)) + 1 : 1;
+/* ─── Agenda semanal ────────────────────────────────────────────────────── */
+let agendaWeekOffset = 0;
+let agendaWeekStrategyItems = [];
+let agendaWeekStartStr = '', agendaWeekEndStr = '';
+
+function changeAgendaWeek(dir) {
+  agendaWeekOffset += dir;
+  renderAgenda();
+}
+function goToAgendaToday() {
+  agendaWeekOffset = 0;
+  renderAgenda();
+}
+
+function partnerFormatPending(pt) {
+  const qty = pt.fmtQty || {};
+  const linked = pt.linkedPosts || [];
+  return (pt.formatos || []).some(fmt => {
+    const goal = Number(qty[fmt]) || 0;
+    const done = linked.filter(e => e.type === fmt).length;
+    return goal > done;
+  });
+}
+
+/* Semanas (dom–sáb) que tocam o mês de monthDate, em ordem */
+function getMonthWeeks(monthDate) {
+  const firstDay = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+  const lastDay = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
+  const weeks = [];
+  let cur = new Date(firstDay);
+  cur.setDate(cur.getDate() - cur.getDay());
+  while (cur <= lastDay) {
+    weeks.push(new Date(cur));
+    cur.setDate(cur.getDate() + 7);
+  }
+  return weeks;
+}
+
+function openAgendaStrategyItem(i) {
+  const entry = agendaWeekStrategyItems[i];
+  if (!entry) return;
+  if (entry.linkedPost) { openPost(entry.linkedPost.id); return; }
+  const def = (todayStr() >= agendaWeekStartStr && todayStr() <= agendaWeekEndStr) ? todayStr() : agendaWeekStartStr;
+  openNewModal({ titulo: entry.item.title, formato: entry.item.formato, data: def, requiredTag: entry.item.key });
+}
+
+function shortDateWithDay(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr + 'T00:00:00');
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${dd}/${mm} - ${DAY_NAMES[d.getDay()]}`;
+}
+
+function renderAgendaPostCard(p, onclickJs) {
+  const partnerNames = partnersForPost(p.id);
+  const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
+  return `
+  <div class="week-post agenda-strategy-post ${platCls(p)}" onclick="${onclickJs}">
+    <div class="agenda-strategy-title-row">
+      <div class="week-post-title">${escapeHtml(p.titulo)}</div>
+      <div class="agenda-strategy-date">${shortDateWithDay(p.data)}</div>
+    </div>
+    <div class="week-post-meta">
+      <div class="week-post-icons">
+        ${(p.plataformas||[]).map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
+      </div>
+      <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
+    </div>
+    <div class="agenda-strategy-tags">${statusPill(p.status)}${partnerTags}</div>
+  </div>`;
+}
+
+function renderAgenda() {
+  const start = getWeekStart(agendaWeekOffset);
+  const end = new Date(start); end.setDate(end.getDate() + 6);
+  const startStr = isoDate(start), endStr = isoDate(end);
+  agendaWeekStartStr = startStr;
+  agendaWeekEndStr = endStr;
+  document.getElementById('agenda-week-label').textContent =
+    `${start.getDate()} ${MONTH_NAMES[start.getMonth()]} – ${end.getDate()} ${MONTH_NAMES[end.getMonth()]}`;
+
+  const weekPosts = posts.filter(p => p.data && p.data >= startStr && p.data <= endStr);
+  const progressPosts = weekPosts.filter(p => groupOf(p.status) === 'progress');
+
+  // Mês "dono" dessa semana: usa a quarta-feira como dia representativo
+  const anchor = new Date(start); anchor.setDate(anchor.getDate() + 3);
+  const weekMonthKey = monthKey(anchor);
+  const weekMonthReq = getRequiredPostsForMonth(weekMonthKey);
+  const monthWeeks = getMonthWeeks(anchor);
+  const weekIdx = monthWeeks.findIndex(w => isoDate(w) === startStr);
+  const perWeek = monthWeeks.length ? Math.ceil(weekMonthReq.length / monthWeeks.length) : 0;
+  const assignedItems = (weekIdx >= 0 && perWeek > 0)
+    ? weekMonthReq.slice(weekIdx * perWeek, weekIdx * perWeek + perWeek)
+    : [];
+
+  // Posts realmente agendados essa semana que carregam a tag de estratégia
+  const scheduledTagged = weekPosts
+    .filter(p => p.requiredTag)
+    .map(p => {
+      const pmk = postMonthKey(p);
+      const reqList = getRequiredPostsForMonth(pmk);
+      const item = reqList.find(it => it.key === p.requiredTag) || { key: p.requiredTag, title: p.titulo, formato: p.formato };
+      return { item, linkedPost: p };
+    });
+  const scheduledKeys = new Set(scheduledTagged.map(x => x.item.key));
+
+  // Ainda faltam criar (nenhum post no mês usa essa tag) — só como lembrete
+  const notYetCreated = assignedItems
+    .filter(item => !scheduledKeys.has(item.key) && !posts.find(p => p.requiredTag === item.key && postMonthKey(p) === weekMonthKey))
+    .map(item => ({ item, linkedPost: null }));
+
+  agendaWeekStrategyItems = [...scheduledTagged, ...notYetCreated];
+  const doneThisWeek = scheduledTagged.length;
+
+  const curMonthKey = monthKey(today());
+  const monthReqNow = getRequiredPostsForMonth(curMonthKey);
+  const pendingStrategyMonth = monthReqNow.filter(item => !posts.find(p => p.requiredTag === item.key && postMonthKey(p) === curMonthKey));
+
+  const activePartners = partners.filter(pt => getPartnerStatusMeta(pt.status).group !== 'complete');
+  const pendingPartners = activePartners.filter(partnerFormatPending);
+
+  document.getElementById('ag-stat-total').textContent = weekPosts.length;
+  document.getElementById('ag-stat-progress').textContent = progressPosts.length;
+  document.getElementById('ag-stat-strategy').textContent = pendingStrategyMonth.length;
+  document.getElementById('ag-stat-partners').textContent = pendingPartners.length;
+
+  document.getElementById('agenda-strategy-count').textContent = `${doneThisWeek}/${Math.max(assignedItems.length, doneThisWeek)}`;
+  document.getElementById('agenda-strategy-range').textContent =
+    `${start.getDate()} ${MONTH_NAMES[start.getMonth()]} – ${end.getDate()} ${MONTH_NAMES[end.getMonth()]} ${end.getFullYear()}`;
+
+  const stratWrap = document.getElementById('agenda-strategy-list');
+  if (!agendaWeekStrategyItems.length) {
+    stratWrap.innerHTML = `<div class="agenda-empty">Nenhum item da estratégia atribuído a essa semana.</div>`;
+  } else {
+    stratWrap.innerHTML = agendaWeekStrategyItems.map(({ item, linkedPost }, i) => {
+      if (linkedPost) {
+        return renderAgendaPostCard(linkedPost, `openAgendaStrategyItem(${i})`);
+      }
+      return `
+        <div class="week-post agenda-strategy-post plat-todo" onclick="openAgendaStrategyItem(${i})">
+          <div class="week-post-title">${escapeHtml(item.title)}</div>
+          <div class="week-post-meta">
+            <div class="week-post-icons"></div>
+            <span class="week-post-fmt">${FORMAT_ICON[item.formato]||''} ${escapeHtml(item.formato || '')}</span>
+          </div>
+          <div class="agenda-strategy-tags"><span class="status-pill st-acriar"><span class="status-dot"></span>a criar</span></div>
+        </div>`;
+    }).join('');
+  }
+
+  const gridWrap = document.getElementById('agenda-progress-grid');
+  const tStr = todayStr();
+  let gridHtml = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(start); d.setDate(start.getDate() + i);
+    const dStr = isoDate(d);
+    const isToday = dStr === tStr;
+    const dayItems = weekPosts.filter(p => p.data === dStr);
+    gridHtml += `<div class="week-day-col">
+      <div class="week-day-head">
+        <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
+        <div class="week-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
+      </div>
+      <div class="week-day-body">
+        ${dayItems.length ? dayItems.map(p => renderAgendaPostCard(p, `openPost(${p.id})`)).join('') : '<div class="empty-day">—</div>'}
+      </div>
+    </div>`;
+  }
+  gridWrap.innerHTML = gridHtml;
+
+  const ptWrap = document.getElementById('agenda-partners-list');
+  if (!activePartners.length) {
+    ptWrap.innerHTML = `<div class="agenda-empty">Nenhum parceiro ativo no momento.</div>`;
+  } else {
+    ptWrap.innerHTML = activePartners.map(pt => {
+      const pending = partnerFormatPending(pt);
+      return `
+      <div class="agenda-item" onclick="openPartnerModal(${pt.id})">
+        <div class="agenda-item-top">
+          <div class="agenda-item-main"><div class="agenda-item-title">${escapeHtml(pt.marca)}</div></div>
+          <span class="agenda-item-badge" style="${pending ? 'background:#fff4d8;color:#8a5b00;border-color:#f3dfa8;' : 'background:#e6f4ee;color:#17613c;border-color:#c9ead9;'}">${pending ? 'pendente' : 'em dia'}</span>
+        </div>
+        <div class="agenda-item-sub">${fmtDeliverables(pt)}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
 let draggingNoteId = null;
 let dragOffsetX = 0, dragOffsetY = 0;
 let dragStartClientX = 0, dragStartClientY = 0;
@@ -4430,21 +4737,33 @@ function clearBrainstormBoard() {
   renderBrainstorm();
 }
 
+function toggleSidebar() {
+  document.getElementById('app-sidebar').classList.toggle('open');
+  document.getElementById('sidebar-backdrop').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('app-sidebar').classList.remove('open');
+  document.getElementById('sidebar-backdrop').classList.remove('open');
+}
+
 function setMainNav(btn) {
   document.querySelectorAll('.nav-item-v2').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  closeSidebar();
   const view = btn.dataset.view;
   const gestao = document.getElementById('view-gestao');
   const placeholder = document.getElementById('view-placeholder');
   const analytics = document.getElementById('view-analytics');
   const parceiros = document.getElementById('view-parceiros');
   const brainstorm = document.getElementById('view-brainstorm');
+  const agenda = document.getElementById('view-agenda');
 
   gestao.style.display = 'none';
   placeholder.style.display = 'none';
   analytics.style.display = 'none';
   parceiros.style.display = 'none';
   brainstorm.style.display = 'none';
+  agenda.style.display = 'none';
 
   if (view === 'gestao') {
     gestao.style.display = '';
@@ -4458,6 +4777,9 @@ function setMainNav(btn) {
   } else if (view === 'brainstorm') {
     brainstorm.style.display = 'flex';
     renderBrainstorm();
+  } else if (view === 'agenda') {
+    agenda.style.display = 'flex';
+    renderAgenda();
   } else {
     placeholder.style.display = '';
     const meta = PLACEHOLDER_META[view] || { icon:'🔧', title:'Em construção', text:'Essa funcionalidade ainda está em construção.' };
@@ -4502,6 +4824,11 @@ document.addEventListener('click', e => {
 
 function renderAll() { renderStats(); renderCalendar(); renderList(); renderStrategyChecklist(); }
 renderAll();
+
+if (localStorage.getItem('content-manager-table-collapsed') === '1') {
+  document.getElementById('post-table-wrap').style.display = 'none';
+  document.getElementById('list-collapse-btn').classList.add('collapsed');
+}
 
 /* Ao abrir: renderiza instantâneo com cache local, depois busca a versão mais
    recente no GitHub (funciona sem token; token só é necessário pra salvar). */
