@@ -1092,7 +1092,7 @@
       "inspiracoes": [
         "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
       ],
-      "requiredTag": null
+      "requiredTag": "slot12"
     },
     {
       "id": 52,
@@ -1502,5 +1502,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-24T16:56:57.108Z"
+  "_updatedAt": "2026-07-24T16:58:40.007Z"
 }
