@@ -1107,15 +1107,13 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-24",
-      "status": "pesquisar",
+      "data": "2026-07-26",
+      "status": "ideia",
       "plataformas": [
         "ig"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     }
   ],
@@ -1502,5 +1500,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-25T19:30:13.863Z"
+  "_updatedAt": "2026-07-25T19:30:50.783Z"
 }
