@@ -1116,7 +1116,9 @@
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        "https://www.instagram.com/reels/DbHehlXOEFY/"
+      ],
       "requiredTag": null
     }
   ],
@@ -1503,5 +1505,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:39:11.995Z"
+  "_updatedAt": "2026-07-26T01:40:07.653Z"
 }
