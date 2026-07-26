@@ -374,8 +374,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-08-02",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1501,5 +1501,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:31:25.360Z"
+  "_updatedAt": "2026-07-26T01:31:56.502Z"
 }
