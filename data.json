@@ -1060,13 +1060,15 @@
         }
       ],
       "data": "2026-07-26",
-      "status": "gravando",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        "https://www.instagram.com/reels/DaTAUstPShP/"
+      ],
       "requiredTag": null
     },
     {
@@ -1501,5 +1503,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:33:09.529Z"
+  "_updatedAt": "2026-07-26T01:39:06.416Z"
 }
