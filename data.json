@@ -665,21 +665,29 @@
       "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Eu",
           "texto": ""
         },
         {
-          "titulo": "",
+          "titulo": "Lugar",
           "texto": ""
         },
         {
-          "titulo": "",
+          "titulo": "Comida",
+          "texto": ""
+        },
+        {
+          "titulo": "Eu",
+          "texto": ""
+        },
+        {
+          "titulo": "Lugar",
           "texto": ""
         }
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "design",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1507,5 +1515,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T02:01:20.877Z"
+  "_updatedAt": "2026-07-26T02:03:49.817Z"
 }
