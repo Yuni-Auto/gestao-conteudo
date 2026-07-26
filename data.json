@@ -1258,12 +1258,12 @@
         "clicks": 50
       },
       "Jul 26": {
-        "seguidores": 8341,
-        "views": 119579,
-        "alcance": 72801,
+        "seguidores": 8430,
+        "views": 101573,
+        "alcance": 63641,
         "eng": 15239,
-        "conteudo": 5,
-        "clicks": 72
+        "conteudo": 6,
+        "clicks": 60
       }
     },
     "tt": {
@@ -1499,5 +1499,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T00:48:11.534Z"
+  "_updatedAt": "2026-07-26T00:50:29.657Z"
 }
