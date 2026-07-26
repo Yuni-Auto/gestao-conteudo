@@ -1087,14 +1087,14 @@
         }
       ],
       "data": "2026-07-26",
-      "status": "gravando",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [
-        "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
+        "https://www.instagram.com/reel/DbJCjuYR7cR"
       ],
       "requiredTag": "slot12"
     },
@@ -1507,5 +1507,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:59:10.239Z"
+  "_updatedAt": "2026-07-26T02:01:14.223Z"
 }
