@@ -339,6 +339,29 @@
       "requiredTag": null
     },
     {
+      "id": 22,
+      "titulo": "[reels] Quando esperar clareou... Clareou!",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot4"
+    },
+    {
       "id": 23,
       "titulo": "[reels] Review do meu fone da Red Dragon de 6 meses",
       "desc": "",
@@ -351,8 +374,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "roteiro",
+      "data": "2026-07-25",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -534,8 +557,8 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-07-26",
-      "status": "roteiro",
+      "data": "2026-07-25",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -625,8 +648,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-26",
-      "status": "design",
+      "data": "2026-07-25",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -725,7 +748,7 @@
         }
       ],
       "data": "",
-      "status": "pesquisar",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -747,8 +770,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "roteiro",
+      "data": "2026-07-25",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -877,6 +900,56 @@
       "requiredTag": "slot11"
     },
     {
+      "id": 44,
+      "titulo": "[carousel] E você, quantos planos têm?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot4"
+    },
+    {
       "id": 45,
       "titulo": "[caroussel] Programa de estágio Agosto",
       "desc": "",
@@ -940,14 +1013,16 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-26",
-      "status": "design",
+      "data": "2026-07-22",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        "https://www.instagram.com/p/Da38wfDjN0N/?igsh=cTZ3cWFoNnF0bDZm"
+      ],
       "requiredTag": null
     },
     {
@@ -973,7 +1048,7 @@
     },
     {
       "id": 50,
-      "titulo": "[reels] trabalhando no bug 3",
+      "titulo": "[reels] eu evitando dizer",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -984,20 +1059,19 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-22",
-      "status": "publicada",
+      "data": "2026-07-25",
+      "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DbHVwedxe-c/?igsh=cHN6dGMwN2g1a2t1"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     },
     {
       "id": 51,
-      "titulo": "[carousel] CPF, CLT e CNPJ",
+      "titulo": "[reels] trabalhar no PC é facil",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1008,14 +1082,38 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-24",
-      "status": "roteiro",
+      "data": "2026-07-25",
+      "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot4"
+      "requiredTag": "slot12"
+    },
+    {
+      "id": 52,
+      "titulo": "[reels] meu fone",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-25",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1160,12 +1258,12 @@
         "clicks": 50
       },
       "Jul 26": {
-        "seguidores": 8341,
-        "views": 119579,
-        "alcance": 72801,
+        "seguidores": 8430,
+        "views": 101573,
+        "alcance": 63641,
         "eng": 15239,
-        "conteudo": 5,
-        "clicks": 72
+        "conteudo": 7,
+        "clicks": 60
       }
     },
     "tt": {
@@ -1178,11 +1276,11 @@
         "clicks": 0
       },
       "Jul 26": {
-        "seguidores": 993,
-        "views": 1172,
-        "alcance": 571,
-        "eng": 90,
-        "conteudo": 3,
+        "seguidores": 991,
+        "views": 1760,
+        "alcance": 996,
+        "eng": 119,
+        "conteudo": 4,
         "clicks": 0
       }
     },
@@ -1196,11 +1294,11 @@
         "clicks": 0
       },
       "Jul 26": {
-        "seguidores": 2327,
-        "views": 394,
+        "seguidores": 2360,
+        "views": 218,
         "alcance": 0,
         "eng": 1647,
-        "conteudo": 0,
+        "conteudo": 2,
         "clicks": 0
       }
     }
@@ -1208,19 +1306,11 @@
   "brainstormNotes": [
     {
       "id": 5,
-      "text": "[carousel] E você, quantos planos têm?",
-      "x": 906.54296875,
-      "y": 102.6796875,
-      "color": "yellow",
+      "text": "",
+      "x": 119.52734375,
+      "y": 113.50390625,
+      "color": "white",
       "rot": 2
-    },
-    {
-      "id": 6,
-      "text": "[reels] Quando esperar clareou... Clareou!",
-      "x": 852.7734375,
-      "y": 302.23046875,
-      "color": "yellow",
-      "rot": -2.1
     }
   ],
   "requiredPostsByMonth": {
@@ -1262,6 +1352,12 @@
         "tag": "reel"
       },
       {
+        "key": "slot7",
+        "title": "Vídeos grátis que eu pagaria caro para ver",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
         "key": "slot8",
         "title": "Conteúdo para te deixar inteligente",
         "formato": "Carousel",
@@ -1276,6 +1372,12 @@
       {
         "key": "slot11",
         "title": "Calendário de eventos do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot12",
+        "title": "Verdades duras sobre programação",
         "formato": "Carousel",
         "tag": "post"
       },
@@ -1301,181 +1403,7 @@
   },
   "requiredPostsHistory": [
     {
-      "date": "2026-07-22T22:57:50.672Z",
-      "monthKey": "2026-07",
-      "items": [
-        {
-          "key": "slot1",
-          "title": "Dump do mês",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot2",
-          "title": "Um problema = uma solução",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot3",
-          "title": "Programa de estágio",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot4",
-          "title": "Trends",
-          "formato": "Reels",
-          "tag": "reel"
-        },
-        {
-          "key": "slot5",
-          "title": "3 projetos para iniciantes",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot6",
-          "title": "Um dia comigo no home office",
-          "formato": "Reels",
-          "tag": "reel"
-        },
-        {
-          "key": "slot8",
-          "title": "Conteúdo para te deixar inteligente",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot9",
-          "title": "Vocabulário da programação",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot11",
-          "title": "Calendário de eventos do mês",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot12",
-          "title": "Verdades duras sobre programação",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot13",
-          "title": "Minha rotina sendo engenheira de software",
-          "formato": "Reels",
-          "tag": "reel"
-        },
-        {
-          "key": "slot14",
-          "title": "Achadinhos de setup",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot15",
-          "title": "Coisas legais que aprendi ou fiz no último mês",
-          "formato": "Carousel",
-          "tag": "post"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-22T22:57:27.765Z",
-      "monthKey": "2026-07",
-      "items": [
-        {
-          "key": "slot1",
-          "title": "Dump do mês",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot2",
-          "title": "Um problema = uma solução",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot3",
-          "title": "Programa de estágio",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot4",
-          "title": "Trends",
-          "formato": "Reels",
-          "tag": "reel"
-        },
-        {
-          "key": "slot5",
-          "title": "3 projetos para iniciantes",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot6",
-          "title": "Um dia comigo no home office",
-          "formato": "Reels",
-          "tag": "reel"
-        },
-        {
-          "key": "slot8",
-          "title": "Conteúdo para te deixar inteligente",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot9",
-          "title": "Vocabulário da programação",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot10",
-          "title": "Se você usa VS Code e não usa extensões...",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot11",
-          "title": "Calendário de eventos do mês",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot12",
-          "title": "Verdades duras sobre programação",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot13",
-          "title": "Minha rotina sendo engenheira de software",
-          "formato": "Reels",
-          "tag": "reel"
-        },
-        {
-          "key": "slot14",
-          "title": "Achadinhos de setup",
-          "formato": "Carousel",
-          "tag": "post"
-        },
-        {
-          "key": "slot15",
-          "title": "Coisas legais que aprendi ou fiz no último mês",
-          "formato": "Carousel",
-          "tag": "post"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-22T22:57:09.896Z",
+      "date": "2026-07-24T16:56:54.606Z",
       "monthKey": "2026-07",
       "items": [
         {
@@ -1571,5 +1499,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-24T00:29:18.150Z"
+  "_updatedAt": "2026-07-26T00:54:51.592Z"
 }
