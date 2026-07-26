@@ -1110,15 +1110,13 @@
         }
       ],
       "data": "2026-07-25",
-      "status": "pesquisar",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     }
   ],
@@ -1505,5 +1503,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:20:32.469Z"
+  "_updatedAt": "2026-07-26T01:21:17.231Z"
 }
