@@ -170,6 +170,10 @@
   .week-post-plat-icon.tw { background: #e8f4ff; color: #0f141a; }
   .week-post-fmt { font-size: 10px; color: var(--text-3); font-weight: 500; }
   .week-post-partner-row { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .week-post-status-row { margin-top: 4px; }
+  .week-post-status-row .status-pill { padding: 1px 7px; font-size: 10px; gap: 4px; }
+  .week-post-status-row .status-pill .status-dot { width: 5px; height: 5px; }
+  .month-day-cell .week-post-status-row .status-pill { padding: 1px 6px; font-size: 9px; }
   .week-post-partner { font-size: 11px; font-weight: 600; color: #5b30b8; background: #f0eafe; border-radius: 999px; padding: 2px 9px; line-height: 1.5; white-space: nowrap; display: inline-flex; align-items: center; gap: 3px; }
   .plat-ig { border-left: 3px solid #f6b9cd; }
   .plat-tt { border-left: 3px solid #c9c9c9; }
@@ -2327,6 +2331,7 @@ function renderPostCard(p) {
       </div>
       <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
     </div>
+    <div class="week-post-status-row">${statusPill(p.status)}</div>
     ${partnerRow}
   </div>`;
 }
