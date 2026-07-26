@@ -771,7 +771,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pesquisar",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt"
@@ -1507,5 +1507,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:55:58.050Z"
+  "_updatedAt": "2026-07-26T01:56:18.434Z"
 }
