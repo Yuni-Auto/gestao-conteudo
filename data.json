@@ -770,8 +770,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-07-28",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1059,8 +1059,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1082,14 +1082,16 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
+      ],
       "requiredTag": "slot12"
     },
     {
@@ -1105,8 +1107,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-07-26",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1499,5 +1501,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T00:54:51.592Z"
+  "_updatedAt": "2026-07-26T01:26:25.075Z"
 }
