@@ -759,19 +759,19 @@
     },
     {
       "id": 40,
-      "titulo": "[reels] Vocabulário da programação",
+      "titulo": "[reels] Entrevistador: \"Poderia me explicar Promisse e Observable?\"",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Eu sentada a frente do computador.\n\nTexto 1: Entrevistador: \"Poderia me explicar Promisse e Observable?\"\n\nTexto 2: Veja na legenda"
         }
       ],
       "data": "2026-07-28",
-      "status": "roteiro",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1505,5 +1505,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:44:37.114Z"
+  "_updatedAt": "2026-07-26T01:48:53.463Z"
 }
