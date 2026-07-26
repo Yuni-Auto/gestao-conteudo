@@ -687,7 +687,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1515,5 +1515,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T02:03:49.817Z"
+  "_updatedAt": "2026-07-26T02:04:01.652Z"
 }
