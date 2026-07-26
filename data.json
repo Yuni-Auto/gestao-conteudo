@@ -760,7 +760,7 @@
     {
       "id": 40,
       "titulo": "[reels] Entrevistador: \"Poderia me explicar Promisse e Observable?\"",
-      "desc": "",
+      "desc": "💡 Promise x Observable: qual a diferença?\n\nImagine que você fez um pedido em um restaurante.\n\n🍽️ Promise é como pedir um prato. Você faz o pedido e espera. No final, recebe apenas uma resposta: o prato chegou (ou aconteceu algum problema).\n\n📱 Observable é como acompanhar um pedido por um aplicativo de entrega. Você recebe várias atualizações:\n\nPedido recebido ✅\nEm preparo 👨‍🍳\nSaiu para entrega 🛵\nEstá chegando 📍\nEntregue 🎉\n\nOu seja:\n\n✔ Promise → uma única resposta.\n\n✔ Observable → várias respostas ao longo do tempo.\n\nÉ por isso que o Angular utiliza bastante Observable: ele facilita trabalhar com dados que podem mudar ou enviar várias informações durante a execução da aplicação.\n\n🚀 Dica para entrevistas: se lembrar que Promise entrega um resultado e Observable acompanha um fluxo de resultados, você já estará no caminho certo.",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -1505,5 +1505,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:48:53.463Z"
+  "_updatedAt": "2026-07-26T01:54:53.278Z"
 }
