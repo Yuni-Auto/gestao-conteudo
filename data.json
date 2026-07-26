@@ -777,7 +777,9 @@
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        "https://www.instagram.com/reel/DbAA2tiRRTB/?igsh=aXQzOW80M3pnaXhm"
+      ],
       "requiredTag": "slot9"
     },
     {
@@ -1505,5 +1507,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:54:53.278Z"
+  "_updatedAt": "2026-07-26T01:55:58.050Z"
 }
