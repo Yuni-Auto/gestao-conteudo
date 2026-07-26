@@ -3909,12 +3909,35 @@ function computeAnalyticsStatus(label) {
   return 'pendente';
 }
 
+// Qtd de conteúdo: quando o mês tem posts lançados no calendário para a plataforma,
+// a contagem passa a ser automática (posts com status "publicada"), em vez de digitada à mão.
+// Meses sem posts no calendário (histórico anterior ao uso do calendário) mantêm o valor estático.
+function analyticsMonthYm(monthLabel) {
+  const d = analyticsMonthToDate(monthLabel);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+}
+function monthHasTrackedPosts(plat, monthLabel) {
+  const ym = analyticsMonthYm(monthLabel);
+  return posts.some(p => p.data && p.data.slice(0, 7) === ym && p.plataformas.includes(plat));
+}
+function postsPublishedCountForMonth(plat, monthLabel) {
+  const ym = analyticsMonthYm(monthLabel);
+  return posts.filter(p => p.data && p.data.slice(0, 7) === ym && p.plataformas.includes(plat) && p.status === 'publicada').length;
+}
+
 function getAnalyticsData() {
   const base = MONTHLY_DATA_BY_PLAT[analyticsPlat] || MONTHLY_DATA_IG;
   const overrides = analyticsOverrides[analyticsPlat] || {};
   const merged = base
     .filter(row => !isFutureAnalyticsMonth(row.month) || overrides[row.month])
-    .map(row => ({ ...row, ...(overrides[row.month] || {}), status: computeAnalyticsStatus(row.month) }));
+    .map(row => {
+      const override = overrides[row.month] || {};
+      const merged = { ...row, ...override, status: computeAnalyticsStatus(row.month) };
+      if (override.conteudo === undefined && monthHasTrackedPosts(analyticsPlat, row.month)) {
+        merged.conteudo = postsPublishedCountForMonth(analyticsPlat, row.month);
+      }
+      return merged;
+    });
   if (analyticsPeriod === 'all') return merged;
   return merged.slice(-analyticsPeriod);
 }
@@ -3971,6 +3994,9 @@ function prefillAnalyticsForm() {
   const override = (analyticsOverrides[plat] || {})[month] || {};
   const row = { ...baseRow, ...override };
 
+  const autoConteudo = override.conteudo === undefined && monthHasTrackedPosts(plat, month);
+  if (autoConteudo) row.conteudo = postsPublishedCountForMonth(plat, month);
+
   document.getElementById('an-data-seguidores').value = row.seguidores ?? '';
   document.getElementById('an-data-views').value       = row.views ?? '';
   document.getElementById('an-data-alcance').value     = row.alcance ?? '';
@@ -3981,7 +4007,9 @@ function prefillAnalyticsForm() {
   const hint = document.getElementById('an-data-hint');
   hint.textContent = override && Object.keys(override).length
     ? 'Esses valores já foram editados manualmente para este mês.'
-    : 'Valores atuais (estimados). Edite os campos para registrar dados reais.';
+    : autoConteudo
+      ? 'Qtd de conteúdo calculada automaticamente com base nos posts publicados no calendário. Os demais valores são estimados — edite para registrar dados reais.'
+      : 'Valores atuais (estimados). Edite os campos para registrar dados reais.';
 }
 
 function saveAnalyticsData() {
