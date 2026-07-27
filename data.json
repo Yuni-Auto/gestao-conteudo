@@ -648,7 +648,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-30",
+      "data": "2026-07-29",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -686,7 +686,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-01",
+      "data": "2026-07-31",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1515,5 +1515,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-27T13:36:31.409Z"
+  "_updatedAt": "2026-07-27T13:36:36.272Z"
 }
