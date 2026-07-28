@@ -363,6 +363,24 @@
   .partner-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
   .partner-card-title { font-size: 13px; font-weight: 600; margin-bottom: 7px; }
   .partner-board-empty { font-size: 11.5px; color: var(--text-3); text-align: center; padding: 10px 4px; font-style: italic; }
+
+  /* Inspirações */
+  .insp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; padding: 18px 26px 40px; }
+  .insp-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; cursor: pointer; transition: filter 0.1s; display: flex; flex-direction: column; gap: 8px; }
+  .insp-card:hover { filter: brightness(0.97); }
+  .insp-card-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .insp-card-creator { font-size: 13.5px; font-weight: 600; color: var(--text); }
+  .insp-card-ig { font-size: 12px; color: #b5223a; word-break: break-all; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  .insp-card-ig:hover { text-decoration: underline; }
+  .insp-card-estrategia { font-size: 12.5px; color: var(--text-2); line-height: 1.4; }
+  .insp-card-posts { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--border); }
+  .insp-card-post-row { display: flex; align-items: center; gap: 6px; font-size: 11.5px; cursor: pointer; }
+  .insp-card-post-row:hover .insp-card-post-title { text-decoration: underline; }
+  .insp-card-post-title { color: var(--text); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
+  .insp-card-post-fmt { font-size: 10.5px; color: var(--text-3); white-space: nowrap; flex-shrink: 0; }
+  .insp-card-post-link { font-size: 10.5px; color: #5b50c8; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 90px; flex-shrink: 0; }
+  .insp-card-post-link:hover { text-decoration: underline; }
+  .insp-empty { text-align: center; color: var(--text-3); font-style: italic; padding: 40px 20px; grid-column: 1 / -1; }
   .partner-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .partner-link:hover { text-decoration: underline; }
 
@@ -537,7 +555,8 @@
 
   /* Inspirações (status: pesquisar) */
   .insp-row { display: flex; gap: 6px; margin-bottom: 6px; }
-  .insp-row .form-input { flex: 1; }
+  .insp-row .n-insp-creator { flex: 0 0 130px; }
+  .insp-row .n-insp-input { flex: 1; }
   .insp-remove-btn { width: 32px; min-width: 32px; border-radius: 7px; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); font-size: 15px; line-height: 1; }
   .insp-remove-btn:hover { background: var(--bg); color: #e8445a; }
   .insp-add-btn { font-size: 12px; padding: 5px 10px; margin-top: 2px; }
@@ -1085,6 +1104,15 @@
       </div>
     </div>
 
+  <!-- ── Inspirações View ────────────────────────────────────────────── -->
+  <div id="view-inspiracoes" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
+    <div class="topbar">
+      <div class="topbar-title">Inspirações</div>
+      <button class="btn btn-primary" onclick="openInspModal()">+ Nova inspiração</button>
+    </div>
+    <div class="insp-grid" id="insp-grid"></div>
+  </div>
+
   <!-- ── Parceiros View ──────────────────────────────────────────────── -->
   <div id="view-parceiros" style="display:none; flex-direction:column; flex:1;">
     <div class="topbar">
@@ -1359,6 +1387,42 @@
   </div>
 </div>
 
+<!-- Inspiração Modal -->
+<div class="modal-overlay" id="insp-modal" onclick="handleOverlayClick(event,'insp-modal')">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-hero">
+      <div class="modal-title-text" id="insp-modal-title">Nova inspiração</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;">
+      <div class="form-group">
+        <label class="form-label">Rede social do creator</label>
+        <div style="display:flex; gap:8px;">
+          <select class="form-input" id="insp-rede" style="max-width:150px; flex-shrink:0;">
+            <option value="ig">📷 Instagram</option>
+            <option value="li">💼 LinkedIn</option>
+            <option value="tt">🎵 TikTok</option>
+            <option value="yt">▶️ YouTube</option>
+          </select>
+          <input class="form-input" id="insp-instagram" placeholder="@usuario ou link do perfil" style="flex:1;" />
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:14px; margin-bottom:0;">
+        <label class="form-label">Nome do creator</label>
+        <input class="form-input" id="insp-nome" placeholder="Ex: Maria Silva" />
+      </div>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions" style="justify-content:space-between;">
+        <button class="btn" id="insp-delete-btn" onclick="deleteInsp()" style="display:none; color:#b5223a; border-color:#f6c9dc;">Excluir</button>
+        <div style="display:flex; gap:7px; margin-left:auto;">
+          <button class="btn" onclick="closeInspModal()">Cancelar</button>
+          <button class="btn btn-primary" onclick="saveInsp()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Strategy Items Management Modal -->
 <div class="modal-overlay" id="strategy-modal" onclick="handleOverlayClick(event,'strategy-modal')">
   <div class="modal" style="max-width:640px;">
@@ -1613,7 +1677,7 @@ function setSyncStatus(state, msg) {
 /* Reúne todos os datasets num único objeto pra salvar em um arquivo só */
 function collectAllData() {
   return {
-    posts, partners, guidelines, analyticsOverrides, brainstormNotes,
+    posts, partners, guidelines, analyticsOverrides, brainstormNotes, inspirations,
     requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(),
     _updatedAt: new Date().toISOString(),
   };
@@ -1644,6 +1708,11 @@ function applyRemoteData(data) {
     brainNextId = brainstormNotes.length ? Math.max(...brainstormNotes.map(n => Number(n.id) || 0)) + 1 : 1;
     localStorage.setItem(BRAINSTORM_STORAGE_KEY, JSON.stringify(brainstormNotes));
   }
+  if (Array.isArray(data.inspirations)) {
+    inspirations = data.inspirations;
+    nextInspId = inspirations.length ? Math.max(...inspirations.map(i => Number(i.id) || 0)) + 1 : 1;
+    localStorage.setItem(INSPIRATIONS_STORAGE_KEY, JSON.stringify(inspirations));
+  }
   if (data.requiredPostsByMonth && typeof data.requiredPostsByMonth === 'object' && !Array.isArray(data.requiredPostsByMonth)) {
     requiredPostsByMonth = data.requiredPostsByMonth;
     localStorage.setItem(REQUIRED_POSTS_KEY, JSON.stringify(requiredPostsByMonth));
@@ -1661,6 +1730,7 @@ function applyRemoteData(data) {
   if (document.getElementById('view-analytics').style.display !== 'none')  renderAnalytics();
   if (document.getElementById('view-parceiros').style.display !== 'none') { renderPartners(); renderGuidelines(); }
   if (document.getElementById('view-brainstorm').style.display !== 'none') renderBrainstorm();
+  if (document.getElementById('view-inspiracoes').style.display !== 'none') renderInspiracoes();
   // Alinha o "relógio" local com o da nuvem, já que agora estão iguais.
   localStorage.setItem(LOCAL_UPDATED_KEY, data._updatedAt || new Date().toISOString());
 }
@@ -2652,10 +2722,14 @@ function openPost(id) {
 
   if (p.inspiracoes && p.inspiracoes.length) {
     document.getElementById('m-insp-row').style.display = 'flex';
-    document.getElementById('m-insp').innerHTML = p.inspiracoes.map(link => {
-      const safe = escapeHtml(link);
+    document.getElementById('m-insp').innerHTML = p.inspiracoes.map(entry => {
+      const isLegacy = typeof entry === 'string';
+      const creator = isLegacy ? '' : (entry.creator || '');
+      const link     = isLegacy ? entry : (entry.link || '');
+      if (!creator && !link) return '';
       const href = escapeHtml(normalizeUrl(link));
-      return `<div class="insp-link"><a href="${href}" target="_blank" rel="noopener noreferrer">${safe}</a></div>`;
+      const linkHtml = link ? `<a href="${href}" target="_blank" rel="noopener noreferrer">${escapeHtml(link)}</a>` : '';
+      return `<div class="insp-link">${creator ? `<strong>${escapeHtml(creator)}</strong>${link ? ' — ' : ''}` : ''}${linkHtml}</div>`;
     }).join('');
   } else {
     document.getElementById('m-insp-row').style.display = 'none';
@@ -2957,12 +3031,20 @@ function normalizeUrl(value) {
   return `https://${url}`;
 }
 
-function addInspField(value = '') {
+function inspCreatorOptionsHtml(selected) {
+  const names = [...new Set(inspirations.map(i => (i.nome || '').trim()).filter(Boolean))].sort((a,b) => a.localeCompare(b));
+  if (selected && !names.includes(selected)) names.push(selected);
+  const opts = names.map(n => `<option value="${escapeHtml(n)}" ${n === selected ? 'selected' : ''}>${escapeHtml(n)}</option>`).join('');
+  return `<option value="">Selecione um creator</option>${opts}`;
+}
+
+function addInspField(creator = '', link = '') {
   const list = document.getElementById('n-insp-list');
   const row = document.createElement('div');
   row.className = 'insp-row';
   row.innerHTML = `
-    <input class="form-input n-insp-input" type="url" placeholder="https://link-da-inspiracao.com" value="${escapeHtml(value)}" />
+    <select class="form-input n-insp-creator">${inspCreatorOptionsHtml(creator)}</select>
+    <input class="form-input n-insp-input" type="url" placeholder="https://link-da-inspiracao.com" value="${escapeHtml(link)}" />
     <button type="button" class="insp-remove-btn" onclick="this.parentElement.remove()">×</button>
   `;
   list.appendChild(row);
@@ -3037,7 +3119,10 @@ function openNewModal(prefill = {}) {
     prefill.scenes.forEach(s => addSceneCard(s));
   }
 
-  if (prefill.inspiracoes && prefill.inspiracoes.length) prefill.inspiracoes.forEach(v => addInspField(v));
+  if (prefill.inspiracoes && prefill.inspiracoes.length) prefill.inspiracoes.forEach(v => {
+    if (typeof v === 'string') addInspField('', v);
+    else addInspField(v.creator || '', v.link || '');
+  });
   document.getElementById('new-modal').classList.add('open');
 }
 
@@ -3077,9 +3162,10 @@ function saveNewPost() {
   const plats = PLAT_META.filter(p => { const cb = document.getElementById('n-' + p.key); return cb && cb.checked; }).map(p => p.key);
   if (!plats.length) { alert('Selecione ao menos uma plataforma.'); return; }
   const status = document.getElementById('n-status').value;
-  const inspiracoes = status === 'pesquisar'
-    ? Array.from(document.querySelectorAll('.n-insp-input')).map(i => i.value.trim()).filter(Boolean)
-    : [];
+  const formInsp = Array.from(document.querySelectorAll('#n-insp-list .insp-row')).map(row => ({
+    creator: row.querySelector('.n-insp-creator').value.trim(),
+    link:    row.querySelector('.n-insp-input').value.trim(),
+  })).filter(x => x.creator || x.link);
   const requiredTag = document.getElementById('n-reqtag').value || null;
   if (editingPostId) {
     const post = posts.find(p => p.id === editingPostId);
@@ -3096,7 +3182,9 @@ function saveNewPost() {
       post.status          = status;
       post.plataformas     = plats;
       post.formato         = fmtE;
-      post.inspiracoes     = inspiracoes;
+      // Enquanto o post está em "pesquisar" o campo é editável e prevalece; nos demais status,
+      // preserva o que já estava salvo em vez de apagar (o campo fica escondido, não zerado).
+      post.inspiracoes     = status === 'pesquisar' ? formInsp : (post.inspiracoes || []);
       post.requiredTag     = requiredTag;
     }
   } else {
@@ -3114,7 +3202,7 @@ function saveNewPost() {
       status,
       plataformas:     plats,
       formato:         fmtN,
-      inspiracoes,
+      inspiracoes:     status === 'pesquisar' ? formInsp : [],
       requiredTag,
     });
   }
@@ -3673,6 +3761,119 @@ function renderGuidelines() {
 function updateGuideline(i, field, value) { if (guidelines[i]) { guidelines[i][field] = value; saveGuidelinesData(); } }
 function removeGuideline(i) { guidelines.splice(i,1); saveGuidelinesData(); renderGuidelines(); }
 function addGuideline() { guidelines.push({ label:'Novo item', text:'' }); saveGuidelinesData(); renderGuidelines(); }
+
+/* ─── Inspirações ───────────────────────────────────────────────────────── */
+const INSPIRATIONS_STORAGE_KEY = 'content-manager-inspirations-v1';
+function loadInspirations() {
+  try {
+    const saved = localStorage.getItem(INSPIRATIONS_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
+  } catch (e) { return []; }
+}
+function saveInspirationsData() { localStorage.setItem(INSPIRATIONS_STORAGE_KEY, JSON.stringify(inspirations)); scheduleCloudSync(); }
+let inspirations = loadInspirations();
+let nextInspId = inspirations.length ? Math.max(...inspirations.map(i => Number(i.id)||0)) + 1 : 1;
+let editingInspId = null;
+
+const SOCIAL_URL_BASE = { ig: 'https://instagram.com/', li: 'https://linkedin.com/in/', tt: 'https://tiktok.com/@', yt: 'https://youtube.com/@' };
+function socialUrl(rede, value) {
+  const v = (value || '').trim();
+  if (!v) return '';
+  if (/^https?:\/\//i.test(v)) return v;
+  const base = SOCIAL_URL_BASE[rede] || SOCIAL_URL_BASE.ig;
+  return `${base}${v.replace(/^@/, '')}`;
+}
+
+function postsForCreator(nome) {
+  const target = (nome || '').trim().toLowerCase();
+  if (!target) return [];
+  const result = [];
+  posts.forEach(p => {
+    (p.inspiracoes || []).forEach(entry => {
+      if (typeof entry === 'string') return; // links legados sem creator associado
+      if ((entry.creator || '').trim().toLowerCase() === target) {
+        result.push({ postId: p.id, titulo: p.titulo, formato: p.formato, link: entry.link || '' });
+      }
+    });
+  });
+  return result;
+}
+
+function renderInspiracoes() {
+  const grid = document.getElementById('insp-grid');
+  if (!grid) return;
+  if (!inspirations.length) {
+    grid.innerHTML = `<div class="insp-empty">Nenhuma inspiração salva ainda. Clique em "+ Nova inspiração" pra guardar a primeira.</div>`;
+    return;
+  }
+  const sorted = [...inspirations].sort((a,b) => Number(b.id) - Number(a.id));
+  grid.innerHTML = sorted.map(i => {
+    const rede = i.rede || 'ig';
+    const linkedPosts = postsForCreator(i.nome);
+    return `
+    <div class="insp-card" onclick="openInspModal(${i.id})">
+      <div class="insp-card-header">
+        <span class="insp-card-creator">${escapeHtml(i.nome || 'Sem nome')}</span>
+        ${i.instagram ? `<a class="insp-card-ig" href="${escapeHtml(socialUrl(rede, i.instagram))}" target="_blank" rel="noopener" title="${escapeHtml(i.instagram)}" onclick="event.stopPropagation()"><span class="week-post-plat-icon ${rede}">${platIcon(rede,10)}</span></a>` : ''}
+      </div>
+      ${i.estrategia ? `<div class="insp-card-estrategia">${escapeHtml(i.estrategia)}</div>` : ''}
+      ${linkedPosts.length ? `<div class="insp-card-posts">${linkedPosts.map(lp => `
+        <div class="insp-card-post-row" onclick="event.stopPropagation(); openPost(${lp.postId})">
+          <span class="insp-card-post-title">${escapeHtml(lp.titulo)}</span>
+          <span class="insp-card-post-fmt">${FORMAT_ICON[lp.formato]||''} ${escapeHtml(lp.formato||'')}</span>
+          ${lp.link ? `<a class="insp-card-post-link" href="${escapeHtml(normalizeUrl(lp.link))}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${escapeHtml(lp.link)}</a>` : ''}
+        </div>
+      `).join('')}</div>` : ''}
+    </div>
+  `;
+  }).join('');
+}
+
+function openInspModal(id) {
+  editingInspId = id ?? null;
+  const insp = id ? inspirations.find(i => i.id === id) : null;
+  document.getElementById('insp-modal-title').textContent = insp ? 'Editar inspiração' : 'Nova inspiração';
+  document.getElementById('insp-rede').value       = insp?.rede       || 'ig';
+  document.getElementById('insp-instagram').value  = insp?.instagram  ?? '';
+  document.getElementById('insp-nome').value       = insp?.nome       ?? '';
+  document.getElementById('insp-delete-btn').style.display = insp ? '' : 'none';
+  document.getElementById('insp-modal').classList.add('open');
+}
+
+function closeInspModal() {
+  document.getElementById('insp-modal').classList.remove('open');
+  editingInspId = null;
+}
+
+function saveInsp() {
+  const nome = document.getElementById('insp-nome').value.trim();
+  const instagram = document.getElementById('insp-instagram').value.trim();
+  const rede = document.getElementById('insp-rede').value;
+  if (!nome && !instagram) { alert('Informe pelo menos o nome do creator ou o perfil.'); return; }
+  const data = {
+    rede,
+    instagram,
+    nome,
+  };
+  if (editingInspId) {
+    const i = inspirations.find(x => x.id === editingInspId);
+    if (i) Object.assign(i, data);
+  } else {
+    inspirations.push({ id: nextInspId++, ...data });
+  }
+  saveInspirationsData();
+  renderInspiracoes();
+  closeInspModal();
+}
+
+function deleteInsp() {
+  if (!editingInspId) return;
+  if (!confirm('Remover esta inspiração?')) return;
+  inspirations = inspirations.filter(i => i.id !== editingInspId);
+  saveInspirationsData();
+  renderInspiracoes();
+  closeInspModal();
+}
 
 /* ─── Analytics ─────────────────────────────────────────────────────────── */
 const MONTHLY_DATA_IG = [
@@ -4269,7 +4470,6 @@ function renderBarChart(id, data, key, color) {
 
 /* ─── Misc ──────────────────────────────────────────────────────────────── */
 const PLACEHOLDER_META = {
-  inspiracoes:   { icon:'🎭', title:'Inspirações',       text:'Em breve você vai poder reunir referências e conteúdos que te inspiram por aqui.' },
   colaboracoes:  { icon:'👥', title:'Colaborações',      text:'Em breve você vai poder gerenciar parcerias de conteúdo e collabs por aqui.' },
   parceiros:     { icon:'💼', title:'Parceiros',         text:'Em breve você vai poder acompanhar marcas e parceiros comerciais por aqui.' },
   financeiro:    { icon:'💰', title:'Financeiro',        text:'Em breve você vai poder acompanhar receitas, pagamentos e resultados financeiros por aqui.' },
@@ -4790,6 +4990,7 @@ function setMainNav(btn) {
   const parceiros = document.getElementById('view-parceiros');
   const brainstorm = document.getElementById('view-brainstorm');
   const agenda = document.getElementById('view-agenda');
+  const inspiracoes = document.getElementById('view-inspiracoes');
 
   gestao.style.display = 'none';
   placeholder.style.display = 'none';
@@ -4797,6 +4998,7 @@ function setMainNav(btn) {
   parceiros.style.display = 'none';
   brainstorm.style.display = 'none';
   agenda.style.display = 'none';
+  inspiracoes.style.display = 'none';
 
   if (view === 'gestao') {
     gestao.style.display = '';
@@ -4813,6 +5015,9 @@ function setMainNav(btn) {
   } else if (view === 'agenda') {
     agenda.style.display = 'flex';
     renderAgenda();
+  } else if (view === 'inspiracoes') {
+    inspiracoes.style.display = 'flex';
+    renderInspiracoes();
   } else {
     placeholder.style.display = '';
     const meta = PLACEHOLDER_META[view] || { icon:'🔧', title:'Em construção', text:'Essa funcionalidade ainda está em construção.' };
