@@ -1379,6 +1379,12 @@
       "rede": "ig",
       "instagram": "jacque_tech",
       "nome": "Jac Macedo"
+    },
+    {
+      "id": 4,
+      "rede": "ig",
+      "instagram": "fe.sgonzalez",
+      "nome": "Fernanda Gonzalez"
     }
   ],
   "requiredPostsByMonth": {
@@ -1995,5 +2001,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:20:09.078Z"
+  "_updatedAt": "2026-07-28T13:20:41.476Z"
 }
