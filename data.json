@@ -1127,6 +1127,29 @@
         "https://www.instagram.com/reels/DbHehlXOEFY/"
       ],
       "requiredTag": null
+    },
+    {
+      "id": 53,
+      "titulo": "[reels] Vai fazer entrevista ? (cópia)",
+      "desc": "(como se preparar pra uma entrevista de ti?) como eu me preparo pra uma entrevista glassdor",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1512,5 +1535,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T02:06:08.931Z"
+  "_updatedAt": "2026-07-28T02:06:24.241Z"
 }
