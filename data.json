@@ -1223,7 +1223,12 @@
         "li"
       ],
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DTd1dQZjgyL/?igsh=aG1qdDk3bGJmOHc2"
+        }
+      ],
       "requiredTag": "slot2"
     },
     {
@@ -2103,5 +2108,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T15:05:20.272Z"
+  "_updatedAt": "2026-07-28T15:05:42.831Z"
 }
