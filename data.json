@@ -1089,16 +1089,14 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "gravando",
+      "data": "2026-07-28",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reels/DbHehlXOEFY/"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     },
     {
@@ -1507,5 +1505,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T02:08:26.680Z"
+  "_updatedAt": "2026-07-28T02:08:32.328Z"
 }
