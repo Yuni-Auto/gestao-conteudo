@@ -1227,29 +1227,6 @@
       "requiredTag": "slot2"
     },
     {
-      "id": 57,
-      "titulo": "[carousel] 3 projetos para iniciantes",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-08-01",
-      "status": "pesquisar",
-      "plataformas": [
-        "ig",
-        "tt",
-        "li"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot5"
-    },
-    {
       "id": 58,
       "titulo": "[carousel] Vídeos grátis que eu pagaria caro para ver",
       "desc": "",
@@ -2120,5 +2097,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:57:25.619Z"
+  "_updatedAt": "2026-07-28T14:57:43.603Z"
 }
