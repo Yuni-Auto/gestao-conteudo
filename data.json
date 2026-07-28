@@ -1249,7 +1249,12 @@
         "ig"
       ],
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Marianna Fernandes",
+          "link": ""
+        }
+      ],
       "requiredTag": "slot7"
     }
   ],
@@ -2114,5 +2119,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T15:07:05.479Z"
+  "_updatedAt": "2026-07-28T15:08:53.416Z"
 }
