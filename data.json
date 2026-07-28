@@ -1067,7 +1067,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1971,5 +1971,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:11:18.119Z"
+  "_updatedAt": "2026-07-28T13:11:26.057Z"
 }
