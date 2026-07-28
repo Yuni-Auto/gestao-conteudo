@@ -1050,7 +1050,12 @@
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -1971,5 +1976,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:11:32.519Z"
+  "_updatedAt": "2026-07-28T13:11:59.613Z"
 }
