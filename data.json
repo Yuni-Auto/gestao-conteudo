@@ -1118,7 +1118,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pesquisar",
+      "status": "pronto",
       "plataformas": [
         "tt"
       ],
@@ -1966,5 +1966,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:10:26.001Z"
+  "_updatedAt": "2026-07-28T13:10:37.527Z"
 }
