@@ -558,18 +558,13 @@
         }
       ],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        {
-          "creator": "Pamela Mendes",
-          "link": "https://www.instagram.com/reel/DZ7p0KDx8Z0/?igsh=MWNxdW96Y2o5YmlxcQ=="
-        }
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     },
     {
@@ -1493,12 +1488,6 @@
       "rede": "ig",
       "instagram": "geovannapdroso",
       "nome": "Geonavva Pedroso"
-    },
-    {
-      "id": 6,
-      "rede": "ig",
-      "instagram": "pam.dev",
-      "nome": "Pamela Mendes"
     }
   ],
   "requiredPostsByMonth": {
@@ -2115,5 +2104,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:44:07.427Z"
+  "_updatedAt": "2026-07-28T14:44:21.358Z"
 }
