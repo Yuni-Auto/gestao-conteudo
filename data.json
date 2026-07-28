@@ -1043,16 +1043,14 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "gravando",
+      "data": "2026-07-28",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reels/DaTAUstPShP/"
-      ],
+      "inspiracoes": [],
       "requiredTag": null
     },
     {
@@ -1511,5 +1509,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T02:07:57.331Z"
+  "_updatedAt": "2026-07-28T02:08:15.997Z"
 }
