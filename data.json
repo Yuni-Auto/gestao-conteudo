@@ -1237,6 +1237,27 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5"
+    },
+    {
+      "id": 58,
+      "titulo": "[carousel] Vídeos grátis que eu pagaria caro para ver",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-07-28",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot7"
     }
   ],
   "partners": [
@@ -2082,5 +2103,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:25:12.882Z"
+  "_updatedAt": "2026-07-28T14:26:15.487Z"
 }
