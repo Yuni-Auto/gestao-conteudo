@@ -1244,7 +1244,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig"
       ],
@@ -2119,5 +2119,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T15:13:04.373Z"
+  "_updatedAt": "2026-07-28T15:13:53.836Z"
 }
