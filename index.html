@@ -118,6 +118,21 @@
   .agenda-strategy-tags { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
   .agenda-week-cal { display: grid; grid-template-columns: repeat(7, 1fr); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
   .agenda-subheading { grid-column: 1 / -1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-3); margin-bottom: 2px; }
+
+  /* Posts da semana — kanban por etapa do processo de criação */
+  .agenda-kanban { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+  .agenda-kanban-col { flex: 0 0 192px; width: 192px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; display: flex; flex-direction: column; min-height: 90px; transition: background 0.12s; }
+  .agenda-kanban-col.drop-target { background: #f1eefb; outline: 2px dashed #5b50c8; outline-offset: -2px; }
+  .agenda-kanban-head { padding: 10px 10px 8px; border-bottom: 1px solid var(--border); }
+  .agenda-kanban-group { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3); margin-bottom: 3px; }
+  .agenda-kanban-title-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+  .agenda-kanban-title { font-size: 12.5px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 6px; min-width: 0; }
+  .agenda-kanban-title .status-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .agenda-kanban-title span.agenda-kanban-title-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .agenda-kanban-count { font-size: 10.5px; font-weight: 700; color: var(--text-2); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 1px 7px; flex-shrink: 0; }
+  .agenda-kanban-body { padding: 8px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .agenda-kanban-body .week-post { cursor: grab; }
+  .agenda-kanban-body .week-post:active { cursor: grabbing; }
   .stat-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
   .stat-value { font-size: 24px; font-weight: 600; }
 
@@ -887,8 +902,8 @@
       </div>
 
       <div class="agenda-section">
-        <div class="agenda-section-title">📅 Posts da semana</div>
-        <div class="agenda-week-cal" id="agenda-progress-grid"></div>
+        <div class="agenda-section-title">🔄 Posts da semana · processo de criação</div>
+        <div class="agenda-kanban" id="agenda-progress-grid"></div>
       </div>
 
       <div class="agenda-section">
@@ -4590,6 +4605,58 @@ function renderAgendaPostCard(p, onclickJs) {
   </div>`;
 }
 
+function renderAgendaKanbanCard(p) {
+  const partnerNames = partnersForPost(p.id);
+  const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
+  return `
+  <div class="week-post agenda-strategy-post ${platCls(p)}" draggable="true" ondragstart="onKanbanDragStart(event, ${p.id})" ondragend="onKanbanDragEnd(event)" onclick="openPost(${p.id})" title="Arraste para mudar a etapa">
+    <div class="agenda-strategy-title-row">
+      <div class="week-post-title" title="${escapeHtml(p.titulo)}">${escapeHtml(p.titulo)}</div>
+      <div class="agenda-strategy-date">${shortDateWithDay(p.data)}</div>
+    </div>
+    <div class="week-post-meta">
+      <div class="week-post-icons">
+        ${(p.plataformas||[]).map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
+      </div>
+      <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
+    </div>
+    ${partnerTags ? `<div class="agenda-strategy-tags">${partnerTags}</div>` : ''}
+  </div>`;
+}
+
+/* ─── Drag & drop de posts entre etapas do processo de criação ────────── */
+let draggedKanbanId = null;
+function onKanbanDragStart(ev, id) {
+  draggedKanbanId = id;
+  ev.dataTransfer.effectAllowed = 'move';
+  try { ev.dataTransfer.setData('text/plain', String(id)); } catch (e) {}
+  ev.target.closest('.week-post').classList.add('dragging');
+}
+function onKanbanDragEnd(ev) {
+  const el = ev.target.closest('.week-post');
+  if (el) el.classList.remove('dragging');
+  document.querySelectorAll('.agenda-kanban-col.drop-target').forEach(el2 => el2.classList.remove('drop-target'));
+  draggedKanbanId = null;
+}
+function allowDropStage(ev) {
+  ev.preventDefault();
+  ev.currentTarget.classList.add('drop-target');
+}
+function onStageDrop(ev, statusKey) {
+  ev.preventDefault();
+  ev.currentTarget.classList.remove('drop-target');
+  let id = draggedKanbanId;
+  try { id = Number(ev.dataTransfer.getData('text/plain')) || id; } catch (e) {}
+  draggedKanbanId = null;
+  if (!id) return;
+  const p = posts.find(x => x.id === id);
+  if (!p || p.status === statusKey) return;
+  p.status = statusKey;
+  savePosts();
+  renderAgenda();
+  renderStats();
+}
+
 function renderAgenda() {
   const start = getWeekStart(agendaWeekOffset);
   const end = new Date(start); end.setDate(end.getDate() + 6);
@@ -4669,24 +4736,23 @@ function renderAgenda() {
   }
 
   const gridWrap = document.getElementById('agenda-progress-grid');
-  const tStr = todayStr();
-  let gridHtml = '';
-  for (let i = 0; i < 7; i++) {
-    const d = new Date(start); d.setDate(start.getDate() + i);
-    const dStr = isoDate(d);
-    const isToday = dStr === tStr;
-    const dayItems = weekPosts.filter(p => p.data === dStr);
-    gridHtml += `<div class="week-day-col">
-      <div class="week-day-head">
-        <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
-        <div class="week-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
+  gridWrap.innerHTML = ALL_STATUS.map(s => {
+    const stageItems = weekPosts
+      .filter(p => p.status === s.key)
+      .sort((a, b) => (a.data || '').localeCompare(b.data || ''));
+    return `<div class="agenda-kanban-col" ondragover="allowDropStage(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onStageDrop(event,'${s.key}')">
+      <div class="agenda-kanban-head">
+        <div class="agenda-kanban-group">${GROUP_LABELS[s.group]}</div>
+        <div class="agenda-kanban-title-row">
+          <span class="agenda-kanban-title"><span class="status-dot" style="background:${s.dot}"></span><span class="agenda-kanban-title-text" title="${s.label}">${s.label}</span></span>
+          <span class="agenda-kanban-count">${stageItems.length}</span>
+        </div>
       </div>
-      <div class="week-day-body">
-        ${dayItems.length ? dayItems.map(p => renderAgendaPostCard(p, `openPost(${p.id})`)).join('') : '<div class="empty-day">—</div>'}
+      <div class="agenda-kanban-body">
+        ${stageItems.length ? stageItems.map(p => renderAgendaKanbanCard(p)).join('') : '<div class="empty-day">—</div>'}
       </div>
     </div>`;
-  }
-  gridWrap.innerHTML = gridHtml;
+  }).join('');
 
   const ptWrap = document.getElementById('agenda-partners-list');
   if (!activePartners.length) {
