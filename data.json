@@ -1032,19 +1032,14 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
         "li"
       ],
       "formato": "Carousel",
-      "inspiracoes": [
-        {
-          "creator": "Eneri",
-          "link": "https://www.instagram.com/p/DN6dMjJkXti/?igsh=MTNwcGptOHRuampmcw=="
-        }
-      ],
+      "inspiracoes": [],
       "requiredTag": "slot5"
     },
     {
@@ -1509,12 +1504,6 @@
       "rede": "ig",
       "instagram": "pam.dev",
       "nome": "Pamela Mendes"
-    },
-    {
-      "id": 7,
-      "rede": "ig",
-      "instagram": "Imtechgirl",
-      "nome": "Eneri"
     }
   ],
   "requiredPostsByMonth": {
@@ -2131,5 +2120,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:57:14.064Z"
+  "_updatedAt": "2026-07-28T14:57:25.619Z"
 }
