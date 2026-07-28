@@ -3099,6 +3099,7 @@ function openNewModal(prefill = {}) {
     else addInspField(v.creator || '', v.link || '');
   });
 
+  document.getElementById('n-status').value = prefill.status || 'ideia';
   updateNewStatus();
   onFormatoChange();
 
