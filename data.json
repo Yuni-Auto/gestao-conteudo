@@ -1361,7 +1361,14 @@
       "rot": 2
     }
   ],
-  "inspirations": [],
+  "inspirations": [
+    {
+      "id": 1,
+      "rede": "ig",
+      "instagram": "suzana.fitvibes",
+      "nome": "Suzana"
+    }
+  ],
   "requiredPostsByMonth": {
     "2026-07": [
       {
@@ -1976,5 +1983,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:12:06.618Z"
+  "_updatedAt": "2026-07-28T13:13:23.022Z"
 }
