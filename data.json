@@ -558,13 +558,18 @@
         }
       ],
       "data": "2026-08-01",
-      "status": "roteiro",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Pamela Mendes",
+          "link": "https://www.instagram.com/reel/DZ7p0KDx8Z0/?igsh=MWNxdW96Y2o5YmlxcQ=="
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -632,7 +637,12 @@
         "tt"
       ],
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Pamela Mendes",
+          "link": "https://www.instagram.com/p/DavGzhXlc3d/?igsh=MWU1ZzNjcjN4ZDgzZw=="
+        }
+      ],
       "requiredTag": "slot14"
     },
     {
@@ -1488,6 +1498,12 @@
       "rede": "ig",
       "instagram": "geovannapdroso",
       "nome": "Geonavva Pedroso"
+    },
+    {
+      "id": 6,
+      "rede": "ig",
+      "instagram": "pam.dev",
+      "nome": "Pamela Mendes"
     }
   ],
   "requiredPostsByMonth": {
@@ -2104,5 +2120,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:44:21.358Z"
+  "_updatedAt": "2026-07-28T14:47:05.047Z"
 }
