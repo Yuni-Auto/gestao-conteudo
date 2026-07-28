@@ -1341,14 +1341,7 @@
       "rot": 2
     }
   ],
-  "inspirations": [
-    {
-      "id": 1,
-      "rede": "ig",
-      "instagram": "jacque_tech",
-      "nome": "Jac Macedo"
-    }
-  ],
+  "inspirations": [],
   "requiredPostsByMonth": {
     "2026-07": [
       {
@@ -1963,5 +1956,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:03:28.784Z"
+  "_updatedAt": "2026-07-28T13:04:14.063Z"
 }
