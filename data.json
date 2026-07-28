@@ -1154,7 +1154,7 @@
       ],
       "scenes": [],
       "data": "2026-07-28",
-      "status": "ideia",
+      "status": "legenda",
       "plataformas": [
         "li"
       ],
@@ -1164,8 +1164,8 @@
     },
     {
       "id": 55,
-      "titulo": "[carousel] Tudo que tem no meu curriculo, mas não esta na internet",
-      "desc": "",
+      "titulo": "[carousel] Tudo que tem no meu curriculo",
+      "desc": "Titulo: Tudo que tem no meu curriculo, mas não esta na internet",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -2034,5 +2034,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:53:45.208Z"
+  "_updatedAt": "2026-07-28T14:00:39.871Z"
 }
