@@ -3012,10 +3012,10 @@ function onFormatoChange() {
 }
 /* ─────────────────────────────────────────────────────────────────────── */
 
-function updateNewStatus() {
+function updateNewStatus(forceStatus) {
   const fmt = document.getElementById('n-formato').value;
   const sel = document.getElementById('n-status');
-  const cur = sel.value;
+  const cur = forceStatus !== undefined ? forceStatus : sel.value;
   const available = statusesForFormato(fmt);
   sel.innerHTML = available.map(s => `<option value="${s.key}"${s.key===cur?' selected':''}>${s.label}</option>`).join('');
   toggleInspWrap();
@@ -3100,7 +3100,7 @@ function openNewModal(prefill = {}) {
   });
 
   document.getElementById('n-status').value = prefill.status || 'ideia';
-  updateNewStatus();
+  updateNewStatus(prefill.status || 'ideia');
   onFormatoChange();
 
   // prefill slides when editing
