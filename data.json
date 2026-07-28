@@ -1120,6 +1120,28 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 54,
+      "titulo": "[post] certificado da mentoria Pulsar",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-28",
+      "status": "roteiro",
+      "plataformas": [
+        "li"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1933,5 +1955,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T02:11:01.364Z"
+  "_updatedAt": "2026-07-28T02:23:18.738Z"
 }
