@@ -1162,6 +1162,34 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 55,
+      "titulo": "[carousel] tudo que tem no meu curriculo, mas não esta na internet",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-28",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DbTxT8JGoRV/"
+        }
+      ],
+      "requiredTag": "slot4"
     }
   ],
   "partners": [
@@ -2001,5 +2029,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:23:39.238Z"
+  "_updatedAt": "2026-07-28T13:32:24.633Z"
 }
