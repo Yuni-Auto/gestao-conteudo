@@ -1413,6 +1413,12 @@
       "rede": "ig",
       "instagram": "fe.sgonzalez",
       "nome": "Fernanda Gonzalez"
+    },
+    {
+      "id": 5,
+      "rede": "ig",
+      "instagram": "geovannapdroso",
+      "nome": "Geonavva Pedroso"
     }
   ],
   "requiredPostsByMonth": {
@@ -2029,5 +2035,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:32:24.633Z"
+  "_updatedAt": "2026-07-28T13:32:45.432Z"
 }
