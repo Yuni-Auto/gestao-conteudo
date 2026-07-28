@@ -1118,12 +1118,17 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pronto",
+      "status": "pesquisar",
       "plataformas": [
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DbAA2tiRRTB/?igsh=aXQzOW80M3pnaXhm"
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -1961,5 +1966,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:05:04.418Z"
+  "_updatedAt": "2026-07-28T13:10:26.001Z"
 }
