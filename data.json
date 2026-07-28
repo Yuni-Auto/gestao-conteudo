@@ -1207,7 +1207,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt",
@@ -1230,7 +1230,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt",
@@ -1253,7 +1253,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig"
       ],
@@ -2105,5 +2105,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:32:40.048Z"
+  "_updatedAt": "2026-07-28T14:34:03.119Z"
 }
