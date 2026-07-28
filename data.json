@@ -1179,7 +1179,8 @@
       "status": "pesquisar",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -2034,5 +2035,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:15:54.716Z"
+  "_updatedAt": "2026-07-28T14:22:24.298Z"
 }
