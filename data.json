@@ -558,7 +558,7 @@
         }
       ],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -2105,5 +2105,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:35:17.762Z"
+  "_updatedAt": "2026-07-28T14:35:32.925Z"
 }
