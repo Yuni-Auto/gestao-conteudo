@@ -558,7 +558,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pronto",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1044,7 +1044,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "roteiro",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1067,7 +1067,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "roteiro",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1090,7 +1090,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "roteiro",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1339,6 +1339,14 @@
       "y": 113.50390625,
       "color": "white",
       "rot": 2
+    }
+  ],
+  "inspirations": [
+    {
+      "id": 1,
+      "rede": "ig",
+      "instagram": "jacque_tech",
+      "nome": "Jac Macedo"
     }
   ],
   "requiredPostsByMonth": {
@@ -1955,5 +1963,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T02:23:18.738Z"
+  "_updatedAt": "2026-07-28T12:53:17.045Z"
 }
