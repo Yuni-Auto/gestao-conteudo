@@ -3094,6 +3094,11 @@ function openNewModal(prefill = {}) {
   document.getElementById('n-scene-list').innerHTML  = '';
   const rangeEl = document.getElementById('n-slide-range');
 
+  if (prefill.inspiracoes && prefill.inspiracoes.length) prefill.inspiracoes.forEach(v => {
+    if (typeof v === 'string') addInspField('', v);
+    else addInspField(v.creator || '', v.link || '');
+  });
+
   updateNewStatus();
   onFormatoChange();
 
@@ -3119,10 +3124,6 @@ function openNewModal(prefill = {}) {
     prefill.scenes.forEach(s => addSceneCard(s));
   }
 
-  if (prefill.inspiracoes && prefill.inspiracoes.length) prefill.inspiracoes.forEach(v => {
-    if (typeof v === 'string') addInspField('', v);
-    else addInspField(v.creator || '', v.link || '');
-  });
   document.getElementById('new-modal').classList.add('open');
 }
 
@@ -3182,9 +3183,11 @@ function saveNewPost() {
       post.status          = status;
       post.plataformas     = plats;
       post.formato         = fmtE;
-      // Enquanto o post está em "pesquisar" o campo é editável e prevalece; nos demais status,
-      // preserva o que já estava salvo em vez de apagar (o campo fica escondido, não zerado).
-      post.inspiracoes     = status === 'pesquisar' ? formInsp : (post.inspiracoes || []);
+      // O formulário sempre reflete o estado real do post (os campos são pré-preenchidos
+      // com prefill.inspiracoes ao abrir o modal), então salvamos o que está nele — mesmo
+      // que o status tenha sido alterado na mesma edição. Isso evita perder um link recém
+      // adicionado quando o usuário também muda o status antes de salvar.
+      post.inspiracoes     = formInsp;
       post.requiredTag     = requiredTag;
     }
   } else {
@@ -3202,7 +3205,7 @@ function saveNewPost() {
       status,
       plataformas:     plats,
       formato:         fmtN,
-      inspiracoes:     status === 'pesquisar' ? formInsp : [],
+      inspiracoes:     formInsp,
       requiredTag,
     });
   }
