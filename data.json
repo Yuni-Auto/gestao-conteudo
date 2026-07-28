@@ -614,29 +614,6 @@
       "requiredTag": null
     },
     {
-      "id": 34,
-      "titulo": "[reels] Vai fazer entrevista ?",
-      "desc": "(como se preparar pra uma entrevista de ti?) como eu me preparo pra uma entrevista glassdor",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": null
-    },
-    {
       "id": 35,
       "titulo": "[carousel] Achadinhos de setup",
       "desc": "",
@@ -1534,5 +1511,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T02:06:48.837Z"
+  "_updatedAt": "2026-07-28T02:07:39.370Z"
 }
