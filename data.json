@@ -564,7 +564,12 @@
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DZ7p0KDx8Z0/?igsh=MWNxdW96Y2o5YmlxcQ=="
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -2104,5 +2109,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:40:32.115Z"
+  "_updatedAt": "2026-07-28T14:43:13.044Z"
 }
