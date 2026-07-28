@@ -1367,6 +1367,12 @@
       "rede": "ig",
       "instagram": "suzana.fitvibes",
       "nome": "Suzana"
+    },
+    {
+      "id": 2,
+      "rede": "ig",
+      "instagram": "",
+      "nome": "Nicky"
     }
   ],
   "requiredPostsByMonth": {
@@ -1983,5 +1989,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:13:36.706Z"
+  "_updatedAt": "2026-07-28T13:15:07.318Z"
 }
