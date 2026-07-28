@@ -1492,6 +1492,12 @@
       "rede": "ig",
       "instagram": "mariffernandesdaily",
       "nome": "Marianna Fernandes"
+    },
+    {
+      "id": 8,
+      "rede": "ig",
+      "instagram": "estavelementestudy",
+      "nome": "Livia Marins"
     }
   ],
   "requiredPostsByMonth": {
@@ -2108,5 +2114,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T15:05:42.831Z"
+  "_updatedAt": "2026-07-28T15:06:42.167Z"
 }
