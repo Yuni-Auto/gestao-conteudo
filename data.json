@@ -1493,6 +1493,12 @@
       "rede": "ig",
       "instagram": "geovannapdroso",
       "nome": "Geonavva Pedroso"
+    },
+    {
+      "id": 6,
+      "rede": "ig",
+      "instagram": "pam.dev",
+      "nome": "Pamela Mendes"
     }
   ],
   "requiredPostsByMonth": {
@@ -2109,5 +2115,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:43:13.044Z"
+  "_updatedAt": "2026-07-28T14:43:53.233Z"
 }
