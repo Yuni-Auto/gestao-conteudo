@@ -1373,6 +1373,12 @@
       "rede": "ig",
       "instagram": "1nickyy",
       "nome": "Nicky"
+    },
+    {
+      "id": 3,
+      "rede": "ig",
+      "instagram": "jacque_tech",
+      "nome": "Jac Macedo"
     }
   ],
   "requiredPostsByMonth": {
@@ -1989,5 +1995,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:15:55.366Z"
+  "_updatedAt": "2026-07-28T13:16:34.215Z"
 }
