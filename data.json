@@ -1145,7 +1145,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "tt",
         "li"
@@ -2130,5 +2130,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T20:29:43.201Z"
+  "_updatedAt": "2026-07-28T22:40:54.328Z"
 }
