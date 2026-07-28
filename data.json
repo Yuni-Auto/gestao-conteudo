@@ -1509,6 +1509,12 @@
       "rede": "ig",
       "instagram": "pam.dev",
       "nome": "Pamela Mendes"
+    },
+    {
+      "id": 7,
+      "rede": "ig",
+      "instagram": "Imtechgirl",
+      "nome": "Eneri"
     }
   ],
   "requiredPostsByMonth": {
@@ -2125,5 +2131,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:56:00.291Z"
+  "_updatedAt": "2026-07-28T14:56:56.906Z"
 }
