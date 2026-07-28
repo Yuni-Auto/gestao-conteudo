@@ -374,8 +374,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-08-03",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -557,8 +557,8 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-07-28",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt"
@@ -614,29 +614,6 @@
       "requiredTag": null
     },
     {
-      "id": 34,
-      "titulo": "[reels] Vai fazer entrevista ?",
-      "desc": "(como se preparar pra uma entrevista de ti?) como eu me preparo pra uma entrevista glassdor",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": null
-    },
-    {
       "id": 35,
       "titulo": "[carousel] Achadinhos de setup",
       "desc": "",
@@ -648,8 +625,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-25",
-      "status": "ideia",
+      "data": "2026-07-29",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -661,25 +638,33 @@
     {
       "id": 36,
       "titulo": "[carousel] Dump do mês (Julho)",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
+      "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Eu",
           "texto": ""
         },
         {
-          "titulo": "",
+          "titulo": "Lugar",
           "texto": ""
         },
         {
-          "titulo": "",
+          "titulo": "Comida",
+          "texto": ""
+        },
+        {
+          "titulo": "Eu",
+          "texto": ""
+        },
+        {
+          "titulo": "Lugar",
           "texto": ""
         }
       ],
       "scenes": [],
       "data": "2026-07-31",
-      "status": "ideia",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -759,22 +744,21 @@
     },
     {
       "id": 40,
-      "titulo": "[reels] Vocabulário da programação",
-      "desc": "",
+      "titulo": "[reels] Entrevistador: \"Poderia me explicar Promisse e Observable?\"",
+      "desc": "💡 Promise x Observable: qual a diferença?\n\nImagine que você fez um pedido em um restaurante.\n\n🍽️ Promise é como pedir um prato. Você faz o pedido e espera. No final, recebe apenas uma resposta: o prato chegou (ou aconteceu algum problema).\n\n📱 Observable é como acompanhar um pedido por um aplicativo de entrega. Você recebe várias atualizações:\n\nPedido recebido ✅\nEm preparo 👨‍🍳\nSaiu para entrega 🛵\nEstá chegando 📍\nEntregue 🎉\n\nOu seja:\n\n✔ Promise → uma única resposta.\n\n✔ Observable → várias respostas ao longo do tempo.\n\nÉ por isso que o Angular utiliza bastante Observable: ele facilita trabalhar com dados que podem mudar ou enviar várias informações durante a execução da aplicação.\n\n🚀 Dica para entrevistas: se lembrar que Promise entrega um resultado e Observable acompanha um fluxo de resultados, você já estará no caminho certo.",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Eu sentada a frente do computador.\n\nTexto 1: Entrevistador: \"Poderia me explicar Promisse e Observable?\"\n\nTexto 2: Veja na legenda"
         }
       ],
-      "data": "2026-07-28",
-      "status": "roteiro",
+      "data": "2026-07-27",
+      "status": "publicada",
       "plataformas": [
-        "ig",
-        "tt"
+        "ig"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -1037,7 +1021,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-03",
+      "data": "2026-08-05",
       "status": "pesquisar",
       "plataformas": [
         "ig"
@@ -1059,8 +1043,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "gravando",
+      "data": "2026-07-28",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1082,16 +1066,14 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "pesquisar",
+      "data": "2026-07-28",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
-        "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
-      ],
+      "inspiracoes": [],
       "requiredTag": "slot12"
     },
     {
@@ -1107,11 +1089,55 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-26",
-      "status": "gravando",
+      "data": "2026-07-28",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 53,
+      "titulo": "[reels] Vai fazer entrevista ?",
+      "desc": "(como se preparar pra uma entrevista de ti?) como eu me preparo pra uma entrevista glassdor",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-28",
+      "status": "pronto",
+      "plataformas": [
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 54,
+      "titulo": "[post] certificado da mentoria Pulsar",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-28",
+      "status": "roteiro",
+      "plataformas": [
+        "li"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -1401,9 +1427,437 @@
         "formato": "Carousel",
         "tag": "post"
       }
+    ],
+    "2026-08": [
+      {
+        "key": "slot1",
+        "title": "Dump do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot2",
+        "title": "Um problema = uma solução",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot3",
+        "title": "Programa de estágio",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot4",
+        "title": "Trends",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot5",
+        "title": "3 projetos para iniciantes",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot6",
+        "title": "Um dia comigo no home office",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot9",
+        "title": "Vocabulário da programação",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot11",
+        "title": "Calendário de eventos do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot12",
+        "title": "Verdades duras sobre programação",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot13",
+        "title": "Minha rotina sendo engenheira de software",
+        "formato": "Reels",
+        "tag": "reel"
+      },
+      {
+        "key": "slot14",
+        "title": "Achadinhos de setup",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot15",
+        "title": "Coisas legais que aprendi ou fiz no último mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "customms40pov9jmfh",
+        "title": "Na entrevista",
+        "formato": "Reels",
+        "tag": "reel"
+      }
     ]
   },
   "requiredPostsHistory": [
+    {
+      "date": "2026-07-28T02:09:48.054Z",
+      "monthKey": "2026-08",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-28T02:09:22.105Z",
+      "monthKey": "2026-08",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-28T02:09:06.823Z",
+      "monthKey": "2026-08",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-28T02:09:01.023Z",
+      "monthKey": "2026-08",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
     {
       "date": "2026-07-24T16:56:54.606Z",
       "monthKey": "2026-07",
@@ -1501,5 +1955,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-26T01:26:25.075Z"
+  "_updatedAt": "2026-07-28T02:23:18.738Z"
 }
