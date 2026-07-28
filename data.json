@@ -558,7 +558,7 @@
         }
       ],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -631,7 +631,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -2120,5 +2120,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:47:05.047Z"
+  "_updatedAt": "2026-07-28T14:48:00.339Z"
 }
