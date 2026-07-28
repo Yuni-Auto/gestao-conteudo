@@ -557,7 +557,7 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-07-28",
+      "data": "2026-08-02",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -625,7 +625,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-29",
+      "data": "2026-08-02",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1043,14 +1043,19 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-28",
-      "status": "pesquisar",
+      "data": "2026-08-02",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Suzana",
+          "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -1066,14 +1071,19 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-28",
-      "status": "gravando",
+      "data": "2026-08-02",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Nicky",
+          "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
+        }
+      ],
       "requiredTag": "slot12"
     },
     {
@@ -1089,8 +1099,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-28",
-      "status": "pesquisar",
+      "data": "2026-08-02",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1098,7 +1108,7 @@
       "formato": "Reels",
       "inspiracoes": [
         {
-          "creator": "",
+          "creator": "Fernanda Gonzalez",
           "link": "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
         }
       ],
@@ -1123,7 +1133,12 @@
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Jac Macedo",
+          "link": "https://www.instagram.com/reel/DbAA2tiRRTB/?igsh=aXQzOW80M3pnaXhm"
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -1346,7 +1361,32 @@
       "rot": 2
     }
   ],
-  "inspirations": [],
+  "inspirations": [
+    {
+      "id": 1,
+      "rede": "ig",
+      "instagram": "suzana.fitvibes",
+      "nome": "Suzana"
+    },
+    {
+      "id": 2,
+      "rede": "ig",
+      "instagram": "1nickyy",
+      "nome": "Nicky"
+    },
+    {
+      "id": 3,
+      "rede": "ig",
+      "instagram": "jacque_tech",
+      "nome": "Jac Macedo"
+    },
+    {
+      "id": 4,
+      "rede": "ig",
+      "instagram": "fe.sgonzalez",
+      "nome": "Fernanda Gonzalez"
+    }
+  ],
   "requiredPostsByMonth": {
     "2026-07": [
       {
@@ -1961,5 +2001,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:05:04.418Z"
+  "_updatedAt": "2026-07-28T13:23:39.238Z"
 }
