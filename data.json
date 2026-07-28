@@ -1165,7 +1165,7 @@
     },
     {
       "id": 55,
-      "titulo": "[carousel] tudo que tem no meu curriculo, mas não esta na internet",
+      "titulo": "[carousel] Tudo que tem no meu curriculo, mas não esta na internet",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1176,7 +1176,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-28",
+      "data": "2026-07-29",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2035,5 +2035,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:36:31.499Z"
+  "_updatedAt": "2026-07-28T13:36:42.271Z"
 }
