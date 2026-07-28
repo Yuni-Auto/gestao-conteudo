@@ -1143,7 +1143,7 @@
     },
     {
       "id": 54,
-      "titulo": "[post] certificado da mentoria Pulsar",
+      "titulo": "[post] Certificado da mentoria Pulsar",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1162,6 +1162,34 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 55,
+      "titulo": "[carousel] Tudo que tem no meu curriculo, mas não esta na internet",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-07-29",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "Geonavva Pedroso",
+          "link": "https://www.instagram.com/p/DbTxT8JGoRV/"
+        }
+      ],
+      "requiredTag": "slot4"
     }
   ],
   "partners": [
@@ -1385,6 +1413,12 @@
       "rede": "ig",
       "instagram": "fe.sgonzalez",
       "nome": "Fernanda Gonzalez"
+    },
+    {
+      "id": 5,
+      "rede": "ig",
+      "instagram": "geovannapdroso",
+      "nome": "Geonavva Pedroso"
     }
   ],
   "requiredPostsByMonth": {
@@ -2001,5 +2035,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:23:39.238Z"
+  "_updatedAt": "2026-07-28T13:36:42.271Z"
 }
