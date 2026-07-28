@@ -378,8 +378,9 @@
   .insp-card-post-row:hover .insp-card-post-title { text-decoration: underline; }
   .insp-card-post-title { color: var(--text); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
   .insp-card-post-fmt { font-size: 10.5px; color: var(--text-3); white-space: nowrap; flex-shrink: 0; }
-  .insp-card-post-link { font-size: 10.5px; color: #5b50c8; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 90px; flex-shrink: 0; }
-  .insp-card-post-link:hover { text-decoration: underline; }
+  .insp-card-post-link { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 5px; color: #5b50c8; flex-shrink: 0; }
+  .insp-card-post-link:hover { background: #f0effe; }
+  .insp-card-post-link svg { width: 12px; height: 12px; display: block; }
   .insp-empty { text-align: center; color: var(--text-3); font-style: italic; padding: 40px 20px; grid-column: 1 / -1; }
   .partner-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .partner-link:hover { text-decoration: underline; }
@@ -3825,7 +3826,7 @@ function renderInspiracoes() {
         <div class="insp-card-post-row" onclick="event.stopPropagation(); openPost(${lp.postId})">
           <span class="insp-card-post-title">${escapeHtml(lp.titulo)}</span>
           <span class="insp-card-post-fmt">${FORMAT_ICON[lp.formato]||''} ${escapeHtml(lp.formato||'')}</span>
-          ${lp.link ? `<a class="insp-card-post-link" href="${escapeHtml(normalizeUrl(lp.link))}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${escapeHtml(lp.link)}</a>` : ''}
+          ${lp.link ? `<a class="insp-card-post-link" href="${escapeHtml(normalizeUrl(lp.link))}" target="_blank" rel="noopener" title="${escapeHtml(lp.link)}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>` : ''}
         </div>
       `).join('')}</div>` : ''}
     </div>
