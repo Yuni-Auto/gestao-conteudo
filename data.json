@@ -1169,23 +1169,22 @@
       "id": 55,
       "titulo": "[carousel] Tudo que tem no meu curriculo",
       "desc": "Titulo: Tudo que tem no meu curriculo, mas não esta na internet",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "carouselLegenda": "Titulo: Tudo que tem no meu curriculo, mas não esta na internet",
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-07-29",
-      "status": "roteiro",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
         "li"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [
         {
           "creator": "Geonavva Pedroso",
@@ -2105,5 +2104,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:37:30.700Z"
+  "_updatedAt": "2026-07-28T14:40:32.115Z"
 }
