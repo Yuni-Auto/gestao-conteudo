@@ -1146,20 +1146,19 @@
       "titulo": "[post] Certificado da mentoria Pulsar",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-07-28",
-      "status": "roteiro",
+      "status": "ideia",
       "plataformas": [
         "li"
       ],
-      "formato": "Reels",
+      "formato": "Foto",
       "inspiracoes": [],
       "requiredTag": null
     },
@@ -2035,5 +2034,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T13:36:42.271Z"
+  "_updatedAt": "2026-07-28T13:53:45.208Z"
 }
