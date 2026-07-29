@@ -1056,8 +1056,8 @@
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
       "data": "2026-08-01",
@@ -2129,5 +2129,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:09:13.772Z"
+  "_updatedAt": "2026-07-29T10:10:20.335Z"
 }
