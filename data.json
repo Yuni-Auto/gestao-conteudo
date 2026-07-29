@@ -1186,13 +1186,21 @@
       "carouselLegenda": "Titulo: Tudo que tem no meu curriculo, mas não esta na internet",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "CPF",
+          "texto": ""
+        },
+        {
+          "titulo": "CNPJ",
+          "texto": ""
+        },
+        {
+          "titulo": "CLT",
           "texto": ""
         }
       ],
       "scenes": [],
       "data": "2026-07-29",
-      "status": "editando",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
@@ -2129,5 +2137,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T00:06:34.496Z"
+  "_updatedAt": "2026-07-29T00:07:11.087Z"
 }
