@@ -1050,7 +1050,7 @@
     {
       "id": 50,
       "titulo": "[reels] eu evitando dizer",
-      "desc": "",
+      "desc": "Texto na tela: “ Eu evitando dizer que 0 sou de TI para não precisar explicar que também não sei mexer na impressora” ",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -2129,5 +2129,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:06:43.900Z"
+  "_updatedAt": "2026-07-29T10:09:13.772Z"
 }
