@@ -1073,7 +1073,7 @@
           "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
         }
       ],
-      "requiredTag": null
+      "requiredTag": "slot4"
     },
     {
       "id": 51,
@@ -2129,5 +2129,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:12:54.897Z"
+  "_updatedAt": "2026-07-29T10:13:18.872Z"
 }
