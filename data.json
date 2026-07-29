@@ -1192,7 +1192,7 @@
       ],
       "scenes": [],
       "data": "2026-07-29",
-      "status": "roteiro",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -2129,5 +2129,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T22:46:48.334Z"
+  "_updatedAt": "2026-07-29T00:06:34.496Z"
 }
