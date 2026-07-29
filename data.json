@@ -1117,12 +1117,12 @@
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
       "data": "2026-08-01",
-      "status": "roteiro",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1134,7 +1134,7 @@
           "link": "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
         }
       ],
-      "requiredTag": null
+      "requiredTag": "slot4"
     },
     {
       "id": 53,
@@ -2134,5 +2134,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:15:11.153Z"
+  "_updatedAt": "2026-07-29T10:16:39.840Z"
 }
