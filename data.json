@@ -1255,7 +1255,8 @@
       "data": "2026-08-01",
       "status": "pesquisar",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Carousel",
       "inspiracoes": [
@@ -2134,5 +2135,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:34:49.222Z"
+  "_updatedAt": "2026-07-29T10:35:53.436Z"
 }
