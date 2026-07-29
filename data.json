@@ -1188,14 +1188,6 @@
         {
           "titulo": "CPF",
           "texto": ""
-        },
-        {
-          "titulo": "CNPJ",
-          "texto": ""
-        },
-        {
-          "titulo": "CLT",
-          "texto": ""
         }
       ],
       "scenes": [],
@@ -2137,5 +2129,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T00:43:17.535Z"
+  "_updatedAt": "2026-07-29T10:02:18.310Z"
 }
