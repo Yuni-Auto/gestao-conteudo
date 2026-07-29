@@ -1215,8 +1215,8 @@
     {
       "id": 56,
       "titulo": "[carousel] Um problema = uma solução",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira\n• Medo de não ser boa o suficiente \n• Fazer faculdade ou não (técnico, curso)",
+      "carouselLegenda": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira\n• Medo de não ser boa o suficiente \n• Fazer faculdade ou não (técnico, curso)",
       "slides": [
         {
           "titulo": "",
@@ -1225,7 +1225,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "roteiro",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
@@ -2134,5 +2134,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:24:05.785Z"
+  "_updatedAt": "2026-07-29T10:31:53.505Z"
 }
