@@ -1050,7 +1050,7 @@
     {
       "id": 50,
       "titulo": "[reels] eu evitando dizer",
-      "desc": "Texto na tela: “ Eu evitando dizer que 0 sou de TI para não precisar explicar que também não sei mexer na impressora” ",
+      "desc": "Texto na tela: “ Eu evitando dizer que 0 sou de TI para não precisar explicar que também não sei mexer na impressora” \n\nLegenda: Evitando horas de discussão 😂\n\n#meme #dev #estudos #tech #programacao ",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -2134,5 +2134,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:20:24.979Z"
+  "_updatedAt": "2026-07-29T10:22:57.294Z"
 }
