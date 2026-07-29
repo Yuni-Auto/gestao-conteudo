@@ -1094,7 +1094,7 @@
         }
       ],
       "data": "2026-08-01",
-      "status": "roteiro",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -2134,5 +2134,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:15:06.765Z"
+  "_updatedAt": "2026-07-29T10:15:11.153Z"
 }
