@@ -1032,7 +1032,7 @@
       ],
       "scenes": [],
       "data": "2026-08-01",
-      "status": "legenda",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -2129,5 +2129,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-29T10:12:32.503Z"
+  "_updatedAt": "2026-07-29T10:12:54.897Z"
 }
