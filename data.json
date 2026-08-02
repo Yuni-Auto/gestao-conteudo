@@ -630,8 +630,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-01",
-      "status": "roteiro",
+      "data": "2026-08-02",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -2135,5 +2135,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-02T21:47:17.933Z"
+  "_updatedAt": "2026-08-02T21:47:23.467Z"
 }
