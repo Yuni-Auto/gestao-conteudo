@@ -1288,6 +1288,29 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot1"
+    },
+    {
+      "id": 60,
+      "titulo": "Na entrevista",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-08-24",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "customms40pov9jmfh"
     }
   ],
   "partners": [
@@ -2157,5 +2180,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-02T21:53:29.126Z"
+  "_updatedAt": "2026-08-02T21:53:54.406Z"
 }
