@@ -1252,7 +1252,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-01",
+      "data": "2026-08-02",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1265,7 +1265,7 @@
           "link": "https://www.instagram.com/p/DW9J67XEcXV/?igsh=MnozcGhoeDhjdDV2"
         }
       ],
-      "requiredTag": "slot7"
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -2135,5 +2135,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-02T21:48:09.863Z"
+  "_updatedAt": "2026-08-02T21:48:16.183Z"
 }
