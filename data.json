@@ -1266,6 +1266,28 @@
         }
       ],
       "requiredTag": null
+    },
+    {
+      "id": 59,
+      "titulo": "[carosel] Dump do mês (Agosto)",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-08-31",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1"
     }
   ],
   "partners": [
@@ -2135,5 +2157,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-02T21:52:48.515Z"
+  "_updatedAt": "2026-08-02T21:53:29.126Z"
 }
