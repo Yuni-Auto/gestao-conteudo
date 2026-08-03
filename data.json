@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-10",
+      "data": "2026-08-01",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -557,7 +557,7 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-08-04",
+      "data": "2026-08-01",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -630,8 +630,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-28",
-      "status": "ideia",
+      "data": "2026-08-01",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -673,7 +673,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-02",
+      "data": "2026-07-31",
       "status": "design",
       "plataformas": [
         "ig",
@@ -977,7 +977,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-22",
+      "data": "2026-08-01",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1031,7 +1031,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-06",
+      "data": "2026-08-01",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1060,7 +1060,7 @@
           "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-08-08",
+      "data": "2026-08-01",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1093,7 +1093,7 @@
           "cena": "Cortes de memes com expressão de desespero, nervoso, triste…"
         }
       ],
-      "data": "2026-08-14",
+      "data": "2026-08-01",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1121,7 +1121,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-08-18",
+      "data": "2026-08-01",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1197,7 +1197,7 @@
       ],
       "scenes": [],
       "data": "2026-07-31",
-      "status": "publicada",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
@@ -1224,7 +1224,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-12",
+      "data": "2026-08-01",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1252,7 +1252,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-16",
+      "data": "2026-08-01",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1265,97 +1265,7 @@
           "link": "https://www.instagram.com/p/DW9J67XEcXV/?igsh=MnozcGhoeDhjdDV2"
         }
       ],
-      "requiredTag": null
-    },
-    {
-      "id": 59,
-      "titulo": "[carosel] Dump do mês (Agosto)",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-08-31",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot1"
-    },
-    {
-      "id": 60,
-      "titulo": "[reels] Na entrevista",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-08-24",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "customms40pov9jmfh"
-    },
-    {
-      "id": 61,
-      "titulo": "[reels] Minha rotina sendo engenheira de software",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-08-26",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot13"
-    },
-    {
-      "id": 62,
-      "titulo": "Um dia comigo no home office",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-08-20",
-      "status": "ideia",
-      "plataformas": [
-        "ig"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot6"
+      "requiredTag": "slot7"
     }
   ],
   "partners": [
@@ -2225,5 +2135,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-02T21:55:12.369Z"
+  "_updatedAt": "2026-08-03T02:46:49.086Z"
 }
