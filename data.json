@@ -1031,7 +1031,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-17",
+      "data": "2026-08-18",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1280,7 +1280,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-18",
+      "data": "2026-08-19",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1347,7 +1347,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-18",
+      "data": "2026-08-19",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2341,5 +2341,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:23:22.882Z"
+  "_updatedAt": "2026-08-09T01:24:08.416Z"
 }
