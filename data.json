@@ -1310,6 +1310,27 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot13"
+    },
+    {
+      "id": 61,
+      "titulo": "Programa de estágio",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-04",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot3"
     }
   ],
   "partners": [
@@ -2179,5 +2200,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:03:23.117Z"
+  "_updatedAt": "2026-08-09T01:09:43.803Z"
 }
