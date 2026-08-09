@@ -1357,7 +1357,7 @@
     },
     {
       "id": 64,
-      "titulo": "[carousel] Dump do mês (Julho) (cópia)",
+      "titulo": "[carousel] Dump do mês (Agosto)",
       "desc": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
       "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
       "slides": [
@@ -1383,7 +1383,7 @@
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-08-31",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2339,5 +2339,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:16:59.898Z"
+  "_updatedAt": "2026-08-09T01:17:26.547Z"
 }
