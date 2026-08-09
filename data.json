@@ -1288,6 +1288,28 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "customms40pov9jmfh"
+    },
+    {
+      "id": 60,
+      "titulo": "Minha rotina sendo engenheira de software",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-08-31",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot13"
     }
   ],
   "partners": [
@@ -2157,5 +2179,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:03:07.401Z"
+  "_updatedAt": "2026-08-09T01:03:23.117Z"
 }
