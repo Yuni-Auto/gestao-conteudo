@@ -630,7 +630,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-26",
+      "data": "2026-08-25",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1121,7 +1121,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-08-28",
+      "data": "2026-08-27",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1224,7 +1224,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-24",
+      "data": "2026-08-23",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2135,5 +2135,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:02:04.120Z"
+  "_updatedAt": "2026-08-09T01:02:13.554Z"
 }
