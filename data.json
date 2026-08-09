@@ -1326,7 +1326,8 @@
       "data": "2026-09-04",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Carousel",
       "inspiracoes": [],
@@ -2200,5 +2201,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:09:43.803Z"
+  "_updatedAt": "2026-08-09T01:09:50.836Z"
 }
