@@ -630,7 +630,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-25",
+      "data": "2026-08-12",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1269,7 +1269,7 @@
     },
     {
       "id": 60,
-      "titulo": "Minha rotina sendo engenheira de software",
+      "titulo": "[reels] Minha rotina sendo engenheira de software",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1283,7 +1283,8 @@
       "data": "2026-08-27",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -2339,5 +2340,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:18:09.752Z"
+  "_updatedAt": "2026-08-09T01:18:27.167Z"
 }
