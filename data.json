@@ -1336,7 +1336,7 @@
     },
     {
       "id": 63,
-      "titulo": "Um dia comigo no home office",
+      "titulo": "[carousel] Um dia comigo no home office",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -2340,5 +2340,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:19:31.234Z"
+  "_updatedAt": "2026-08-09T01:19:54.563Z"
 }
