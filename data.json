@@ -1354,6 +1354,44 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot6"
+    },
+    {
+      "id": 64,
+      "titulo": "[carousel] Dump do mês (Julho) (cópia)",
+      "desc": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
+      "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
+      "slides": [
+        {
+          "titulo": "Eu",
+          "texto": ""
+        },
+        {
+          "titulo": "Lugar",
+          "texto": ""
+        },
+        {
+          "titulo": "Comida",
+          "texto": ""
+        },
+        {
+          "titulo": "Eu",
+          "texto": ""
+        },
+        {
+          "titulo": "Lugar",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1"
     }
   ],
   "partners": [
@@ -2301,5 +2339,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:16:17.986Z"
+  "_updatedAt": "2026-08-09T01:16:59.898Z"
 }
