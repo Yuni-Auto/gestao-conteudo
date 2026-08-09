@@ -1544,6 +1544,14 @@
         "eng": 15239,
         "conteudo": 7,
         "clicks": 60
+      },
+      "Ago 26": {
+        "seguidores": 8587,
+        "views": 79780,
+        "alcance": 2074,
+        "eng": 8523,
+        "conteudo": 0,
+        "clicks": 40
       }
     },
     "tt": {
@@ -2341,5 +2349,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:25:31.708Z"
+  "_updatedAt": "2026-08-09T01:47:09.824Z"
 }
