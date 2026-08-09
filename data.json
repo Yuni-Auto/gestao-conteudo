@@ -1350,7 +1350,8 @@
       "data": "2026-08-18",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -2340,5 +2341,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:20:46.100Z"
+  "_updatedAt": "2026-08-09T01:21:02.413Z"
 }
