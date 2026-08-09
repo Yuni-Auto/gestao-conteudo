@@ -977,7 +977,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1031,7 +1031,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1060,7 +1060,7 @@
           "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1093,7 +1093,7 @@
           "cena": "Cortes de memes com expressão de desespero, nervoso, triste…"
         }
       ],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1121,7 +1121,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1224,7 +1224,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1252,7 +1252,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-01",
+      "data": "2026-08-09",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2135,5 +2135,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-04T21:06:26.142Z"
+  "_updatedAt": "2026-08-09T00:55:34.825Z"
 }
