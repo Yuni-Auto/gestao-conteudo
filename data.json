@@ -1268,28 +1268,6 @@
       "requiredTag": "slot7"
     },
     {
-      "id": 59,
-      "titulo": "Na entrevista",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-08-29",
-      "status": "ideia",
-      "plataformas": [
-        "ig"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "customms40pov9jmfh"
-    },
-    {
       "id": 60,
       "titulo": "Minha rotina sendo engenheira de software",
       "desc": "",
@@ -2201,5 +2179,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:09:50.836Z"
+  "_updatedAt": "2026-08-09T01:09:59.323Z"
 }
