@@ -1060,7 +1060,7 @@
           "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-08-14",
+      "data": "2026-08-29",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1121,7 +1121,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-08-28",
+      "data": "2026-08-14",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2340,5 +2340,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:18:45.536Z"
+  "_updatedAt": "2026-08-09T01:18:55.201Z"
 }
