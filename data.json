@@ -1291,7 +1291,7 @@
     },
     {
       "id": 61,
-      "titulo": "Programa de estágio",
+      "titulo": "[Carousel] Programa de estágio",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1301,7 +1301,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-04",
+      "data": "2026-08-21",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2301,5 +2301,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-09T01:15:00.421Z"
+  "_updatedAt": "2026-08-09T01:15:34.258Z"
 }
