@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-03",
+      "data": "2026-08-23",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -557,14 +557,19 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-08-02",
-      "status": "pesquisar",
+      "data": "2026-08-25",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Pamela Mendes",
+          "link": "https://www.instagram.com/reel/DZ7p0KDx8Z0/?igsh=MWNxdW96Y2o5YmlxcQ=="
+        }
+      ],
       "requiredTag": null
     },
     {
@@ -625,14 +630,19 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-02",
-      "status": "pesquisar",
+      "data": "2026-08-25",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Pamela Mendes",
+          "link": "https://www.instagram.com/p/DavGzhXlc3d/?igsh=MWU1ZzNjcjN4ZDgzZw=="
+        }
+      ],
       "requiredTag": "slot14"
     },
     {
@@ -663,7 +673,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-07-31",
+      "data": "2026-08-15",
       "status": "design",
       "plataformas": [
         "ig",
@@ -967,7 +977,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-24",
+      "data": "2026-08-28",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1012,8 +1022,8 @@
     {
       "id": 49,
       "titulo": "[carousel] 3 projetos para iniciantes",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos ",
+      "carouselLegenda": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos ",
       "slides": [
         {
           "titulo": "",
@@ -1021,30 +1031,37 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-05",
+      "data": "2026-08-20",
       "status": "pesquisar",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt",
+        "li"
       ],
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Eneri D Angelis",
+          "link": "https://www.instagram.com/p/DN6dMjJkXti/?igsh=MTNwcGptOHRuampmcw=="
+        }
+      ],
       "requiredTag": "slot5"
     },
     {
       "id": 50,
       "titulo": "[reels] eu evitando dizer",
-      "desc": "",
+      "desc": "Texto na tela: “ Eu evitando dizer que 0 sou de TI para não precisar explicar que também não sei mexer na impressora” \n\nLegenda: Evitando horas de discussão 😂\n\n#meme #dev #estudos #tech #programacao ",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-08-02",
-      "status": "roteiro",
+      "data": "2026-08-29",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1056,23 +1073,28 @@
           "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
         }
       ],
-      "requiredTag": null
+      "requiredTag": "slot4"
     },
     {
       "id": 51,
       "titulo": "[reels] trabalhar no PC é facil",
-      "desc": "",
+      "desc": "Legenda: Está tudo sobre controle 🥹🙏🏽\n\n#meme #tech #tecnologia #rotina ",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Trabalhar na frente do PC é facil"
+        },
+        {
+          "inicio": 6,
+          "fim": 10,
+          "cena": "Cortes de memes com expressão de desespero, nervoso, triste…"
         }
       ],
-      "data": "2026-08-02",
-      "status": "roteiro",
+      "data": "2026-08-14",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1089,18 +1111,18 @@
     {
       "id": 52,
       "titulo": "[reels] meu fone",
-      "desc": "",
+      "desc": "Qual música ? Hipnotiza ou Bunda batendo \n\nLegenda: Pra resolver coisas sérias é somente assim por aqui. 🙊😅\n\n#dev #tech #tecnologia #programacao",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "fim": 5,
+          "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-08-02",
-      "status": "roteiro",
+      "data": "2026-08-21",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1112,7 +1134,7 @@
           "link": "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
         }
       ],
-      "requiredTag": null
+      "requiredTag": "slot4"
     },
     {
       "id": 53,
@@ -1128,7 +1150,7 @@
         }
       ],
       "data": "2026-07-28",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "tt"
       ],
@@ -1154,7 +1176,7 @@
       ],
       "scenes": [],
       "data": "2026-07-28",
-      "status": "legenda",
+      "status": "publicada",
       "plataformas": [
         "li"
       ],
@@ -1166,6 +1188,89 @@
       "id": 55,
       "titulo": "[carousel] Tudo que tem no meu curriculo",
       "desc": "Titulo: Tudo que tem no meu curriculo, mas não esta na internet",
+      "carouselLegenda": "Titulo: Tudo que tem no meu curriculo, mas não esta na internet",
+      "slides": [
+        {
+          "titulo": "CPF",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-07-31",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [
+        {
+          "creator": "Geonavva Pedroso",
+          "link": "https://www.instagram.com/p/DbTxT8JGoRV/"
+        }
+      ],
+      "requiredTag": "slot4"
+    },
+    {
+      "id": 56,
+      "titulo": "[carousel] Um problema = uma solução",
+      "desc": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira\n• Medo de não ser boa o suficiente \n• Fazer faculdade ou não (técnico, curso)",
+      "carouselLegenda": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira\n• Medo de não ser boa o suficiente \n• Fazer faculdade ou não (técnico, curso)",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-08-16",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [
+        {
+          "creator": "Livia Marins",
+          "link": "https://www.instagram.com/p/DTd1dQZjgyL/?igsh=aG1qdDk3bGJmOHc2"
+        }
+      ],
+      "requiredTag": "slot2"
+    },
+    {
+      "id": 58,
+      "titulo": "[carousel] Vídeos grátis que eu pagaria caro para ver",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-08-31",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [
+        {
+          "creator": "Marianna Fernandes",
+          "link": "https://www.instagram.com/p/DW9J67XEcXV/?igsh=MnozcGhoeDhjdDV2"
+        }
+      ],
+      "requiredTag": "slot7"
+    },
+    {
+      "id": 60,
+      "titulo": "[reels] Minha rotina sendo engenheira de software",
+      "desc": "",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -1175,20 +1280,147 @@
           "cena": ""
         }
       ],
-      "data": "2026-07-29",
-      "status": "pesquisar",
+      "data": "2026-08-18",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Reels",
-      "inspiracoes": [
+      "inspiracoes": [],
+      "requiredTag": "slot13"
+    },
+    {
+      "id": 61,
+      "titulo": "[Carousel] Programa de estágio",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
         {
-          "creator": "Geonavva Pedroso",
-          "link": "https://www.instagram.com/p/DbTxT8JGoRV/"
+          "titulo": "",
+          "texto": ""
         }
       ],
-      "requiredTag": "slot4"
+      "scenes": [],
+      "data": "2026-08-20",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot3"
+    },
+    {
+      "id": 62,
+      "titulo": "[reels] Entrevistador: \"Poderia me explicar...\"",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-08-27",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot9"
+    },
+    {
+      "id": 63,
+      "titulo": "[carousel] Um dia comigo no home office",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-08-18",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot6"
+    },
+    {
+      "id": 64,
+      "titulo": "[carousel] Dump do mês (Agosto)",
+      "desc": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
+      "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
+      "slides": [
+        {
+          "titulo": "Eu",
+          "texto": ""
+        },
+        {
+          "titulo": "Lugar",
+          "texto": ""
+        },
+        {
+          "titulo": "Comida",
+          "texto": ""
+        },
+        {
+          "titulo": "Eu",
+          "texto": ""
+        },
+        {
+          "titulo": "Lugar",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-08-31",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1"
+    },
+    {
+      "id": 65,
+      "titulo": "[reels] Não paro de sonhar",
+      "desc": "Foi Deus e a programação que me deu ✨🙏🏽👩🏾‍💻💜\n\n#tech #tecnologia #rotina #deus #dev",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-08-13",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "plataformasDatas": {
+        "ig": "2026-08-13",
+        "tt": "2026-08-14"
+      }
     }
   ],
   "partners": [
@@ -1339,6 +1571,14 @@
         "eng": 15239,
         "conteudo": 7,
         "clicks": 60
+      },
+      "Ago 26": {
+        "seguidores": 8587,
+        "views": 79780,
+        "alcance": 2074,
+        "eng": 8523,
+        "conteudo": 0,
+        "clicks": 40
       }
     },
     "tt": {
@@ -1356,6 +1596,14 @@
         "alcance": 996,
         "eng": 119,
         "conteudo": 4,
+        "clicks": 0
+      },
+      "Ago 26": {
+        "seguidores": 990,
+        "views": 0,
+        "alcance": 0,
+        "eng": 0,
+        "conteudo": 0,
         "clicks": 0
       }
     },
@@ -1418,6 +1666,30 @@
       "rede": "ig",
       "instagram": "geovannapdroso",
       "nome": "Geonavva Pedroso"
+    },
+    {
+      "id": 6,
+      "rede": "ig",
+      "instagram": "pam.dev",
+      "nome": "Pamela Mendes"
+    },
+    {
+      "id": 7,
+      "rede": "ig",
+      "instagram": "mariffernandesdaily",
+      "nome": "Marianna Fernandes"
+    },
+    {
+      "id": 8,
+      "rede": "ig",
+      "instagram": "estavelementestudy",
+      "nome": "Livia Marins"
+    },
+    {
+      "id": 9,
+      "rede": "ig",
+      "instagram": "imtechgirl",
+      "nome": "Eneri D Angelis"
     }
   ],
   "requiredPostsByMonth": {
@@ -1579,16 +1851,94 @@
         "title": "Coisas legais que aprendi ou fiz no último mês",
         "formato": "Carousel",
         "tag": "post"
-      },
-      {
-        "key": "customms40pov9jmfh",
-        "title": "Na entrevista",
-        "formato": "Reels",
-        "tag": "reel"
       }
     ]
   },
   "requiredPostsHistory": [
+    {
+      "date": "2026-08-09T01:10:09.383Z",
+      "monthKey": "2026-08",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "customms40pov9jmfh",
+          "title": "Na entrevista",
+          "formato": "Reels",
+          "tag": "reel"
+        }
+      ]
+    },
     {
       "date": "2026-07-28T02:09:48.054Z",
       "monthKey": "2026-08",
@@ -2034,5 +2384,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-07-28T14:00:39.871Z"
+  "_updatedAt": "2026-08-14T01:41:40.403Z"
 }
