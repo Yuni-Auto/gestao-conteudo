@@ -1411,11 +1411,16 @@
       "data": "2026-08-13",
       "status": "publicada",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "plataformasDatas": {
+        "ig": "2026-08-13",
+        "tt": "2026-08-14"
+      }
     }
   ],
   "partners": [
@@ -2379,5 +2384,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-14T00:57:28.722Z"
+  "_updatedAt": "2026-08-14T01:41:18.088Z"
 }
