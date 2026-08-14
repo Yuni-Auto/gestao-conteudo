@@ -1394,6 +1394,29 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot1"
+    },
+    {
+      "id": 65,
+      "titulo": "[reels] Não paro de sonhar",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-08-13",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -2357,5 +2380,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-11T21:27:25.190Z"
+  "_updatedAt": "2026-08-14T00:49:38.070Z"
 }
