@@ -575,6 +575,18 @@
   .plat-check.checked-pt { background: #fde8ef; border-color: #f9b0c0; color: #e60023; font-weight: 600; }
   .plat-check.checked-tw { background: #e8f4ff; border-color: #b8d8f9; color: #0f141a; font-weight: 600; }
 
+  /* Datas diferentes por plataforma */
+  .platdates-toggle-label {
+    display: flex; align-items: center; gap: 7px; cursor: pointer;
+    font-size: 12.5px; color: var(--text-2); font-weight: 500;
+    text-transform: none; letter-spacing: normal; margin-bottom: 0;
+  }
+  .platdates-toggle-label input { width: 14px; height: 14px; cursor: pointer; }
+  .platdates-list { display: flex; flex-direction: column; gap: 6px; margin-top: 9px; }
+  .platdate-row { display: flex; align-items: center; gap: 9px; }
+  .platdate-row .platdate-label { flex: 0 0 92px; font-size: 12.5px; color: var(--text-2); display: flex; align-items: center; gap: 5px; }
+  .platdate-row input[type="date"] { flex: 1; padding: 6px 9px; }
+
   /* Inspirações (status: pesquisar) */
   .insp-row { display: flex; gap: 6px; margin-bottom: 6px; }
   .insp-row .n-insp-creator { flex: 0 0 130px; }
@@ -1568,6 +1580,15 @@
           </div>
         </div>
 
+        <!-- Datas diferentes por plataforma (mesmo conteúdo, publicado em dias distintos em cada rede) -->
+        <div class="form-group nf-platdates-wrap" style="margin-bottom:0;">
+          <label class="platdates-toggle-label">
+            <input type="checkbox" id="n-platdates-toggle" onchange="togglePlatDatesList()" />
+            Publicado em dias diferentes por plataforma
+          </label>
+          <div class="platdates-list" id="n-platdates-list" style="display:none;"></div>
+        </div>
+
         <!-- Inspirações (só quando status = pesquisar) -->
         <div class="form-group nf-insp-wrap" id="n-insp-wrap" style="display:none; margin-bottom:0;">
           <label class="form-label">Inspirações</label>
@@ -1969,7 +1990,64 @@ function syncPlatCheck(key) {
     const cb = document.getElementById(`n-${key}`);
     const label = document.getElementById(`n-${key}-label`);
     if (cb && label) label.classList.toggle(`checked-${key}`, cb.checked);
+    // keep the per-plataforma dates list (if open) in sync with the checked plataformas
+    const toggle = document.getElementById('n-platdates-toggle');
+    if (toggle && toggle.checked) renderPlatDatesList();
   }, 0);
+}
+
+/* ─── Datas diferentes por plataforma ───────────────────────────────────
+   Permite marcar que o mesmo conteúdo foi publicado em dias distintos em
+   cada rede, sem precisar duplicar o post. */
+function renderPlatDatesList(prefillDates) {
+  const list = document.getElementById('n-platdates-list');
+  if (!list) return;
+  const selectedPlats = PLAT_META.filter(p => {
+    const cb = document.getElementById('n-' + p.key);
+    return cb && cb.checked;
+  });
+  const mainDate = document.getElementById('n-data').value || todayStr();
+  // preserva valores já digitados antes de recriar as linhas (ex: ao (des)marcar uma plataforma)
+  const existing = {};
+  list.querySelectorAll('.platdate-row').forEach(row => {
+    existing[row.dataset.plat] = row.querySelector('input[type="date"]').value;
+  });
+  list.innerHTML = selectedPlats.map(p => `
+    <div class="platdate-row" data-plat="${p.key}">
+      <span class="platdate-label">${buildPlatHtml(p.key, p.labelShort)}</span>
+      <input class="form-input n-platdate-input" type="date" value="${existing[p.key] || (prefillDates && prefillDates[p.key]) || mainDate}" />
+    </div>
+  `).join('');
+}
+
+function togglePlatDatesList() {
+  const on = document.getElementById('n-platdates-toggle').checked;
+  const list = document.getElementById('n-platdates-list');
+  list.style.display = on ? 'flex' : 'none';
+  if (on) renderPlatDatesList();
+}
+
+function getPlatDatesValues() {
+  const toggle = document.getElementById('n-platdates-toggle');
+  if (!toggle || !toggle.checked) return null;
+  const out = {};
+  document.querySelectorAll('#n-platdates-list .platdate-row').forEach(row => {
+    const v = row.querySelector('input[type="date"]').value;
+    if (v) out[row.dataset.plat] = v;
+  });
+  return Object.keys(out).length ? out : null;
+}
+
+// Data efetiva de publicação de um post numa plataforma específica: usa o
+// override em plataformasDatas quando existir, senão cai na data principal.
+function platEffectiveDate(p, plat) {
+  return (p.plataformasDatas && p.plataformasDatas[plat]) || p.data;
+}
+
+// Plataformas de um post cuja data efetiva bate com dStr (usado pelo calendário
+// para exibir só os ícones/dia certos quando as datas divergem por plataforma).
+function postPlatformsForDate(p, dStr) {
+  return (p.plataformas || []).filter(plat => platEffectiveDate(p, plat) === dStr);
 }
 
 function syncAllPlatChecks() {
@@ -2398,20 +2476,29 @@ function platCls(p) {
 }
 
 function filteredDayPosts(dStr) {
-  return posts.filter(p => p.data === dStr && (!activePlatFilter || p.plataformas.includes(activePlatFilter)) && (!activeFormatoFilter || p.formato === activeFormatoFilter));
+  return posts.filter(p => {
+    const platsToday = postPlatformsForDate(p, dStr);
+    if (!platsToday.length) return false;
+    if (activePlatFilter && !platsToday.includes(activePlatFilter)) return false;
+    if (activeFormatoFilter && p.formato !== activeFormatoFilter) return false;
+    return true;
+  });
 }
 
-function renderPostCard(p) {
+function renderPostCard(p, dStr) {
   const partnerNames = partnersForPost(p.id);
   const partnerRow = partnerNames.length
     ? `<div class="week-post-partner-row">${partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('')}</div>`
     : '';
+  // quando as datas divergem por plataforma, mostra neste dia só os ícones das
+  // plataformas publicadas nesta data específica (não todas as do post)
+  const platsHere = dStr ? postPlatformsForDate(p, dStr) : (p.plataformas || []);
   return `
   <div class="week-post ${platCls(p)}" draggable="true" ondragstart="onPostDragStart(event,${p.id})" ondragend="onPostDragEnd(event)" onclick="openPost(${p.id})" title="Arraste para mover de dia">
     <div class="week-post-title" title="${escapeHtml(p.titulo)}">${p.titulo}</div>
     <div class="week-post-meta">
       <div class="week-post-icons">
-        ${(p.plataformas||[]).map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
+        ${platsHere.map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
       </div>
       <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
     </div>
@@ -2490,7 +2577,7 @@ function renderWeek() {
         <div class="week-day-num${isToday?' today':''}">${d.getDate()}</div>
       </div>
       <div class="week-day-body" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
-        ${dayPosts.length ? dayPosts.map(p => renderPostCard(p)).join('') : '<div class="empty-day">—</div>'}
+        ${dayPosts.length ? dayPosts.map(p => renderPostCard(p, dStr)).join('') : '<div class="empty-day">—</div>'}
       </div>
     </div>`;
   }
@@ -2530,7 +2617,7 @@ function renderMonth() {
     const extra = dayPosts.length - visible.length;
     cellsHtml += `<div class="month-day-cell${isOutside ? ' outside' : ''}" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
       <div class="month-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
-      ${visible.map(p => renderPostCard(p)).join('')}
+      ${visible.map(p => renderPostCard(p, dStr)).join('')}
       ${extra > 0 ? `<div class="month-post-more" onclick="goToWeekOf('${dStr}')">+${extra} mais</div>` : ''}
     </div>`;
     // stop once we've covered the month and completed the current week row
@@ -2582,6 +2669,7 @@ function renderList() {
   }
   tbody.innerHTML = filtered.map(p => {
     const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
+    const dateVaries = p.plataformasDatas && Object.keys(p.plataformasDatas).length ? ' <span title="Datas diferentes por plataforma">🗓️≠</span>' : '';
     const desc = p.desc.length > 58 ? p.desc.substring(0,58)+'…' : p.desc;
     const partnerNames = partnersForPost(p.id);
     const partnerChips = partnerNames.length
@@ -2592,7 +2680,7 @@ function renderList() {
       <td>${platPills(p.plataformas)}</td>
       <td style="font-size:12px;">${FORMAT_ICON[p.formato]||''} ${p.formato}</td>
       <td>${statusPill(p.status)}</td>
-      <td style="font-size:12px;color:var(--text-2);">${dateStr}</td>
+      <td style="font-size:12px;color:var(--text-2);">${dateStr}${dateVaries}</td>
       <td>${daysLeftHTML(p)}</td>
       <td onclick="event.stopPropagation()">
         <button class="dup-btn" onclick="duplicatePost(${p.id})" title="Duplicar post">⧉</button>
@@ -2683,7 +2771,17 @@ function openPost(id) {
   document.getElementById('m-type').textContent         = p.formato;
   document.getElementById('m-plat').innerHTML           = platPills(p.plataformas);
   const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}) : '—';
-  document.getElementById('m-date').textContent = dateStr;
+  if (p.plataformasDatas && Object.keys(p.plataformasDatas).length) {
+    const rows = (p.plataformas || []).map(plat => {
+      const d = platEffectiveDate(p, plat);
+      const dStr = d ? new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
+      const meta = PLAT_META.find(x => x.key === plat);
+      return `<div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12.5px;">${buildPlatHtml(plat, meta ? meta.labelShort : plat, 11)} <span style="color:var(--text-2);">${dStr}</span></div>`;
+    }).join('');
+    document.getElementById('m-date').innerHTML = rows;
+  } else {
+    document.getElementById('m-date').textContent = dateStr;
+  }
   document.getElementById('m-days').innerHTML   = daysLeftHTML(p);
   if (p.formato === 'Carousel' || p.formato === 'Foto' || p.formato === 'Pin') {
     document.getElementById('m-desc-body').style.display    = 'none';
@@ -3101,6 +3199,13 @@ function openNewModal(prefill = {}) {
     if (cb) cb.checked = prefill.plataformas ? prefill.plataformas.includes(p.key) : (i === 0);
   });
   syncAllPlatChecks();
+
+  const hasPlatDates = !!(prefill.plataformasDatas && Object.keys(prefill.plataformasDatas).length);
+  document.getElementById('n-platdates-toggle').checked = hasPlatDates;
+  document.getElementById('n-platdates-list').style.display = hasPlatDates ? 'flex' : 'none';
+  if (hasPlatDates) renderPlatDatesList(prefill.plataformasDatas);
+  else document.getElementById('n-platdates-list').innerHTML = '';
+
   document.getElementById('n-insp-list').innerHTML = '';
 
   // reset slides list before format change
@@ -3153,6 +3258,7 @@ function duplicatePost(id) {
     status: 'ideia',
     data: '',
     plataformas: [...(orig.plataformas || [])],
+    plataformasDatas: null,
     slides: orig.slides ? orig.slides.map(s => ({ ...s })) : [],
     inspiracoes: [...(orig.inspiracoes || [])],
   };
@@ -3183,6 +3289,7 @@ function saveNewPost() {
     link:    row.querySelector('.n-insp-input').value.trim(),
   })).filter(x => x.creator || x.link);
   const requiredTag = document.getElementById('n-reqtag').value || null;
+  const plataformasDatas = getPlatDatesValues();
   if (editingPostId) {
     const post = posts.find(p => p.id === editingPostId);
     if (post) {
@@ -3197,6 +3304,7 @@ function saveNewPost() {
       post.data            = document.getElementById('n-data').value;
       post.status          = status;
       post.plataformas     = plats;
+      post.plataformasDatas = plataformasDatas;
       post.formato         = fmtE;
       // O formulário sempre reflete o estado real do post (os campos são pré-preenchidos
       // com prefill.inspiracoes ao abrir o modal), então salvamos o que está nele — mesmo
@@ -3219,6 +3327,7 @@ function saveNewPost() {
       data:            document.getElementById('n-data').value,
       status,
       plataformas:     plats,
+      plataformasDatas,
       formato:         fmtN,
       inspiracoes:     formInsp,
       requiredTag,
@@ -4142,11 +4251,11 @@ function analyticsMonthYm(monthLabel) {
 }
 function monthHasTrackedPosts(plat, monthLabel) {
   const ym = analyticsMonthYm(monthLabel);
-  return posts.some(p => p.data && p.data.slice(0, 7) === ym && p.plataformas.includes(plat));
+  return posts.some(p => p.plataformas.includes(plat) && platEffectiveDate(p, plat) && platEffectiveDate(p, plat).slice(0, 7) === ym);
 }
 function postsPublishedCountForMonth(plat, monthLabel) {
   const ym = analyticsMonthYm(monthLabel);
-  return posts.filter(p => p.data && p.data.slice(0, 7) === ym && p.plataformas.includes(plat) && p.status === 'publicada').length;
+  return posts.filter(p => p.plataformas.includes(plat) && platEffectiveDate(p, plat) && platEffectiveDate(p, plat).slice(0, 7) === ym && p.status === 'publicada').length;
 }
 
 function getAnalyticsData() {
