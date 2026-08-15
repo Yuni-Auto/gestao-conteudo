@@ -1093,7 +1093,7 @@
           "cena": "Cortes de memes com expressão de desespero, nervoso, triste…"
         }
       ],
-      "data": "2026-08-14",
+      "data": "2026-08-15",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1106,7 +1106,8 @@
           "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
         }
       ],
-      "requiredTag": "slot12"
+      "requiredTag": "slot12",
+      "plataformasDatas": null
     },
     {
       "id": 52,
@@ -2384,5 +2385,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-15T01:04:20.543Z"
+  "_updatedAt": "2026-08-15T01:04:31.490Z"
 }
