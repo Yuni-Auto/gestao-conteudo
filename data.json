@@ -646,44 +646,6 @@
       "requiredTag": "slot14"
     },
     {
-      "id": 36,
-      "titulo": "[carousel] Dump do mês (Julho)",
-      "desc": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
-      "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
-      "slides": [
-        {
-          "titulo": "Eu",
-          "texto": ""
-        },
-        {
-          "titulo": "Lugar",
-          "texto": ""
-        },
-        {
-          "titulo": "Comida",
-          "texto": ""
-        },
-        {
-          "titulo": "Eu",
-          "texto": ""
-        },
-        {
-          "titulo": "Lugar",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-08-15",
-      "status": "design",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot1"
-    },
-    {
       "id": 37,
       "titulo": "[reels] Me liga depois que estou ocupada",
       "desc": "Ando meio ocupada 👩🏾‍💻✨\n\n#tech #trend #tecnologia #programação",
@@ -2385,5 +2347,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-15T01:04:31.490Z"
+  "_updatedAt": "2026-08-15T01:04:36.645Z"
 }
