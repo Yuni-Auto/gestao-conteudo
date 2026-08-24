@@ -1266,7 +1266,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-23",
+      "data": "2026-09-04",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1274,7 +1274,8 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3"
+      "requiredTag": "slot3",
+      "plataformasDatas": null
     },
     {
       "id": 62,
@@ -2349,5 +2350,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-24T01:55:17.981Z"
+  "_updatedAt": "2026-08-24T01:55:25.381Z"
 }
