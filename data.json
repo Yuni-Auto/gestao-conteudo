@@ -994,7 +994,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-23",
+      "data": "2026-09-09",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1008,7 +1008,8 @@
           "link": "https://www.instagram.com/p/DN6dMjJkXti/?igsh=MTNwcGptOHRuampmcw=="
         }
       ],
-      "requiredTag": "slot5"
+      "requiredTag": "slot5",
+      "plataformasDatas": null
     },
     {
       "id": 50,
@@ -2352,5 +2353,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-24T01:56:18.985Z"
+  "_updatedAt": "2026-08-24T01:56:32.953Z"
 }
