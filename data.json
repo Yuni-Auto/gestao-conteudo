@@ -1086,7 +1086,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-08-23",
+      "data": "2026-09-06",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1099,7 +1099,8 @@
           "link": "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
         }
       ],
-      "requiredTag": "slot4"
+      "requiredTag": "slot4",
+      "plataformasDatas": null
     },
     {
       "id": 53,
@@ -2353,5 +2354,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-24T01:56:44.104Z"
+  "_updatedAt": "2026-08-24T01:56:52.987Z"
 }
