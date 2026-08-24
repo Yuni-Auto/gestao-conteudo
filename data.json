@@ -1311,7 +1311,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-23",
+      "data": "2026-09-02",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1319,7 +1319,8 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot6"
+      "requiredTag": "slot6",
+      "plataformasDatas": null
     },
     {
       "id": 64,
@@ -2348,5 +2349,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-24T01:54:52.750Z"
+  "_updatedAt": "2026-08-24T01:55:17.981Z"
 }
