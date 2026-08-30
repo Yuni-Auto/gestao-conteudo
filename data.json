@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-24",
+      "data": "2026-08-30",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -557,7 +557,7 @@
           "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
         }
       ],
-      "data": "2026-08-25",
+      "data": "2026-08-30",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -630,7 +630,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-25",
+      "data": "2026-08-30",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1024,7 +1024,7 @@
           "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-08-29",
+      "data": "2026-08-30",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1247,7 +1247,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-08-24",
+      "data": "2026-08-30",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1293,7 +1293,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-08-27",
+      "data": "2026-08-30",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2354,5 +2354,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-08-24T18:56:27.239Z"
+  "_updatedAt": "2026-08-30T21:41:00.529Z"
 }
