@@ -939,7 +939,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-22",
+      "data": "2026-09-21",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1190,7 +1190,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-20",
+      "data": "2026-09-19",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2354,5 +2354,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-06T20:46:19.752Z"
+  "_updatedAt": "2026-09-06T20:46:24.794Z"
 }
