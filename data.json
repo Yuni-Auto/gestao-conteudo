@@ -994,7 +994,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-14",
+      "data": "2026-09-13",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1024,7 +1024,7 @@
           "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-09-16",
+      "data": "2026-09-15",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1086,7 +1086,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-09-18",
+      "data": "2026-09-17",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2354,5 +2354,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-06T20:46:15.140Z"
+  "_updatedAt": "2026-09-06T20:46:19.752Z"
 }
