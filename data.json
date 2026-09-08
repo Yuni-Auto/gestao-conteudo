@@ -1393,6 +1393,32 @@
         "ig": "2026-08-13",
         "tt": "2026-08-15"
       }
+    },
+    {
+      "id": 66,
+      "titulo": "[carrossel] Qual é o seu Instagram ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-08",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-09-09",
+        "tt": "2026-09-07"
+      },
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot4"
     }
   ],
   "partners": [
@@ -2356,5 +2382,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-08T21:11:26.494Z"
+  "_updatedAt": "2026-09-08T21:12:31.429Z"
 }
