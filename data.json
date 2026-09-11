@@ -1273,7 +1273,7 @@
       "requiredTag": "slot9",
       "plataformasDatas": {
         "ig": "2026-09-07",
-        "tt": "2026-09-07",
+        "tt": "2026-09-09",
         "yt": "2026-09-13"
       },
       "plataformasStatus": {
@@ -2949,5 +2949,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T21:09:55.068Z"
+  "_updatedAt": "2026-09-11T21:10:05.134Z"
 }
