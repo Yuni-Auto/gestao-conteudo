@@ -1778,7 +1778,8 @@
       "id": 11,
       "rede": "ig",
       "instagram": "giselletechh",
-      "nome": "Giselle Costa"
+      "nome": "Giselle Costa",
+      "tipo": "dicas"
     }
   ],
   "requiredPostsByMonth": {
@@ -2833,5 +2834,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:12:56.333Z"
+  "_updatedAt": "2026-09-11T05:13:57.205Z"
 }
