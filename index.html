@@ -232,7 +232,7 @@
   .week-post-plat-icon.tw { background: #e8f4ff; color: #0f141a; }
   .week-post-fmt { font-size: 10px; color: var(--text-3); font-weight: 500; }
   .week-post-partner-row { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
-  .week-post-status-row { margin-top: 4px; }
+  .week-post-status-row { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 3px; }
   .week-post-status-row .status-pill { padding: 1px 7px; font-size: 10px; gap: 4px; }
   .week-post-status-row .status-pill .status-dot { width: 5px; height: 5px; }
   .month-day-cell .week-post-status-row .status-pill { padding: 1px 6px; font-size: 9px; }
@@ -624,9 +624,10 @@
   }
   .platdates-toggle-label input { width: 14px; height: 14px; cursor: pointer; }
   .platdates-list { display: flex; flex-direction: column; gap: 6px; margin-top: 9px; }
-  .platdate-row { display: flex; align-items: center; gap: 9px; }
+  .platdate-row { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
   .platdate-row .platdate-label { flex: 0 0 92px; font-size: 12.5px; color: var(--text-2); display: flex; align-items: center; gap: 5px; }
-  .platdate-row input[type="date"] { flex: 1; padding: 6px 9px; }
+  .platdate-row input[type="date"] { flex: 1 1 130px; min-width: 120px; padding: 6px 9px; }
+  .platdate-row select.platstatus-select { flex: 1 1 130px; min-width: 120px; padding: 6px 9px; font-size: 12.5px; }
 
   /* Inspirações (status: pesquisar) */
   .insp-row { display: flex; gap: 6px; margin-bottom: 6px; }
@@ -2105,25 +2106,39 @@ function syncPlatCheck(key) {
 /* ─── Datas diferentes por plataforma ───────────────────────────────────
    Permite marcar que o mesmo conteúdo foi publicado em dias distintos em
    cada rede, sem precisar duplicar o post. */
-function renderPlatDatesList(prefillDates) {
+function renderPlatDatesList(prefillDates, prefillStatuses) {
   const list = document.getElementById('n-platdates-list');
   if (!list) return;
   const selectedPlats = PLAT_META.filter(p => {
     const cb = document.getElementById('n-' + p.key);
     return cb && cb.checked;
   });
-  const mainDate = document.getElementById('n-data').value || todayStr();
+  const mainDate   = document.getElementById('n-data').value || todayStr();
+  const mainStatus = document.getElementById('n-status').value || 'ideia';
+  const fmt        = document.getElementById('n-formato').value;
   // preserva valores já digitados antes de recriar as linhas (ex: ao (des)marcar uma plataforma)
-  const existing = {};
+  const existingDates = {};
+  const existingStatus = {};
   list.querySelectorAll('.platdate-row').forEach(row => {
-    existing[row.dataset.plat] = row.querySelector('input[type="date"]').value;
+    existingDates[row.dataset.plat] = row.querySelector('input[type="date"]').value;
+    const sel = row.querySelector('.platstatus-select');
+    if (sel) existingStatus[row.dataset.plat] = sel.value;
   });
-  list.innerHTML = selectedPlats.map(p => `
+  list.innerHTML = selectedPlats.map(p => {
+    const dateVal   = existingDates[p.key]  || (prefillDates   && prefillDates[p.key])   || mainDate;
+    const statusVal = existingStatus[p.key] || (prefillStatuses && prefillStatuses[p.key]) || mainStatus;
+    return `
     <div class="platdate-row" data-plat="${p.key}">
       <span class="platdate-label">${buildPlatHtml(p.key, p.labelShort)}</span>
-      <input class="form-input n-platdate-input" type="date" value="${existing[p.key] || (prefillDates && prefillDates[p.key]) || mainDate}" />
+      <input class="form-input n-platdate-input" type="date" value="${dateVal}" />
+      <select class="form-input platstatus-select">${statusOptionsHtml(fmt, statusVal)}</select>
     </div>
-  `).join('');
+  `;
+  }).join('');
+}
+
+function statusOptionsHtml(fmt, selected) {
+  return statusesForFormato(fmt).map(s => `<option value="${s.key}"${s.key===selected?' selected':''}>${s.label}</option>`).join('');
 }
 
 function togglePlatDatesList() {
@@ -2144,10 +2159,27 @@ function getPlatDatesValues() {
   return Object.keys(out).length ? out : null;
 }
 
+function getPlatStatusValues() {
+  const toggle = document.getElementById('n-platdates-toggle');
+  if (!toggle || !toggle.checked) return null;
+  const out = {};
+  document.querySelectorAll('#n-platdates-list .platdate-row').forEach(row => {
+    const sel = row.querySelector('.platstatus-select');
+    if (sel && sel.value) out[row.dataset.plat] = sel.value;
+  });
+  return Object.keys(out).length ? out : null;
+}
+
 // Data efetiva de publicação de um post numa plataforma específica: usa o
 // override em plataformasDatas quando existir, senão cai na data principal.
 function platEffectiveDate(p, plat) {
   return (p.plataformasDatas && p.plataformasDatas[plat]) || p.data;
+}
+
+// Status efetivo de um post numa plataforma específica: usa o override em
+// plataformasStatus quando existir, senão cai no status principal do post.
+function platEffectiveStatus(p, plat) {
+  return (p.plataformasStatus && p.plataformasStatus[plat]) || p.status;
 }
 
 // Plataformas de um post cuja data efetiva bate com dStr (usado pelo calendário
@@ -2657,10 +2689,10 @@ function gcalUpdateStatusPill(){
     label.textContent = 'Reconectando…';
   } else if(broken.length>0){
     dot.className = 'sync-dot sync-warn';
-    label.textContent = active.length+'/'+gcalAccounts.length+' contas';
+    label.textContent = active.length+'/'+gcalAccounts.length+' agendas sincronizadas';
   } else {
     dot.className = 'sync-dot sync-ok';
-    label.textContent = gcalAccounts.length+' conta'+(gcalAccounts.length>1?'s':'');
+    label.textContent = gcalAccounts.length+' agenda'+(gcalAccounts.length>1?'s':'')+' sincronizada'+(gcalAccounts.length>1?'s':'');
   }
 }
 
@@ -3008,6 +3040,26 @@ function renderPostCard(p, dStr) {
   // quando as datas divergem por plataforma, mostra neste dia só os ícones das
   // plataformas publicadas nesta data específica (não todas as do post)
   const platsHere = dStr ? postPlatformsForDate(p, dStr) : (p.plataformas || []);
+
+  // quando o status também diverge por plataforma, mostra o status certo pra
+  // cada plataforma exibida neste dia (ex: TikTok já publicado, Insta ainda programado)
+  let statusRowHtml;
+  if (p.plataformasStatus && platsHere.length) {
+    const uniqueStatuses = [...new Set(platsHere.map(plat => platEffectiveStatus(p, plat)))];
+    if (uniqueStatuses.length <= 1) {
+      statusRowHtml = statusPill(uniqueStatuses[0] || p.status);
+    } else {
+      statusRowHtml = platsHere.map(plat => {
+        const meta = PLAT_META.find(x => x.key === plat);
+        const label = meta ? meta.labelShort : plat;
+        const sMeta = getStatusMeta(platEffectiveStatus(p, plat));
+        return `<span class="status-pill ${sMeta.cls}" title="${label}: ${sMeta.label}"><span class="status-dot" style="background:${sMeta.dot}"></span>${label}</span>`;
+      }).join('');
+    }
+  } else {
+    statusRowHtml = statusPill(p.status);
+  }
+
   return `
   <div class="week-post ${platCls(p)}" draggable="true" ondragstart="onPostDragStart(event,${p.id})" ondragend="onPostDragEnd(event)" onclick="openPost(${p.id})" title="Arraste para mover de dia">
     <div class="week-post-title" title="${escapeHtml(p.titulo)}">${p.titulo}</div>
@@ -3017,7 +3069,7 @@ function renderPostCard(p, dStr) {
       </div>
       <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
     </div>
-    <div class="week-post-status-row">${statusPill(p.status)}</div>
+    <div class="week-post-status-row">${statusRowHtml}</div>
     ${partnerRow}
   </div>`;
 }
@@ -3193,6 +3245,9 @@ function renderList() {
   tbody.innerHTML = filtered.map(p => {
     const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
     const dateVaries = p.plataformasDatas && Object.keys(p.plataformasDatas).length ? ' <span title="Datas diferentes por plataforma">🗓️≠</span>' : '';
+    const statusVaries = p.plataformasStatus && Object.keys(p.plataformasStatus).length
+      ? ` <span title="${(p.plataformas||[]).map(pl => `${PLATFORM_LABELS[pl]||pl}: ${getStatusMeta(platEffectiveStatus(p,pl)).label}`).join(' · ')}">🚦≠</span>`
+      : '';
     const desc = p.desc.length > 58 ? p.desc.substring(0,58)+'…' : p.desc;
     const partnerNames = partnersForPost(p.id);
     const partnerChips = partnerNames.length
@@ -3202,7 +3257,7 @@ function renderList() {
       <td><div class="post-title-cell">${p.titulo}</div><div class="post-sub">${desc}</div>${partnerChips}</td>
       <td>${platPills(p.plataformas)}</td>
       <td style="font-size:12px;">${FORMAT_ICON[p.formato]||''} ${p.formato}</td>
-      <td>${statusPill(p.status)}</td>
+      <td>${statusPill(p.status)}${statusVaries}</td>
       <td style="font-size:12px;color:var(--text-2);">${dateStr}${dateVaries}</td>
       <td>${daysLeftHTML(p)}</td>
       <td onclick="event.stopPropagation()">
@@ -3299,7 +3354,8 @@ function openPost(id) {
       const d = platEffectiveDate(p, plat);
       const dStr = d ? new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
       const meta = PLAT_META.find(x => x.key === plat);
-      return `<div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12.5px;">${buildPlatHtml(plat, meta ? meta.labelShort : plat, 11)} <span style="color:var(--text-2);">${dStr}</span></div>`;
+      const stMeta = getStatusMeta(platEffectiveStatus(p, plat));
+      return `<div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12.5px;">${buildPlatHtml(plat, meta ? meta.labelShort : plat, 11)} <span style="color:var(--text-2);">${dStr}</span> <span class="status-pill ${stMeta.cls}" style="padding:1px 7px;font-size:10.5px;"><span class="status-dot" style="background:${stMeta.dot}"></span>${stMeta.label}</span></div>`;
     }).join('');
     document.getElementById('m-date').innerHTML = rows;
   } else {
@@ -3644,6 +3700,8 @@ function onFormatoChange() {
     }
   }
   updateNewStatus();
+  const platToggle = document.getElementById('n-platdates-toggle');
+  if (platToggle && platToggle.checked) renderPlatDatesList();
 }
 /* ─────────────────────────────────────────────────────────────────────── */
 
@@ -3717,6 +3775,8 @@ function openNewModal(prefill = {}) {
 
   document.getElementById('n-data').value    = prefill.data || todayStr();
   document.getElementById('n-formato').value = prefill.formato || 'Reels';
+  document.getElementById('n-status').value  = prefill.status || 'ideia';
+  updateNewStatus(prefill.status || 'ideia');
   PLAT_META.forEach((p, i) => {
     const cb = document.getElementById('n-' + p.key);
     if (cb) cb.checked = prefill.plataformas ? prefill.plataformas.includes(p.key) : (i === 0);
@@ -3726,7 +3786,7 @@ function openNewModal(prefill = {}) {
   const hasPlatDates = !!(prefill.plataformasDatas && Object.keys(prefill.plataformasDatas).length);
   document.getElementById('n-platdates-toggle').checked = hasPlatDates;
   document.getElementById('n-platdates-list').style.display = hasPlatDates ? 'flex' : 'none';
-  if (hasPlatDates) renderPlatDatesList(prefill.plataformasDatas);
+  if (hasPlatDates) renderPlatDatesList(prefill.plataformasDatas, prefill.plataformasStatus);
   else document.getElementById('n-platdates-list').innerHTML = '';
 
   document.getElementById('n-insp-list').innerHTML = '';
@@ -3741,8 +3801,6 @@ function openNewModal(prefill = {}) {
     else addInspField(v.creator || '', v.link || '');
   });
 
-  document.getElementById('n-status').value = prefill.status || 'ideia';
-  updateNewStatus(prefill.status || 'ideia');
   onFormatoChange();
 
   // prefill slides when editing
@@ -3782,6 +3840,7 @@ function duplicatePost(id) {
     data: '',
     plataformas: [...(orig.plataformas || [])],
     plataformasDatas: null,
+    plataformasStatus: null,
     slides: orig.slides ? orig.slides.map(s => ({ ...s })) : [],
     inspiracoes: [...(orig.inspiracoes || [])],
   };
@@ -3813,6 +3872,7 @@ function saveNewPost() {
   })).filter(x => x.creator || x.link);
   const requiredTag = document.getElementById('n-reqtag').value || null;
   const plataformasDatas = getPlatDatesValues();
+  const plataformasStatus = getPlatStatusValues();
   if (editingPostId) {
     const post = posts.find(p => p.id === editingPostId);
     if (post) {
@@ -3828,6 +3888,7 @@ function saveNewPost() {
       post.status          = status;
       post.plataformas     = plats;
       post.plataformasDatas = plataformasDatas;
+      post.plataformasStatus = plataformasStatus;
       post.formato         = fmtE;
       // O formulário sempre reflete o estado real do post (os campos são pré-preenchidos
       // com prefill.inspiracoes ao abrir o modal), então salvamos o que está nele — mesmo
@@ -3851,6 +3912,7 @@ function saveNewPost() {
       status,
       plataformas:     plats,
       plataformasDatas,
+      plataformasStatus,
       formato:         fmtN,
       inspiracoes:     formInsp,
       requiredTag,
