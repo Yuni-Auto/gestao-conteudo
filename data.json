@@ -1838,7 +1838,10 @@
       "cache": 0,
       "contato": "",
       "link": "",
-      "notas": ""
+      "notas": "",
+      "duracao": 35,
+      "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
+      "linkSlides": "https://canva.link/w88t5ycommevznj"
     }
   ],
   "guidelines": [
@@ -3144,5 +3147,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:45:54.462Z"
+  "_updatedAt": "2026-09-11T22:59:23.022Z"
 }
