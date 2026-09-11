@@ -1307,7 +1307,7 @@
       "requiredTag": null,
       "plataformasDatas": {
         "ig": "2026-09-07",
-        "tt": "2026-09-09",
+        "tt": "2026-09-11",
         "yt": "2026-08-13"
       },
       "plataformasStatus": {
@@ -2956,5 +2956,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T21:25:55.965Z"
+  "_updatedAt": "2026-09-11T21:29:33.735Z"
 }
