@@ -553,7 +553,7 @@
       ],
       "scenes": [],
       "data": "2026-09-27",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -619,20 +619,21 @@
       "titulo": "[reels] Achadinhos para meu novo setup no meu apto novo",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "Vocês já sabem que comprei meu apto, o que vocês não sabem que agora estou tento que montar meu setup do zero e estes são os itens que eu tenho..."
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
         }
       ],
-      "scenes": [],
       "data": "2026-09-15",
-      "status": "afazer",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -640,7 +641,8 @@
         }
       ],
       "requiredTag": "slot14",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null
     },
     {
       "id": 37,
@@ -1324,7 +1326,7 @@
         }
       ],
       "data": "2026-09-25",
-      "status": "ideia",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1347,7 +1349,7 @@
       ],
       "scenes": [],
       "data": "2026-09-17",
-      "status": "pesquisar",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -1381,7 +1383,7 @@
       ],
       "scenes": [],
       "data": "2026-09-30",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -1398,17 +1400,25 @@
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Angular JS",
           "texto": "Como o angular foi pensado inicialmente migrar um sistema de 17 mil linhas em 2 semanas. "
         },
         {
-          "titulo": "",
+          "titulo": "Angular JS",
           "texto": "Já existiu diretivas, como: ng-show, ng-required"
+        },
+        {
+          "titulo": "Angular 21",
+          "texto": "Agora em versões mais novas do angular é usado standalone do que modules"
+        },
+        {
+          "titulo": "Angular 21",
+          "texto": "Uso do track no @for do Angular"
         }
       ],
       "scenes": [],
       "data": "2026-09-13",
-      "status": "afazer",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -1422,18 +1432,26 @@
     },
     {
       "id": 71,
-      "titulo": "3 projetos para iniciantes usando Angular + IA",
+      "titulo": "[carrossel] 3 tasks para praticar Angular + IA (copilot)",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Criação de uma interface",
+          "texto": ""
+        },
+        {
+          "titulo": "Criação da lógica",
+          "texto": ""
+        },
+        {
+          "titulo": "Criação de testes unitários",
           "texto": ""
         }
       ],
       "scenes": [],
       "data": "2026-09-19",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -1447,26 +1465,39 @@
     },
     {
       "id": 72,
-      "titulo": "Um dia comigo no home office",
+      "titulo": "[carrossel] Um dia comigo no home office",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-09-28",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "plataformasDatas": null,
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot6"
+      "requiredTag": "slot6",
+      "plataformasStatus": null
     }
   ],
   "partners": [
@@ -2802,5 +2833,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:22:08.263Z"
+  "_updatedAt": "2026-09-11T04:38:43.783Z"
 }
