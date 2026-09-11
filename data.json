@@ -619,20 +619,21 @@
       "titulo": "[reels] Achadinhos para meu novo setup no meu apto novo",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "Vocês já sabem que comprei meu apto, o que vocês não sabem que agora estou tento que montar meu setup do zero e estes são os itens que eu tenho..."
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
         }
       ],
-      "scenes": [],
       "data": "2026-09-15",
       "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -640,7 +641,8 @@
         }
       ],
       "requiredTag": "slot14",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null
     },
     {
       "id": 37,
@@ -2806,5 +2808,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:29:34.654Z"
+  "_updatedAt": "2026-09-11T04:30:03.818Z"
 }
