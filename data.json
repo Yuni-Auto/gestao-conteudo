@@ -1388,11 +1388,11 @@
       "slides": [
         {
           "titulo": "",
-          "texto": "Como o angular foi pensado inicialmente"
+          "texto": "Como o angular foi pensado inicialmente migrar um sistema de 17 mil linhas em 2 semanas. "
         },
         {
           "titulo": "",
-          "texto": "Alguns diretivas não são mais usadas, como ng-show, ng-required"
+          "texto": "Já existiu diretivas, como: ng-show, ng-required, "
         }
       ],
       "scenes": [],
@@ -2775,5 +2775,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:05:21.196Z"
+  "_updatedAt": "2026-09-11T04:09:51.009Z"
 }
