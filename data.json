@@ -1724,7 +1724,8 @@
       "id": 2,
       "rede": "ig",
       "instagram": "1nickyy",
-      "nome": "Nicky"
+      "nome": "Nicky",
+      "tipo": "trends"
     },
     {
       "id": 3,
@@ -2838,5 +2839,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:32.721Z"
+  "_updatedAt": "2026-09-11T05:14:38.005Z"
 }
