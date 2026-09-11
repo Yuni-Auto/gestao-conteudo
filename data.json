@@ -1660,6 +1660,14 @@
         "eng": 3813,
         "conteudo": 3,
         "clicks": 25
+      },
+      "Set 26": {
+        "seguidores": 8641,
+        "views": 35581,
+        "alcance": 15925,
+        "eng": 2916,
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "tt": {
@@ -2904,5 +2912,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:23:30.690Z"
+  "_updatedAt": "2026-09-11T15:24:40.239Z"
 }
