@@ -1766,7 +1766,8 @@
       "id": 9,
       "rede": "ig",
       "instagram": "imtechgirl",
-      "nome": "Eneri D Angelis"
+      "nome": "Eneri D Angelis",
+      "tipo": "tecnico"
     },
     {
       "id": 10,
@@ -2834,5 +2835,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:13:57.205Z"
+  "_updatedAt": "2026-09-11T05:14:01.405Z"
 }
