@@ -1760,7 +1760,8 @@
       "id": 8,
       "rede": "ig",
       "instagram": "estavelementestudy",
-      "nome": "Livia Marins"
+      "nome": "Livia Marins",
+      "tipo": "motivacional"
     },
     {
       "id": 9,
@@ -2836,5 +2837,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:06.138Z"
+  "_updatedAt": "2026-09-11T05:14:24.205Z"
 }
