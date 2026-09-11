@@ -1430,7 +1430,7 @@
         <div class="meta-label">📡 Plataforma</div>
         <div class="meta-value" id="m-plat">—</div>
       </div>
-      <div class="meta-row">
+      <div class="meta-row full">
         <div class="meta-label">✦ Status</div>
         <div class="meta-value">
           <div class="status-dropdown-wrap" id="status-wrap">
@@ -1438,14 +1438,6 @@
             <div class="status-dropdown" id="status-dropdown"></div>
           </div>
         </div>
-      </div>
-      <div class="meta-row">
-        <div class="meta-label">📅 Publicação</div>
-        <div class="meta-value" id="m-date">—</div>
-      </div>
-      <div class="meta-row full">
-        <div class="meta-label">⏳ Days Left</div>
-        <div class="meta-value" id="m-days">—</div>
       </div>
       <div class="meta-row full" id="m-insp-row" style="display:none;">
         <div class="meta-label">🔎 Inspirações</div>
@@ -1458,6 +1450,10 @@
       <div class="meta-row full" id="m-prodschedule-row" style="display:none;">
         <div class="meta-label">🗓️ Cronograma</div>
         <div class="meta-value" id="m-prodschedule"></div>
+      </div>
+      <div class="meta-row full">
+        <div class="meta-label">📅 Publicação</div>
+        <div class="meta-value" id="m-date">—</div>
       </div>
       <div class="meta-row full" id="m-partners-row" style="display:none;">
         <div class="meta-label">🤝 Parcerias vinculadas</div>
@@ -2857,15 +2853,58 @@ function daysLeft(data) {
   return Math.round((new Date(data+'T12:00:00') - now) / 86400000);
 }
 
-function daysLeftHTML(p) {
-  if (['publicada','programada'].includes(p.status) && daysLeft(p.data) <= 0)
+function daysLeftHTMLFor(dataStr, status) {
+  if (['publicada','programada'].includes(status) && daysLeft(dataStr) <= 0)
     return '<span class="days-left ok">Publicado ✓</span>';
-  const dl = daysLeft(p.data);
+  const dl = daysLeft(dataStr);
   if (dl === null) return '—';
   if (dl < 0)  return `<span class="days-left soon">${Math.abs(dl)}d atrás</span>`;
   if (dl === 0) return '<span class="days-left soon">Hoje!</span>';
   if (dl <= 3)  return `<span class="days-left soon">${dl}d</span>`;
   return `<span class="days-left ok">${dl}d</span>`;
+}
+function daysLeftHTML(p) { return daysLeftHTMLFor(p.data, p.status); }
+
+/* Versão com mensagens mais amigáveis, usada no modal de detalhes do post. */
+function daysLeftFriendlyFor(dataStr, status) {
+  if (['publicada','programada'].includes(status) && daysLeft(dataStr) <= 0)
+    return '<span class="days-left ok">Publicado ✓</span>';
+  const dl = daysLeft(dataStr);
+  if (dl === null) return '—';
+  if (dl < 0) {
+    const n = Math.abs(dl);
+    return `<span class="days-left soon">Publicação atrasada ${n} dia${n===1?'':'s'}</span>`;
+  }
+  if (dl === 0) return '<span class="days-left soon">Hoje</span>';
+  if (dl === 1) return '<span class="days-left soon">Falta 1 dia</span>';
+  if (dl <= 3)  return `<span class="days-left soon">Faltam ${dl} dias</span>`;
+  return `<span class="days-left ok">Faltam ${dl} dias</span>`;
+}
+function daysLeftFriendly(p) { return daysLeftFriendlyFor(p.data, p.status); }
+
+function updateModalDateField(p) {
+  const el = document.getElementById('m-date');
+  if (p.plataformasDatas && Object.keys(p.plataformasDatas).length) {
+    const rows = (p.plataformas || []).map(plat => {
+      const d = platEffectiveDate(p, plat);
+      const dStr = d ? new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
+      const meta = PLAT_META.find(x => x.key === plat);
+      const stKey = platEffectiveStatus(p, plat);
+      const stMeta = getStatusMeta(stKey);
+      const daysBit = d ? daysLeftFriendlyFor(d, stKey) : '—';
+      return `<div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12.5px;">${buildPlatHtml(plat, meta ? meta.labelShort : plat, 11)} <span style="color:var(--text-2);">${dStr} (${daysBit})</span> <span class="status-pill ${stMeta.cls}" style="padding:1px 7px;font-size:10.5px;"><span class="status-dot" style="background:${stMeta.dot}"></span>${stMeta.label}</span></div>`;
+    }).join('');
+    el.innerHTML = rows;
+    el.removeAttribute('title');
+  } else if (p.data) {
+    const dateShort = new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+    const dateFull  = new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+    el.innerHTML = `${dateShort} (${daysLeftFriendly(p)})`;
+    el.title = dateFull;
+  } else {
+    el.innerHTML = '—';
+    el.removeAttribute('title');
+  }
 }
 
 function statusPill(status) {
@@ -3609,6 +3648,8 @@ function onDayDrop(ev, dateStr) {
   savePosts();
   if (calView === 'semana') renderWeek(); else renderMonth();
   renderStats();
+  const agendaEl = document.getElementById('view-agenda');
+  if (agendaEl && agendaEl.style.display !== 'none') renderAgenda();
 }
 
 function setCalView(view) {
@@ -3831,7 +3872,7 @@ function selectStatus(key) {
   savePosts();
   document.getElementById('status-dropdown').classList.remove('open');
   refreshTriggerBtn(p);
-  document.getElementById('m-days').innerHTML = daysLeftHTML(p);
+  updateModalDateField(p);
   renderAll();
 }
 
@@ -3852,20 +3893,7 @@ function openPost(id) {
   document.getElementById('m-title').textContent        = p.titulo;
   document.getElementById('m-type').textContent         = p.formato;
   document.getElementById('m-plat').innerHTML           = platPills(p.plataformas);
-  const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}) : '—';
-  if (p.plataformasDatas && Object.keys(p.plataformasDatas).length) {
-    const rows = (p.plataformas || []).map(plat => {
-      const d = platEffectiveDate(p, plat);
-      const dStr = d ? new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
-      const meta = PLAT_META.find(x => x.key === plat);
-      const stMeta = getStatusMeta(platEffectiveStatus(p, plat));
-      return `<div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12.5px;">${buildPlatHtml(plat, meta ? meta.labelShort : plat, 11)} <span style="color:var(--text-2);">${dStr}</span> <span class="status-pill ${stMeta.cls}" style="padding:1px 7px;font-size:10.5px;"><span class="status-dot" style="background:${stMeta.dot}"></span>${stMeta.label}</span></div>`;
-    }).join('');
-    document.getElementById('m-date').innerHTML = rows;
-  } else {
-    document.getElementById('m-date').textContent = dateStr;
-  }
-  document.getElementById('m-days').innerHTML   = daysLeftHTML(p);
+  updateModalDateField(p);
   renderProductionScheduleBlock(p);
   if (p.formato === 'Carousel' || p.formato === 'Foto' || p.formato === 'Pin') {
     document.getElementById('m-desc-body').style.display    = 'none';
@@ -5886,6 +5914,8 @@ function onStageDrop(ev, statusKey) {
   savePosts();
   renderAgenda();
   renderStats();
+  renderCalendar();
+  renderList();
 }
 
 function renderAgenda() {
@@ -6361,7 +6391,11 @@ document.addEventListener('click', e => {
   if (wrap && !wrap.contains(e.target)) document.getElementById('status-dropdown').classList.remove('open');
 });
 
-function renderAll() { renderStats(); renderCalendar(); renderList(); renderStrategyChecklist(); }
+function renderAll() {
+  renderStats(); renderCalendar(); renderList(); renderStrategyChecklist();
+  const agendaEl = document.getElementById('view-agenda');
+  if (agendaEl && agendaEl.style.display !== 'none') renderAgenda();
+}
 renderAll();
 
 if (localStorage.getItem('content-manager-table-collapsed') === '1') {
