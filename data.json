@@ -1759,7 +1759,8 @@
       "id": 7,
       "rede": "ig",
       "instagram": "mariffernandesdaily",
-      "nome": "Marianna Fernandes"
+      "nome": "Marianna Fernandes",
+      "tipo": "motivacional"
     },
     {
       "id": 8,
@@ -2842,5 +2843,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:15:05.222Z"
+  "_updatedAt": "2026-09-11T05:15:19.988Z"
 }
