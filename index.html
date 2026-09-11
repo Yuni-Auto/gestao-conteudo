@@ -446,6 +446,14 @@
   .insp-card-post-link:hover { background: #f0effe; }
   .insp-card-post-link svg { width: 12px; height: 12px; display: block; }
   .insp-empty { text-align: center; color: var(--text-3); font-style: italic; padding: 40px 20px; grid-column: 1 / -1; }
+  .insp-category-section { margin-bottom: 4px; }
+  .insp-category-header { display: flex; align-items: center; gap: 9px; padding: 18px 26px 10px; }
+  .insp-category-title { font-size: 13.5px; font-weight: 700; color: var(--text); }
+  .insp-category-count { font-size: 11px; color: var(--text-3); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px; }
+  .insp-category-add { margin-left: auto; font-size: 11.5px; font-weight: 600; color: #5b50c8; background: none; border: none; cursor: pointer; padding: 2px 4px; }
+  .insp-category-add:hover { text-decoration: underline; }
+  .insp-category-section .insp-grid { padding: 0 26px 8px; }
+  .insp-empty-cat { grid-column: 1 / -1; font-size: 12px; color: var(--text-3); font-style: italic; padding: 2px 2px 4px; }
   .partner-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .partner-link:hover { text-decoration: underline; }
 
@@ -1243,7 +1251,7 @@
       <div class="topbar-title">Inspirações</div>
       <button class="btn btn-primary" onclick="openInspModal()">+ Nova inspiração</button>
     </div>
-    <div class="insp-grid" id="insp-grid"></div>
+    <div id="insp-groups"></div>
   </div>
 
   <!-- ── Parceiros View ──────────────────────────────────────────────── -->
@@ -1603,6 +1611,16 @@
       <div class="form-group" style="margin-top:14px; margin-bottom:0;">
         <label class="form-label">Nome do creator</label>
         <input class="form-input" id="insp-nome" placeholder="Ex: Maria Silva" />
+      </div>
+      <div class="form-group" style="margin-top:14px; margin-bottom:0;">
+        <label class="form-label">Tipo de conteúdo</label>
+        <select class="form-input" id="insp-tipo">
+          <option value="">Sem categoria</option>
+          <option value="trends">🔥 Trends</option>
+          <option value="tecnico">🛠️ Técnico</option>
+          <option value="motivacional">💫 Motivacional</option>
+          <option value="dicas">💡 Dicas</option>
+        </select>
       </div>
     </div>
     <div class="new-modal-footer">
@@ -5044,18 +5062,17 @@ function postsForCreator(nome) {
   return result;
 }
 
-function renderInspiracoes() {
-  const grid = document.getElementById('insp-grid');
-  if (!grid) return;
-  if (!inspirations.length) {
-    grid.innerHTML = `<div class="insp-empty">Nenhuma inspiração salva ainda. Clique em "+ Nova inspiração" pra guardar a primeira.</div>`;
-    return;
-  }
-  const sorted = [...inspirations].sort((a,b) => Number(b.id) - Number(a.id));
-  grid.innerHTML = sorted.map(i => {
-    const rede = i.rede || 'ig';
-    const linkedPosts = postsForCreator(i.nome);
-    return `
+const INSP_TIPOS = [
+  { key: 'trends',       label: 'Trends',       icon: '🔥' },
+  { key: 'tecnico',      label: 'Técnico',      icon: '🛠️' },
+  { key: 'motivacional', label: 'Motivacional', icon: '💫' },
+  { key: 'dicas',        label: 'Dicas',        icon: '💡' },
+];
+
+function renderInspCard(i) {
+  const rede = i.rede || 'ig';
+  const linkedPosts = postsForCreator(i.nome);
+  return `
     <div class="insp-card" onclick="openInspModal(${i.id})">
       <div class="insp-card-header">
         <span class="insp-card-creator">${escapeHtml(i.nome || 'Sem nome')}</span>
@@ -5071,16 +5088,49 @@ function renderInspiracoes() {
       `).join('')}</div>` : ''}
     </div>
   `;
+}
+
+function renderInspiracoes() {
+  const container = document.getElementById('insp-groups');
+  if (!container) return;
+  if (!inspirations.length) {
+    container.innerHTML = `<div class="insp-empty">Nenhuma inspiração salva ainda. Clique em "+ Nova inspiração" pra guardar a primeira.</div>`;
+    return;
+  }
+  const byTipo = {};
+  INSP_TIPOS.forEach(t => byTipo[t.key] = []);
+  byTipo._none = [];
+  inspirations.forEach(i => {
+    const key = INSP_TIPOS.some(t => t.key === i.tipo) ? i.tipo : '_none';
+    byTipo[key].push(i);
+  });
+  const sections = [...INSP_TIPOS, { key: '_none', label: 'Sem categoria', icon: '📎' }];
+  container.innerHTML = sections.map(sec => {
+    if (sec.key === '_none' && byTipo[sec.key].length === 0) return '';
+    const items = [...byTipo[sec.key]].sort((a,b) => Number(b.id) - Number(a.id));
+    return `
+      <div class="insp-category-section">
+        <div class="insp-category-header">
+          <span class="insp-category-title">${sec.icon} ${sec.label}</span>
+          <span class="insp-category-count">${items.length}</span>
+          <button type="button" class="insp-category-add" onclick="openInspModal(null, '${sec.key === '_none' ? '' : sec.key}')">+ Adicionar</button>
+        </div>
+        <div class="insp-grid">
+          ${items.length ? items.map(renderInspCard).join('') : `<div class="insp-empty-cat">Nenhuma inspiração aqui ainda.</div>`}
+        </div>
+      </div>
+    `;
   }).join('');
 }
 
-function openInspModal(id) {
+function openInspModal(id, presetTipo) {
   editingInspId = id ?? null;
   const insp = id ? inspirations.find(i => i.id === id) : null;
   document.getElementById('insp-modal-title').textContent = insp ? 'Editar inspiração' : 'Nova inspiração';
   document.getElementById('insp-rede').value       = insp?.rede       || 'ig';
   document.getElementById('insp-instagram').value  = insp?.instagram  ?? '';
   document.getElementById('insp-nome').value       = insp?.nome       ?? '';
+  document.getElementById('insp-tipo').value       = insp?.tipo || presetTipo || '';
   document.getElementById('insp-delete-btn').style.display = insp ? '' : 'none';
   document.getElementById('insp-modal').classList.add('open');
 }
@@ -5094,11 +5144,13 @@ function saveInsp() {
   const nome = document.getElementById('insp-nome').value.trim();
   const instagram = document.getElementById('insp-instagram').value.trim();
   const rede = document.getElementById('insp-rede').value;
+  const tipo = document.getElementById('insp-tipo').value;
   if (!nome && !instagram) { alert('Informe pelo menos o nome do creator ou o perfil.'); return; }
   const data = {
     rede,
     instagram,
     nome,
+    tipo,
   };
   if (editingInspId) {
     const i = inspirations.find(x => x.id === editingInspId);
