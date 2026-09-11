@@ -441,6 +441,18 @@
   .st-plt-cancelada  { background: #fde8e8; color: #b5223a; } .st-plt-cancelada .status-dot  { background: #e8445a; }
   .lecture-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .lecture-link:hover { text-decoration: underline; }
+  .lecture-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 1100px) { .lecture-overview-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .lecture-overview-grid { grid-template-columns: 1fr; } }
+  .lecture-overview-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
+  .lecture-overview-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
+  .lecture-overview-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .lecture-overview-card-title { font-size: 14px; font-weight: 600; line-height: 1.35; }
+  .lecture-overview-card-meta { font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+  .lecture-overview-card-links { margin-top: 10px; display: flex; gap: 10px; font-size: 12px; }
+  .lecture-overview-card-notas { margin-top: 10px; font-size: 11.5px; color: var(--text-3); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 8px; font-style: italic; }
+  .lecture-overview-card-footer { margin-top: 10px; display: flex; justify-content: flex-end; }
+  .lecture-overview-empty { grid-column: 1 / -1; text-align: center; color: var(--text-3); padding: 24px; font-style: italic; }
 
   .partner-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 16px 18px; }
   @media (max-width: 900px) { .partner-board { grid-template-columns: 1fr; } }
@@ -1371,28 +1383,9 @@
     </div>
 
     <div class="content-area">
-      <div class="list-section">
-        <div class="list-header">
-          <div class="list-title">🎤 Overview</div>
-        </div>
-        <table class="post-table">
-          <thead>
-            <tr>
-              <th>Tema</th>
-              <th>Evento / Organizador</th>
-              <th>Status</th>
-              <th>Data</th>
-              <th>Duração</th>
-              <th>Formato</th>
-              <th>Local</th>
-              <th>Cachê</th>
-              <th>Contato</th>
-              <th>Links</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="lecture-tbody"></tbody>
-        </table>
+      <div class="list-section" style="padding:16px 18px;">
+        <div class="list-title" style="margin-bottom:12px;">🎤 Overview</div>
+        <div class="lecture-overview-grid" id="lecture-overview-grid"></div>
       </div>
 
       <div class="list-section" style="padding:16px 18px;">
@@ -5285,29 +5278,35 @@ function renderLectures() {
     .sort((a,b) => a.data.localeCompare(b.data))[0];
   renderLectureNotifBanner(upcoming);
 
-  const tbody = document.getElementById('lecture-tbody');
+  const overviewGrid = document.getElementById('lecture-overview-grid');
   if (!lectures.length) {
-    tbody.innerHTML = `<tr><td colspan="11" style="text-align:center;color:var(--text-3);padding:24px;font-style:italic;">Nenhuma palestra cadastrada ainda.</td></tr>`;
+    overviewGrid.innerHTML = `<div class="lecture-overview-empty">Nenhuma palestra cadastrada ainda.</div>`;
   } else {
-    tbody.innerHTML = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||'')).map(l => {
+    overviewGrid.innerHTML = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||'')).map(l => {
       const m = getLectureStatusMeta(l.status);
       const linksCell = [
-        l.linkEvento ? `<a href="${escapeHtml(l.linkEvento)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">Evento</a>` : '',
-        l.linkSlides ? `<a href="${escapeHtml(l.linkSlides)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">Slides</a>` : '',
-      ].filter(Boolean).join(' · ') || '—';
-      return `<tr style="cursor:pointer;" onclick="openLectureModal(${l.id})">
-        <td><b>${escapeHtml(l.tema)}</b></td>
-        <td>${escapeHtml(l.evento || '—')}</td>
-        <td><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></td>
-        <td>${fmtDateBR(l.data)}</td>
-        <td>${fmtDuracao(l.duracao)}</td>
-        <td>${escapeHtml(l.formato || '—')}</td>
-        <td>${escapeHtml(l.local || '—')}</td>
-        <td>${fmtCache(l.cache)}</td>
-        <td>${l.contato ? escapeHtml(l.contato) : '—'}</td>
-        <td>${linksCell}</td>
-        <td onclick="event.stopPropagation()"><button class="btn" style="padding:4px 9px;font-size:11px;" onclick="deleteLectureRow(${l.id})">Excluir</button></td>
-      </tr>`;
+        l.linkEvento ? `<a href="${escapeHtml(l.linkEvento)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Evento</a>` : '',
+        l.linkSlides ? `<a href="${escapeHtml(l.linkSlides)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Slides</a>` : '',
+      ].filter(Boolean).join('');
+      const metaRows = [
+        l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : '',
+        l.data ? `<span>📅 ${fmtDateBR(l.data)}${l.duracao ? ' · ' + fmtDuracao(l.duracao) : ''}</span>` : '',
+        l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
+        l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
+        l.contato ? `<span>👤 ${escapeHtml(l.contato)}</span>` : '',
+      ].filter(Boolean).join('');
+      return `<div class="lecture-overview-card" onclick="openLectureModal(${l.id})">
+        <div class="lecture-overview-card-top">
+          <div class="lecture-overview-card-title">${escapeHtml(l.tema)}</div>
+          <span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span>
+        </div>
+        <div class="lecture-overview-card-meta">${metaRows}</div>
+        ${linksCell ? `<div class="lecture-overview-card-links">${linksCell}</div>` : ''}
+        ${l.notas ? `<div class="lecture-overview-card-notas">${escapeHtml(l.notas).replace(/\n/g,'<br>')}</div>` : ''}
+        <div class="lecture-overview-card-footer" onclick="event.stopPropagation()">
+          <button class="btn" style="padding:4px 9px;font-size:11px;" onclick="deleteLectureRow(${l.id})">Excluir</button>
+        </div>
+      </div>`;
     }).join('');
   }
 
