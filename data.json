@@ -2869,10 +2869,26 @@
         "design": 1
       },
       "Live": {
-        "roteiro": 15
+        "roteiro": 2,
+        "gravando": 1,
+        "editando": 1,
+        "legenda": 1
       },
       "Shorts": {
         "roteiro": 1,
+        "gravando": 1,
+        "editando": 1,
+        "legenda": 1
+      },
+      "Pin": {
+        "legenda": 1,
+        "design": 1
+      },
+      "Thread": {
+        "legenda": 1
+      },
+      "Story": {
+        "roteiro": 2,
         "gravando": 1,
         "editando": 1,
         "legenda": 1
@@ -2880,5 +2896,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T14:23:19.277Z"
+  "_updatedAt": "2026-09-11T14:25:19.007Z"
 }
