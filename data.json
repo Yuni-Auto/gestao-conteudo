@@ -1400,16 +1400,20 @@
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Angular JS",
           "texto": "Como o angular foi pensado inicialmente migrar um sistema de 17 mil linhas em 2 semanas. "
         },
         {
-          "titulo": "",
+          "titulo": "Angular JS",
           "texto": "Já existiu diretivas, como: ng-show, ng-required"
         },
         {
-          "titulo": "",
+          "titulo": "Angular 21",
           "texto": "Agora em versões mais novas do angular é usado standalone do que modules"
+        },
+        {
+          "titulo": "Angular 21",
+          "texto": ""
         }
       ],
       "scenes": [],
@@ -2816,5 +2820,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:32:47.956Z"
+  "_updatedAt": "2026-09-11T04:34:58.746Z"
 }
