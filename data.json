@@ -1552,7 +1552,7 @@
       ],
       "scenes": [],
       "data": "2026-09-25",
-      "status": "pesquisar",
+      "status": "legenda",
       "plataformas": [
         "li"
       ],
@@ -3129,5 +3129,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:24:37.814Z"
+  "_updatedAt": "2026-09-11T22:30:46.850Z"
 }
