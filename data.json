@@ -1718,31 +1718,36 @@
       "id": 1,
       "rede": "ig",
       "instagram": "suzana.fitvibes",
-      "nome": "Suzana"
+      "nome": "Suzana",
+      "tipo": "trends"
     },
     {
       "id": 2,
       "rede": "ig",
       "instagram": "1nickyy",
-      "nome": "Nicky"
+      "nome": "Nicky",
+      "tipo": "trends"
     },
     {
       "id": 3,
       "rede": "ig",
       "instagram": "jacque_tech",
-      "nome": "Jac Macedo"
+      "nome": "Jac Macedo",
+      "tipo": "tecnico"
     },
     {
       "id": 4,
       "rede": "ig",
       "instagram": "fe.sgonzalez",
-      "nome": "Fernanda Gonzalez"
+      "nome": "Fernanda Gonzalez",
+      "tipo": "trends"
     },
     {
       "id": 5,
       "rede": "ig",
       "instagram": "geovannapdroso",
-      "nome": "Geonavva Pedroso"
+      "nome": "Geonavva Pedroso",
+      "tipo": "trends"
     },
     {
       "id": 6,
@@ -1754,31 +1759,36 @@
       "id": 7,
       "rede": "ig",
       "instagram": "mariffernandesdaily",
-      "nome": "Marianna Fernandes"
+      "nome": "Marianna Fernandes",
+      "tipo": "motivacional"
     },
     {
       "id": 8,
       "rede": "ig",
       "instagram": "estavelementestudy",
-      "nome": "Livia Marins"
+      "nome": "Livia Marins",
+      "tipo": "motivacional"
     },
     {
       "id": 9,
       "rede": "ig",
       "instagram": "imtechgirl",
-      "nome": "Eneri D Angelis"
+      "nome": "Eneri D Angelis",
+      "tipo": "tecnico"
     },
     {
       "id": 10,
       "rede": "ig",
       "instagram": "mictalks",
-      "nome": "Milena Coyado"
+      "nome": "Milena Coyado",
+      "tipo": "dicas"
     },
     {
       "id": 11,
       "rede": "ig",
       "instagram": "giselletechh",
-      "nome": "Giselle Costa"
+      "nome": "Giselle Costa",
+      "tipo": "dicas"
     }
   ],
   "requiredPostsByMonth": {
@@ -2833,5 +2843,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:08:07.718Z"
+  "_updatedAt": "2026-09-11T05:15:19.988Z"
 }
