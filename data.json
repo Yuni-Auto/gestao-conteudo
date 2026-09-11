@@ -1299,14 +1299,21 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
       "plataformasDatas": {
-        "ig": "2026-08-13",
-        "tt": "2026-08-15"
+        "ig": "2026-09-07",
+        "tt": "2026-09-09",
+        "yt": "2026-08-13"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
       }
     },
     {
@@ -2949,5 +2956,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T21:10:05.134Z"
+  "_updatedAt": "2026-09-11T21:10:26.369Z"
 }
