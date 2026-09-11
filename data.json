@@ -1718,7 +1718,8 @@
       "id": 1,
       "rede": "ig",
       "instagram": "suzana.fitvibes",
-      "nome": "Suzana"
+      "nome": "Suzana",
+      "tipo": "trends"
     },
     {
       "id": 2,
@@ -2839,5 +2840,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:38.005Z"
+  "_updatedAt": "2026-09-11T05:14:45.105Z"
 }
