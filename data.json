@@ -1465,7 +1465,7 @@
     },
     {
       "id": 72,
-      "titulo": "Um dia comigo no home office",
+      "titulo": "[carrossel] Um dia comigo no home office",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1479,12 +1479,14 @@
       "data": "2026-09-28",
       "status": "roteiro",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "plataformasDatas": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot6"
+      "requiredTag": "slot6",
+      "plataformasStatus": null
     }
   ],
   "partners": [
@@ -2820,5 +2822,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:37:57.201Z"
+  "_updatedAt": "2026-09-11T04:38:17.912Z"
 }
