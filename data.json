@@ -1773,7 +1773,8 @@
       "id": 10,
       "rede": "ig",
       "instagram": "mictalks",
-      "nome": "Milena Coyado"
+      "nome": "Milena Coyado",
+      "tipo": "dicas"
     },
     {
       "id": 11,
@@ -2835,5 +2836,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:01.405Z"
+  "_updatedAt": "2026-09-11T05:14:06.138Z"
 }
