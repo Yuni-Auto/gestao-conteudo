@@ -542,29 +542,23 @@
     },
     {
       "id": 31,
-      "titulo": "[reels] O que leva na bolsa uma Engenheira de Software",
+      "titulo": "[carrossel] Quando gastei para ter um setup nomadi",
       "desc": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "carouselLegenda": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "Cena: Sentada na cama com a bolsa na frente.\n\nFalando: \"O que uma engenheira de software leva em sua bolsa que sai as 5h da manhã e volta as 22h para casa?\""
-        },
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-09-29",
-      "status": "gravando",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -2588,5 +2582,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T01:29:26.057Z"
+  "_updatedAt": "2026-09-11T01:36:28.880Z"
 }
