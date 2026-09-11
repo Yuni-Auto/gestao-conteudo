@@ -1836,8 +1836,41 @@
       "formato": "Presencial",
       "local": "São Paulo",
       "cache": 0,
-      "contato": "",
+      "contato": "Danilo",
       "link": "",
+      "notas": "",
+      "duracao": 35,
+      "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
+      "linkSlides": "https://canva.link/w88t5ycommevznj"
+    },
+    {
+      "id": 2,
+      "tema": "Nosso caminho by Gabs",
+      "evento": "Angular SP",
+      "status": "realizada",
+      "data": "2026-08-25",
+      "formato": "Online",
+      "local": "",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "Alvaro",
+      "linkEvento": "",
+      "linkSlides": "https://canva.link/re0hgay331q0p76",
+      "notas": ""
+    },
+    {
+      "id": 3,
+      "tema": "{ Angular Imersão Tech } by Womarkscode",
+      "evento": "",
+      "status": "realizada",
+      "data": "2026-07-19",
+      "formato": "Online",
+      "local": "",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "",
+      "linkSlides": "https://canva.link/c3e3h849alvk5w6",
       "notas": ""
     }
   ],
@@ -3144,5 +3177,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:45:54.462Z"
+  "_updatedAt": "2026-09-11T23:06:35.905Z"
 }
