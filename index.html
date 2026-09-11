@@ -454,6 +454,13 @@
   .insp-category-add:hover { text-decoration: underline; }
   .insp-category-section .insp-grid { padding: 0 26px 8px; }
   .insp-empty-cat { grid-column: 1 / -1; font-size: 12px; color: var(--text-3); font-style: italic; padding: 2px 2px 4px; }
+  .insp-manage-tipos-link { background: none; border: none; color: #5b50c8; font-size: 11.5px; font-weight: 600; cursor: pointer; padding: 0; text-transform: none; letter-spacing: 0; }
+  .insp-manage-tipos-link:hover { text-decoration: underline; }
+  .insp-tipo-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .insp-tipo-row .insp-tipo-icon-input { width: 54px; flex: 0 0 54px; text-align: center; }
+  .insp-tipo-row .insp-tipo-label-input { flex: 1 1 auto; min-width: 0; }
+  .insp-tipo-remove { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 15px; padding: 4px 6px; flex: 0 0 auto; }
+  .insp-tipo-remove:hover { color: #b5223a; }
   .partner-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .partner-link:hover { text-decoration: underline; }
 
@@ -1249,7 +1256,10 @@
   <div id="view-inspiracoes" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
     <div class="topbar">
       <div class="topbar-title">Inspirações</div>
-      <button class="btn btn-primary" onclick="openInspModal()">+ Nova inspiração</button>
+      <div style="display:flex; gap:8px; margin-left:auto;">
+        <button class="btn" onclick="openInspTiposModal()">⚙️ Tipos de conteúdo</button>
+        <button class="btn btn-primary" onclick="openInspModal()">+ Nova inspiração</button>
+      </div>
     </div>
     <div id="insp-groups"></div>
   </div>
@@ -1613,14 +1623,11 @@
         <input class="form-input" id="insp-nome" placeholder="Ex: Maria Silva" />
       </div>
       <div class="form-group" style="margin-top:14px; margin-bottom:0;">
-        <label class="form-label">Tipo de conteúdo</label>
-        <select class="form-input" id="insp-tipo">
-          <option value="">Sem categoria</option>
-          <option value="trends">🔥 Trends</option>
-          <option value="tecnico">🛠️ Técnico</option>
-          <option value="motivacional">💫 Motivacional</option>
-          <option value="dicas">💡 Dicas</option>
-        </select>
+        <label class="form-label" style="display:flex; align-items:center; justify-content:space-between;">
+          <span>Tipo de conteúdo</span>
+          <button type="button" class="insp-manage-tipos-link" onclick="openInspTiposModal()">Gerenciar tipos</button>
+        </label>
+        <select class="form-input" id="insp-tipo"></select>
       </div>
     </div>
     <div class="new-modal-footer">
@@ -1630,6 +1637,26 @@
           <button class="btn" onclick="closeInspModal()">Cancelar</button>
           <button class="btn btn-primary" onclick="saveInsp()">Salvar</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tipos de Conteúdo (Inspirações) Modal -->
+<div class="modal-overlay" id="insp-tipos-modal" onclick="handleOverlayClick(event,'insp-tipos-modal')">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-hero">
+      <div class="modal-title-text">Tipos de conteúdo</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;">
+      <p style="font-size:12px; color:var(--text-2); margin:0 0 14px; line-height:1.5;">Categorias usadas pra agrupar as inspirações em grids. Ao excluir um tipo, as inspirações dele passam pra "Sem categoria" — nada é apagado.</p>
+      <div id="insp-tipos-list"></div>
+      <button type="button" class="btn" id="insp-tipos-add-btn" style="width:100%; margin-top:2px;" onclick="addInspTipoRow()">+ Adicionar tipo</button>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions" style="justify-content:flex-end;">
+        <button class="btn" onclick="closeInspTiposModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="saveInspTipos()">Salvar</button>
       </div>
     </div>
   </div>
@@ -1962,7 +1989,7 @@ function setSyncStatus(state, msg) {
 /* Reúne todos os datasets num único objeto pra salvar em um arquivo só */
 function collectAllData() {
   return {
-    posts, partners, guidelines, analyticsOverrides, brainstormNotes, inspirations,
+    posts, partners, guidelines, analyticsOverrides, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
     requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes,
     _updatedAt: new Date().toISOString(),
   };
@@ -1997,6 +2024,10 @@ function applyRemoteData(data) {
     inspirations = data.inspirations;
     nextInspId = inspirations.length ? Math.max(...inspirations.map(i => Number(i.id) || 0)) + 1 : 1;
     localStorage.setItem(INSPIRATIONS_STORAGE_KEY, JSON.stringify(inspirations));
+  }
+  if (Array.isArray(data.inspTipos) && data.inspTipos.length) {
+    INSP_TIPOS = data.inspTipos;
+    localStorage.setItem(INSP_TIPOS_KEY, JSON.stringify(INSP_TIPOS));
   }
   if (data.requiredPostsByMonth && typeof data.requiredPostsByMonth === 'object' && !Array.isArray(data.requiredPostsByMonth)) {
     requiredPostsByMonth = data.requiredPostsByMonth;
@@ -5062,12 +5093,37 @@ function postsForCreator(nome) {
   return result;
 }
 
-const INSP_TIPOS = [
-  { key: 'trends',       label: 'Trends',       icon: '🔥' },
-  { key: 'tecnico',      label: 'Técnico',      icon: '🛠️' },
-  { key: 'motivacional', label: 'Motivacional', icon: '💫' },
-  { key: 'dicas',        label: 'Dicas',        icon: '💡' },
-];
+const INSP_TIPOS_KEY = 'content-manager-insp-tipos-v1';
+function defaultInspTipos() {
+  return [
+    { key: 'trends',       label: 'Trends',       icon: '🔥' },
+    { key: 'tecnico',      label: 'Técnico',      icon: '🛠️' },
+    { key: 'motivacional', label: 'Motivacional', icon: '💫' },
+    { key: 'dicas',        label: 'Dicas',        icon: '💡' },
+  ];
+}
+function loadInspTipos() {
+  try {
+    const saved = localStorage.getItem(INSP_TIPOS_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length) return parsed;
+    }
+  } catch (e) {}
+  return defaultInspTipos();
+}
+function saveInspTiposData() { localStorage.setItem(INSP_TIPOS_KEY, JSON.stringify(INSP_TIPOS)); scheduleCloudSync(); }
+let INSP_TIPOS = loadInspTipos();
+let editingInspTipos = [];
+function newInspTipoKey() { return 'tipo_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+function populateInspTipoSelect(selectedKey) {
+  const sel = document.getElementById('insp-tipo');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">Sem categoria</option>' +
+    INSP_TIPOS.map(t => `<option value="${escapeHtml(t.key)}">${escapeHtml(t.icon||'')} ${escapeHtml(t.label||'')}</option>`).join('');
+  sel.value = INSP_TIPOS.some(t => t.key === selectedKey) ? selectedKey : '';
+}
 
 function renderInspCard(i) {
   const rede = i.rede || 'ig';
@@ -5130,7 +5186,7 @@ function openInspModal(id, presetTipo) {
   document.getElementById('insp-rede').value       = insp?.rede       || 'ig';
   document.getElementById('insp-instagram').value  = insp?.instagram  ?? '';
   document.getElementById('insp-nome').value       = insp?.nome       ?? '';
-  document.getElementById('insp-tipo').value       = insp?.tipo || presetTipo || '';
+  populateInspTipoSelect(insp?.tipo || presetTipo || '');
   document.getElementById('insp-delete-btn').style.display = insp ? '' : 'none';
   document.getElementById('insp-modal').classList.add('open');
 }
@@ -5170,6 +5226,46 @@ function deleteInsp() {
   saveInspirationsData();
   renderInspiracoes();
   closeInspModal();
+}
+
+/* ---- Gerenciar tipos de conteúdo ---- */
+function openInspTiposModal() {
+  editingInspTipos = INSP_TIPOS.map(t => ({ ...t }));
+  renderInspTiposList();
+  document.getElementById('insp-tipos-modal').classList.add('open');
+}
+function closeInspTiposModal() {
+  document.getElementById('insp-tipos-modal').classList.remove('open');
+}
+function renderInspTiposList() {
+  const list = document.getElementById('insp-tipos-list');
+  list.innerHTML = editingInspTipos.length ? editingInspTipos.map((t, idx) => `
+    <div class="insp-tipo-row">
+      <input type="text" class="form-input insp-tipo-icon-input" maxlength="4" value="${escapeHtml(t.icon||'')}" placeholder="🏷️" oninput="editingInspTipos[${idx}].icon=this.value">
+      <input type="text" class="form-input insp-tipo-label-input" value="${escapeHtml(t.label||'')}" placeholder="Nome do tipo" oninput="editingInspTipos[${idx}].label=this.value">
+      <button type="button" class="insp-tipo-remove" onclick="removeInspTipoRow(${idx})" title="Remover">✕</button>
+    </div>
+  `).join('') : `<div class="insp-empty-cat" style="padding:6px 2px 14px;">Nenhum tipo cadastrado ainda.</div>`;
+}
+function addInspTipoRow() {
+  editingInspTipos.push({ key: newInspTipoKey(), label: '', icon: '🏷️' });
+  renderInspTiposList();
+  const inputs = document.querySelectorAll('#insp-tipos-list .insp-tipo-label-input');
+  if (inputs.length) inputs[inputs.length-1].focus();
+}
+function removeInspTipoRow(idx) {
+  editingInspTipos.splice(idx, 1);
+  renderInspTiposList();
+}
+function saveInspTipos() {
+  const cleaned = editingInspTipos
+    .filter(t => t.label && t.label.trim())
+    .map(t => ({ key: t.key, label: t.label.trim(), icon: (t.icon||'').trim() || '🏷️' }));
+  if (!cleaned.length) { alert('Adicione ao menos um tipo, ou cancele pra manter os atuais.'); return; }
+  INSP_TIPOS = cleaned;
+  saveInspTiposData();
+  renderInspiracoes();
+  closeInspTiposModal();
 }
 
 /* ─── Analytics ─────────────────────────────────────────────────────────── */
