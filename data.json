@@ -1377,6 +1377,28 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot1"
+    },
+    {
+      "id": 70,
+      "titulo": "Coisas legais que aprendi ou fiz no último mês",
+      "desc": "Como o angular foi pensado inicialmente",
+      "carouselLegenda": "Como o angular foi pensado inicialmente",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-14",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot15"
     }
   ],
   "partners": [
@@ -2672,5 +2694,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T01:45:40.916Z"
+  "_updatedAt": "2026-09-11T01:52:03.267Z"
 }
