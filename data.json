@@ -622,13 +622,13 @@
     },
     {
       "id": 35,
-      "titulo": "[carousel] Achadinhos de setup",
+      "titulo": "[reels] Achadinhos de setup",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "Vocês já sabem que comprei meu apto, o que vocês não sabem que agora estou tento que montar meu setup do zero e estes são os itens que eu tenho..."
         }
       ],
       "scenes": [],
@@ -2588,5 +2588,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T01:25:46.956Z"
+  "_updatedAt": "2026-09-11T01:26:57.621Z"
 }
