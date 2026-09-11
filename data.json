@@ -1614,7 +1614,7 @@
     },
     {
       "id": 76,
-      "titulo": "[carrossel] Dump do OpenAI DevDay Exchange (cópia)",
+      "titulo": "[reels] Um dia comigo no OpenAI DevDay Exchange",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1625,11 +1625,12 @@
           "cena": ""
         }
       ],
-      "data": "",
+      "data": "2026-11-06",
       "status": "ideia",
       "plataformas": [
         "ig",
-        "li"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -3054,5 +3055,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:17:57.511Z"
+  "_updatedAt": "2026-09-11T22:18:46.562Z"
 }
