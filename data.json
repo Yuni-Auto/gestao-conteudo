@@ -1428,7 +1428,7 @@
     },
     {
       "id": 71,
-      "titulo": "3 tasks para praticar Angular + IA",
+      "titulo": "3 tasks para praticar Angular + IA (copilot)",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1447,7 +1447,7 @@
       ],
       "scenes": [],
       "data": "2026-09-19",
-      "status": "afazer",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -2816,5 +2816,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:32:20.350Z"
+  "_updatedAt": "2026-09-11T04:32:33.305Z"
 }
