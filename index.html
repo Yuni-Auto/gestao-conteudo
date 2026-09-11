@@ -185,6 +185,9 @@
   .cal-view-btn { border: none; background: none; font-family: inherit; font-size: 12px; font-weight: 500; padding: 5px 11px; border-radius: 5px; cursor: pointer; color: var(--text-2); transition: all 0.12s; }
   .cal-view-btn:hover { color: var(--text); }
   .cal-view-btn.active { background: var(--surface); color: #5b50c8; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .gcal-vis-btn { border: 1px solid var(--border); background: var(--bg); border-radius: 7px; padding: 7px 13px; font-family: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.12s; flex-shrink: 0; }
+  .gcal-vis-btn.active { background: #f0effe; color: #5b50c8; border-color: #d8d3f7; }
+  .gcal-vis-btn:not(.active) { color: var(--text-3); opacity: .6; }
   .week-nav { display: flex; align-items: center; gap: 7px; }
   .week-nav-btn { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; color: var(--text-2); }
   .week-nav-btn:hover { background: var(--bg); }
@@ -1291,7 +1294,15 @@
       <div class="modal-title-text" style="font-size:17px;">📅 Google Calendar</div>
     </div>
     <div class="modal-body">
-      <div class="form-group" style="margin-bottom:0;">
+      <div class="form-group" style="margin-bottom:0; display:flex; align-items:center; justify-content:space-between; padding-bottom:16px; border-bottom:1px solid var(--border);">
+        <div>
+          <div class="form-label" style="margin-bottom:2px;">Eventos na grade</div>
+          <div style="font-size:11.5px; color:var(--text-3);">Mostra ou oculta os compromissos do Google na Semana/Mês.</div>
+        </div>
+        <button type="button" class="gcal-vis-btn active" id="gcal-vis-btn" onclick="gcalToggleVisibility()">📅 Agenda</button>
+      </div>
+
+      <div class="form-group" style="margin-bottom:0; margin-top:16px;">
         <div class="form-label">Contas conectadas</div>
         <div id="gcal-accounts-row" class="gcal-accounts-row"></div>
         <button type="button" class="gcal-add-btn" id="gcal-add-account-btn" onclick="gcalConnect()">＋ Adicionar conta</button>
@@ -2569,6 +2580,7 @@ let gcalSilentQueue = [];
 let gcalPendingSilentEmail = null;
 let gcalEventsByDate = {};
 let gcalLastFetchKey = null;
+let gcalEventsVisible = localStorage.getItem('gcal_events_visible') !== '0';
 
 function gcalLoadConfig(){
   try{ const raw = localStorage.getItem(GCAL_CFG_KEY); return raw ? JSON.parse(raw) : {clientId:''}; }
@@ -2617,6 +2629,7 @@ function gcalAccountColor(email){
 function openGcalModal(){
   document.getElementById('gcal-client-id-input').value = gcalCfg.clientId || '';
   document.getElementById('gcal-origin-label').textContent = window.location.origin || window.location.href;
+  gcalUpdateVisibilityBtn();
   document.getElementById('gcal-modal').classList.add('open');
 }
 function closeGcalModal(){ document.getElementById('gcal-modal').classList.remove('open'); }
@@ -2930,9 +2943,25 @@ function gcalRenderChip(ev){
     (ev.time ? `<span class="gcal-event-time">${ev.time}</span>` : '') +
     `<span class="gcal-event-title">${escapeHtml(ev.title)}</span></div>`;
 }
+function gcalEventsForDate(dStr){
+  return gcalEventsVisible ? (gcalEventsByDate[dStr] || []) : [];
+}
+function gcalUpdateVisibilityBtn(){
+  const btn = document.getElementById('gcal-vis-btn');
+  if(!btn) return;
+  btn.classList.toggle('active', gcalEventsVisible);
+  btn.textContent = gcalEventsVisible ? '📅 Agenda' : '📅 Agenda oculta';
+}
+function gcalToggleVisibility(){
+  gcalEventsVisible = !gcalEventsVisible;
+  try{ localStorage.setItem('gcal_events_visible', gcalEventsVisible ? '1' : '0'); }catch(e){}
+  gcalUpdateVisibilityBtn();
+  gcalRedraw();
+}
 
 /* ---- Reconexão automática ao abrir a página ---- */
 (function gcalInit(){
+  gcalUpdateVisibilityBtn();
   const remembered = Object.keys(gcalLoadAccountsMeta());
   if(gcalCfg.clientId && remembered.length>0){
     gcalWaitForGIS(()=>gcalStartSilentReconnect(remembered), 0);
@@ -3058,7 +3087,7 @@ function renderWeek() {
     const dStr = isoDate(d);
     const isToday = dStr === tStr;
     const dayPosts = filteredDayPosts(dStr);
-    const dayGcalEvents = gcalEventsByDate[dStr] || [];
+    const dayGcalEvents = gcalEventsForDate(dStr);
     html += `<div class="week-day-col">
       <div class="week-day-head">
         <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
@@ -3104,7 +3133,7 @@ function renderMonth() {
     const dayPosts = filteredDayPosts(dStr);
     const visible = dayPosts.slice(0, MAX_VISIBLE);
     const extra = dayPosts.length - visible.length;
-    const allGcalEvents = gcalEventsByDate[dStr] || [];
+    const allGcalEvents = gcalEventsForDate(dStr);
     const visibleGcalEvents = allGcalEvents.slice(0, MAX_VISIBLE);
     const extraGcal = allGcalEvents.length - visibleGcalEvents.length;
     const totalExtra = extra + extraGcal;
