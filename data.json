@@ -1640,7 +1640,7 @@
     },
     {
       "id": 77,
-      "titulo": "[carrossel] Dump do AI CONF'ROLL (cópia)",
+      "titulo": "[reels] Um dia comigo no AI CONF'ROLL",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1651,11 +1651,12 @@
           "cena": ""
         }
       ],
-      "data": "",
+      "data": "2026-10-15",
       "status": "ideia",
       "plataformas": [
         "ig",
-        "li"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -3080,5 +3081,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:18:58.529Z"
+  "_updatedAt": "2026-09-11T22:19:28.178Z"
 }
