@@ -439,14 +439,6 @@
   .st-plt-realizada  { background: #e4f7ee; color: #1a6b40; } .st-plt-realizada .status-dot  { background: #2dbe6c; }
   .st-plt-finalizada  { background: #e1f5f2; color: #146b5e; } .st-plt-finalizada .status-dot  { background: #2dbea0; }
   .st-plt-cancelada  { background: #fde8e8; color: #b5223a; } .st-plt-cancelada .status-dot  { background: #e8445a; }
-  .lecture-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 16px 18px; }
-  @media (max-width: 1100px) { .lecture-board { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px)  { .lecture-board { grid-template-columns: 1fr; } }
-  .lecture-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
-  .lecture-card:last-child { margin-bottom: 0; }
-  .lecture-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
-  .lecture-card-title { font-size: 13px; font-weight: 600; margin-bottom: 7px; }
-  .lecture-card-meta { font-size: 11.5px; color: var(--text-2); margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
   .lecture-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .lecture-link:hover { text-decoration: underline; }
 
@@ -1362,12 +1354,20 @@
       <button class="btn btn-primary" onclick="openLectureModal()">+ Nova palestra</button>
     </div>
 
-    <div class="stats-row" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="notif-today-banner" id="lecture-notif-banner">
+      <span class="notif-today-banner-icon">🔔</span>
+      <div class="notif-today-banner-body">
+        <div class="notif-today-banner-title" id="lecture-notif-banner-title">Próxima palestra</div>
+        <div class="notif-today-banner-items" id="lecture-notif-banner-items"></div>
+      </div>
+      <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
+    </div>
+
+    <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
       <div class="stat-card"><div class="stat-label">Palestras</div><div class="stat-value" id="lstat-total">0</div></div>
       <div class="stat-card"><div class="stat-label">Em progresso</div><div class="stat-value" id="lstat-confirmadas">0</div></div>
       <div class="stat-card"><div class="stat-label">Realizadas</div><div class="stat-value" id="lstat-realizadas">0</div></div>
       <div class="stat-card"><div class="stat-label">Cachê total</div><div class="stat-value" id="lstat-cache">R$0</div></div>
-      <div class="stat-card"><div class="stat-label">Próxima palestra</div><div class="stat-value" id="lstat-proxima" style="font-size:15px;">—</div></div>
     </div>
 
     <div class="content-area">
@@ -1382,10 +1382,12 @@
               <th>Evento / Organizador</th>
               <th>Status</th>
               <th>Data</th>
+              <th>Duração</th>
               <th>Formato</th>
               <th>Local</th>
               <th>Cachê</th>
               <th>Contato</th>
+              <th>Links</th>
               <th></th>
             </tr>
           </thead>
@@ -1396,13 +1398,6 @@
       <div class="list-section" style="padding:16px 18px;">
         <div class="list-title" style="margin-bottom:12px;">🔄 Palestras · processo de criação</div>
         <div class="agenda-kanban" id="lecture-progress-grid"></div>
-      </div>
-
-      <div class="list-section">
-        <div class="list-header">
-          <div class="list-title">🚦 By Status</div>
-        </div>
-        <div class="lecture-board" id="lecture-board"></div>
       </div>
     </div>
   </div>
@@ -1721,10 +1716,14 @@
           </select>
         </div>
       </div>
-      <div class="nf-meta-grid" style="margin-top:14px;">
+      <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:14px;">
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Local</label>
           <input class="form-input" id="l-local" placeholder="Ex: São Paulo, SP ou link do evento online" />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Duração (min)</label>
+          <input class="form-input" id="l-duracao" type="number" step="1" min="0" placeholder="Ex: 60" />
         </div>
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Cachê (R$)</label>
@@ -1737,13 +1736,17 @@
           <input class="form-input" id="l-contato" placeholder="Nome, e-mail ou telefone" />
         </div>
         <div class="form-group" style="margin-bottom:0;">
-          <label class="form-label">Link (convite / slides / evento)</label>
-          <input class="form-input" id="l-link" type="url" placeholder="https://..." />
+          <label class="form-label">Link do evento</label>
+          <input class="form-input" id="l-link-evento" type="url" placeholder="https://..." />
         </div>
       </div>
       <div class="form-group" style="margin-top:14px; margin-bottom:0;">
+        <label class="form-label">Link dos slides</label>
+        <input class="form-input" id="l-link-slides" type="url" placeholder="https://..." />
+      </div>
+      <div class="form-group" style="margin-top:14px; margin-bottom:0;">
         <label class="form-label">Notas</label>
-        <textarea class="form-input" id="l-notas" rows="4" placeholder="Ex: tempo de duração, requisitos técnicos, público esperado..." style="resize:vertical; font-family:inherit; font-size:13px; line-height:1.5;"></textarea>
+        <textarea class="form-input" id="l-notas" rows="4" placeholder="Ex: requisitos técnicos, público esperado..." style="resize:vertical; font-family:inherit; font-size:13px; line-height:1.5;"></textarea>
       </div>
     </div>
     <div class="new-modal-footer">
@@ -5239,6 +5242,35 @@ let nextLectureId = lectures.length ? Math.max(...lectures.map(l => Number(l.id)
 let editingLectureId = null;
 
 function fmtCache(v) { const n = Number(v)||0; return n ? 'R$' + n.toFixed(2) : '—'; }
+function fmtDuracao(v) {
+  const n = Number(v)||0;
+  if (!n) return '—';
+  if (n < 60) return `${n} min`;
+  const h = Math.floor(n / 60), m = n % 60;
+  return m ? `${h}h${m}min` : `${h}h`;
+}
+
+const LECTURE_NOTIF_DISMISS_KEY = 'content-manager-lecture-notif-dismissed-v1';
+function renderLectureNotifBanner(upcoming) {
+  const banner = document.getElementById('lecture-notif-banner');
+  if (!banner) return;
+  const dismissedFor = localStorage.getItem(LECTURE_NOTIF_DISMISS_KEY);
+  if (!upcoming || dismissedFor === todayStr()) { banner.classList.remove('show'); return; }
+
+  const todayIso = todayStr();
+  const diffDays = Math.round((new Date(upcoming.data) - new Date(todayIso)) / 86400000);
+  const title = diffDays <= 0 ? 'Você tem uma palestra hoje'
+    : diffDays === 1 ? 'Sua próxima palestra é amanhã'
+    : `Sua próxima palestra é em ${diffDays} dias`;
+  document.getElementById('lecture-notif-banner-title').textContent = title;
+  document.getElementById('lecture-notif-banner-items').innerHTML =
+    `<div class="notif-today-banner-item" onclick="openLectureModal(${upcoming.id})">${escapeHtml(upcoming.tema)} — ${fmtDateBR(upcoming.data)}${upcoming.evento ? ' · ' + escapeHtml(upcoming.evento) : ''}</div>`;
+  banner.classList.add('show');
+}
+function dismissLectureNotifBanner() {
+  localStorage.setItem(LECTURE_NOTIF_DISMISS_KEY, todayStr());
+  document.getElementById('lecture-notif-banner').classList.remove('show');
+}
 
 function renderLectures() {
   document.getElementById('lstat-total').textContent = lectures.length;
@@ -5251,26 +5283,29 @@ function renderLectures() {
   const upcoming = lectures
     .filter(l => l.data && l.data >= todayIso && getLectureStatusMeta(l.status).group !== 'cancelled')
     .sort((a,b) => a.data.localeCompare(b.data))[0];
-  document.getElementById('lstat-proxima').textContent = upcoming ? `${fmtDateBR(upcoming.data)} · ${upcoming.tema}` : '—';
+  renderLectureNotifBanner(upcoming);
 
   const tbody = document.getElementById('lecture-tbody');
   if (!lectures.length) {
-    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--text-3);padding:24px;font-style:italic;">Nenhuma palestra cadastrada ainda.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="11" style="text-align:center;color:var(--text-3);padding:24px;font-style:italic;">Nenhuma palestra cadastrada ainda.</td></tr>`;
   } else {
     tbody.innerHTML = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||'')).map(l => {
       const m = getLectureStatusMeta(l.status);
-      const contatoCell = l.link
-        ? `<a href="${escapeHtml(l.link)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">${escapeHtml(l.contato || 'Abrir link')}</a>`
-        : (l.contato ? escapeHtml(l.contato) : '—');
+      const linksCell = [
+        l.linkEvento ? `<a href="${escapeHtml(l.linkEvento)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">Evento</a>` : '',
+        l.linkSlides ? `<a href="${escapeHtml(l.linkSlides)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">Slides</a>` : '',
+      ].filter(Boolean).join(' · ') || '—';
       return `<tr style="cursor:pointer;" onclick="openLectureModal(${l.id})">
         <td><b>${escapeHtml(l.tema)}</b></td>
         <td>${escapeHtml(l.evento || '—')}</td>
         <td><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></td>
         <td>${fmtDateBR(l.data)}</td>
+        <td>${fmtDuracao(l.duracao)}</td>
         <td>${escapeHtml(l.formato || '—')}</td>
         <td>${escapeHtml(l.local || '—')}</td>
         <td>${fmtCache(l.cache)}</td>
-        <td>${contatoCell}</td>
+        <td>${l.contato ? escapeHtml(l.contato) : '—'}</td>
+        <td>${linksCell}</td>
         <td onclick="event.stopPropagation()"><button class="btn" style="padding:4px 9px;font-size:11px;" onclick="deleteLectureRow(${l.id})">Excluir</button></td>
       </tr>`;
     }).join('');
@@ -5294,29 +5329,6 @@ function renderLectures() {
       </div>
     </div>`;
   }).join('');
-
-  const board = document.getElementById('lecture-board');
-  board.innerHTML = ['todo','progress','complete','cancelled'].map(g => {
-    const items = lectures.filter(l => getLectureStatusMeta(l.status).group === g);
-    const cards = items.length ? items.map(l => {
-      const m = getLectureStatusMeta(l.status);
-      return `<div class="lecture-card" onclick="openLectureModal(${l.id})">
-        <div class="lecture-card-title">${escapeHtml(l.tema)}</div>
-        <span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span>
-        <div class="lecture-card-meta">
-          ${l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : ''}
-          ${l.data ? `<span>📅 ${fmtDateBR(l.data)}</span>` : ''}
-          ${l.local ? `<span>📍 ${escapeHtml(l.local)}</span>` : ''}
-          ${l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : ''}
-        </div>
-        ${l.notas ? `<div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.5;border-top:1px solid var(--border);padding-top:7px;">${escapeHtml(l.notas).replace(/\n/g,'<br>')}</div>` : ''}
-      </div>`;
-    }).join('') : `<div class="partner-board-empty">Nada por aqui</div>`;
-    return `<div class="partner-board-col">
-      <div class="partner-board-col-head"><span>${LECTURE_GROUP_LABELS[g]}</span><span class="partner-board-count">${items.length}</span></div>
-      ${cards}
-    </div>`;
-  }).join('');
 }
 
 function openLectureModal(id) {
@@ -5333,9 +5345,11 @@ function openLectureModal(id) {
     document.getElementById('l-data').value = l.data || '';
     document.getElementById('l-formato').value = l.formato || 'Presencial';
     document.getElementById('l-local').value = l.local || '';
+    document.getElementById('l-duracao').value = l.duracao || '';
     document.getElementById('l-cache').value = l.cache || '';
     document.getElementById('l-contato').value = l.contato || '';
-    document.getElementById('l-link').value = l.link || '';
+    document.getElementById('l-link-evento').value = l.linkEvento || '';
+    document.getElementById('l-link-slides').value = l.linkSlides || '';
     document.getElementById('l-notas').value = l.notas || '';
     document.getElementById('l-delete-btn').style.display = '';
   } else {
@@ -5346,9 +5360,11 @@ function openLectureModal(id) {
     document.getElementById('l-data').value = '';
     document.getElementById('l-formato').value = 'Presencial';
     document.getElementById('l-local').value = '';
+    document.getElementById('l-duracao').value = '';
     document.getElementById('l-cache').value = '';
     document.getElementById('l-contato').value = '';
-    document.getElementById('l-link').value = '';
+    document.getElementById('l-link-evento').value = '';
+    document.getElementById('l-link-slides').value = '';
     document.getElementById('l-notas').value = '';
     document.getElementById('l-delete-btn').style.display = 'none';
   }
@@ -5370,9 +5386,11 @@ function saveLecture() {
     data: document.getElementById('l-data').value,
     formato: document.getElementById('l-formato').value,
     local: document.getElementById('l-local').value.trim(),
+    duracao: parseFloat(document.getElementById('l-duracao').value) || 0,
     cache: parseFloat(document.getElementById('l-cache').value) || 0,
     contato: document.getElementById('l-contato').value.trim(),
-    link: document.getElementById('l-link').value.trim(),
+    linkEvento: document.getElementById('l-link-evento').value.trim(),
+    linkSlides: document.getElementById('l-link-slides').value.trim(),
     notas: document.getElementById('l-notas').value.trim(),
   };
   if (editingLectureId) {
