@@ -1252,8 +1252,7 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "yt"
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
@@ -2922,5 +2921,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:34:35.364Z"
+  "_updatedAt": "2026-09-11T15:34:48.178Z"
 }
