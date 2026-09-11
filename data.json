@@ -1361,6 +1361,28 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot3"
+    },
+    {
+      "id": 69,
+      "titulo": "[carrossel] Dump do mês",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-30",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1"
     }
   ],
   "partners": [
@@ -2470,5 +2492,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T01:17:53.903Z"
+  "_updatedAt": "2026-09-11T01:18:16.171Z"
 }
