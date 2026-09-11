@@ -1392,7 +1392,7 @@
         },
         {
           "titulo": "",
-          "texto": "Já existiu diretivas, como: ng-show, ng-required, "
+          "texto": "Já existiu diretivas, como: ng-show, ng-required"
         }
       ],
       "scenes": [],
@@ -2775,5 +2775,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:09:51.009Z"
+  "_updatedAt": "2026-09-11T04:10:32.774Z"
 }
