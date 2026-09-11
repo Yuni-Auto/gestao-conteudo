@@ -1746,7 +1746,8 @@
       "id": 5,
       "rede": "ig",
       "instagram": "geovannapdroso",
-      "nome": "Geonavva Pedroso"
+      "nome": "Geonavva Pedroso",
+      "tipo": "trends"
     },
     {
       "id": 6,
@@ -2841,5 +2842,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:52.688Z"
+  "_updatedAt": "2026-09-11T05:15:05.222Z"
 }
