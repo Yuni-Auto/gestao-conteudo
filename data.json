@@ -1316,6 +1316,10 @@
       "carouselLegenda": "",
       "slides": [
         {
+          "titulo": "Qual é o seu instagram?",
+          "texto": ""
+        },
+        {
           "titulo": "",
           "texto": ""
         }
@@ -1335,7 +1339,7 @@
       "inspiracoes": [],
       "requiredTag": "slot4",
       "plataformasStatus": {
-        "ig": "pronto",
+        "ig": "publicada",
         "tt": "publicada"
       }
     },
@@ -2945,5 +2949,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:35:40.209Z"
+  "_updatedAt": "2026-09-11T21:06:58.080Z"
 }
