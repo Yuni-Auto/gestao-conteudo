@@ -1826,6 +1826,21 @@
       ]
     }
   ],
+  "lectures": [
+    {
+      "id": 1,
+      "tema": "{ AngularJS para Angular 21 } - Acelerando migrações com GitHub Copilot",
+      "evento": "TDC",
+      "status": "preparando",
+      "data": "2026-09-25",
+      "formato": "Presencial",
+      "local": "São Paulo",
+      "cache": 0,
+      "contato": "",
+      "link": "",
+      "notas": ""
+    }
+  ],
   "guidelines": [
     {
       "label": "Sponsored Posts",
@@ -3129,5 +3144,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:30:46.850Z"
+  "_updatedAt": "2026-09-11T22:45:54.462Z"
 }
