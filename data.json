@@ -1400,7 +1400,8 @@
       "status": "afazer",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
@@ -2778,5 +2779,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:11:20.210Z"
+  "_updatedAt": "2026-09-11T04:11:26.557Z"
 }
