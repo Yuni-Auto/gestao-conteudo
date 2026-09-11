@@ -5602,6 +5602,14 @@ const ANALYTICS_FIELD_LABELS = {
     conteudo:   '🗂️ Qtd de conteúdo',
     clicks:     '🔗 Website Clicks',
   },
+  tt: {
+    seguidores: '👤 Visualizações de perfil',
+    views:      '🎬 Visualizações de vídeo',
+    alcance:    '❤️ Curtidas',
+    eng:        '💬 Comentários',
+    conteudo:   '🔁 Compartilhamentos',
+    clicks:     '🎁 Recompensas estimadas',
+  },
 };
 function applyAnalyticsFormLabels(plat) {
   const labels = ANALYTICS_FIELD_LABELS[plat] || ANALYTICS_FIELD_LABELS.default;
@@ -5632,7 +5640,7 @@ function prefillAnalyticsForm() {
   const override = (analyticsOverrides[plat] || {})[month] || {};
   const row = { ...baseRow, ...override };
 
-  const autoConteudo = override.conteudo === undefined && monthHasTrackedPosts(plat, month);
+  const autoConteudo = plat !== 'tt' && override.conteudo === undefined && monthHasTrackedPosts(plat, month);
   if (autoConteudo) row.conteudo = postsPublishedCountForMonth(plat, month);
 
   document.getElementById('an-data-seguidores').value = row.seguidores ?? '';
