@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-22",
+      "data": "2026-09-21",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -552,7 +552,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-29",
+      "data": "2026-09-28",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -626,7 +626,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-14",
+      "data": "2026-09-16",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1084,7 +1084,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-09-16",
+      "data": "2026-09-23",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1349,7 +1349,8 @@
       "data": "2026-09-18",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
@@ -1371,12 +1372,81 @@
       "data": "2026-09-30",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot1"
+    },
+    {
+      "id": 70,
+      "titulo": "[carrossel] Coisas legais que aprendi ou fiz no último mês",
+      "desc": "Como o angular foi pensado inicialmente",
+      "carouselLegenda": "Como o angular foi pensado inicialmente",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-14",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot15"
+    },
+    {
+      "id": 71,
+      "titulo": "3 projetos para iniciantes",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-10",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot5"
+    },
+    {
+      "id": 72,
+      "titulo": "Um dia comigo no home office",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-10",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot6"
     }
   ],
   "partners": [
@@ -1865,12 +1935,6 @@
         "tag": "post"
       },
       {
-        "key": "slot10",
-        "title": "Se você usa VS Code e não usa extensões...",
-        "formato": "Carousel",
-        "tag": "post"
-      },
-      {
         "key": "slot11",
         "title": "Calendário de eventos do mês",
         "formato": "Carousel",
@@ -1903,6 +1967,102 @@
     ]
   },
   "requiredPostsHistory": [
+    {
+      "date": "2026-09-11T01:45:38.414Z",
+      "monthKey": "2026-09",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post"
+        }
+      ]
+    },
     {
       "date": "2026-09-11T01:24:27.854Z",
       "monthKey": "2026-09",
@@ -2582,5 +2742,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T01:36:58.330Z"
+  "_updatedAt": "2026-09-11T02:14:37.476Z"
 }
