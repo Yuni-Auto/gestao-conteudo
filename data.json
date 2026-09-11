@@ -1551,7 +1551,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-11",
+      "data": "2026-09-25",
       "status": "pesquisar",
       "plataformas": [
         "li"
@@ -2979,5 +2979,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T21:52:38.821Z"
+  "_updatedAt": "2026-09-11T21:52:51.572Z"
 }
