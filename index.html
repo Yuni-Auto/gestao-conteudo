@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Content Manager</title>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -88,6 +89,39 @@
   .sync-dot.sync-warn { background: #e8a445; }
   .sync-dot.sync-error { background: #e8445a; }
   .sync-dot.sync-offline { background: #9a958a; }
+
+  /* Google Calendar — contas conectadas / calendários / eventos na grade */
+  .gcal-accounts-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+  .gcal-account-chip { display: flex; align-items: center; gap: 7px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 5px 6px; font-size: 12.5px; }
+  .gcal-account-chip.connecting { opacity: .55; }
+  .gcal-account-chip.needs-reconnect { border-color: #f3d69b; background: #fff8ec; }
+  .gcal-account-avatar { width: 20px; height: 20px; border-radius: 50%; color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-transform: uppercase; flex-shrink: 0; }
+  .gcal-account-chip .gcal-chip-email { color: var(--text-2); max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .gcal-account-chip .gcal-chip-remove { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 12px; line-height: 1; padding: 2px 4px; border-radius: 50%; }
+  .gcal-account-chip .gcal-chip-remove:hover { color: #c0392b; background: var(--border); }
+  .gcal-chip-reconnect { background: none; border: none; color: #b2630a; font-weight: 700; font-size: 11px; cursor: pointer; padding: 0 3px; white-space: nowrap; }
+  .gcal-chip-reconnect:hover { text-decoration: underline; }
+  .gcal-add-btn { font-family: inherit; font-weight: 600; font-size: 12px; border: 1px dashed var(--border); background: none; color: var(--text-2); border-radius: 999px; padding: 6px 12px; cursor: pointer; margin-top: 10px; }
+  .gcal-add-btn:hover { background: var(--bg); }
+  .gcal-cals-panel { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .gcal-cal-group { margin-bottom: 10px; }
+  .gcal-cal-group:last-child { margin-bottom: 0; }
+  .gcal-cal-group-label { font-size: 11.5px; color: var(--text-2); font-weight: 600; margin-bottom: 6px; }
+  .gcal-cal-toggle-row { display: flex; flex-wrap: wrap; gap: 7px; }
+  .gcal-cal-toggle { display: flex; align-items: center; gap: 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 5px 10px; font-size: 12px; cursor: pointer; user-select: none; transition: opacity .15s; }
+  .gcal-cal-toggle.off { opacity: .4; }
+  .gcal-cal-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .gcal-warn-box, .gcal-info-box { display: flex; gap: 9px; border-radius: 8px; padding: 10px 12px; font-size: 11.5px; line-height: 1.5; margin-top: 16px; }
+  .gcal-warn-box { background: #fff1db; border: 1px solid #f3d69b; color: #8a5a0a; }
+  .gcal-info-box { background: #f0effe; border: 1px solid #d8d3f7; color: #4a3fa0; }
+  .gcal-setup-steps { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-top: 16px; }
+  .gcal-setup-steps ol { margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-2); line-height: 1.7; }
+  .gcal-setup-steps a { color: #5b50c8; }
+  .gcal-setup-steps code { background: var(--border); padding: 1px 5px; border-radius: 4px; font-family: monospace; font-size: 11px; }
+  .gcal-event { border-radius: 7px; padding: 4px 7px; font-size: 10.5px; line-height: 1.3; border-left: 3px solid #5b50c8; background: #f0effe; margin-bottom: 3px; overflow: hidden; }
+  .gcal-event-time { font-weight: 700; margin-right: 4px; }
+  .gcal-event-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .month-day-cell .gcal-event { font-size: 9.5px; padding: 3px 6px; }
   @keyframes sync-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
   .btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 13px; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: all 0.12s; }
   .btn:hover { background: var(--bg); }
@@ -928,6 +962,10 @@
     <div class="topbar">
       <div class="topbar-title">Gestão de conteúdo</div>
       <div class="topbar-actions">
+        <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
+          <span class="sync-dot sync-offline" id="gcal-dot"></span>
+          <span id="gcal-label">Google Calendar</span>
+        </button>
         <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
           <span class="sync-dot sync-syncing" id="sync-dot"></span>
           <span id="sync-label">Carregando…</span>
@@ -1238,6 +1276,59 @@
         <button class="btn" onclick="closeSyncModal()">Cancelar</button>
         <button class="btn" onclick="manualSyncNow()">Sincronizar agora</button>
         <button class="btn btn-primary" onclick="saveGhTokenFromModal()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="gcal-modal" onclick="handleOverlayClick(event,'gcal-modal')">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-hero" style="padding-bottom:14px;">
+      <div class="modal-title-text" style="font-size:17px;">📅 Google Calendar</div>
+    </div>
+    <div class="modal-body">
+      <div class="form-group" style="margin-bottom:0;">
+        <div class="form-label">Contas conectadas</div>
+        <div id="gcal-accounts-row" class="gcal-accounts-row"></div>
+        <button type="button" class="gcal-add-btn" id="gcal-add-account-btn" onclick="gcalConnect()">＋ Adicionar conta</button>
+      </div>
+
+      <div class="gcal-cals-panel" id="gcal-cals-panel" style="display:none;">
+        <div class="form-label">Calendários visíveis na grade</div>
+        <div id="gcal-cals-panel-body"></div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:0; margin-top:18px; padding-top:16px; border-top:1px solid var(--border);">
+        <div class="form-label">Client ID (OAuth)</div>
+        <input type="text" class="form-input" id="gcal-client-id-input" placeholder="xxxxxxxx.apps.googleusercontent.com" autocomplete="off">
+        <div style="font-size:11.5px; color:var(--text-3); margin-top:6px; line-height:1.5;">
+          Como não é possível embutir credenciais do Anthropic aqui, você precisa criar as suas próprias no Google Cloud (gratuito). O mesmo Client ID conecta quantas contas Google você quiser.
+        </div>
+      </div>
+
+      <div class="gcal-warn-box">
+        ⚠️ <span>O OAuth do Google só funciona com uma <b>origem autorizada</b> correspondente à URL onde esta página está hospedada. Origem atual: <code id="gcal-origin-label">—</code></span>
+      </div>
+      <div class="gcal-info-box">
+        💡 <span>Suas contas ficam lembradas neste navegador — ao reabrir a página, ela tenta reconectar sozinha, sem popup. Se o Google pedir confirmação, a conta aparece com um botão "Reconectar".</span>
+      </div>
+
+      <div class="gcal-setup-steps">
+        <ol>
+          <li>Acesse o <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">Google Cloud Console → Credenciais</a> e crie um projeto (se ainda não tiver um).</li>
+          <li>Ative a <b>Google Calendar API</b> em "APIs e serviços".</li>
+          <li>Em "Tela de consentimento OAuth", adicione como usuário de teste <b>cada e-mail</b> que você for conectar.</li>
+          <li>Crie uma credencial do tipo <b>ID do cliente OAuth</b> → Aplicativo da Web.</li>
+          <li>Em "Origens JavaScript autorizadas", adicione a origem mostrada acima.</li>
+          <li>Copie o <b>Client ID</b> gerado e cole acima.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div></div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeGcalModal()">Fechar</button>
+        <button class="btn btn-primary" onclick="gcalSaveSettings()">Salvar Client ID</button>
       </div>
     </div>
   </div>
@@ -2455,6 +2546,397 @@ function renderStats() {
   document.getElementById('stat-pub').textContent    = posts.filter(p => p.status==='publicada').length;
 }
 
+/* ─── Google Calendar (OAuth multi-conta) ──────────────────────────────── */
+const GCAL_SCOPES = 'https://www.googleapis.com/auth/calendar.readonly openid email';
+const GCAL_EVENT_COLOR_MAP = {
+  '1':'#7986CB','2':'#33B679','3':'#8E24AA','4':'#E67C73','5':'#F6BF26',
+  '6':'#F4511E','7':'#039BE5','8':'#616161','9':'#3F51B5','10':'#0B8043','11':'#D50000'
+};
+const GCAL_ACCOUNT_PALETTE = ['#5b50c8','#FF9900','#8B5CF6','#0F9D63','#E67C73','#039BE5'];
+const GCAL_DEFAULT_COLOR = '#5b50c8';
+const GCAL_CFG_KEY = 'gcal_cfg';
+const GCAL_META_KEY = 'gcal_accounts_meta';
+
+let gcalCfg = gcalLoadConfig();
+let gcalTokenClient = null;
+let gcalSilentTokenClient = null;
+let gcalAccounts = []; // {email, token, calendars:[{id,summary,color,enabled}], needsReconnect, reconnecting}
+let gcalSilentQueue = [];
+let gcalPendingSilentEmail = null;
+let gcalEventsByDate = {};
+let gcalLastFetchKey = null;
+
+function gcalLoadConfig(){
+  try{ const raw = localStorage.getItem(GCAL_CFG_KEY); return raw ? JSON.parse(raw) : {clientId:''}; }
+  catch(e){ return {clientId:''}; }
+}
+function gcalSaveConfig(){ try{ localStorage.setItem(GCAL_CFG_KEY, JSON.stringify(gcalCfg)); }catch(e){} }
+
+function gcalLoadAccountsMeta(){
+  try{ const raw = localStorage.getItem(GCAL_META_KEY); return raw ? JSON.parse(raw) : {}; }
+  catch(e){ return {}; }
+}
+function gcalPersistAccountsMeta(){
+  const meta = {};
+  gcalAccounts.forEach(a=>{
+    if(a.calendars && a.calendars.length){
+      meta[a.email] = {};
+      a.calendars.forEach(c=>{ meta[a.email][c.id] = c.enabled; });
+    } else {
+      const prev = gcalLoadAccountsMeta();
+      meta[a.email] = prev[a.email] || {};
+    }
+  });
+  try{ localStorage.setItem(GCAL_META_KEY, JSON.stringify(meta)); }catch(e){}
+}
+function gcalForgetAccountMeta(email){
+  const meta = gcalLoadAccountsMeta();
+  delete meta[email];
+  try{ localStorage.setItem(GCAL_META_KEY, JSON.stringify(meta)); }catch(e){}
+}
+function gcalApplyStoredCalPrefs(email, cals){
+  const prefs = gcalLoadAccountsMeta()[email];
+  if(prefs){ cals.forEach(c=>{ if(Object.prototype.hasOwnProperty.call(prefs,c.id)) c.enabled = prefs[c.id]; }); }
+}
+function gcalHexToSoft(hex){
+  hex = hex || GCAL_DEFAULT_COLOR;
+  const r = parseInt(hex.slice(1,3),16)||91, g = parseInt(hex.slice(3,5),16)||80, b = parseInt(hex.slice(5,7),16)||200;
+  return `rgba(${r},${g},${b},0.14)`;
+}
+function gcalAccountColor(email){
+  let hash = 0;
+  for(let i=0;i<email.length;i++) hash = (hash*31 + email.charCodeAt(i)) >>> 0;
+  return GCAL_ACCOUNT_PALETTE[hash % GCAL_ACCOUNT_PALETTE.length];
+}
+
+/* ---- Modal ---- */
+function openGcalModal(){
+  document.getElementById('gcal-client-id-input').value = gcalCfg.clientId || '';
+  document.getElementById('gcal-origin-label').textContent = window.location.origin || window.location.href;
+  document.getElementById('gcal-modal').classList.add('open');
+}
+function closeGcalModal(){ document.getElementById('gcal-modal').classList.remove('open'); }
+function gcalSaveSettings(){
+  const val = document.getElementById('gcal-client-id-input').value.trim();
+  gcalCfg.clientId = val;
+  gcalSaveConfig();
+  gcalTokenClient = null;
+  gcalSilentTokenClient = null;
+}
+
+/* ---- Status pill no topbar ---- */
+function gcalUpdateStatusPill(){
+  const dot = document.getElementById('gcal-dot');
+  const label = document.getElementById('gcal-label');
+  if(!dot || !label) return;
+  const pending = gcalAccounts.filter(a=>a.reconnecting);
+  const broken  = gcalAccounts.filter(a=>a.needsReconnect && !a.reconnecting);
+  const active  = gcalAccounts.filter(a=>!a.needsReconnect && !a.reconnecting);
+  if(gcalAccounts.length===0){
+    dot.className = 'sync-dot sync-offline';
+    label.textContent = 'Google Calendar';
+  } else if(pending.length>0){
+    dot.className = 'sync-dot sync-syncing';
+    label.textContent = 'Reconectando…';
+  } else if(broken.length>0){
+    dot.className = 'sync-dot sync-warn';
+    label.textContent = active.length+'/'+gcalAccounts.length+' contas';
+  } else {
+    dot.className = 'sync-dot sync-ok';
+    label.textContent = gcalAccounts.length+' conta'+(gcalAccounts.length>1?'s':'');
+  }
+}
+
+/* ---- Render de contas / calendários dentro do modal ---- */
+function gcalRenderAccounts(){
+  const row = document.getElementById('gcal-accounts-row');
+  if(!row) return;
+  row.innerHTML = '';
+  gcalAccounts.forEach(acc=>{
+    const chip = document.createElement('div');
+    chip.className = 'gcal-account-chip'
+      + (acc.needsReconnect ? ' needs-reconnect' : '')
+      + (acc.reconnecting ? ' connecting' : '');
+
+    const avatar = document.createElement('span');
+    avatar.className = 'gcal-account-avatar';
+    avatar.style.background = gcalAccountColor(acc.email);
+    avatar.textContent = (acc.email||'?').charAt(0);
+    chip.appendChild(avatar);
+
+    const emailSpan = document.createElement('span');
+    emailSpan.className = 'gcal-chip-email';
+    emailSpan.textContent = acc.email
+      + (acc.reconnecting ? ' · reconectando…' : (acc.needsReconnect ? ' · desconectado' : ''));
+    chip.appendChild(emailSpan);
+
+    if(!acc.reconnecting){
+      if(acc.needsReconnect){
+        const reBtn = document.createElement('button');
+        reBtn.className = 'gcal-chip-reconnect';
+        reBtn.textContent = 'Reconectar';
+        reBtn.addEventListener('click', ()=>gcalReconnectAccount(acc.email));
+        chip.appendChild(reBtn);
+      }
+      const rm = document.createElement('button');
+      rm.className = 'gcal-chip-remove';
+      rm.textContent = '✕';
+      rm.title = 'Esquecer '+acc.email;
+      rm.addEventListener('click', ()=>gcalDisconnectAccount(acc.email));
+      chip.appendChild(rm);
+    }
+    row.appendChild(chip);
+  });
+  gcalUpdateStatusPill();
+}
+
+function gcalRenderCalendarsPanel(){
+  const panel = document.getElementById('gcal-cals-panel');
+  const body = document.getElementById('gcal-cals-panel-body');
+  if(!panel || !body) return;
+  const withCals = gcalAccounts.filter(a=>a.calendars && a.calendars.length);
+  if(withCals.length===0){ panel.style.display='none'; body.innerHTML=''; return; }
+  panel.style.display = '';
+  body.innerHTML = withCals.map(acc=>{
+    const rows = acc.calendars.map(cal=>
+      `<div class="gcal-cal-toggle${cal.enabled?'':' off'}" data-account="${escapeHtml(acc.email)}" data-cal="${escapeHtml(cal.id)}">`+
+        `<span class="gcal-cal-dot" style="background:${cal.color}"></span><span>${escapeHtml(cal.summary)}</span></div>`
+    ).join('');
+    return `<div class="gcal-cal-group"><div class="gcal-cal-group-label">${escapeHtml(acc.email)}</div><div class="gcal-cal-toggle-row">${rows}</div></div>`;
+  }).join('');
+}
+
+document.addEventListener('click', e=>{
+  const el = e.target.closest('.gcal-cal-toggle');
+  if(!el) return;
+  const acc = gcalAccounts.find(a=>a.email===el.dataset.account);
+  if(!acc) return;
+  const cal = acc.calendars.find(c=>c.id===el.dataset.cal);
+  if(!cal) return;
+  cal.enabled = !cal.enabled;
+  el.classList.toggle('off', !cal.enabled);
+  gcalPersistAccountsMeta();
+  gcalLoadEventsForVisibleRange();
+});
+
+/* ---- Google Identity Services ---- */
+function gcalEnsureTokenClient(){
+  if(!window.google || !google.accounts || !google.accounts.oauth2) return false;
+  if(!gcalCfg.clientId) return false;
+  if(gcalTokenClient) return true;
+  gcalTokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: gcalCfg.clientId, scope: GCAL_SCOPES, callback: gcalOnTokenResponse, error_callback: gcalOnTokenError
+  });
+  return true;
+}
+function gcalEnsureSilentTokenClient(){
+  if(!window.google || !google.accounts || !google.accounts.oauth2) return false;
+  if(!gcalCfg.clientId) return false;
+  if(gcalSilentTokenClient) return true;
+  gcalSilentTokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: gcalCfg.clientId, scope: GCAL_SCOPES, callback: gcalOnSilentTokenResponse, error_callback: gcalOnSilentTokenError
+  });
+  return true;
+}
+function gcalFetchUserEmail(token){
+  return fetch('https://www.googleapis.com/oauth2/v3/userinfo', {headers:{Authorization:'Bearer '+token}})
+    .then(r=>r.ok?r.json():null).then(d=>d&&d.email).catch(()=>null);
+}
+function gcalFetchCalendarListFor(token){
+  return fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList?minAccessRole=reader', {headers:{Authorization:'Bearer '+token}})
+    .then(r=>r.ok?r.json():{items:[]})
+    .then(d=>(d.items||[]).map(it=>({
+      id: it.id,
+      summary: it.summaryOverride || it.summary || it.id,
+      color: it.backgroundColor || GCAL_DEFAULT_COLOR,
+      enabled: true
+    })));
+}
+function gcalUpsertAccount(email, token, cals){
+  const existing = gcalAccounts.find(a=>a.email===email);
+  if(existing){
+    existing.token = token;
+    existing.needsReconnect = false;
+    existing.reconnecting = false;
+    cals.forEach(c=>{ const prev = existing.calendars && existing.calendars.find(p=>p.id===c.id); if(prev) c.enabled = prev.enabled; });
+    existing.calendars = cals;
+  } else {
+    gcalAccounts.push({email, token, calendars: cals, needsReconnect:false, reconnecting:false});
+  }
+}
+
+/* ---- fluxo manual (adicionar / reconectar com clique) ---- */
+function gcalOnTokenResponse(resp){
+  const btn = document.getElementById('gcal-add-account-btn');
+  if(resp.error){ gcalOnTokenError(resp); return; }
+  const token = resp.access_token;
+  gcalFetchUserEmail(token).then(email=>{
+    const finalEmail = email || ('conta-'+(gcalAccounts.length+1));
+    return gcalFetchCalendarListFor(token).then(cals=>{
+      if(cals.length===0) cals.push({id:'primary', summary:finalEmail, color:GCAL_DEFAULT_COLOR, enabled:true});
+      gcalApplyStoredCalPrefs(finalEmail, cals);
+      gcalUpsertAccount(finalEmail, token, cals);
+      gcalPersistAccountsMeta();
+      gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange();
+      if(btn){ btn.disabled=false; btn.textContent='＋ Adicionar conta'; }
+    });
+  }).catch(()=>gcalOnTokenError({error:'lookup_failed'}));
+}
+function gcalOnTokenError(err){
+  console.error('OAuth error', err);
+  const btn = document.getElementById('gcal-add-account-btn');
+  if(btn){ btn.disabled=false; btn.textContent='＋ Adicionar conta'; }
+  alert('Falha ao conectar com o Google. Confira o Client ID e a origem autorizada.');
+}
+function gcalConnect(){
+  if(!gcalCfg.clientId){ document.getElementById('gcal-client-id-input').focus(); return; }
+  if(!gcalEnsureTokenClient()){ return; }
+  const btn = document.getElementById('gcal-add-account-btn');
+  if(btn){ btn.disabled = true; btn.textContent = 'Conectando…'; }
+  gcalTokenClient.requestAccessToken({prompt: 'select_account consent'});
+}
+function gcalReconnectAccount(email){
+  if(!gcalCfg.clientId || !gcalEnsureTokenClient()) return;
+  const acc = gcalAccounts.find(a=>a.email===email);
+  if(acc){ acc.reconnecting = true; gcalRenderAccounts(); }
+  gcalTokenClient.requestAccessToken({prompt:'consent', hint: email});
+}
+function gcalDisconnectAccount(email){
+  const acc = gcalAccounts.find(a=>a.email===email);
+  if(acc && acc.token && window.google && google.accounts && google.accounts.oauth2){
+    google.accounts.oauth2.revoke(acc.token, ()=>{});
+  }
+  gcalAccounts = gcalAccounts.filter(a=>a.email!==email);
+  gcalForgetAccountMeta(email);
+  gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange();
+}
+
+/* ---- fluxo silencioso (reconexão automática ao carregar a página) ---- */
+function gcalStartSilentReconnect(emails){
+  gcalSilentQueue = emails.slice();
+  emails.forEach(email=>{
+    if(!gcalAccounts.find(a=>a.email===email)){
+      gcalAccounts.push({email, token:null, calendars:[], needsReconnect:false, reconnecting:true});
+    }
+  });
+  gcalRenderAccounts(); gcalRenderCalendarsPanel();
+  gcalProcessNextSilent();
+}
+function gcalProcessNextSilent(){
+  if(gcalSilentQueue.length===0) return;
+  const email = gcalSilentQueue.shift();
+  if(!gcalEnsureSilentTokenClient()){
+    const acc = gcalAccounts.find(a=>a.email===email);
+    if(acc){ acc.needsReconnect = true; acc.reconnecting = false; }
+    gcalRenderAccounts(); gcalRenderCalendarsPanel();
+    return;
+  }
+  gcalPendingSilentEmail = email;
+  gcalSilentTokenClient.requestAccessToken({prompt:'', hint: email});
+}
+function gcalOnSilentTokenResponse(resp){
+  if(resp.error){ gcalOnSilentTokenError(resp); return; }
+  const token = resp.access_token;
+  const fallbackEmail = gcalPendingSilentEmail;
+  gcalFetchUserEmail(token).then(actualEmail=>{
+    const finalEmail = actualEmail || fallbackEmail;
+    return gcalFetchCalendarListFor(token).then(cals=>{
+      gcalApplyStoredCalPrefs(finalEmail, cals);
+      if(finalEmail !== fallbackEmail) gcalAccounts = gcalAccounts.filter(a=>a.email!==fallbackEmail);
+      gcalUpsertAccount(finalEmail, token, cals);
+      gcalPersistAccountsMeta();
+      gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange();
+      gcalProcessNextSilent();
+    });
+  }).catch(()=>gcalOnSilentTokenError({error:'lookup_failed'}));
+}
+function gcalOnSilentTokenError(err){
+  console.warn('Reconexão silenciosa falhou para', gcalPendingSilentEmail, err);
+  const acc = gcalAccounts.find(a=>a.email===gcalPendingSilentEmail);
+  if(acc){ acc.needsReconnect = true; acc.reconnecting = false; }
+  gcalRenderAccounts(); gcalRenderCalendarsPanel();
+  gcalProcessNextSilent();
+}
+function gcalWaitForGIS(cb, tries){
+  if(window.google && google.accounts && google.accounts.oauth2){ cb(); return; }
+  if(tries>80){
+    gcalAccounts.forEach(a=>{ if(a.reconnecting){ a.reconnecting=false; a.needsReconnect=true; } });
+    gcalRenderAccounts(); gcalRenderCalendarsPanel();
+    return;
+  }
+  setTimeout(()=>gcalWaitForGIS(cb, tries+1), 100);
+}
+
+/* ---- Eventos: busca no intervalo visível (semana ou mês) e cache ---- */
+function gcalDateRangeForView(){
+  if(calView === 'semana'){
+    const start = getWeekStart(weekOffset);
+    const end = new Date(start); end.setDate(start.getDate()+7);
+    return {start, end};
+  }
+  const anchor = getMonthAnchor(monthOffset);
+  const gridStart = new Date(anchor.getFullYear(), anchor.getMonth(), 1);
+  gridStart.setDate(gridStart.getDate() - gridStart.getDay());
+  const gridEnd = new Date(gridStart); gridEnd.setDate(gridStart.getDate()+42);
+  return {start:gridStart, end:gridEnd};
+}
+function gcalFetchKey(start,end){
+  const ids = [];
+  gcalAccounts.forEach(a=>{ if(a.token) a.calendars.forEach(c=>{ if(c.enabled) ids.push(a.email+':'+c.id); }); });
+  return start.toISOString()+'|'+end.toISOString()+'|'+ids.sort().join(',');
+}
+function gcalRedraw(){
+  if (calView === 'semana') renderWeek(); else renderMonth();
+}
+function gcalLoadEventsForVisibleRange(){
+  const {start,end} = gcalDateRangeForView();
+  const key = gcalFetchKey(start,end);
+  if(key === gcalLastFetchKey) return;
+  gcalLastFetchKey = key;
+  gcalEventsByDate = {};
+  gcalRedraw();
+  const withToken = gcalAccounts.filter(a=>a.token);
+  if(withToken.length===0) return;
+  const timeMin = start.toISOString(), timeMax = end.toISOString();
+  withToken.forEach(acc=>{
+    acc.calendars.filter(c=>c.enabled).forEach(cal=>{
+      const url = 'https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(cal.id)+'/events'
+        + '?timeMin='+encodeURIComponent(timeMin)
+        + '&timeMax='+encodeURIComponent(timeMax)
+        + '&singleEvents=true&orderBy=startTime&maxResults=250';
+      fetch(url, {headers:{Authorization:'Bearer '+acc.token}})
+        .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status+' em '+cal.summary); return r.json(); })
+        .then(data=>{
+          (data.items||[]).forEach(ev=>{
+            const dKey = ev.start.date || (ev.start.dateTime ? ev.start.dateTime.slice(0,10) : null);
+            if(!dKey) return;
+            const color = GCAL_EVENT_COLOR_MAP[ev.colorId] || cal.color || GCAL_DEFAULT_COLOR;
+            const time = ev.start.dateTime ? new Date(ev.start.dateTime).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}) : null;
+            if(!gcalEventsByDate[dKey]) gcalEventsByDate[dKey] = [];
+            gcalEventsByDate[dKey].push({title: ev.summary || '(sem título)', time, color, accEmail: acc.email});
+          });
+          gcalRedraw();
+        })
+        .catch(err=>console.error('Erro ao buscar eventos do Google Calendar:', err));
+    });
+  });
+}
+function gcalRenderChip(ev){
+  return `<div class="gcal-event" style="border-left-color:${ev.color};background:${gcalHexToSoft(ev.color)};color:${ev.color};" title="${escapeHtml(ev.title)}${ev.accEmail?(' · '+ev.accEmail):''}">`+
+    (ev.time ? `<span class="gcal-event-time">${ev.time}</span>` : '') +
+    `<span class="gcal-event-title">${escapeHtml(ev.title)}</span></div>`;
+}
+
+/* ---- Reconexão automática ao abrir a página ---- */
+(function gcalInit(){
+  const remembered = Object.keys(gcalLoadAccountsMeta());
+  if(gcalCfg.clientId && remembered.length>0){
+    gcalWaitForGIS(()=>gcalStartSilentReconnect(remembered), 0);
+  } else {
+    gcalUpdateStatusPill();
+  }
+})();
+
 /* ─── Week calendar ─────────────────────────────────────────────────────── */
 function getWeekStart(offset) {
   const d = today(); d.setDate(d.getDate() - d.getDay() + offset * 7); d.setHours(0,0,0,0); return d;
@@ -2556,6 +3038,7 @@ function changeCalPeriod(dir) {
 
 function renderCalendar() {
   if (calView === 'semana') renderWeek(); else renderMonth();
+  gcalLoadEventsForVisibleRange();
 }
 
 function renderWeek() {
@@ -2571,13 +3054,15 @@ function renderWeek() {
     const dStr = isoDate(d);
     const isToday = dStr === tStr;
     const dayPosts = filteredDayPosts(dStr);
+    const dayGcalEvents = gcalEventsByDate[dStr] || [];
     html += `<div class="week-day-col">
       <div class="week-day-head">
         <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
         <div class="week-day-num${isToday?' today':''}">${d.getDate()}</div>
       </div>
       <div class="week-day-body" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
-        ${dayPosts.length ? dayPosts.map(p => renderPostCard(p, dStr)).join('') : '<div class="empty-day">—</div>'}
+        ${dayGcalEvents.map(gcalRenderChip).join('')}
+        ${dayPosts.length ? dayPosts.map(p => renderPostCard(p, dStr)).join('') : (dayGcalEvents.length ? '' : '<div class="empty-day">—</div>')}
       </div>
     </div>`;
   }
@@ -2615,10 +3100,15 @@ function renderMonth() {
     const dayPosts = filteredDayPosts(dStr);
     const visible = dayPosts.slice(0, MAX_VISIBLE);
     const extra = dayPosts.length - visible.length;
+    const allGcalEvents = gcalEventsByDate[dStr] || [];
+    const visibleGcalEvents = allGcalEvents.slice(0, MAX_VISIBLE);
+    const extraGcal = allGcalEvents.length - visibleGcalEvents.length;
+    const totalExtra = extra + extraGcal;
     cellsHtml += `<div class="month-day-cell${isOutside ? ' outside' : ''}" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
       <div class="month-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
+      ${visibleGcalEvents.map(gcalRenderChip).join('')}
       ${visible.map(p => renderPostCard(p, dStr)).join('')}
-      ${extra > 0 ? `<div class="month-post-more" onclick="goToWeekOf('${dStr}')">+${extra} mais</div>` : ''}
+      ${totalExtra > 0 ? `<div class="month-post-more" onclick="goToWeekOf('${dStr}')">+${totalExtra} mais</div>` : ''}
     </div>`;
     // stop once we've covered the month and completed the current week row
     if (i >= 34 && d.getMonth() !== month && d.getDay() === 6) break;
