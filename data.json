@@ -1753,7 +1753,8 @@
       "id": 6,
       "rede": "ig",
       "instagram": "pam.dev",
-      "nome": "Pamela Mendes"
+      "nome": "Pamela Mendes",
+      "tipo": "tipo_mtwihe8g9bqh"
     },
     {
       "id": 7,
@@ -2875,5 +2876,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:24:41.893Z"
+  "_updatedAt": "2026-09-11T05:25:04.110Z"
 }
