@@ -1101,7 +1101,8 @@
       "status": "gravando",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1111,7 +1112,8 @@
         }
       ],
       "requiredTag": "slot4",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null
     },
     {
       "id": 53,
@@ -2941,5 +2943,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:35:31.777Z"
+  "_updatedAt": "2026-09-11T15:35:35.676Z"
 }
