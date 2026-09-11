@@ -1468,22 +1468,33 @@
       "titulo": "[carrossel] Um dia comigo no home office",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
+        },
+        {
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-09-28",
-      "status": "roteiro",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
       "plataformasDatas": null,
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot6",
       "plataformasStatus": null
@@ -2822,5 +2833,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:38:17.912Z"
+  "_updatedAt": "2026-09-11T04:38:33.426Z"
 }
