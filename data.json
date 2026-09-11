@@ -1742,6 +1742,12 @@
       "rede": "ig",
       "instagram": "mictalks",
       "nome": "Milena Coyado"
+    },
+    {
+      "id": 11,
+      "rede": "ig",
+      "instagram": "giselletechh",
+      "nome": "Giselle Costa"
     }
   ],
   "requiredPostsByMonth": {
@@ -2796,5 +2802,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:20:51.050Z"
+  "_updatedAt": "2026-09-11T04:21:13.581Z"
 }
