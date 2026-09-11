@@ -548,6 +548,24 @@
   .prod-schedule-item .prod-schedule-date { color: var(--text-2); }
   .prod-schedule-item.prod-late .prod-schedule-date { color: #e8445a; font-weight: 600; }
   .prod-schedule-empty { font-size: 12.5px; color: var(--text-3); }
+
+  /* Notificações de produção do dia */
+  .notif-today-banner { display: none; gap: 10px; border-radius: 10px; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; margin: 14px 22px 0; background: #fff1db; border: 1px solid #f3d69b; color: #8a5a0a; align-items: flex-start; }
+  .notif-today-banner.show { display: flex; }
+  .notif-today-banner-icon { font-size: 16px; flex-shrink: 0; }
+  .notif-today-banner-body { flex: 1; min-width: 0; }
+  .notif-today-banner-title { font-weight: 700; margin-bottom: 4px; }
+  .notif-today-banner-items { display: flex; flex-direction: column; gap: 3px; }
+  .notif-today-banner-item { cursor: pointer; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color .12s; }
+  .notif-today-banner-item:hover { text-decoration-color: #8a5a0a; }
+  .notif-today-banner-close { background: none; border: none; color: #8a5a0a; cursor: pointer; font-size: 13px; padding: 2px 4px; flex-shrink: 0; opacity: .7; }
+  .notif-today-banner-close:hover { opacity: 1; }
+  .notif-status-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 14px; }
+  .notif-status-text { font-size: 12.5px; }
+  .notif-status-badge { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+  .notif-status-badge.granted { background: #e4f9ec; color: #1f9a54; }
+  .notif-status-badge.denied { background: #fde8e8; color: #c0392b; }
+  .notif-status-badge.default { background: var(--bg); color: var(--text-2); }
   .post-search-wrap { position: relative; flex: 1; min-width: 0; }
   .post-search-input { width: 100%; padding: 8px 11px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; color: var(--text); background: var(--surface); font-family: inherit; }
   .post-search-input:focus { outline: none; border-color: #5b50c8; box-shadow: 0 0 0 3px rgba(91,80,200,0.1); }
@@ -962,11 +980,24 @@
             <span style="font-size:12px;">⏱️</span>
             <span>Tempo de produção</span>
           </button>
+          <button class="sync-status" id="notif-status-btn" onclick="openNotifModal()" title="Configurar lembretes de produção" style="margin-right:6px;">
+            <span style="font-size:12px;">🔔</span>
+            <span>Notificações</span>
+          </button>
           <button type="button" class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="goToAgendaToday()">Hoje</button>
           <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(-1)">&#8249;</button>
           <div class="strategy-month-label" id="agenda-week-label">semana</div>
           <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(1)">&#8250;</button>
         </div>
+      </div>
+
+      <div class="notif-today-banner" id="notif-today-banner">
+        <span class="notif-today-banner-icon">🔔</span>
+        <div class="notif-today-banner-body">
+          <div class="notif-today-banner-title" id="notif-today-banner-title">Produção pra hoje</div>
+          <div class="notif-today-banner-items" id="notif-today-banner-items"></div>
+        </div>
+        <button type="button" class="notif-today-banner-close" onclick="dismissNotifBanner()" title="Dispensar por hoje">✕</button>
       </div>
 
       <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
@@ -1654,6 +1685,42 @@
       <div class="new-modal-footer-actions">
         <button class="btn" onclick="closeProductionModal()">Cancelar</button>
         <button class="btn btn-primary" onclick="saveProductionTimes()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Notification Modal -->
+<div class="modal-overlay" id="notif-modal" onclick="handleOverlayClick(event,'notif-modal')">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-hero">
+      <div class="modal-title-text">🔔 Notificações de produção</div>
+      <div style="font-size:12.5px;color:var(--text-2);margin-top:4px;">Avisa quando um post tem etapa de produção (roteiro, gravação, edição...) marcada pra hoje, com base no tempo de produção configurado.</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;">
+      <div class="notif-status-row">
+        <div class="notif-status-text" id="notif-permission-text">Permissão do Safari: verificando…</div>
+        <button type="button" class="btn btn-primary" id="notif-permission-btn" onclick="requestNotifPermission()" style="font-size:12px;padding:6px 12px;">Ativar</button>
+      </div>
+      <div class="form-group">
+        <label class="form-input" style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 11px;">
+          <input type="checkbox" id="notif-enabled-toggle" style="width:auto;" />
+          Ativar lembretes diários
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Horário do lembrete</label>
+        <input type="time" class="form-input" id="notif-time-input" value="09:00" />
+      </div>
+      <div class="gcal-info-box">
+        ℹ️ Quando der, o aviso aparece como notificação normal do Safari/macOS. Se o navegador não suportar ou a permissão não estiver liberada (comum no iPhone fora de um app instalado na Tela de Início), o app mostra um <strong>alert()</strong> do próprio navegador no lugar — então o aviso sempre chega, mesmo sem a permissão. Só funciona enquanto o Safari estiver aberto (a aba pode estar em segundo plano); com o navegador totalmente fechado precisaria de um servidor de push, que esse app (só front-end) não tem.
+      </div>
+      <button type="button" class="btn" style="margin-top:14px;width:100%;justify-content:center;" onclick="checkProductionTasksNow(true)">🔎 Verificar tarefas de hoje agora</button>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions">
+        <button class="btn" onclick="closeNotifModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="saveNotifSettings()">Salvar</button>
       </div>
     </div>
   </div>
@@ -2576,6 +2643,166 @@ function renderProductionScheduleBlock(post) {
     </div>`;
   }).join('')}</div>`;
 }
+
+/* ─── Notificações de produção (Safari / navegador) ─────────────────────
+   O app é só front-end (sem servidor próprio), então isso usa a Web
+   Notification API do navegador: funciona enquanto o Safari está aberto
+   (a aba pode estar em segundo plano), mas não com o navegador totalmente
+   fechado — pra isso seria preciso um servidor de push (Web Push/APNs),
+   que este projeto não tem. Por isso também existe o aviso dentro do
+   próprio app (banner no topo da Agenda semanal), que funciona sempre
+   que o post tiver uma etapa de produção configurada e marcada pra hoje.
+   ─────────────────────────────────────────────────────────────────────── */
+const NOTIF_SETTINGS_KEY = 'content-manager-notif-settings-v1';
+const NOTIF_LAST_KEY     = 'content-manager-notif-last-sent-v1';
+const NOTIF_DISMISS_KEY  = 'content-manager-notif-dismissed-v1';
+
+function loadNotifSettings() {
+  try {
+    const saved = localStorage.getItem(NOTIF_SETTINGS_KEY);
+    if (saved) { const p = JSON.parse(saved); return { enabled: !!p.enabled, time: p.time || '09:00' }; }
+  } catch (e) {}
+  return { enabled: false, time: '09:00' };
+}
+function saveNotifSettingsStore() { localStorage.setItem(NOTIF_SETTINGS_KEY, JSON.stringify(notifSettings)); }
+let notifSettings = loadNotifSettings();
+
+function notifPermissionSupported() { return typeof Notification !== 'undefined'; }
+
+function openNotifModal() {
+  document.getElementById('notif-enabled-toggle').checked = notifSettings.enabled;
+  document.getElementById('notif-time-input').value = notifSettings.time || '09:00';
+  updateNotifPermissionUI();
+  document.getElementById('notif-modal').classList.add('open');
+}
+function closeNotifModal() { document.getElementById('notif-modal').classList.remove('open'); }
+
+function updateNotifPermissionUI() {
+  const textEl = document.getElementById('notif-permission-text');
+  const btnEl  = document.getElementById('notif-permission-btn');
+  if (!textEl || !btnEl) return;
+  if (!notifPermissionSupported()) {
+    textEl.textContent = 'Esse navegador não suporta notificações — o banner dentro do app continua funcionando.';
+    btnEl.style.display = 'none';
+    return;
+  }
+  const perm = Notification.permission;
+  const labelMap = { granted: '✓ permitido', denied: '✕ bloqueado (vai usar alert() no lugar)', default: 'ainda não pedido' };
+  textEl.innerHTML = `Permissão do Safari: <strong>${labelMap[perm] || perm}</strong>`;
+  btnEl.style.display = perm === 'granted' ? 'none' : '';
+  btnEl.textContent = perm === 'denied' ? 'Bloqueado' : 'Ativar';
+  btnEl.disabled = perm === 'denied';
+}
+
+function requestNotifPermission() {
+  if (!notifPermissionSupported()) { alert('Esse navegador não suporta notificações.'); return; }
+  Notification.requestPermission().then(() => updateNotifPermissionUI());
+}
+
+function saveNotifSettings() {
+  notifSettings = {
+    enabled: document.getElementById('notif-enabled-toggle').checked,
+    time: document.getElementById('notif-time-input').value || '09:00',
+  };
+  saveNotifSettingsStore();
+  closeNotifModal();
+  if (notifSettings.enabled && notifPermissionSupported() && Notification.permission === 'default') {
+    requestNotifPermission();
+  }
+  checkProductionTasksNow(false);
+}
+
+/* Tarefas de produção que caem hoje, com base no cronograma calculado
+   (tempo de produção configurado por formato/tag). Só entra na lista se
+   o post ainda não passou daquela etapa. */
+function getTodayProductionTasks() {
+  const todayS = todayStr();
+  const tasks = [];
+  posts.forEach(p => {
+    if (!p.data || groupOf(p.status) === 'complete') return;
+    const schedule = computeProductionSchedule(p);
+    if (!schedule.length) return;
+    const statusIdx = ALL_STATUS.findIndex(s => s.key === p.status);
+    schedule.forEach(item => {
+      const startS = isoDate(item.start);
+      const endS   = isoDate(item.end);
+      if (todayS < startS || todayS > endS) return;
+      const stageIdx = ALL_STATUS.findIndex(s => s.key === item.status.key);
+      if (statusIdx > stageIdx) return; // etapa já foi passada
+      tasks.push({ post: p, stage: item.status });
+    });
+  });
+  return tasks;
+}
+
+function renderNotifBanner(tasks) {
+  const banner = document.getElementById('notif-today-banner');
+  if (!banner) return;
+  const dismissedFor = localStorage.getItem(NOTIF_DISMISS_KEY);
+  if (!tasks || !tasks.length || dismissedFor === todayStr()) { banner.classList.remove('show'); return; }
+  document.getElementById('notif-today-banner-title').textContent =
+    tasks.length === 1 ? 'Você tem 1 produção pra hoje' : `Você tem ${tasks.length} produções pra hoje`;
+  document.getElementById('notif-today-banner-items').innerHTML = tasks.map(t =>
+    `<div class="notif-today-banner-item" onclick="openPost(${t.post.id})">${escapeHtml(t.post.titulo)} — ${t.stage.label}</div>`
+  ).join('');
+  banner.classList.add('show');
+}
+
+function dismissNotifBanner() {
+  localStorage.setItem(NOTIF_DISMISS_KEY, todayStr());
+  document.getElementById('notif-today-banner').classList.remove('show');
+}
+
+function sendBrowserNotification(tasks) {
+  const title = tasks.length === 1 ? '📋 1 produção pra hoje' : `📋 ${tasks.length} produções pra hoje`;
+  const body = tasks.slice(0, 5).map(t => `${t.post.titulo} — ${t.stage.label}`).join('\n')
+    + (tasks.length > 5 ? `\n+${tasks.length - 5} outra(s)` : '');
+  // Notificação nativa do sistema — só funciona se o navegador suportar E
+  // a permissão já tiver sido concedida.
+  if (notifPermissionSupported() && Notification.permission === 'granted') {
+    try {
+      const n = new Notification(title, { body, tag: 'content-manager-prod-' + todayStr() });
+      n.onclick = () => { window.focus(); n.close(); };
+      return true;
+    } catch (e) { /* cai pro alert abaixo */ }
+  }
+  // Fallback: alguns Safaris (principalmente iOS fora de PWA instalada, ou
+  // quando o site nunca pediu/teve a permissão negada) não mostram a
+  // notificação do sistema — nesse caso avisa com um alert() do navegador,
+  // que sempre funciona enquanto a aba está aberta.
+  alert(`${title}\n\n${body}`);
+  return true;
+}
+
+/* Sempre atualiza o banner dentro do app; dispara um aviso (notificação
+   nativa quando disponível, senão um alert do navegador) uma vez por dia
+   — ou na hora, se "force" for usado pelo botão de teste — e só depois do
+   horário configurado. */
+function checkProductionTasksNow(force) {
+  const tasks = getTodayProductionTasks();
+  renderNotifBanner(tasks);
+  if (!notifSettings.enabled && !force) return;
+  const todayS = todayStr();
+  if (!force) {
+    if (localStorage.getItem(NOTIF_LAST_KEY) === todayS) return;
+    const now = new Date();
+    const [hh, mm] = (notifSettings.time || '09:00').split(':').map(Number);
+    const isTime = now.getHours() > hh || (now.getHours() === hh && now.getMinutes() >= mm);
+    if (!isTime) return;
+  }
+  if (!tasks.length) {
+    if (!force) localStorage.setItem(NOTIF_LAST_KEY, todayS);
+    if (force) alert('Nenhuma produção marcada pra hoje. 🎉');
+    return;
+  }
+  sendBrowserNotification(tasks);
+  if (!force) localStorage.setItem(NOTIF_LAST_KEY, todayS);
+}
+
+/* Checa a cada 15 min enquanto a aba está aberta (pega a virada do dia e o
+   horário configurado sem precisar recarregar a página). */
+setInterval(() => checkProductionTasksNow(false), 15 * 60 * 1000);
+
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 const defaultPosts = [
@@ -5662,6 +5889,7 @@ function onStageDrop(ev, statusKey) {
 }
 
 function renderAgenda() {
+  renderNotifBanner(getTodayProductionTasks());
   const start = getWeekStart(agendaWeekOffset);
   const end = new Date(start); end.setDate(end.getDate() + 6);
   const startStr = isoDate(start), endStr = isoDate(end);
@@ -6145,6 +6373,9 @@ if (localStorage.getItem('content-manager-table-collapsed') === '1') {
    recente no GitHub (funciona sem token; token só é necessário pra salvar). */
 if (!getGhToken()) setSyncStatus('offline', 'Somente leitura (sem token)');
 pullFromGitHub(false);
+
+/* Checagem inicial de notificações de produção (banner + push, se ativado). */
+checkProductionTasksNow(false);
 
 </script>
 </body>
