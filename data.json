@@ -1350,12 +1350,14 @@
       "status": "ideia",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3"
+      "requiredTag": "slot3",
+      "plataformasStatus": null
     },
     {
       "id": 69,
@@ -2779,5 +2781,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:11:26.557Z"
+  "_updatedAt": "2026-09-11T04:11:33.057Z"
 }
