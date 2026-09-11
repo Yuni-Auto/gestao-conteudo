@@ -1382,7 +1382,7 @@
     },
     {
       "id": 70,
-      "titulo": "Coisas legais que aprendi ou fiz no último mês",
+      "titulo": "[carrossel] Coisas legais que aprendi ou fiz no último mês",
       "desc": "Como o angular foi pensado inicialmente",
       "carouselLegenda": "Como o angular foi pensado inicialmente",
       "slides": [
@@ -1395,7 +1395,8 @@
       "data": "2026-09-14",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
@@ -2696,5 +2697,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T02:00:20.034Z"
+  "_updatedAt": "2026-09-11T02:00:32.532Z"
 }
