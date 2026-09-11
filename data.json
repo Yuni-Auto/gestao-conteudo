@@ -1356,12 +1356,14 @@
       "status": "roteiro",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot13"
+      "requiredTag": "slot13",
+      "plataformasStatus": null
     },
     {
       "id": 68,
@@ -2943,5 +2945,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:35:35.676Z"
+  "_updatedAt": "2026-09-11T15:35:40.209Z"
 }
