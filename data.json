@@ -1238,29 +1238,6 @@
       "plataformasDatas": null
     },
     {
-      "id": 61,
-      "titulo": "[Carousel] Programa de estágio",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-09-25",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot3",
-      "plataformasDatas": null
-    },
-    {
       "id": 62,
       "titulo": "[reels] Entrevistador: \"Poderia me explicar async e await”",
       "desc": "Vai fazer uma entrevista e não sabe a diferença ?\n\nImagine que você pediu uma pizza. 🍕\n\nVocê faz o pedido, mas ela leva um tempo para chegar.\n\nEnquanto isso, você pode conversar, assistir TV ou fazer outras coisas.\n\nQuando a pizza chega, aí sim você começa a comer.\n\nNo código acontece a mesma coisa.\n\nAlgumas operações demoram um pouco, por exemplo:\n\n* Buscar dados de uma API 🌐\n* Fazer login 🔐\n* Salvar informações no banco 💾\n\nÉ aí que entra o async e await.\n\n✅ async: diz que aquela função pode executar tarefas que demoram um pouco.\n\n✅ await: Espere essa tarefa terminar antes de continuar para a próxima linha\n#tech #tecnologia #programação #dev #vagas",
@@ -2323,5 +2300,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T00:43:15.982Z"
+  "_updatedAt": "2026-09-11T00:43:21.172Z"
 }
