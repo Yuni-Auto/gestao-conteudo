@@ -1347,7 +1347,7 @@
       ],
       "scenes": [],
       "data": "2026-09-17",
-      "status": "afazer",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -1355,7 +1355,12 @@
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "Milena Coyado",
+          "link": "https://www.instagram.com/p/Dc1vLU9kc-3/?img_index=1"
+        }
+      ],
       "requiredTag": "slot3",
       "plataformasStatus": null
     },
@@ -2787,5 +2792,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:16:42.568Z"
+  "_updatedAt": "2026-09-11T04:17:15.502Z"
 }
