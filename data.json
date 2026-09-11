@@ -1704,7 +1704,6 @@
       "status": "ideia",
       "plataformas": [
         "ig",
-        "tt",
         "li"
       ],
       "plataformasDatas": null,
@@ -3130,5 +3129,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:24:26.597Z"
+  "_updatedAt": "2026-09-11T22:24:37.814Z"
 }
