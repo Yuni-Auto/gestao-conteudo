@@ -1252,13 +1252,22 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot9",
-      "plataformasDatas": null,
-      "plataformasStatus": null
+      "plataformasDatas": {
+        "ig": "2026-09-08",
+        "tt": "2026-09-08",
+        "yt": "2026-09-11"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "pronto"
+      }
     },
     {
       "id": 65,
@@ -2921,5 +2930,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:34:48.178Z"
+  "_updatedAt": "2026-09-11T15:35:03.978Z"
 }
