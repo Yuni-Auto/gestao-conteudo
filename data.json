@@ -552,7 +552,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-28",
+      "data": "2026-09-27",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -626,8 +626,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-16",
-      "status": "ideia",
+      "data": "2026-09-15",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -1346,16 +1346,27 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-18",
-      "status": "ideia",
+      "data": "2026-09-17",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot3"
+      "inspiracoes": [
+        {
+          "creator": "Milena Coyado",
+          "link": "https://www.instagram.com/p/Dc1vLU9kc-3/?img_index=1"
+        },
+        {
+          "creator": "Giselle Costa",
+          "link": "https://www.instagram.com/p/DdH8PllkROd/?img_index=1"
+        }
+      ],
+      "requiredTag": "slot3",
+      "plataformasStatus": null
     },
     {
       "id": 69,
@@ -1382,30 +1393,36 @@
     },
     {
       "id": 70,
-      "titulo": "[carrossel] Coisas legais que aprendi ou fiz no último mês",
-      "desc": "Como o angular foi pensado inicialmente",
-      "carouselLegenda": "Como o angular foi pensado inicialmente",
+      "titulo": "[carrossel] Coisas legais que aprendi estudando Angular em diferentes versões",
+      "desc": "",
+      "carouselLegenda": "",
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "Como o angular foi pensado inicialmente migrar um sistema de 17 mil linhas em 2 semanas. "
+        },
+        {
+          "titulo": "",
+          "texto": "Já existiu diretivas, como: ng-show, ng-required"
         }
       ],
       "scenes": [],
-      "data": "2026-09-14",
-      "status": "ideia",
+      "data": "2026-09-13",
+      "status": "afazer",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot15"
+      "requiredTag": "slot15",
+      "plataformasStatus": null
     },
     {
       "id": 71,
-      "titulo": "3 projetos para iniciantes",
+      "titulo": "3 projetos para iniciantes usando Angular + IA",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1415,15 +1432,18 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-10",
+      "data": "2026-09-19",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot5"
+      "requiredTag": "slot5",
+      "plataformasStatus": null
     },
     {
       "id": 72,
@@ -1438,7 +1458,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-10",
+      "data": "2026-09-28",
       "status": "ideia",
       "plataformas": [
         "ig"
@@ -1716,6 +1736,18 @@
       "rede": "ig",
       "instagram": "imtechgirl",
       "nome": "Eneri D Angelis"
+    },
+    {
+      "id": 10,
+      "rede": "ig",
+      "instagram": "mictalks",
+      "nome": "Milena Coyado"
+    },
+    {
+      "id": 11,
+      "rede": "ig",
+      "instagram": "giselletechh",
+      "nome": "Giselle Costa"
     }
   ],
   "requiredPostsByMonth": {
@@ -2742,5 +2774,33 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T03:35:36.587Z"
+  "productionTimes": {
+    "byFormato": {
+      "Reels": {
+        "roteiro": 1,
+        "gravando": 1,
+        "editando": 1,
+        "legenda": 1
+      },
+      "Carousel": {
+        "legenda": 1,
+        "design": 2
+      },
+      "Foto": {
+        "legenda": 1,
+        "design": 1
+      },
+      "Live": {
+        "roteiro": 15
+      },
+      "Shorts": {
+        "roteiro": 1,
+        "gravando": 1,
+        "editando": 1,
+        "legenda": 1
+      }
+    },
+    "overrides": []
+  },
+  "_updatedAt": "2026-09-11T04:22:08.263Z"
 }
