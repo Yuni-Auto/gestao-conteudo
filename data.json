@@ -1404,6 +1404,10 @@
         {
           "titulo": "",
           "texto": "Já existiu diretivas, como: ng-show, ng-required"
+        },
+        {
+          "titulo": "",
+          "texto": "Agora em versões mais novas do angular é usado standalone do que modules"
         }
       ],
       "scenes": [],
@@ -2802,5 +2806,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:22:08.263Z"
+  "_updatedAt": "2026-09-11T04:27:15.727Z"
 }
