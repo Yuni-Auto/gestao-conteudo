@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "",
+      "data": "2026-09-22",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -542,29 +542,23 @@
     },
     {
       "id": 31,
-      "titulo": "[reels] O que leva na bolsa uma Engenheira de Software",
+      "titulo": "[carrossel] Quando gastei para ter um setup nomadi",
       "desc": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "carouselLegenda": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "Cena: Sentada na cama com a bolsa na frente.\n\nFalando: \"O que uma engenheira de software leva em sua bolsa que sai as 5h da manhã e volta as 22h para casa?\""
-        },
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "Falando: \"Tudo que levo pra trabalhar 8h por dia, encarar 6 horas de transporte publico e treinar. Como passo muitas horas do dia fora gosto...\""
+          "titulo": "",
+          "texto": ""
         }
       ],
-      "data": "",
-      "status": "gravando",
+      "scenes": [],
+      "data": "2026-09-29",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -622,17 +616,17 @@
     },
     {
       "id": 35,
-      "titulo": "[carousel] Achadinhos de setup",
+      "titulo": "[reels] Achadinhos para meu novo setup no meu apto novo",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "Vocês já sabem que comprei meu apto, o que vocês não sabem que agora estou tento que montar meu setup do zero e estes são os itens que eu tenho..."
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-09-14",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1090,7 +1084,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "",
+      "data": "2026-09-16",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1853,8 +1847,38 @@
         "tag": "reel"
       },
       {
+        "key": "slot7",
+        "title": "Vídeos grátis que eu pagaria caro para ver",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
         "key": "slot8",
         "title": "Conteúdo para te deixar inteligente",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot9",
+        "title": "Vocabulário da programação",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot10",
+        "title": "Se você usa VS Code e não usa extensões...",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot11",
+        "title": "Calendário de eventos do mês",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot12",
+        "title": "Verdades duras sobre programação",
         "formato": "Carousel",
         "tag": "post"
       },
@@ -1863,10 +1887,76 @@
         "title": "Minha rotina sendo engenheira de software",
         "formato": "Reels",
         "tag": "reel"
+      },
+      {
+        "key": "slot14",
+        "title": "Achadinhos de setup",
+        "formato": "Carousel",
+        "tag": "post"
+      },
+      {
+        "key": "slot15",
+        "title": "Coisas legais que aprendi ou fiz no último mês",
+        "formato": "Carousel",
+        "tag": "post"
       }
     ]
   },
   "requiredPostsHistory": [
+    {
+      "date": "2026-09-11T01:24:27.854Z",
+      "monthKey": "2026-09",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel"
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post"
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel"
+        }
+      ]
+    },
     {
       "date": "2026-09-11T01:16:13.434Z",
       "monthKey": "2026-09",
@@ -2492,5 +2582,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T01:18:16.171Z"
+  "_updatedAt": "2026-09-11T01:36:58.330Z"
 }
