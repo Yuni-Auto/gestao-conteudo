@@ -1687,6 +1687,31 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 79,
+      "titulo": "[carrossel] Dump do PrograMaria Summit",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-17",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -3105,5 +3130,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:23:55.912Z"
+  "_updatedAt": "2026-09-11T22:24:26.597Z"
 }
