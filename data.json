@@ -1753,7 +1753,8 @@
       "id": 6,
       "rede": "ig",
       "instagram": "pam.dev",
-      "nome": "Pamela Mendes"
+      "nome": "Pamela Mendes",
+      "tipo": "tipo_mtwihe8g9bqh"
     },
     {
       "id": 7,
@@ -1789,6 +1790,38 @@
       "instagram": "giselletechh",
       "nome": "Giselle Costa",
       "tipo": "dicas"
+    }
+  ],
+  "inspTipos": [
+    {
+      "key": "trends",
+      "label": "Trends",
+      "icon": "🔥"
+    },
+    {
+      "key": "tecnico",
+      "label": "Técnico",
+      "icon": "🛠️"
+    },
+    {
+      "key": "motivacional",
+      "label": "Não técnico",
+      "icon": "💫"
+    },
+    {
+      "key": "dicas",
+      "label": "Dicas",
+      "icon": "💡"
+    },
+    {
+      "key": "tipo_mtwigtqgltv3",
+      "label": "Motivacional",
+      "icon": "🏷️"
+    },
+    {
+      "key": "tipo_mtwihe8g9bqh",
+      "label": "Publi",
+      "icon": "🛍️"
     }
   ],
   "requiredPostsByMonth": {
@@ -2843,5 +2876,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:15:19.988Z"
+  "_updatedAt": "2026-09-11T05:25:04.110Z"
 }
