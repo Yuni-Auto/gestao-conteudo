@@ -1860,8 +1860,8 @@
     },
     {
       "id": 3,
-      "tema": "{ Angular Imersão Tech } by Womarkscode",
-      "evento": "",
+      "tema": "{ Angular Imersão Tech }",
+      "evento": "Womakerscode",
       "status": "realizada",
       "data": "2026-07-19",
       "formato": "Online",
@@ -3177,5 +3177,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T23:06:35.905Z"
+  "_updatedAt": "2026-09-11T23:09:06.707Z"
 }
