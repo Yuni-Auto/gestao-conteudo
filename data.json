@@ -1736,7 +1736,8 @@
       "id": 4,
       "rede": "ig",
       "instagram": "fe.sgonzalez",
-      "nome": "Fernanda Gonzalez"
+      "nome": "Fernanda Gonzalez",
+      "tipo": "trends"
     },
     {
       "id": 5,
@@ -2837,5 +2838,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:24.205Z"
+  "_updatedAt": "2026-09-11T05:14:32.721Z"
 }
