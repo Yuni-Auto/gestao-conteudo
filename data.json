@@ -1424,6 +1424,29 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5"
+    },
+    {
+      "id": 72,
+      "titulo": "Um dia comigo no home office",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-10",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot6"
     }
   ],
   "partners": [
@@ -2719,5 +2742,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T02:14:27.982Z"
+  "_updatedAt": "2026-09-11T02:14:37.476Z"
 }
