@@ -1663,6 +1663,32 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 78,
+      "titulo": "[reels] Um dia comigo no PrograMaria Summit",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-10-17",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -3081,5 +3107,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:20:52.911Z"
+  "_updatedAt": "2026-09-11T22:23:33.699Z"
 }
