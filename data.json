@@ -1836,7 +1836,7 @@
       "formato": "Presencial",
       "local": "São Paulo",
       "cache": 0,
-      "contato": "",
+      "contato": "Danilo",
       "link": "",
       "notas": "",
       "duracao": 35,
@@ -3162,5 +3162,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T23:03:09.257Z"
+  "_updatedAt": "2026-09-11T23:03:39.904Z"
 }
