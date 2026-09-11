@@ -1347,7 +1347,7 @@
       ],
       "scenes": [],
       "data": "2026-09-17",
-      "status": "pesquisar",
+      "status": "legenda",
       "plataformas": [
         "ig",
         "tt",
@@ -2806,5 +2806,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:28:59.383Z"
+  "_updatedAt": "2026-09-11T04:29:30.638Z"
 }
