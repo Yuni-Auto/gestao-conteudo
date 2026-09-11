@@ -1252,12 +1252,14 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot9",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null
     },
     {
       "id": 65,
@@ -2920,5 +2922,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:28:53.551Z"
+  "_updatedAt": "2026-09-11T15:34:35.364Z"
 }
