@@ -1026,7 +1026,7 @@
           "cena": "Cena descontraída comendo e/ou bebendo "
         }
       ],
-      "data": "2026-09-15",
+      "data": "",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1039,7 +1039,8 @@
           "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
         }
       ],
-      "requiredTag": "slot4"
+      "requiredTag": "slot4",
+      "plataformasDatas": null
     },
     {
       "id": 51,
@@ -2276,5 +2277,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T00:43:23.837Z"
+  "_updatedAt": "2026-09-11T00:43:34.065Z"
 }
