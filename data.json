@@ -631,7 +631,8 @@
       "status": "roteiro",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -641,8 +642,16 @@
         }
       ],
       "requiredTag": "slot14",
-      "plataformasDatas": null,
-      "plataformasStatus": null
+      "plataformasDatas": {
+        "ig": "2026-09-15",
+        "tt": "2026-09-15",
+        "yt": "2026-09-15"
+      },
+      "plataformasStatus": {
+        "ig": "roteiro",
+        "tt": "roteiro",
+        "yt": "roteiro"
+      }
     },
     {
       "id": 37,
@@ -2930,5 +2939,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:35:03.978Z"
+  "_updatedAt": "2026-09-11T15:35:14.344Z"
 }
