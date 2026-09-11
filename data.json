@@ -1310,7 +1310,11 @@
       },
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot4"
+      "requiredTag": "slot4",
+      "plataformasStatus": {
+        "ig": "pronto",
+        "tt": "publicada"
+      }
     },
     {
       "id": 67,
@@ -2876,5 +2880,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T14:20:09.629Z"
+  "_updatedAt": "2026-09-11T14:23:19.277Z"
 }
