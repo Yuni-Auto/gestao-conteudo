@@ -429,6 +429,27 @@
   .st-prt-progresso   { background: #e5eefe; color: #2a4db0; } .st-prt-progresso .status-dot   { background: #4a7de8; }
   .st-prt-completo    { background: #e4f7ee; color: #1a6b40; } .st-prt-completo .status-dot    { background: #2dbe6c; }
 
+  /* Palestras */
+  .st-plt-ideia       { background: #f7f0e4; color: #8a6a2e; } .st-plt-ideia .status-dot       { background: #c8a87a; }
+  .st-plt-pesquisando { background: #eef2fe; color: #3a56a8; } .st-plt-pesquisando .status-dot { background: #6f8fe0; }
+  .st-plt-proposta   { background: #eeeeec; color: #5b5b58; } .st-plt-proposta .status-dot   { background: #9d9d9a; }
+  .st-plt-confirmada { background: #e5eefe; color: #2a4db0; } .st-plt-confirmada .status-dot { background: #4a7de8; }
+  .st-plt-preparando  { background: #f1eafe; color: #6b3fae; } .st-plt-preparando .status-dot  { background: #9b70e8; }
+  .st-plt-ensaiando   { background: #fdeee0; color: #a85d18; } .st-plt-ensaiando .status-dot   { background: #e8935a; }
+  .st-plt-realizada  { background: #e4f7ee; color: #1a6b40; } .st-plt-realizada .status-dot  { background: #2dbe6c; }
+  .st-plt-finalizada  { background: #e1f5f2; color: #146b5e; } .st-plt-finalizada .status-dot  { background: #2dbea0; }
+  .st-plt-cancelada  { background: #fde8e8; color: #b5223a; } .st-plt-cancelada .status-dot  { background: #e8445a; }
+  .lecture-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 16px 18px; }
+  @media (max-width: 1100px) { .lecture-board { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .lecture-board { grid-template-columns: 1fr; } }
+  .lecture-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
+  .lecture-card:last-child { margin-bottom: 0; }
+  .lecture-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
+  .lecture-card-title { font-size: 13px; font-weight: 600; margin-bottom: 7px; }
+  .lecture-card-meta { font-size: 11.5px; color: var(--text-2); margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
+  .lecture-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
+  .lecture-link:hover { text-decoration: underline; }
+
   .partner-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 16px 18px; }
   @media (max-width: 900px) { .partner-board { grid-template-columns: 1fr; } }
   .partner-board-col { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; min-height: 70px; }
@@ -945,6 +966,9 @@
     <div class="sidebar-logo">✦ Content Studio</div>
 
     <div class="nav-section-title">Criação</div>
+    <button class="nav-item-v2" data-view="palestras" data-icon="🎤" onclick="setMainNav(this)">
+      <span class="nav-item-v2-icon">🎤</span><span class="nav-item-v2-label">Gestão de palestras</span>
+    </button>
     <button class="nav-item-v2 active" data-view="gestao" onclick="setMainNav(this)">
       <span class="nav-item-v2-icon">📝</span><span class="nav-item-v2-label">Gestão de conteúdo</span>
     </button>
@@ -1331,6 +1355,58 @@
     </div>
   </div>
 
+  <!-- ── Palestras View ──────────────────────────────────────────────── -->
+  <div id="view-palestras" style="display:none; flex-direction:column; flex:1;">
+    <div class="topbar">
+      <div class="topbar-title">Gestão de palestras</div>
+      <button class="btn btn-primary" onclick="openLectureModal()">+ Nova palestra</button>
+    </div>
+
+    <div class="stats-row" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="stat-card"><div class="stat-label">Palestras</div><div class="stat-value" id="lstat-total">0</div></div>
+      <div class="stat-card"><div class="stat-label">Em progresso</div><div class="stat-value" id="lstat-confirmadas">0</div></div>
+      <div class="stat-card"><div class="stat-label">Realizadas</div><div class="stat-value" id="lstat-realizadas">0</div></div>
+      <div class="stat-card"><div class="stat-label">Cachê total</div><div class="stat-value" id="lstat-cache">R$0</div></div>
+      <div class="stat-card"><div class="stat-label">Próxima palestra</div><div class="stat-value" id="lstat-proxima" style="font-size:15px;">—</div></div>
+    </div>
+
+    <div class="content-area">
+      <div class="list-section">
+        <div class="list-header">
+          <div class="list-title">🎤 Overview</div>
+        </div>
+        <table class="post-table">
+          <thead>
+            <tr>
+              <th>Tema</th>
+              <th>Evento / Organizador</th>
+              <th>Status</th>
+              <th>Data</th>
+              <th>Formato</th>
+              <th>Local</th>
+              <th>Cachê</th>
+              <th>Contato</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lecture-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="list-section" style="padding:16px 18px;">
+        <div class="list-title" style="margin-bottom:12px;">🔄 Palestras · processo de criação</div>
+        <div class="agenda-kanban" id="lecture-progress-grid"></div>
+      </div>
+
+      <div class="list-section">
+        <div class="list-header">
+          <div class="list-title">🚦 By Status</div>
+        </div>
+        <div class="lecture-board" id="lecture-board"></div>
+      </div>
+    </div>
+  </div>
+
   </div>
 </div>
 
@@ -1605,6 +1681,77 @@
         <div style="display:flex; gap:7px; margin-left:auto;">
           <button class="btn" onclick="closePartnerModal()">Cancelar</button>
           <button class="btn btn-primary" onclick="savePartner()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Palestra Modal -->
+<div class="modal-overlay" id="lecture-modal" onclick="handleOverlayClick(event,'lecture-modal')">
+  <div class="modal" style="max-width:640px;">
+    <div class="modal-hero">
+      <div class="modal-title-text" id="lecture-modal-title">Nova palestra</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;">
+
+      <div class="form-group">
+        <label class="form-label">Tema / Título da palestra</label>
+        <input class="form-input" id="l-tema" placeholder="Ex: Carreira em tech para iniciantes" />
+      </div>
+      <div class="form-group" style="margin-bottom:0;">
+        <label class="form-label">Evento / Organizador</label>
+        <input class="form-input" id="l-evento" placeholder="Ex: Womakers Code" />
+      </div>
+      <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:14px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Status</label>
+          <select class="form-input" id="l-status"></select>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Data</label>
+          <input class="form-input" id="l-data" type="date" />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Formato</label>
+          <select class="form-input" id="l-formato">
+            <option value="Presencial">Presencial</option>
+            <option value="Online">Online</option>
+            <option value="Híbrido">Híbrido</option>
+          </select>
+        </div>
+      </div>
+      <div class="nf-meta-grid" style="margin-top:14px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Local</label>
+          <input class="form-input" id="l-local" placeholder="Ex: São Paulo, SP ou link do evento online" />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Cachê (R$)</label>
+          <input class="form-input" id="l-cache" type="number" step="0.01" min="0" placeholder="0.00" />
+        </div>
+      </div>
+      <div class="nf-meta-grid" style="margin-top:14px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Contato</label>
+          <input class="form-input" id="l-contato" placeholder="Nome, e-mail ou telefone" />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Link (convite / slides / evento)</label>
+          <input class="form-input" id="l-link" type="url" placeholder="https://..." />
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:14px; margin-bottom:0;">
+        <label class="form-label">Notas</label>
+        <textarea class="form-input" id="l-notas" rows="4" placeholder="Ex: tempo de duração, requisitos técnicos, público esperado..." style="resize:vertical; font-family:inherit; font-size:13px; line-height:1.5;"></textarea>
+      </div>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions" style="justify-content:space-between;">
+        <button class="btn" id="l-delete-btn" onclick="deleteLecture()" style="display:none; color:#b5223a; border-color:#f6c9dc;">Excluir</button>
+        <div style="display:flex; gap:7px; margin-left:auto;">
+          <button class="btn" onclick="closeLectureModal()">Cancelar</button>
+          <button class="btn btn-primary" onclick="saveLecture()">Salvar</button>
         </div>
       </div>
     </div>
@@ -1908,6 +2055,7 @@
             <option value="ig">📸 Instagram</option>
             <option value="tt">🎵 TikTok</option>
             <option value="li">💼 LinkedIn</option>
+            <option value="yt">▶️ YouTube</option>
           </select>
         </div>
         <div class="form-group">
@@ -2001,7 +2149,7 @@ function setSyncStatus(state, msg) {
 /* Reúne todos os datasets num único objeto pra salvar em um arquivo só */
 function collectAllData() {
   return {
-    posts, partners, guidelines, analyticsOverrides, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
+    posts, partners, lectures, guidelines, analyticsOverrides, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
     requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes,
     _updatedAt: new Date().toISOString(),
   };
@@ -2018,6 +2166,11 @@ function applyRemoteData(data) {
     partners.forEach(p => { migratePartnerDeliverables(p); migratePartnerLinkedPosts(p); });
     nextPartnerId = partners.length ? Math.max(...partners.map(p => Number(p.id) || 0)) + 1 : 1;
     localStorage.setItem(PARTNERS_STORAGE_KEY, JSON.stringify(partners));
+  }
+  if (Array.isArray(data.lectures)) {
+    lectures = data.lectures;
+    nextLectureId = lectures.length ? Math.max(...lectures.map(l => Number(l.id) || 0)) + 1 : 1;
+    localStorage.setItem(LECTURES_STORAGE_KEY, JSON.stringify(lectures));
   }
   if (Array.isArray(data.guidelines)) {
     guidelines = data.guidelines;
@@ -2101,7 +2254,7 @@ async function pullFromGitHub(silent) {
     // Só aceita os dados da nuvem se eles forem realmente mais recentes que
     // os locais. Isso evita que um data.json antigo/incompleto apague dados
     // que só existem neste aparelho (ex: nunca sincronizados ainda).
-    const hasLocalData = (posts && posts.length) || (partners && partners.length) ||
+    const hasLocalData = (posts && posts.length) || (partners && partners.length) || (lectures && lectures.length) ||
       (guidelines && guidelines.length) || (brainstormNotes && brainstormNotes.length) ||
       (analyticsOverrides && Object.keys(analyticsOverrides).length);
     const localTs  = getLocalTimestamp();
@@ -2239,6 +2392,7 @@ function importLocalBackup(event) {
     const qtd = [
       Array.isArray(data.posts) ? `${data.posts.length} posts` : null,
       Array.isArray(data.partners) ? `${data.partners.length} parceiros` : null,
+      Array.isArray(data.lectures) ? `${data.lectures.length} palestras` : null,
       Array.isArray(data.brainstormNotes) ? `${data.brainstormNotes.length} notas de brainstorm` : null,
     ].filter(Boolean).join(', ');
     const ok = confirm(
@@ -5051,6 +5205,244 @@ function deletePartnerRow(id) {
   savePartnersData(); renderPartners();
 }
 
+/* ─── Palestras: status definitions (processo de criação) ────────────────── */
+const LECTURE_STATUS = [
+  // To-do
+  { key:'ideia',        label:'Ideia / Tema',          cls:'st-plt-ideia',        dot:'#c8a87a', group:'todo' },
+  { key:'pesquisando',  label:'Buscando oportunidade', cls:'st-plt-pesquisando',  dot:'#6f8fe0', group:'todo' },
+  { key:'proposta',     label:'Proposta enviada',      cls:'st-plt-proposta',     dot:'#9d9d9a', group:'todo' },
+  // In progress
+  { key:'confirmada',   label:'Confirmada',            cls:'st-plt-confirmada',   dot:'#4a7de8', group:'progress' },
+  { key:'preparando',   label:'Preparando conteúdo',   cls:'st-plt-preparando',   dot:'#9b70e8', group:'progress' },
+  { key:'ensaiando',    label:'Ensaiando',             cls:'st-plt-ensaiando',    dot:'#e8935a', group:'progress' },
+  // Complete
+  { key:'realizada',    label:'Realizada',             cls:'st-plt-realizada',    dot:'#2dbe6c', group:'complete' },
+  { key:'finalizada',   label:'Cachê recebido',        cls:'st-plt-finalizada',   dot:'#2dbea0', group:'complete' },
+  // Cancelled
+  { key:'cancelada',    label:'Cancelada',             cls:'st-plt-cancelada',    dot:'#e8445a', group:'cancelled' },
+];
+const LECTURE_GROUP_LABELS = { todo:'To-do', progress:'Em progresso', complete:'Completo', cancelled:'Cancelada' };
+function getLectureStatusMeta(key) { return LECTURE_STATUS.find(s => s.key === key) || LECTURE_STATUS[0]; }
+
+/* ─── Palestras: dados e persistência ────────────────────────────────────── */
+const LECTURES_STORAGE_KEY = 'content-manager-lectures-v1';
+const defaultLectures = [];
+function loadLectures() {
+  try {
+    const saved = localStorage.getItem(LECTURES_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : defaultLectures;
+  } catch (e) { return defaultLectures; }
+}
+function saveLecturesData() { localStorage.setItem(LECTURES_STORAGE_KEY, JSON.stringify(lectures)); scheduleCloudSync(); }
+let lectures = loadLectures();
+let nextLectureId = lectures.length ? Math.max(...lectures.map(l => Number(l.id)||0)) + 1 : 1;
+let editingLectureId = null;
+
+function fmtCache(v) { const n = Number(v)||0; return n ? 'R$' + n.toFixed(2) : '—'; }
+
+function renderLectures() {
+  document.getElementById('lstat-total').textContent = lectures.length;
+  document.getElementById('lstat-confirmadas').textContent = lectures.filter(l => getLectureStatusMeta(l.status).group === 'progress').length;
+  document.getElementById('lstat-realizadas').textContent = lectures.filter(l => getLectureStatusMeta(l.status).group === 'complete').length;
+  const totalCache = lectures.reduce((s,l) => s + (Number(l.cache)||0), 0);
+  document.getElementById('lstat-cache').textContent = totalCache ? 'R$' + totalCache.toFixed(2) : 'R$0';
+
+  const todayIso = new Date().toISOString().slice(0,10);
+  const upcoming = lectures
+    .filter(l => l.data && l.data >= todayIso && getLectureStatusMeta(l.status).group !== 'cancelled')
+    .sort((a,b) => a.data.localeCompare(b.data))[0];
+  document.getElementById('lstat-proxima').textContent = upcoming ? `${fmtDateBR(upcoming.data)} · ${upcoming.tema}` : '—';
+
+  const tbody = document.getElementById('lecture-tbody');
+  if (!lectures.length) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--text-3);padding:24px;font-style:italic;">Nenhuma palestra cadastrada ainda.</td></tr>`;
+  } else {
+    tbody.innerHTML = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||'')).map(l => {
+      const m = getLectureStatusMeta(l.status);
+      const contatoCell = l.link
+        ? `<a href="${escapeHtml(l.link)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">${escapeHtml(l.contato || 'Abrir link')}</a>`
+        : (l.contato ? escapeHtml(l.contato) : '—');
+      return `<tr style="cursor:pointer;" onclick="openLectureModal(${l.id})">
+        <td><b>${escapeHtml(l.tema)}</b></td>
+        <td>${escapeHtml(l.evento || '—')}</td>
+        <td><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></td>
+        <td>${fmtDateBR(l.data)}</td>
+        <td>${escapeHtml(l.formato || '—')}</td>
+        <td>${escapeHtml(l.local || '—')}</td>
+        <td>${fmtCache(l.cache)}</td>
+        <td>${contatoCell}</td>
+        <td onclick="event.stopPropagation()"><button class="btn" style="padding:4px 9px;font-size:11px;" onclick="deleteLectureRow(${l.id})">Excluir</button></td>
+      </tr>`;
+    }).join('');
+  }
+
+  const gridWrap = document.getElementById('lecture-progress-grid');
+  gridWrap.innerHTML = LECTURE_STATUS.map(s => {
+    const stageItems = lectures
+      .filter(l => l.status === s.key)
+      .sort((a,b) => (a.data||'').localeCompare(b.data||''));
+    return `<div class="agenda-kanban-col" ondragover="allowDropLectureStage(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onLectureStageDrop(event,'${s.key}')">
+      <div class="agenda-kanban-head">
+        <div class="agenda-kanban-group">${LECTURE_GROUP_LABELS[s.group]}</div>
+        <div class="agenda-kanban-title-row">
+          <span class="agenda-kanban-title"><span class="status-dot" style="background:${s.dot}"></span><span class="agenda-kanban-title-text" title="${s.label}">${s.label}</span></span>
+          <span class="agenda-kanban-count">${stageItems.length}</span>
+        </div>
+      </div>
+      <div class="agenda-kanban-body">
+        ${stageItems.length ? stageItems.map(l => renderLectureKanbanCard(l)).join('') : '<div class="empty-day">—</div>'}
+      </div>
+    </div>`;
+  }).join('');
+
+  const board = document.getElementById('lecture-board');
+  board.innerHTML = ['todo','progress','complete','cancelled'].map(g => {
+    const items = lectures.filter(l => getLectureStatusMeta(l.status).group === g);
+    const cards = items.length ? items.map(l => {
+      const m = getLectureStatusMeta(l.status);
+      return `<div class="lecture-card" onclick="openLectureModal(${l.id})">
+        <div class="lecture-card-title">${escapeHtml(l.tema)}</div>
+        <span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span>
+        <div class="lecture-card-meta">
+          ${l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : ''}
+          ${l.data ? `<span>📅 ${fmtDateBR(l.data)}</span>` : ''}
+          ${l.local ? `<span>📍 ${escapeHtml(l.local)}</span>` : ''}
+          ${l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : ''}
+        </div>
+        ${l.notas ? `<div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.5;border-top:1px solid var(--border);padding-top:7px;">${escapeHtml(l.notas).replace(/\n/g,'<br>')}</div>` : ''}
+      </div>`;
+    }).join('') : `<div class="partner-board-empty">Nada por aqui</div>`;
+    return `<div class="partner-board-col">
+      <div class="partner-board-col-head"><span>${LECTURE_GROUP_LABELS[g]}</span><span class="partner-board-count">${items.length}</span></div>
+      ${cards}
+    </div>`;
+  }).join('');
+}
+
+function openLectureModal(id) {
+  editingLectureId = id || null;
+  const statusSel = document.getElementById('l-status');
+  statusSel.innerHTML = LECTURE_STATUS.map(s => `<option value="${s.key}">${s.label}</option>`).join('');
+  if (id) {
+    const l = lectures.find(x => x.id === id);
+    if (!l) return;
+    document.getElementById('lecture-modal-title').textContent = 'Editar palestra';
+    document.getElementById('l-tema').value = l.tema || '';
+    document.getElementById('l-evento').value = l.evento || '';
+    statusSel.value = l.status || 'ideia';
+    document.getElementById('l-data').value = l.data || '';
+    document.getElementById('l-formato').value = l.formato || 'Presencial';
+    document.getElementById('l-local').value = l.local || '';
+    document.getElementById('l-cache').value = l.cache || '';
+    document.getElementById('l-contato').value = l.contato || '';
+    document.getElementById('l-link').value = l.link || '';
+    document.getElementById('l-notas').value = l.notas || '';
+    document.getElementById('l-delete-btn').style.display = '';
+  } else {
+    document.getElementById('lecture-modal-title').textContent = 'Nova palestra';
+    document.getElementById('l-tema').value = '';
+    document.getElementById('l-evento').value = '';
+    statusSel.value = 'ideia';
+    document.getElementById('l-data').value = '';
+    document.getElementById('l-formato').value = 'Presencial';
+    document.getElementById('l-local').value = '';
+    document.getElementById('l-cache').value = '';
+    document.getElementById('l-contato').value = '';
+    document.getElementById('l-link').value = '';
+    document.getElementById('l-notas').value = '';
+    document.getElementById('l-delete-btn').style.display = 'none';
+  }
+  document.getElementById('lecture-modal').classList.add('open');
+}
+
+function closeLectureModal() {
+  document.getElementById('lecture-modal').classList.remove('open');
+  editingLectureId = null;
+}
+
+function saveLecture() {
+  const tema = document.getElementById('l-tema').value.trim();
+  if (!tema) { alert('Por favor, informe o tema da palestra.'); return; }
+  const data = {
+    tema,
+    evento: document.getElementById('l-evento').value.trim(),
+    status: document.getElementById('l-status').value,
+    data: document.getElementById('l-data').value,
+    formato: document.getElementById('l-formato').value,
+    local: document.getElementById('l-local').value.trim(),
+    cache: parseFloat(document.getElementById('l-cache').value) || 0,
+    contato: document.getElementById('l-contato').value.trim(),
+    link: document.getElementById('l-link').value.trim(),
+    notas: document.getElementById('l-notas').value.trim(),
+  };
+  if (editingLectureId) {
+    const l = lectures.find(x => x.id === editingLectureId);
+    if (l) Object.assign(l, data);
+  } else {
+    lectures.push({ id: nextLectureId++, ...data });
+  }
+  saveLecturesData();
+  renderLectures();
+  closeLectureModal();
+}
+
+function deleteLecture() {
+  if (!editingLectureId) return;
+  if (!confirm('Remover esta palestra?')) return;
+  lectures = lectures.filter(l => l.id !== editingLectureId);
+  saveLecturesData(); renderLectures(); closeLectureModal();
+}
+
+function deleteLectureRow(id) {
+  if (!confirm('Remover esta palestra?')) return;
+  lectures = lectures.filter(l => l.id !== id);
+  saveLecturesData(); renderLectures();
+}
+
+function renderLectureKanbanCard(l) {
+  return `
+  <div class="week-post" draggable="true" ondragstart="onLectureKanbanDragStart(event, ${l.id})" ondragend="onLectureKanbanDragEnd(event)" onclick="openLectureModal(${l.id})" title="Arraste para mudar a etapa">
+    <div class="agenda-strategy-title-row">
+      <div class="week-post-title" title="${escapeHtml(l.tema)}">${escapeHtml(l.tema)}</div>
+      ${l.data ? `<div class="agenda-strategy-date">${fmtDateBR(l.data)}</div>` : ''}
+    </div>
+    ${l.evento ? `<div class="week-post-meta"><span class="week-post-fmt">🏢 ${escapeHtml(l.evento)}</span></div>` : ''}
+    ${l.local ? `<div class="week-post-meta"><span class="week-post-fmt">📍 ${escapeHtml(l.local)}</span></div>` : ''}
+  </div>`;
+}
+
+/* ─── Drag & drop de palestras entre etapas do processo de criação ───────── */
+let draggedLectureId = null;
+function onLectureKanbanDragStart(ev, id) {
+  draggedLectureId = id;
+  ev.dataTransfer.effectAllowed = 'move';
+  try { ev.dataTransfer.setData('text/plain', String(id)); } catch (e) {}
+  ev.target.closest('.week-post').classList.add('dragging');
+}
+function onLectureKanbanDragEnd(ev) {
+  const el = ev.target.closest('.week-post');
+  if (el) el.classList.remove('dragging');
+  document.querySelectorAll('.agenda-kanban-col.drop-target').forEach(el2 => el2.classList.remove('drop-target'));
+  draggedLectureId = null;
+}
+function allowDropLectureStage(ev) {
+  ev.preventDefault();
+  ev.currentTarget.classList.add('drop-target');
+}
+function onLectureStageDrop(ev, statusKey) {
+  ev.preventDefault();
+  ev.currentTarget.classList.remove('drop-target');
+  let id = draggedLectureId;
+  try { id = Number(ev.dataTransfer.getData('text/plain')) || id; } catch (e) {}
+  draggedLectureId = null;
+  if (!id) return;
+  const l = lectures.find(x => x.id === id);
+  if (!l || l.status === statusKey) return;
+  l.status = statusKey;
+  saveLecturesData();
+  renderLectures();
+}
+
 /* ─── Parceiros: guidelines editáveis ────────────────────────────────────── */
 function renderGuidelines() {
   const wrap = document.getElementById('guidelines-list');
@@ -5398,7 +5790,46 @@ const MONTHLY_DATA_LI = [
   { month:'Dez 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
 ];
 
-const MONTHLY_DATA_BY_PLAT = { ig: MONTHLY_DATA_IG, tt: MONTHLY_DATA_TT, li: MONTHLY_DATA_LI };
+const MONTHLY_DATA_YT = [
+  { month:'Dez 24',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Jan 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Fev 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Mar 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Abr 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Mai 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Jun 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Ago 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Set 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Out 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Nov 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Dez 25',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Jan 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Fev 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Mar 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Abr 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Mai 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'completo' },
+  { month:'Jun 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso'},
+  { month:'Jul 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Ago 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Set 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Out 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Nov 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Dez 26',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Jan 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Fev 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Mar 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Abr 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Mai 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Jun 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Jul 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Ago 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Set 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Out 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Nov 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+  { month:'Dez 27',  seguidores:0, views:0, alcance:0, eng:0, conteudo:0, clicks:0, status:'progresso' },
+];
+
+const MONTHLY_DATA_BY_PLAT = { ig: MONTHLY_DATA_IG, tt: MONTHLY_DATA_TT, li: MONTHLY_DATA_LI, yt: MONTHLY_DATA_YT };
 const PLAT_META = [
   { key:'ig', label:'Instagram', labelShort:'Instagram' },
   { key:'tt', label:'TikTok',    labelShort:'TikTok'    },
@@ -5440,7 +5871,7 @@ function initPlatformUI() {
   // 3. Analytics platform tabs
   const anTabs = document.getElementById('an-plat-tabs');
   if (anTabs) {
-    PLAT_META.slice(0, 3).forEach((p, i) => {
+    PLAT_META.forEach((p, i) => {
       const btn = document.createElement('button');
       btn.className = 'an-plat-tab' + (i === 0 ? ' active' : '');
       btn.dataset.plat = p.key;
@@ -5609,6 +6040,14 @@ const ANALYTICS_FIELD_LABELS = {
     eng:        '💬 Comentários',
     conteudo:   '🔁 Compartilhamentos',
     clicks:     '🎁 Recompensas estimadas',
+  },
+  yt: {
+    seguidores: '👤 Inscritos',
+    views:      '▶️ Visualizações',
+    alcance:    '⏱️ Tempo de exibição (horas)',
+    eng:        '👍 Curtidas',
+    conteudo:   '🗂️ Qtd de vídeos publicados',
+    clicks:     '💰 Receita estimada',
   },
 };
 function applyAnalyticsFormLabels(plat) {
@@ -6543,6 +6982,7 @@ function setMainNav(btn) {
   const placeholder = document.getElementById('view-placeholder');
   const analytics = document.getElementById('view-analytics');
   const parceiros = document.getElementById('view-parceiros');
+  const palestras = document.getElementById('view-palestras');
   const brainstorm = document.getElementById('view-brainstorm');
   const agenda = document.getElementById('view-agenda');
   const inspiracoes = document.getElementById('view-inspiracoes');
@@ -6551,6 +6991,7 @@ function setMainNav(btn) {
   placeholder.style.display = 'none';
   analytics.style.display = 'none';
   parceiros.style.display = 'none';
+  palestras.style.display = 'none';
   brainstorm.style.display = 'none';
   agenda.style.display = 'none';
   inspiracoes.style.display = 'none';
@@ -6564,6 +7005,9 @@ function setMainNav(btn) {
     parceiros.style.display = 'flex';
     renderPartners();
     renderGuidelines();
+  } else if (view === 'palestras') {
+    palestras.style.display = 'flex';
+    renderLectures();
   } else if (view === 'brainstorm') {
     brainstorm.style.display = 'flex';
     renderBrainstorm();
