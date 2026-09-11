@@ -1428,12 +1428,20 @@
     },
     {
       "id": 71,
-      "titulo": "3 projetos para iniciantes usando Angular + IA",
+      "titulo": "3 tasks para praticar Angular + IA",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Criação de uma interface",
+          "texto": ""
+        },
+        {
+          "titulo": "Criação da lógica",
+          "texto": ""
+        },
+        {
+          "titulo": "Criação de testes unitários",
           "texto": ""
         }
       ],
@@ -2808,5 +2816,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:30:03.818Z"
+  "_updatedAt": "2026-09-11T04:32:20.350Z"
 }
