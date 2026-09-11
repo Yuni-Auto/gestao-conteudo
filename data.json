@@ -1424,7 +1424,8 @@
       "status": "ideia",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
@@ -2777,5 +2778,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:11:17.540Z"
+  "_updatedAt": "2026-09-11T04:11:20.210Z"
 }
