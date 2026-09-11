@@ -1221,7 +1221,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-29",
+      "data": "",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1234,7 +1234,8 @@
           "link": "https://www.instagram.com/p/DW9J67XEcXV/?igsh=MnozcGhoeDhjdDV2"
         }
       ],
-      "requiredTag": "slot7"
+      "requiredTag": "slot7",
+      "plataformasDatas": null
     },
     {
       "id": 61,
@@ -2322,5 +2323,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T00:43:04.466Z"
+  "_updatedAt": "2026-09-11T00:43:10.166Z"
 }
