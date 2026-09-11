@@ -378,12 +378,14 @@
       "status": "gravando",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null
     },
     {
       "id": 24,
@@ -631,7 +633,8 @@
       "status": "roteiro",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -641,8 +644,16 @@
         }
       ],
       "requiredTag": "slot14",
-      "plataformasDatas": null,
-      "plataformasStatus": null
+      "plataformasDatas": {
+        "ig": "2026-09-15",
+        "tt": "2026-09-15",
+        "yt": "2026-09-15"
+      },
+      "plataformasStatus": {
+        "ig": "roteiro",
+        "tt": "roteiro",
+        "yt": "roteiro"
+      }
     },
     {
       "id": 37,
@@ -1090,7 +1101,8 @@
       "status": "gravando",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1100,7 +1112,8 @@
         }
       ],
       "requiredTag": "slot4",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null
     },
     {
       "id": 53,
@@ -1248,16 +1261,26 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-08",
+      "data": "2026-09-09",
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot9",
-      "plataformasDatas": null
+      "plataformasDatas": {
+        "ig": "2026-09-07",
+        "tt": "2026-09-09",
+        "yt": "2026-09-13"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "pronto"
+      }
     },
     {
       "id": 65,
@@ -1276,14 +1299,21 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
       "plataformasDatas": {
         "ig": "2026-08-13",
-        "tt": "2026-08-15"
+        "tt": "2026-09-11",
+        "yt": "2026-09-11"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
       }
     },
     {
@@ -1292,6 +1322,10 @@
       "desc": "",
       "carouselLegenda": "",
       "slides": [
+        {
+          "titulo": "Qual é o seu instagram?",
+          "texto": ""
+        },
         {
           "titulo": "",
           "texto": ""
@@ -1312,13 +1346,13 @@
       "inspiracoes": [],
       "requiredTag": "slot4",
       "plataformasStatus": {
-        "ig": "pronto",
+        "ig": "publicada",
         "tt": "publicada"
       }
     },
     {
       "id": 67,
-      "titulo": "[reels] Minha rotina sendo engenheira de software no TDC",
+      "titulo": "[reels] Um dia comigo no TDC 2026",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -1333,12 +1367,14 @@
       "status": "roteiro",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot13"
+      "requiredTag": "slot13",
+      "plataformasStatus": null
     },
     {
       "id": 68,
@@ -1502,6 +1538,179 @@
       "inspiracoes": [],
       "requiredTag": "slot6",
       "plataformasStatus": null
+    },
+    {
+      "id": 73,
+      "titulo": "[carrossel] Dump do TDC",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-25",
+      "status": "legenda",
+      "plataformas": [
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 74,
+      "titulo": "[carrossel] Dump do AI CONF'ROLL",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-15",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 75,
+      "titulo": "[carrossel] Dump do OpenAI DevDay Exchange",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-06",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 76,
+      "titulo": "[reels] Um dia comigo no OpenAI DevDay Exchange",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-11-06",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 77,
+      "titulo": "[reels] Um dia comigo no AI CONF'ROLL",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-10-15",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 78,
+      "titulo": "[reels] Um dia comigo no PrograMaria Summit",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-10-17",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
+    },
+    {
+      "id": 79,
+      "titulo": "[carrossel] Dump do PrograMaria Summit",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-17",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1694,6 +1903,14 @@
         "eng": 0,
         "conteudo": 0,
         "clicks": 0
+      },
+      "Set 26": {
+        "seguidores": 979,
+        "views": 711,
+        "alcance": 26,
+        "eng": 1,
+        "conteudo": 2,
+        "clicks": 0
       }
     },
     "li": {
@@ -1716,8 +1933,8 @@
       "Set 26": {
         "seguidores": 2413,
         "views": 251,
-        "alcance": 0,
-        "eng": 0,
+        "alcance": 9,
+        "eng": 251,
         "conteudo": 0,
         "clicks": 0
       }
@@ -2912,5 +3129,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T15:24:40.239Z"
+  "_updatedAt": "2026-09-11T22:30:46.850Z"
 }
