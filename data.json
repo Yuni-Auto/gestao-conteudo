@@ -630,8 +630,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-30",
-      "status": "roteiro",
+      "data": "",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -643,7 +643,8 @@
           "link": "https://www.instagram.com/p/DavGzhXlc3d/?igsh=MWU1ZzNjcjN4ZDgzZw=="
         }
       ],
-      "requiredTag": "slot14"
+      "requiredTag": "slot14",
+      "plataformasDatas": null
     },
     {
       "id": 37,
@@ -2320,5 +2321,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T00:42:48.955Z"
+  "_updatedAt": "2026-09-11T00:42:59.116Z"
 }
