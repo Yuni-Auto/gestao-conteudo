@@ -152,7 +152,9 @@
   .agenda-item-badge { flex-shrink: 0; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--text-2); }
   .agenda-strategy-post { cursor: pointer; }
   .agenda-strategy-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-  .agenda-strategy-date { font-size: 11px; color: var(--text-3); white-space: nowrap; flex-shrink: 0; }
+  .agenda-strategy-date { font-size: 11px; color: var(--text-3); white-space: nowrap; flex-shrink: 0; display: flex; align-items: center; gap: 4px; }
+  .agenda-strategy-date-below { margin-top: 4px; white-space: normal; }
+  .prod-suggestion-tag { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: #5b50c8; background: #f0effe; border-radius: 999px; padding: 1px 6px; }
   .agenda-strategy-tags { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
   .agenda-week-cal { display: grid; grid-template-columns: repeat(7, 1fr); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
   .agenda-subheading { grid-column: 1 / -1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-3); margin-bottom: 2px; }
@@ -522,6 +524,30 @@
   .strat-item-row .strat-item-title { flex: 1; min-width: 0; }
   .strat-item-row .strat-item-formato { flex: 0 0 140px; }
   .strat-item-row .strat-item-del { flex-shrink: 0; }
+
+  /* Production time modal */
+  .prod-formato-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .prod-formato-head { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .prod-status-grid { display: flex; flex-direction: column; gap: 8px; }
+  .prod-status-row { display: flex; align-items: center; gap: 10px; }
+  .prod-status-row .prod-status-label { flex: 1; display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--text-2); }
+  .prod-status-row .prod-status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .prod-status-row .prod-day-input { width: 64px; flex-shrink: 0; text-align: center; }
+  .prod-status-row .prod-day-suffix { font-size: 11.5px; color: var(--text-3); width: 30px; flex-shrink: 0; }
+  .prod-override-row { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .prod-override-top { display: flex; gap: 7px; align-items: center; margin-bottom: 10px; }
+  .prod-override-top .form-input { flex: 1; }
+  .prod-override-top .prod-override-formato { flex: 0 0 130px; }
+  .prod-override-hint { font-size: 11.5px; color: var(--text-3); margin-top: -4px; margin-bottom: 12px; line-height: 1.5; }
+
+  /* Production schedule shown in the post detail modal */
+  .prod-schedule-list { display: flex; flex-direction: column; gap: 6px; }
+  .prod-schedule-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; }
+  .prod-schedule-item .prod-schedule-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .prod-schedule-item .prod-schedule-label { color: var(--text); font-weight: 500; min-width: 130px; }
+  .prod-schedule-item .prod-schedule-date { color: var(--text-2); }
+  .prod-schedule-item.prod-late .prod-schedule-date { color: #e8445a; font-weight: 600; }
+  .prod-schedule-empty { font-size: 12.5px; color: var(--text-3); }
   .post-search-wrap { position: relative; flex: 1; min-width: 0; }
   .post-search-input { width: 100%; padding: 8px 11px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; color: var(--text); background: var(--surface); font-family: inherit; }
   .post-search-input:focus { outline: none; border-color: #5b50c8; box-shadow: 0 0 0 3px rgba(91,80,200,0.1); }
@@ -932,6 +958,10 @@
       <div class="topbar">
         <div class="topbar-title">🕐 Agenda semanal</div>
         <div class="strategy-month">
+          <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
+            <span style="font-size:12px;">⏱️</span>
+            <span>Tempo de produção</span>
+          </button>
           <button type="button" class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="goToAgendaToday()">Hoje</button>
           <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(-1)">&#8249;</button>
           <div class="strategy-month-label" id="agenda-week-label">semana</div>
@@ -1394,6 +1424,10 @@
         <div class="meta-label">📌 Estratégia</div>
         <div class="meta-value" id="m-reqtag"></div>
       </div>
+      <div class="meta-row full" id="m-prodschedule-row" style="display:none;">
+        <div class="meta-label">🗓️ Cronograma</div>
+        <div class="meta-value" id="m-prodschedule"></div>
+      </div>
       <div class="meta-row full" id="m-partners-row" style="display:none;">
         <div class="meta-label">🤝 Parcerias vinculadas</div>
         <div class="meta-value" id="m-partners"></div>
@@ -1592,6 +1626,34 @@
     <div class="new-modal-footer">
       <div class="new-modal-footer-actions">
         <button class="btn" onclick="closeStrategyHistoryModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Production Time Modal -->
+<div class="modal-overlay" id="production-modal" onclick="handleOverlayClick(event,'production-modal')">
+  <div class="modal" style="max-width:640px;">
+    <div class="modal-hero">
+      <div class="modal-title-text">⏱️ Tempo de produção</div>
+      <div style="font-size:12.5px;color:var(--text-2);margin-top:4px;">Defina quantos dias cada etapa leva, por formato. O cronograma é calculado de trás pra frente a partir da data de publicação e aparece no card do post.</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;max-height:60vh;">
+      <div class="form-group" style="margin-bottom:16px;">
+        <label class="form-label" style="margin-bottom:2px;">Por formato</label>
+        <div id="prodtime-formatos-list"></div>
+      </div>
+      <div class="form-group" style="margin-bottom:6px; padding-top:6px; border-top:1px solid var(--border);">
+        <label class="form-label" style="margin-bottom:2px; margin-top:14px;">Exceções por tag de estratégia</label>
+        <div style="font-size:12px;color:var(--text-2);">Ex: um Reels marcado com a tag "Trends" pode levar menos tempo que um Reels comum. O título precisa bater com o título do item da estratégia mensal.</div>
+      </div>
+      <div id="prodtime-overrides-list"></div>
+      <button type="button" class="btn" style="margin-top:4px;" onclick="addProductionOverrideRow()">+ Adicionar exceção</button>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions">
+        <button class="btn" onclick="closeProductionModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="saveProductionTimes()">Salvar</button>
       </div>
     </div>
   </div>
@@ -1820,7 +1882,7 @@ function setSyncStatus(state, msg) {
 function collectAllData() {
   return {
     posts, partners, guidelines, analyticsOverrides, brainstormNotes, inspirations,
-    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(),
+    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes,
     _updatedAt: new Date().toISOString(),
   };
 }
@@ -1867,6 +1929,10 @@ function applyRemoteData(data) {
   }
   if (Array.isArray(data.requiredPostsHistory)) {
     localStorage.setItem(STRATEGY_HISTORY_KEY, JSON.stringify(data.requiredPostsHistory));
+  }
+  if (data.productionTimes && typeof data.productionTimes === 'object') {
+    productionTimes = { byFormato: data.productionTimes.byFormato || {}, overrides: Array.isArray(data.productionTimes.overrides) ? data.productionTimes.overrides : [] };
+    localStorage.setItem(PRODUCTION_TIMES_KEY, JSON.stringify(productionTimes));
   }
   renderAll();
   if (document.getElementById('view-analytics').style.display !== 'none')  renderAnalytics();
@@ -2298,6 +2364,217 @@ function getStatusMeta(key) { return ALL_STATUS.find(s => s.key === key) || ALL_
 /* Returns statuses available for a given formato */
 function statusesForFormato(formato) {
   return ALL_STATUS.filter(s => !s.formats || s.formats.includes(formato));
+}
+
+/* ─── Tempo de produção ─────────────────────────────────────────────────
+   Quantos dias cada etapa ("status" do grupo "progress") leva, por formato,
+   com exceções opcionais por tag de estratégia (ex: "Trends" leva menos
+   tempo que um Reels comum). Usado pra calcular, a partir da data de
+   publicação de um post, um prazo sugerido pra cada etapa (roteiro,
+   gravação, edição, etc.), contando pra trás.
+   ─────────────────────────────────────────────────────────────────────── */
+const PRODTIME_FORMATOS = ['Reels','Carousel','Foto','Story','Live','Shorts','Thread','Pin'];
+const PRODUCTION_TIMES_KEY = 'content-manager-production-times-v1';
+
+function defaultProductionTimes() { return { byFormato: {}, overrides: [] }; }
+
+function loadProductionTimes() {
+  try {
+    const saved = localStorage.getItem(PRODUCTION_TIMES_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && typeof parsed === 'object') return { byFormato: parsed.byFormato || {}, overrides: Array.isArray(parsed.overrides) ? parsed.overrides : [] };
+    }
+  } catch (e) {}
+  return defaultProductionTimes();
+}
+
+function saveProductionTimesStore() {
+  localStorage.setItem(PRODUCTION_TIMES_KEY, JSON.stringify(productionTimes));
+  scheduleCloudSync();
+}
+
+let productionTimes = loadProductionTimes();
+let modalProductionTimes = null; // rascunho editado dentro do modal, só vira "productionTimes" ao salvar
+
+function newProdOverrideId() {
+  return 'ovr' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+}
+
+function openProductionModal() {
+  modalProductionTimes = {
+    byFormato: JSON.parse(JSON.stringify(productionTimes.byFormato || {})),
+    overrides: productionTimes.overrides.map(o => ({ ...o, days: { ...(o.days || {}) } })),
+  };
+  renderProductionFormatosList();
+  renderProductionOverridesList();
+  document.getElementById('production-modal').classList.add('open');
+}
+
+function closeProductionModal() {
+  document.getElementById('production-modal').classList.remove('open');
+  modalProductionTimes = null;
+}
+
+function renderProductionFormatosList() {
+  const wrap = document.getElementById('prodtime-formatos-list');
+  if (!wrap) return;
+  wrap.innerHTML = PRODTIME_FORMATOS.map(fmt => {
+    const stages = statusesForFormato(fmt).filter(s => s.group === 'progress');
+    if (!stages.length) return '';
+    const days = (modalProductionTimes.byFormato[fmt]) || {};
+    const rows = stages.map(s => `
+      <div class="prod-status-row">
+        <div class="prod-status-label"><span class="prod-status-dot" style="background:${s.dot}"></span>${s.label}</div>
+        <input type="number" min="0" step="1" class="form-input prod-day-input" value="${days[s.key] || ''}" placeholder="0"
+          oninput="updateProductionFormatoDay('${fmt}','${s.key}',this.value)" />
+        <span class="prod-day-suffix">dia(s)</span>
+      </div>
+    `).join('');
+    return `
+      <div class="prod-formato-card">
+        <div class="prod-formato-head">${FORMAT_ICON[fmt] || ''} ${fmt}</div>
+        <div class="prod-status-grid">${rows}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function updateProductionFormatoDay(fmt, statusKey, value) {
+  if (!modalProductionTimes.byFormato[fmt]) modalProductionTimes.byFormato[fmt] = {};
+  const n = Math.max(0, parseInt(value, 10) || 0);
+  if (n > 0) modalProductionTimes.byFormato[fmt][statusKey] = n;
+  else delete modalProductionTimes.byFormato[fmt][statusKey];
+}
+
+function renderProductionOverridesList() {
+  const wrap = document.getElementById('prodtime-overrides-list');
+  if (!wrap) return;
+  if (!modalProductionTimes.overrides.length) {
+    wrap.innerHTML = `<div style="padding:6px 2px 10px;color:var(--text-2);font-size:12.5px;">Nenhuma exceção configurada ainda.</div>`;
+    return;
+  }
+  wrap.innerHTML = modalProductionTimes.overrides.map((ovr, i) => {
+    const stages = statusesForFormato(ovr.formato || 'Reels').filter(s => s.group === 'progress');
+    const days = ovr.days || {};
+    const rows = stages.map(s => `
+      <div class="prod-status-row">
+        <div class="prod-status-label"><span class="prod-status-dot" style="background:${s.dot}"></span>${s.label}</div>
+        <input type="number" min="0" step="1" class="form-input prod-day-input" value="${days[s.key] || ''}" placeholder="0"
+          oninput="updateProductionOverrideDay(${i},'${s.key}',this.value)" />
+        <span class="prod-day-suffix">dia(s)</span>
+      </div>
+    `).join('');
+    return `
+      <div class="prod-override-row">
+        <div class="prod-override-top">
+          <input class="form-input" placeholder='Título da tag (ex: "Trends")' value="${escapeHtml(ovr.title || '')}"
+            oninput="updateProductionOverrideField(${i},'title',this.value)" />
+          <select class="form-input prod-override-formato" onchange="updateProductionOverrideField(${i},'formato',this.value)">
+            ${PRODTIME_FORMATOS.map(f => `<option value="${f}" ${ (ovr.formato||'Reels')===f ? 'selected' : '' }>${f}</option>`).join('')}
+          </select>
+          <button type="button" class="guideline-del" title="Remover exceção" onclick="removeProductionOverrideRow(${i})">✕</button>
+        </div>
+        <div class="prod-status-grid">${rows}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function updateProductionOverrideField(i, field, value) {
+  if (!modalProductionTimes.overrides[i]) return;
+  modalProductionTimes.overrides[i][field] = value;
+  if (field === 'formato') renderProductionOverridesList();
+}
+
+function updateProductionOverrideDay(i, statusKey, value) {
+  if (!modalProductionTimes.overrides[i]) return;
+  if (!modalProductionTimes.overrides[i].days) modalProductionTimes.overrides[i].days = {};
+  const n = Math.max(0, parseInt(value, 10) || 0);
+  if (n > 0) modalProductionTimes.overrides[i].days[statusKey] = n;
+  else delete modalProductionTimes.overrides[i].days[statusKey];
+}
+
+function addProductionOverrideRow() {
+  modalProductionTimes.overrides.push({ id: newProdOverrideId(), title: '', formato: 'Reels', days: {} });
+  renderProductionOverridesList();
+}
+
+function removeProductionOverrideRow(i) {
+  modalProductionTimes.overrides.splice(i, 1);
+  renderProductionOverridesList();
+}
+
+function saveProductionTimes() {
+  const cleaned = {
+    byFormato: modalProductionTimes.byFormato,
+    overrides: modalProductionTimes.overrides
+      .map(o => ({ ...o, title: (o.title || '').trim() }))
+      .filter(o => o.title && Object.keys(o.days || {}).length),
+  };
+  productionTimes = cleaned;
+  saveProductionTimesStore();
+  closeProductionModal();
+  if (currentPostId !== null && currentPostId !== undefined) {
+    const p = posts.find(x => x.id === currentPostId);
+    if (p) renderProductionScheduleBlock(p);
+  }
+}
+
+/* Config de dias aplicável a um post: usa a exceção por tag de estratégia
+   quando o título do item bate (case-insensitive), senão cai no padrão do
+   formato do post. */
+function getProductionDaysConfig(post) {
+  const reqItem = REQUIRED_POSTS.find(it => it.key === post.requiredTag);
+  if (reqItem && reqItem.title) {
+    const norm = reqItem.title.trim().toLowerCase();
+    const ovr = (productionTimes.overrides || []).find(o => (o.title || '').trim().toLowerCase() === norm);
+    if (ovr) return ovr.days || {};
+  }
+  return (productionTimes.byFormato && productionTimes.byFormato[post.formato]) || {};
+}
+
+/* Calcula o cronograma de produção de um post contando pra trás a partir
+   da data de publicação: a última etapa termina na véspera, e cada etapa
+   anterior ocupa o número de dias configurado, encadeadas na ordem em que
+   aparecem em ALL_STATUS (roteiro → gravando → editando → legenda → design). */
+function computeProductionSchedule(post) {
+  if (!post.data) return [];
+  const cfg = getProductionDaysConfig(post);
+  const stages = statusesForFormato(post.formato).filter(s => s.group === 'progress' && (cfg[s.key] || 0) > 0);
+  if (!stages.length) return [];
+  let cursor = new Date(post.data + 'T12:00:00');
+  const result = [];
+  for (let i = stages.length - 1; i >= 0; i--) {
+    const s = stages[i];
+    const days = cfg[s.key];
+    const end = new Date(cursor); end.setDate(end.getDate() - 1);
+    const start = new Date(end); start.setDate(start.getDate() - (days - 1));
+    result.unshift({ status: s, start, end });
+    cursor = start;
+  }
+  return result;
+}
+
+function renderProductionScheduleBlock(post) {
+  const row = document.getElementById('m-prodschedule-row');
+  const box = document.getElementById('m-prodschedule');
+  if (!row || !box) return;
+  const schedule = computeProductionSchedule(post);
+  if (!schedule.length) { row.style.display = 'none'; return; }
+  row.style.display = 'flex';
+  const now = new Date(); now.setHours(0,0,0,0);
+  box.innerHTML = `<div class="prod-schedule-list">${schedule.map(item => {
+    const fmtDate = d => d.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit' });
+    const isSameDay = item.start.getTime() === item.end.getTime();
+    const dateLabel = isSameDay ? `até ${fmtDate(item.end)}` : `${fmtDate(item.start)} – ${fmtDate(item.end)}`;
+    const isLate = item.end < now && groupOf(post.status) !== 'complete' && ALL_STATUS.findIndex(s=>s.key===post.status) < ALL_STATUS.findIndex(s=>s.key===item.status.key);
+    return `<div class="prod-schedule-item${isLate ? ' prod-late' : ''}">
+      <span class="prod-schedule-dot" style="background:${item.status.dot}"></span>
+      <span class="prod-schedule-label">${item.status.label}</span>
+      <span class="prod-schedule-date">${dateLabel}</span>
+    </div>`;
+  }).join('')}</div>`;
 }
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
@@ -3362,6 +3639,7 @@ function openPost(id) {
     document.getElementById('m-date').textContent = dateStr;
   }
   document.getElementById('m-days').innerHTML   = daysLeftHTML(p);
+  renderProductionScheduleBlock(p);
   if (p.formato === 'Carousel' || p.formato === 'Foto' || p.formato === 'Pin') {
     document.getElementById('m-desc-body').style.display    = 'none';
     document.getElementById('m-scene-body').style.display   = 'none';
@@ -5280,6 +5558,36 @@ function shortDateWithDay(dateStr) {
   return `${dd}/${mm} - ${DAY_NAMES[d.getDay()]}`;
 }
 
+function shortDateWithDayFromDate(d) {
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${dd}/${mm} - ${DAY_NAMES[d.getDay()]}`;
+}
+
+/* Sugestão de data pra uma coluna (status) do quadro "processo de criação",
+   com base no tempo de produção configurado (ver openProductionModal).
+   - Se a etapa da coluna faz parte do cronograma calculado (roteiro/gravando/
+     editando/legenda/design), sugere o prazo daquela etapa.
+   - Se a coluna é uma etapa "to-do" (ideia/a fazer/pesquisar), sugere que o
+     conteúdo esteja pronto pra entrar em produção até o início da 1ª etapa.
+   Retorna null quando não há tempo de produção configurado pro post. */
+function productionSuggestionForStage(post, statusKey) {
+  const schedule = computeProductionSchedule(post);
+  if (!schedule.length) return null;
+  const stageEntry = schedule.find(item => item.status.key === statusKey);
+  if (stageEntry) {
+    const isSameDay = stageEntry.start.getTime() === stageEntry.end.getTime();
+    return isSameDay
+      ? shortDateWithDayFromDate(stageEntry.end)
+      : `${shortDateWithDayFromDate(stageEntry.start)} → ${shortDateWithDayFromDate(stageEntry.end)}`;
+  }
+  const meta = getStatusMeta(statusKey);
+  if (meta.group === 'todo') {
+    return `até ${shortDateWithDayFromDate(schedule[0].start)}`;
+  }
+  return null;
+}
+
 function renderAgendaPostCard(p, onclickJs) {
   const partnerNames = partnersForPost(p.id);
   const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
@@ -5299,15 +5607,17 @@ function renderAgendaPostCard(p, onclickJs) {
   </div>`;
 }
 
-function renderAgendaKanbanCard(p) {
+function renderAgendaKanbanCard(p, statusKey) {
   const partnerNames = partnersForPost(p.id);
   const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
+  const suggestion = productionSuggestionForStage(p, statusKey);
   return `
   <div class="week-post agenda-strategy-post ${platCls(p)}" draggable="true" ondragstart="onKanbanDragStart(event, ${p.id})" ondragend="onKanbanDragEnd(event)" onclick="openPost(${p.id})" title="Arraste para mudar a etapa">
     <div class="agenda-strategy-title-row">
       <div class="week-post-title" title="${escapeHtml(p.titulo)}">${escapeHtml(p.titulo)}</div>
-      <div class="agenda-strategy-date">${shortDateWithDay(p.data)}</div>
+      ${suggestion ? '' : `<div class="agenda-strategy-date">${shortDateWithDay(p.data)}</div>`}
     </div>
+    ${suggestion ? `<div class="agenda-strategy-date agenda-strategy-date-below" title="Publica: ${shortDateWithDay(p.data)}"><span class="prod-suggestion-tag">produzir</span> ${suggestion}</div>` : ''}
     <div class="week-post-meta">
       <div class="week-post-icons">
         ${(p.plataformas||[]).map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
@@ -5443,7 +5753,7 @@ function renderAgenda() {
         </div>
       </div>
       <div class="agenda-kanban-body">
-        ${stageItems.length ? stageItems.map(p => renderAgendaKanbanCard(p)).join('') : '<div class="empty-day">—</div>'}
+        ${stageItems.length ? stageItems.map(p => renderAgendaKanbanCard(p, s.key)).join('') : '<div class="empty-day">—</div>'}
       </div>
     </div>`;
   }).join('');
