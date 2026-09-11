@@ -1704,6 +1704,14 @@
         "eng": 1647,
         "conteudo": 2,
         "clicks": 0
+      },
+      "Set 26": {
+        "seguidores": 2413,
+        "views": 251,
+        "alcance": 0,
+        "eng": 0,
+        "conteudo": 0,
+        "clicks": 0
       }
     }
   },
@@ -2896,5 +2904,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T14:25:19.007Z"
+  "_updatedAt": "2026-09-11T14:53:55.256Z"
 }
