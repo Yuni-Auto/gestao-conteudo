@@ -628,7 +628,7 @@
         }
       ],
       "data": "2026-09-15",
-      "status": "afazer",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -2816,5 +2816,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:32:33.305Z"
+  "_updatedAt": "2026-09-11T04:32:47.956Z"
 }
