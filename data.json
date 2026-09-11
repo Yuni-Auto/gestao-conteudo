@@ -1235,30 +1235,6 @@
       "requiredTag": "slot7"
     },
     {
-      "id": 60,
-      "titulo": "[reels] Minha rotina sendo engenheira de software",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-09-25",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot13",
-      "plataformasDatas": null
-    },
-    {
       "id": 61,
       "titulo": "[Carousel] Programa de estágio",
       "desc": "",
@@ -1328,44 +1304,6 @@
       "inspiracoes": [],
       "requiredTag": "slot6",
       "plataformasDatas": null
-    },
-    {
-      "id": 64,
-      "titulo": "[carousel] Dump do mês (Agosto)",
-      "desc": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
-      "carouselLegenda": "Aconteceu alguns coisas por aqui\n\n#dev #tech #tecnologia #rotina #programação",
-      "slides": [
-        {
-          "titulo": "Eu",
-          "texto": ""
-        },
-        {
-          "titulo": "Lugar",
-          "texto": ""
-        },
-        {
-          "titulo": "Comida",
-          "texto": ""
-        },
-        {
-          "titulo": "Eu",
-          "texto": ""
-        },
-        {
-          "titulo": "Lugar",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-09-25",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot1"
     },
     {
       "id": 65,
@@ -2382,5 +2320,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T00:42:28.100Z"
+  "_updatedAt": "2026-09-11T00:42:48.955Z"
 }
