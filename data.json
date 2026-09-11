@@ -1727,6 +1727,12 @@
       "rede": "ig",
       "instagram": "imtechgirl",
       "nome": "Eneri D Angelis"
+    },
+    {
+      "id": 10,
+      "rede": "ig",
+      "instagram": "mictalks",
+      "nome": "Milena Coyado"
     }
   ],
   "requiredPostsByMonth": {
@@ -2781,5 +2787,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:15:51.685Z"
+  "_updatedAt": "2026-09-11T04:16:42.568Z"
 }
