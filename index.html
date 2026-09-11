@@ -377,6 +377,18 @@
   .ig-stat-delta.down { background: #fde8ef; color: #b5223a; }
   .ig-stat-delta.neutral { background: var(--bg); color: var(--text-3); }
 
+  /* LinkedIn "Acompanhar desempenho" style tiles */
+  .li-stats-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 18px 18px; }
+  .li-stat-tile { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .li-stat-value { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; line-height: 1; }
+  .li-stat-label { font-size: 12px; color: var(--text-2); line-height: 1.35; }
+  .li-stat-delta { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+  .li-stat-delta.up { color: #1a8547; }
+  .li-stat-delta.down { color: #b5223a; }
+  .li-stat-delta.neutral { color: var(--text-3); }
+  .li-stat-delta.neutral .li-stat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-3); display: inline-block; }
+  @media (max-width: 640px) { .li-stats-grid { grid-template-columns: 1fr; } }
+
   /* Top posts table */
   .top-posts-table { width: 100%; border-collapse: collapse; }
   .top-posts-table th { font-size: 10.5px; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; padding: 9px 14px; border-bottom: 1px solid var(--border); text-align: left; background: var(--bg); }
@@ -1906,27 +1918,27 @@
 
       <div class="an-data-grid">
         <div class="form-group">
-          <label class="form-label">👥 Seguidores</label>
+          <label class="form-label" id="an-data-seguidores-label">👥 Seguidores</label>
           <input class="form-input" type="number" id="an-data-seguidores" placeholder="0" />
         </div>
         <div class="form-group">
-          <label class="form-label">👁️ Visualizações</label>
+          <label class="form-label" id="an-data-views-label">👁️ Visualizações</label>
           <input class="form-input" type="number" id="an-data-views" placeholder="0" />
         </div>
         <div class="form-group">
-          <label class="form-label">📡 Contas alcançadas</label>
+          <label class="form-label" id="an-data-alcance-label">📡 Contas alcançadas</label>
           <input class="form-input" type="number" id="an-data-alcance" placeholder="0" />
         </div>
         <div class="form-group">
-          <label class="form-label">💬 Engajamento</label>
+          <label class="form-label" id="an-data-eng-label">💬 Engajamento</label>
           <input class="form-input" type="number" id="an-data-eng" placeholder="0" />
         </div>
         <div class="form-group">
-          <label class="form-label">🗂️ Qtd de conteúdo</label>
+          <label class="form-label" id="an-data-conteudo-label">🗂️ Qtd de conteúdo</label>
           <input class="form-input" type="number" id="an-data-conteudo" placeholder="0" />
         </div>
         <div class="form-group">
-          <label class="form-label">🔗 Website Clicks</label>
+          <label class="form-label" id="an-data-clicks-label">🔗 Website Clicks</label>
           <input class="form-input" type="number" id="an-data-clicks" placeholder="0" />
         </div>
       </div>
@@ -5573,8 +5585,35 @@ function closeAnalyticsDataModal() {
   document.getElementById('an-data-modal').classList.remove('open');
 }
 
+const ANALYTICS_FIELD_LABELS = {
+  default: {
+    seguidores: '👥 Seguidores',
+    views:      '👁️ Visualizações',
+    alcance:    '📡 Contas alcançadas',
+    eng:        '💬 Engajamento',
+    conteudo:   '🗂️ Qtd de conteúdo',
+    clicks:     '🔗 Website Clicks',
+  },
+  li: {
+    seguidores: '👥 Total de seguidores',
+    views:      '👁️ Pessoas que viram o perfil (90 dias)',
+    alcance:    '📈 Impressões da publicação (7 dias)',
+    eng:        '🔍 Ocorrências em resultados de pesquisa (7 dias)',
+    conteudo:   '🗂️ Qtd de conteúdo',
+    clicks:     '🔗 Website Clicks',
+  },
+};
+function applyAnalyticsFormLabels(plat) {
+  const labels = ANALYTICS_FIELD_LABELS[plat] || ANALYTICS_FIELD_LABELS.default;
+  Object.keys(labels).forEach(field => {
+    const el = document.getElementById(`an-data-${field}-label`);
+    if (el) el.textContent = labels[field];
+  });
+}
+
 function populateAnalyticsMonthSelect() {
   const plat = document.getElementById('an-data-plat').value;
+  applyAnalyticsFormLabels(plat);
   const base = MONTHLY_DATA_BY_PLAT[plat] || MONTHLY_DATA_IG;
   const sel = document.getElementById('an-data-month');
   sel.innerHTML = base.map(row => `<option value="${row.month}">${row.month}</option>`).join('');
@@ -5701,7 +5740,7 @@ function renderAnalytics() {
   renderLineChart('an-line-chart', data, 'views', '#5b50c8');
   document.getElementById('an-chart-range').textContent = data[0].month + ' – ' + data[data.length-1].month;
 
-  // Instagram metrics card
+  // Platform metrics card (Instagram/TikTok style rows, or LinkedIn "Acompanhar desempenho" tiles)
   const igEl = document.getElementById('an-ig-stats');
   const last  = data[data.length - 1];
   const prev  = data.length > 1 ? data[data.length - 2] : null;
@@ -5715,25 +5754,54 @@ function renderAnalytics() {
     const sign = pct > 0 ? '+' : '';
     return `<span class="ig-stat-delta ${cls}">${sign}${pct}%</span>`;
   }
-  const igRows = [
-    { label:'Seguidores',       color:'#e8445a', val: last.seguidores,  ref: prev?.seguidores },
-    { label:'Visualizações',    color:'#9b70e8', val: last.views,       ref: prev?.views },
-    { label:'Contas alcançadas',color:'#5b50c8', val: last.alcance,     ref: prev?.alcance },
-    { label:'Engajamento',      color:'#f5a623', val: last.eng,         ref: prev?.eng },
-    { label:'Qtd de conteúdo',  color:'#44b89a', val: last.conteudo,   ref: prev?.conteudo },
-    { label:'Website Clicks',   color:'#0a66c2', val: last.clicks ?? 0, ref: prev?.clicks ?? 0 },
-  ];
-  igEl.innerHTML = igRows.map(r => `
-    <div class="ig-stat-row">
-      <div class="ig-stat-left">
-        <div class="ig-stat-dot" style="background:${r.color}"></div>
-        <div class="ig-stat-label">${r.label}</div>
-      </div>
-      <div class="ig-stat-right">
-        <div class="ig-stat-val">${fmtNum(r.val ?? 0)}</div>
-        ${igDelta(r.val ?? 0, r.ref)}
-      </div>
-    </div>`).join('');
+
+  if (analyticsPlat === 'li') {
+    // LinkedIn: 4-tile "Acompanhar desempenho" layout, matching the real LinkedIn analytics widget
+    igEl.className = 'li-stats-grid';
+    function liDelta(curr, ref) {
+      if (ref === undefined || ref === null || ref === 0) {
+        return `<span class="li-stat-delta neutral"><span class="li-stat-dot"></span> 0% em relação ao mês anterior</span>`;
+      }
+      const pct = Math.round(((curr - ref) / ref) * 100);
+      const cls = pct === 0 ? 'neutral' : pct > 0 ? 'up' : 'down';
+      const arrow = pct === 0 ? '<span class="li-stat-dot"></span>' : pct > 0 ? '▲' : '▼';
+      const sign = pct > 0 ? '+' : '';
+      return `<span class="li-stat-delta ${cls}">${arrow} ${sign}${pct}% em relação ao mês anterior</span>`;
+    }
+    const liTiles = [
+      { value: last.alcance,     label: 'Impressões da publicação no período de 7 dias', ref: prev?.alcance },
+      { value: last.seguidores,  label: 'Total de seguidores',                            ref: prev?.seguidores },
+      { value: last.views,       label: 'Pessoas que viram seu perfil no período de 90 dias', ref: prev?.views },
+      { value: last.eng,         label: 'Ocorrências em resultados de pesquisa',          ref: prev?.eng },
+    ];
+    igEl.innerHTML = liTiles.map(t => `
+      <div class="li-stat-tile">
+        <div class="li-stat-value">${fmtNum(t.value ?? 0)}</div>
+        <div class="li-stat-label">${t.label}</div>
+        ${liDelta(t.value ?? 0, t.ref)}
+      </div>`).join('');
+  } else {
+    igEl.className = 'ig-stats-card';
+    const igRows = [
+      { label:'Seguidores',       color:'#e8445a', val: last.seguidores,  ref: prev?.seguidores },
+      { label:'Visualizações',    color:'#9b70e8', val: last.views,       ref: prev?.views },
+      { label:'Contas alcançadas',color:'#5b50c8', val: last.alcance,     ref: prev?.alcance },
+      { label:'Engajamento',      color:'#f5a623', val: last.eng,         ref: prev?.eng },
+      { label:'Qtd de conteúdo',  color:'#44b89a', val: last.conteudo,   ref: prev?.conteudo },
+      { label:'Website Clicks',   color:'#0a66c2', val: last.clicks ?? 0, ref: prev?.clicks ?? 0 },
+    ];
+    igEl.innerHTML = igRows.map(r => `
+      <div class="ig-stat-row">
+        <div class="ig-stat-left">
+          <div class="ig-stat-dot" style="background:${r.color}"></div>
+          <div class="ig-stat-label">${r.label}</div>
+        </div>
+        <div class="ig-stat-right">
+          <div class="ig-stat-val">${fmtNum(r.val ?? 0)}</div>
+          ${igDelta(r.val ?? 0, r.ref)}
+        </div>
+      </div>`).join('');
+  }
 
   // Engagement bar chart
   renderBarChart('an-eng-chart', data, 'eng', '#9b70e8');
