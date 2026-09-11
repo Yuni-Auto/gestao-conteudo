@@ -122,6 +122,10 @@
   .gcal-event-time { font-weight: 700; margin-right: 4px; }
   .gcal-event-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .month-day-cell .gcal-event { font-size: 9.5px; padding: 3px 6px; }
+  .gcal-events-block { margin-bottom: 7px; padding-bottom: 7px; border-bottom: 1px dashed var(--border); }
+  .gcal-events-block.no-divider { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .gcal-events-block .gcal-event:last-child { margin-bottom: 0; }
+  .month-day-cell .gcal-events-block { margin-bottom: 5px; padding-bottom: 5px; }
   @keyframes sync-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
   .btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 13px; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: all 0.12s; }
   .btn:hover { background: var(--bg); }
@@ -3061,7 +3065,7 @@ function renderWeek() {
         <div class="week-day-num${isToday?' today':''}">${d.getDate()}</div>
       </div>
       <div class="week-day-body" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
-        ${dayGcalEvents.map(gcalRenderChip).join('')}
+        ${dayGcalEvents.length ? `<div class="gcal-events-block${dayPosts.length ? '' : ' no-divider'}">${dayGcalEvents.map(gcalRenderChip).join('')}</div>` : ''}
         ${dayPosts.length ? dayPosts.map(p => renderPostCard(p, dStr)).join('') : (dayGcalEvents.length ? '' : '<div class="empty-day">—</div>')}
       </div>
     </div>`;
@@ -3106,7 +3110,7 @@ function renderMonth() {
     const totalExtra = extra + extraGcal;
     cellsHtml += `<div class="month-day-cell${isOutside ? ' outside' : ''}" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
       <div class="month-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
-      ${visibleGcalEvents.map(gcalRenderChip).join('')}
+      ${visibleGcalEvents.length ? `<div class="gcal-events-block${visible.length ? '' : ' no-divider'}">${visibleGcalEvents.map(gcalRenderChip).join('')}</div>` : ''}
       ${visible.map(p => renderPostCard(p, dStr)).join('')}
       ${totalExtra > 0 ? `<div class="month-post-more" onclick="goToWeekOf('${dStr}')">+${totalExtra} mais</div>` : ''}
     </div>`;
