@@ -1272,9 +1272,9 @@
       "inspiracoes": [],
       "requiredTag": "slot9",
       "plataformasDatas": {
-        "ig": "2026-09-08",
-        "tt": "2026-09-08",
-        "yt": "2026-09-11"
+        "ig": "2026-09-11",
+        "tt": "2026-09-07",
+        "yt": "2026-09-13"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -2949,5 +2949,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T21:06:58.080Z"
+  "_updatedAt": "2026-09-11T21:09:16.466Z"
 }
