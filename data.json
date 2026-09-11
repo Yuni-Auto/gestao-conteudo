@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-27",
+      "data": "",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -382,7 +382,8 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "plataformasDatas": null
     },
     {
       "id": 24,
@@ -2277,5 +2278,5 @@
       ]
     }
   ],
-  "_updatedAt": "2026-09-11T00:44:07.633Z"
+  "_updatedAt": "2026-09-11T00:44:14.249Z"
 }
