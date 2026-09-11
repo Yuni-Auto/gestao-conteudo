@@ -1538,6 +1538,29 @@
       "inspiracoes": [],
       "requiredTag": "slot6",
       "plataformasStatus": null
+    },
+    {
+      "id": 73,
+      "titulo": "[carrossel] Dump do TDC",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-11",
+      "status": "pesquisar",
+      "plataformas": [
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -2956,5 +2979,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T21:32:10.677Z"
+  "_updatedAt": "2026-09-11T21:52:38.821Z"
 }
