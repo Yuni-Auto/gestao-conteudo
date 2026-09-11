@@ -1732,7 +1732,8 @@
       "id": 3,
       "rede": "ig",
       "instagram": "jacque_tech",
-      "nome": "Jac Macedo"
+      "nome": "Jac Macedo",
+      "tipo": "tecnico"
     },
     {
       "id": 4,
@@ -2840,5 +2841,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T05:14:45.105Z"
+  "_updatedAt": "2026-09-11T05:14:52.688Z"
 }
