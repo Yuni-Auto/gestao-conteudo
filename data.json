@@ -1410,7 +1410,7 @@
     },
     {
       "id": 71,
-      "titulo": "3 projetos para iniciantes",
+      "titulo": "3 projetos para iniciantes usando Angular + IA",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1428,7 +1428,8 @@
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot5"
+      "requiredTag": "slot5",
+      "plataformasStatus": null
     },
     {
       "id": 72,
@@ -2775,5 +2776,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T04:10:45.196Z"
+  "_updatedAt": "2026-09-11T04:11:10.725Z"
 }
