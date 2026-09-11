@@ -1591,14 +1591,13 @@
       "titulo": "[carrossel] Dump do OpenAI DevDay Exchange",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
+          "titulo": "",
+          "texto": ""
         }
       ],
+      "scenes": [],
       "data": "2026-11-06",
       "status": "ideia",
       "plataformas": [
@@ -1607,7 +1606,7 @@
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null
     },
@@ -3106,5 +3105,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-11T22:23:48.029Z"
+  "_updatedAt": "2026-09-11T22:23:55.912Z"
 }
