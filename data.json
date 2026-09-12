@@ -1858,7 +1858,7 @@
       "linkSlides": "https://canva.link/w88t5ycommevznj",
       "notas": "",
       "temaEvento": "",
-      "hora": "",
+      "hora": "10:30",
       "cep": "11900-000",
       "rua": "",
       "numero": "",
@@ -3207,5 +3207,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:45:22.392Z"
+  "_updatedAt": "2026-09-12T17:45:42.808Z"
 }
