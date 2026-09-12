@@ -1915,17 +1915,26 @@
     {
       "id": 5,
       "tema": "Pensar no tema",
-      "evento": "Fatec Registro",
+      "evento": "FATEC Itaquera",
       "status": "ideia",
       "data": "2026-10-01",
       "formato": "Presencial",
-      "local": "São Paulo",
+      "local": "São Paulo - SP",
       "duracao": 0,
       "cache": 0,
       "contato": "Laura",
-      "linkEvento": "",
+      "linkEvento": "https://www.linkedin.com/posts/laura-rfs_o-para-elas-est%C3%A1-crescendo-o-evento-share-7504545647807725568-hzR9/",
       "linkSlides": "",
-      "notas": ""
+      "notas": "",
+      "temaEvento": "",
+      "hora": "",
+      "cep": "08295-005",
+      "rua": "Avenida Miguel Ignácio Curi, 360",
+      "numero": "",
+      "complemento": "",
+      "bairro": "Vila Carmosina",
+      "cidade": "São Paulo",
+      "uf": "SP"
     }
   ],
   "guidelines": [
@@ -3207,5 +3216,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:46:51.739Z"
+  "_updatedAt": "2026-09-12T17:48:25.605Z"
 }
