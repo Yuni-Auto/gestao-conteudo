@@ -3123,8 +3123,37 @@
     }
   ],
   "productionTimes": {
-    "byFormato": {},
+    "byFormato": {
+      "Reels": {
+        "roteiro": 2,
+        "gravando": 2,
+        "editando": 1,
+        "legenda": 1
+      },
+      "Carousel": {
+        "legenda": 1,
+        "design": 2
+      },
+      "Foto": {
+        "legenda": 1,
+        "design": 2
+      },
+      "Story": {
+        "roteiro": 1,
+        "gravando": 2,
+        "editando": 1,
+        "legenda": 1
+      },
+      "Live": {
+        "roteiro": 1
+      },
+      "Shorts": {
+        "roteiro": 2,
+        "gravando": 2,
+        "editando": 1
+      }
+    },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:21:15.945Z"
+  "_updatedAt": "2026-09-12T15:24:15.473Z"
 }
