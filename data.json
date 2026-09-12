@@ -1887,6 +1887,21 @@
       "linkEvento": "https://www.instagram.com/womakersgram/",
       "linkSlides": "https://canva.link/c3e3h849alvk5w6",
       "notas": ""
+    },
+    {
+      "id": 4,
+      "tema": "Pensar no tema",
+      "evento": "Fatec SP",
+      "status": "ideia",
+      "data": "2026-10-06",
+      "formato": "Presencial",
+      "local": "",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "",
+      "linkSlides": "",
+      "notas": ""
     }
   ],
   "guidelines": [
@@ -3168,5 +3183,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T16:39:21.373Z"
+  "_updatedAt": "2026-09-12T17:04:37.495Z"
 }
