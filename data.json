@@ -1853,7 +1853,7 @@
       "duracao": 60,
       "cache": 0,
       "contato": "Alvaro",
-      "linkEvento": "",
+      "linkEvento": "https://www.instagram.com/angular_sp/",
       "linkSlides": "https://canva.link/re0hgay331q0p76",
       "notas": ""
     },
@@ -3126,5 +3126,5 @@
     "byFormato": {},
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:20:51.311Z"
+  "_updatedAt": "2026-09-12T15:21:15.945Z"
 }
