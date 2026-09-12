@@ -1930,7 +1930,7 @@
       "linkSlides": "",
       "notas": "",
       "temaEvento": "",
-      "hora": "",
+      "hora": "19:00",
       "cep": "01101-010",
       "rua": "Avenida Tiradentes, 30",
       "numero": "",
@@ -3243,5 +3243,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:43:05.620Z"
+  "_updatedAt": "2026-09-12T21:43:29.670Z"
 }
