@@ -453,9 +453,11 @@
   .st-plt-realizada  { background: #e4f7ee; color: #1a6b40; } .st-plt-realizada .status-dot  { background: #2dbe6c; }
   .st-plt-finalizada  { background: #e1f5f2; color: #146b5e; } .st-plt-finalizada .status-dot  { background: #2dbea0; }
   .st-plt-cancelada  { background: #fde8e8; color: #b5223a; } .st-plt-cancelada .status-dot  { background: #e8445a; }
+  .st-plt-recusada   { background: #f7e4ea; color: #8a3050; } .st-plt-recusada .status-dot   { background: #c85f82; }
   .lecture-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .lecture-link:hover { text-decoration: underline; }
-  .lecture-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
+  .lecture-overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 1180px) { .lecture-overview-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 900px)  { .lecture-overview-grid { grid-template-columns: 1fr; } }
   .lecture-board-col { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
   .lecture-board-col-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text-2); padding: 0 2px; }
@@ -814,6 +816,7 @@
   .strategy-count { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
   .strategy-count span { padding: 3px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); }
   .strategy-checklist { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .strategy-checklist.collapsed { display: none; }
   .strategy-check { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: none; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: none; cursor: pointer; text-align: left; font-family: inherit; color: var(--text); min-height: 58px; transition: background 0.1s; }
   .strategy-check:hover { background: #fafafa; }
   .strategy-check:nth-child(3n) { border-right: none; }
@@ -1194,8 +1197,11 @@
       <div id="calendar-view-block">
         <div class="strategy-section">
           <div class="strategy-header">
-            <div class="strategy-title" id="strategy-title">Estratégia mensal dos 15 posts obrigatórios</div>
-            <div class="strategy-controls">
+            <div class="list-title-row" onclick="toggleStrategySection()">
+              <button type="button" class="list-collapse-btn" id="strategy-collapse-btn">▾</button>
+              <div class="strategy-title" id="strategy-title">Estratégia mensal dos 15 posts obrigatórios</div>
+            </div>
+            <div class="strategy-controls" onclick="event.stopPropagation()">
               <div class="strategy-month">
                 <div class="strat-menu">
                   <button class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="toggleStrategyMenu(event,'strat-menu-list-gestao')">🗝️ Estratégia ▾</button>
@@ -4205,6 +4211,14 @@ function toggleContentTable() {
   localStorage.setItem('content-manager-table-collapsed', collapsed ? '1' : '0');
 }
 
+function toggleStrategySection() {
+  const wrap = document.getElementById('strategy-checklist');
+  const btn = document.getElementById('strategy-collapse-btn');
+  const collapsed = wrap.classList.toggle('collapsed');
+  btn.classList.toggle('collapsed', collapsed);
+  localStorage.setItem('content-manager-strategy-collapsed', collapsed ? '1' : '0');
+}
+
 function setFilter(f, btn) {
   activeFilter = f;
   document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
@@ -5405,8 +5419,8 @@ const LECTURE_STATUS = [
   // To-do
   { key:'ideia',        label:'Ideia / Tema',          cls:'st-plt-ideia',        dot:'#c8a87a', group:'todo' },
   { key:'pesquisando',  label:'Buscando oportunidade', cls:'st-plt-pesquisando',  dot:'#6f8fe0', group:'todo' },
-  { key:'proposta',     label:'Proposta enviada',      cls:'st-plt-proposta',     dot:'#9d9d9a', group:'todo' },
   // In progress
+  { key:'proposta',     label:'Proposta enviada',      cls:'st-plt-proposta',     dot:'#9d9d9a', group:'progress' },
   { key:'confirmada',   label:'Confirmada',            cls:'st-plt-confirmada',   dot:'#4a7de8', group:'progress' },
   { key:'preparando',   label:'Preparando conteúdo',   cls:'st-plt-preparando',   dot:'#9b70e8', group:'progress' },
   { key:'ensaiando',    label:'Ensaiando',             cls:'st-plt-ensaiando',    dot:'#e8935a', group:'progress' },
@@ -5415,8 +5429,9 @@ const LECTURE_STATUS = [
   { key:'finalizada',   label:'Cachê recebido',        cls:'st-plt-finalizada',   dot:'#2dbea0', group:'complete' },
   // Cancelled
   { key:'cancelada',    label:'Cancelada',             cls:'st-plt-cancelada',    dot:'#e8445a', group:'cancelled' },
+  { key:'recusada',     label:'Recusada',              cls:'st-plt-recusada',     dot:'#c85f82', group:'cancelled' },
 ];
-const LECTURE_GROUP_LABELS = { todo:'To-do', progress:'Em progresso', complete:'Completo', cancelled:'Cancelada' };
+const LECTURE_GROUP_LABELS = { todo:'To-do', progress:'Em progresso', complete:'Completo', cancelled:'Encerrada' };
 function getLectureStatusMeta(key) { return LECTURE_STATUS.find(s => s.key === key) || LECTURE_STATUS[0]; }
 
 /* ─── Palestras: dados e persistência ────────────────────────────────────── */
@@ -5688,12 +5703,15 @@ function renderLectures() {
       { key: 'todo',     label: 'To-do' },
       { key: 'progress', label: 'Em progresso' },
       { key: 'complete', label: 'Completo' },
+      { key: 'recusada', label: 'Recusada' },
     ];
     overviewGrid.innerHTML = columns.map(col => {
       const items = sorted.filter(l => {
         const g = getLectureStatusMeta(l.status).group;
-        // Palestras canceladas entram na coluna "Completo" (fim do fluxo), sem perder o status/selo real.
-        return col.key === 'complete' ? (g === 'complete' || g === 'cancelled') : g === col.key;
+        // "Recusada" tem coluna própria; "Cancelada" continua entrando em "Completo" (fim do fluxo).
+        if (col.key === 'recusada') return l.status === 'recusada';
+        if (col.key === 'complete') return (g === 'complete' || g === 'cancelled') && l.status !== 'recusada';
+        return g === col.key;
       });
       const cards = items.length ? items.map(renderLectureCard).join('') : `<div class="lecture-board-empty">Nada por aqui</div>`;
       return `<div class="lecture-board-col">
@@ -7639,6 +7657,11 @@ renderAll();
 if (localStorage.getItem('content-manager-table-collapsed') === '1') {
   document.getElementById('post-table-wrap').style.display = 'none';
   document.getElementById('list-collapse-btn').classList.add('collapsed');
+}
+
+if (localStorage.getItem('content-manager-strategy-collapsed') === '1') {
+  document.getElementById('strategy-checklist').classList.add('collapsed');
+  document.getElementById('strategy-collapse-btn').classList.add('collapsed');
 }
 
 try {
