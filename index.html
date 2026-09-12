@@ -462,15 +462,24 @@
   .lecture-overview-card-footer { margin-top: 10px; display: flex; justify-content: flex-end; }
   .lecture-overview-empty { grid-column: 1 / -1; text-align: center; color: var(--text-3); padding: 24px; font-style: italic; }
 
+  /* Estilo "Notion" pra aba Parceiros: acento rosa nos títulos de seção,
+     colunas do board com indicador colorido e cards com ícone de marca. */
+  #view-parceiros .list-title { color: #c2255c; display: flex; align-items: center; gap: 6px; }
+  #view-parceiros .post-table thead th { background: #fdf1f6; }
+  #view-parceiros .post-table tbody tr:hover { background: #fef7fa; }
+
   .partner-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 16px 18px; }
   @media (max-width: 900px) { .partner-board { grid-template-columns: 1fr; } }
   .partner-board-col { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; min-height: 70px; }
   .partner-board-col-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; padding: 0 2px; }
+  .partner-board-col-head-label { display: flex; align-items: center; gap: 6px; }
+  .partner-board-col-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .partner-board-count { font-size: 11px; font-weight: 500; color: var(--text-3); background: var(--surface); border: 1px solid var(--border); padding: 1px 7px; border-radius: 999px; }
   .partner-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
   .partner-card:last-child { margin-bottom: 0; }
-  .partner-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
-  .partner-card-title { font-size: 13px; font-weight: 600; margin-bottom: 7px; }
+  .partner-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #f0b8d1; }
+  .partner-card-title { font-size: 13px; font-weight: 600; margin-bottom: 7px; display: flex; align-items: center; gap: 6px; }
+  .partner-card-title-icon { color: #c2255c; font-size: 12px; }
   .partner-board-empty { font-size: 11.5px; color: var(--text-3); text-align: center; padding: 10px 4px; font-style: italic; }
 
   /* Inspirações */
@@ -1063,6 +1072,15 @@
         <button type="button" class="notif-today-banner-close" onclick="dismissNotifBanner()" title="Dispensar por hoje">✕</button>
       </div>
 
+      <div class="notif-today-banner" id="agenda-lecture-notif-banner">
+        <span class="notif-today-banner-icon">🎤</span>
+        <div class="notif-today-banner-body">
+          <div class="notif-today-banner-title" id="agenda-lecture-notif-banner-title">Próxima palestra</div>
+          <div class="notif-today-banner-items" id="agenda-lecture-notif-banner-items"></div>
+        </div>
+        <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
+      </div>
+
       <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
         <div class="stat-card"><div class="stat-label">Posts nessa semana</div><div class="stat-value" id="ag-stat-total">0</div></div>
         <div class="stat-card"><div class="stat-label">Em progresso</div><div class="stat-value" id="ag-stat-progress">0</div></div>
@@ -1335,14 +1353,14 @@
         <table class="post-table">
           <thead>
             <tr>
-              <th>Nome da marca</th>
-              <th>Status</th>
-              <th>Link de afiliação</th>
-              <th>Data de início</th>
-              <th>Data final</th>
-              <th>Comissão</th>
-              <th>Pgto fixo</th>
-              <th>Deliverables</th>
+              <th>💼 Nome da marca</th>
+              <th>⏳ Status</th>
+              <th>🔗 Link de afiliação</th>
+              <th>📅 Data de início</th>
+              <th>📅 Data final</th>
+              <th>💰 Comissão</th>
+              <th>💵 Pgto fixo</th>
+              <th>📦 Deliverables</th>
               <th></th>
             </tr>
           </thead>
@@ -1695,6 +1713,10 @@
         <label class="form-label">Tema / Título da palestra</label>
         <input class="form-input" id="l-tema" placeholder="Ex: Carreira em tech para iniciantes" />
       </div>
+      <div class="form-group">
+        <label class="form-label">Parceiro (opcional)</label>
+        <select class="form-input" id="l-parceiro"><option value="">Nenhum</option></select>
+      </div>
       <div class="form-group" style="margin-bottom:0;">
         <label class="form-label">Evento / Organizador</label>
         <input class="form-input" id="l-evento" placeholder="Ex: Womakers Code" />
@@ -1942,6 +1964,11 @@
       <div class="form-group">
         <label class="form-label">Título</label>
         <input class="form-input" id="n-titulo" placeholder="Ex: [post] conteúdo para te deixar inteligente" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Parceiro (opcional)</label>
+        <select class="form-input" id="n-parceiro"><option value="">Nenhum</option></select>
       </div>
 
       <div class="form-group">
@@ -4194,13 +4221,18 @@ function openPost(id) {
   }
 
   const linkedPartners = partners.filter(pt => (pt.linkedPosts || []).some(e => e.postId === id));
-  if (linkedPartners.length) {
+  const directPartner = p.parceiroId ? partners.find(pt => pt.id === p.parceiroId) : null;
+  const hasAnyPartner = linkedPartners.length || directPartner;
+  if (hasAnyPartner) {
     document.getElementById('m-partners-row').style.display = 'flex';
-    document.getElementById('m-partners').innerHTML = linkedPartners.map(pt => {
+    const chips = [];
+    if (directPartner) chips.push(`<span class="partner-link-chip" onclick="goToPartnerFromPost(${directPartner.id})" title="Ver parceiro">🤝 ${escapeHtml(directPartner.marca)}</span>`);
+    linkedPartners.forEach(pt => {
       const entry = pt.linkedPosts.find(e => e.postId === id);
       const icon = (entry && FORMAT_ICON[entry.type]) || '';
-      return `<span class="partner-link-chip" onclick="goToPartnerFromPost(${pt.id})" title="Ver parceiro">${icon} ${escapeHtml(pt.marca)}</span>`;
-    }).join('');
+      chips.push(`<span class="partner-link-chip" onclick="goToPartnerFromPost(${pt.id})" title="Ver parceiro">${icon} ${escapeHtml(pt.marca)}</span>`);
+    });
+    document.getElementById('m-partners').innerHTML = chips.join('');
   } else {
     document.getElementById('m-partners-row').style.display = 'none';
   }
@@ -4520,10 +4552,23 @@ function populateReqTagSelect(selected) {
   sel.value = selected || '';
 }
 
+/* Popula um <select> com a lista de parceiros cadastrados (usado no modal de
+   post e no de palestra) — campo simples e opcional, independente do sistema
+   de deliverables/linkedPosts já existente na aba Parceiros. */
+function populatePartnerSelect(selectId, selected) {
+  const sel = document.getElementById(selectId);
+  if (!sel) return;
+  sel.innerHTML = '<option value="">Nenhum</option>' + partners.map(p =>
+    `<option value="${p.id}">${escapeHtml(p.marca)}</option>`
+  ).join('');
+  sel.value = selected || '';
+}
+
 function openNewModal(prefill = {}) {
   editingPostId = prefill.id || null;
   document.getElementById('n-titulo').value  = prefill.titulo || '';
   populateReqTagSelect(prefill.requiredTag || '');
+  populatePartnerSelect('n-parceiro', prefill.parceiroId || '');
 
   // unified desc: for carousel/foto use carouselLegenda, otherwise desc
   const isCar = prefill.formato === 'Carousel' || prefill.formato === 'Foto' || prefill.formato === 'Pin';
@@ -4629,6 +4674,8 @@ function saveNewPost() {
     link:    row.querySelector('.n-insp-input').value.trim(),
   })).filter(x => x.creator || x.link);
   const requiredTag = document.getElementById('n-reqtag').value || null;
+  const parceiroSel = document.getElementById('n-parceiro');
+  const parceiroId = parceiroSel && parceiroSel.value ? Number(parceiroSel.value) : null;
   const plataformasDatas = getPlatDatesValues();
   const plataformasStatus = getPlatStatusValues();
   if (editingPostId) {
@@ -4654,6 +4701,7 @@ function saveNewPost() {
       // adicionado quando o usuário também muda o status antes de salvar.
       post.inspiracoes     = formInsp;
       post.requiredTag     = requiredTag;
+      post.parceiroId      = parceiroId;
     }
   } else {
     const fmtN   = document.getElementById('n-formato').value;
@@ -4674,6 +4722,7 @@ function saveNewPost() {
       formato:         fmtN,
       inspiracoes:     formInsp,
       requiredTag,
+      parceiroId,
     });
   }
   savePosts();
@@ -4815,20 +4864,21 @@ function renderPartners() {
   }
 
   const board = document.getElementById('partner-board');
+  const PARTNER_GROUP_DOT = { todo:'#9d9d9a', progress:'#4a7de8', complete:'#2dbe6c' };
   board.innerHTML = ['todo','progress','complete'].map(g => {
     const items = partners.filter(p => getPartnerStatusMeta(p.status).group === g);
     const cards = items.length ? items.map(p => {
       const m = getPartnerStatusMeta(p.status);
       const deliv = fmtDeliverables(p);
       return `<div class="partner-card" onclick="openPartnerModal(${p.id})">
-        <div class="partner-card-title">${escapeHtml(p.marca)}</div>
+        <div class="partner-card-title"><span class="partner-card-title-icon">💼</span>${escapeHtml(p.marca)}</div>
         <span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span>
         ${deliv !== '—' ? `<div class="deliverable-summary" style="margin-top:7px;">${deliv}</div>` : ''}
         ${p.notas ? `<div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.5;border-top:1px solid var(--border);padding-top:7px;">${escapeHtml(p.notas).replace(/\n/g,'<br>')}</div>` : ''}
       </div>`;
     }).join('') : `<div class="partner-board-empty">Nada por aqui</div>`;
     return `<div class="partner-board-col">
-      <div class="partner-board-col-head"><span>${PARTNER_GROUP_LABELS[g]}</span><span class="partner-board-count">${items.length}</span></div>
+      <div class="partner-board-col-head"><span class="partner-board-col-head-label"><span class="partner-board-col-dot" style="background:${PARTNER_GROUP_DOT[g]}"></span>${PARTNER_GROUP_LABELS[g]}</span><span class="partner-board-count">${items.length}</span></div>
       ${cards}
     </div>`;
   }).join('');
@@ -5266,25 +5316,44 @@ function fmtDuracao(v) {
 }
 
 const LECTURE_NOTIF_DISMISS_KEY = 'content-manager-lecture-notif-dismissed-v1';
+// Exibe o mesmo aviso de "próxima palestra" tanto na aba Palestras quanto na Agenda semanal.
+const LECTURE_NOTIF_BANNER_IDS = [
+  { banner: 'lecture-notif-banner', title: 'lecture-notif-banner-title', items: 'lecture-notif-banner-items' },
+  { banner: 'agenda-lecture-notif-banner', title: 'agenda-lecture-notif-banner-title', items: 'agenda-lecture-notif-banner-items' },
+];
+function getUpcomingLecture() {
+  const todayIso = new Date().toISOString().slice(0,10);
+  return lectures
+    .filter(l => l.data && l.data >= todayIso && getLectureStatusMeta(l.status).group !== 'cancelled')
+    .sort((a,b) => a.data.localeCompare(b.data))[0];
+}
 function renderLectureNotifBanner(upcoming) {
-  const banner = document.getElementById('lecture-notif-banner');
-  if (!banner) return;
   const dismissedFor = localStorage.getItem(LECTURE_NOTIF_DISMISS_KEY);
-  if (!upcoming || dismissedFor === todayStr()) { banner.classList.remove('show'); return; }
-
-  const todayIso = todayStr();
-  const diffDays = Math.round((new Date(upcoming.data) - new Date(todayIso)) / 86400000);
-  const title = diffDays <= 0 ? 'Você tem uma palestra hoje'
-    : diffDays === 1 ? 'Sua próxima palestra é amanhã'
-    : `Sua próxima palestra é em ${diffDays} dias`;
-  document.getElementById('lecture-notif-banner-title').textContent = title;
-  document.getElementById('lecture-notif-banner-items').innerHTML =
-    `<div class="notif-today-banner-item" onclick="openLectureModal(${upcoming.id})">${escapeHtml(upcoming.tema)} — ${fmtDateBR(upcoming.data)}${upcoming.evento ? ' · ' + escapeHtml(upcoming.evento) : ''}</div>`;
-  banner.classList.add('show');
+  const shouldShow = !!upcoming && dismissedFor !== todayStr();
+  let title = '', itemsHtml = '';
+  if (shouldShow) {
+    const todayIso = todayStr();
+    const diffDays = Math.round((new Date(upcoming.data) - new Date(todayIso)) / 86400000);
+    title = diffDays <= 0 ? 'Você tem uma palestra hoje'
+      : diffDays === 1 ? 'Sua próxima palestra é amanhã'
+      : `Sua próxima palestra é em ${diffDays} dias`;
+    itemsHtml = `<div class="notif-today-banner-item" onclick="openLectureModal(${upcoming.id})">${escapeHtml(upcoming.tema)} — ${fmtDateBR(upcoming.data)}${upcoming.evento ? ' · ' + escapeHtml(upcoming.evento) : ''}</div>`;
+  }
+  LECTURE_NOTIF_BANNER_IDS.forEach(ids => {
+    const banner = document.getElementById(ids.banner);
+    if (!banner) return;
+    if (!shouldShow) { banner.classList.remove('show'); return; }
+    document.getElementById(ids.title).textContent = title;
+    document.getElementById(ids.items).innerHTML = itemsHtml;
+    banner.classList.add('show');
+  });
 }
 function dismissLectureNotifBanner() {
   localStorage.setItem(LECTURE_NOTIF_DISMISS_KEY, todayStr());
-  document.getElementById('lecture-notif-banner').classList.remove('show');
+  LECTURE_NOTIF_BANNER_IDS.forEach(ids => {
+    const banner = document.getElementById(ids.banner);
+    if (banner) banner.classList.remove('show');
+  });
 }
 
 function renderLectures() {
@@ -5294,11 +5363,7 @@ function renderLectures() {
   const totalCache = lectures.reduce((s,l) => s + (Number(l.cache)||0), 0);
   document.getElementById('lstat-cache').textContent = totalCache ? 'R$' + totalCache.toFixed(2) : 'R$0';
 
-  const todayIso = new Date().toISOString().slice(0,10);
-  const upcoming = lectures
-    .filter(l => l.data && l.data >= todayIso && getLectureStatusMeta(l.status).group !== 'cancelled')
-    .sort((a,b) => a.data.localeCompare(b.data))[0];
-  renderLectureNotifBanner(upcoming);
+  renderLectureNotifBanner(getUpcomingLecture());
 
   const overviewGrid = document.getElementById('lecture-overview-grid');
   if (!lectures.length) {
@@ -5310,8 +5375,10 @@ function renderLectures() {
         l.linkEvento ? `<a href="${escapeHtml(l.linkEvento)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Evento</a>` : '',
         l.linkSlides ? `<a href="${escapeHtml(l.linkSlides)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Slides</a>` : '',
       ].filter(Boolean).join('');
+      const partnerLinked = l.parceiroId ? partners.find(pt => pt.id === l.parceiroId) : null;
       const metaRows = [
         l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : '',
+        partnerLinked ? `<span>🤝 ${escapeHtml(partnerLinked.marca)}</span>` : '',
         l.data ? `<span>📅 ${fmtDateBR(l.data)}${l.duracao ? ' · ' + fmtDuracao(l.duracao) : ''}</span>` : '',
         l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
@@ -5380,6 +5447,7 @@ function openLectureModal(id) {
     if (!l) return;
     document.getElementById('lecture-modal-title').textContent = 'Editar palestra';
     document.getElementById('l-tema').value = l.tema || '';
+    populatePartnerSelect('l-parceiro', l.parceiroId || '');
     document.getElementById('l-evento').value = l.evento || '';
     statusSel.value = l.status || 'ideia';
     document.getElementById('l-data').value = l.data || '';
@@ -5395,6 +5463,7 @@ function openLectureModal(id) {
   } else {
     document.getElementById('lecture-modal-title').textContent = 'Nova palestra';
     document.getElementById('l-tema').value = '';
+    populatePartnerSelect('l-parceiro', '');
     document.getElementById('l-evento').value = '';
     statusSel.value = 'ideia';
     document.getElementById('l-data').value = '';
@@ -5421,6 +5490,7 @@ function saveLecture() {
   if (!tema) { alert('Por favor, informe o tema da palestra.'); return; }
   const data = {
     tema,
+    parceiroId: document.getElementById('l-parceiro').value ? Number(document.getElementById('l-parceiro').value) : null,
     evento: document.getElementById('l-evento').value.trim(),
     status: document.getElementById('l-status').value,
     data: document.getElementById('l-data').value,
@@ -6641,6 +6711,7 @@ function onStageDrop(ev, statusKey) {
 
 function renderAgenda() {
   renderNotifBanner(getTodayProductionTasks());
+  renderLectureNotifBanner(getUpcomingLecture());
   const start = getWeekStart(agendaWeekOffset);
   const end = new Date(start); end.setDate(end.getDate() + 6);
   const startStr = isoDate(start), endStr = isoDate(end);
@@ -7132,10 +7203,14 @@ if (localStorage.getItem('content-manager-table-collapsed') === '1') {
 /* Ao abrir: renderiza instantâneo com cache local, depois busca a versão mais
    recente no GitHub (funciona sem token; token só é necessário pra salvar). */
 if (!getGhToken()) setSyncStatus('offline', 'Somente leitura (sem token)');
-pullFromGitHub(false);
-
-/* Checagem inicial de notificações de produção (banner + push, se ativado). */
-checkProductionTasksNow(false);
+pullFromGitHub(false).then(() => {
+  // Só verifica notificações (produção + palestras) DEPOIS que os dados da nuvem
+  // chegaram. Antes disso rodava na hora, usando só o cache local/exemplo do
+  // aparelho — por isso o alerta não aparecia em aparelhos novos (ex: tablet),
+  // que ainda não tinham os posts/palestras reais carregados nesse momento.
+  checkProductionTasksNow(false);
+  renderLectureNotifBanner(getUpcomingLecture());
+});
 
 </script>
 </body>
