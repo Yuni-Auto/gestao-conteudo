@@ -1406,6 +1406,26 @@
     </div>
 
     <div class="content-area">
+      <div class="week-section">
+        <div class="week-header">
+          <div class="week-header-left">
+            <div class="week-title" id="lecture-calendar-title">Semana</div>
+            <div class="cal-view-toggle">
+              <button class="cal-view-btn active" id="lecture-cal-view-btn-semana" onclick="setLectureCalView('semana')">Semana</button>
+              <button class="cal-view-btn" id="lecture-cal-view-btn-mes" onclick="setLectureCalView('mes')">Mês</button>
+            </div>
+          </div>
+          <div class="week-nav">
+            <button class="week-nav-btn week-today-btn" onclick="goToLectureToday()">Hoje</button>
+            <button class="week-nav-btn" onclick="changeLectureCalPeriod(-1)">&#8249;</button>
+            <div class="week-nav-label" id="lecture-week-label"></div>
+            <button class="week-nav-btn" onclick="changeLectureCalPeriod(1)">&#8250;</button>
+          </div>
+        </div>
+        <div class="week-grid" id="lecture-week-grid"></div>
+        <div class="month-grid" id="lecture-month-grid" style="display:none;"></div>
+      </div>
+
       <div class="list-section" style="padding:16px 18px;">
         <div class="list-title" style="margin-bottom:12px;">🎤 Overview</div>
         <div class="lecture-overview-grid" id="lecture-overview-grid"></div>
@@ -1714,7 +1734,7 @@
         <label class="form-label">Evento / Organizador</label>
         <input class="form-input" id="l-evento" placeholder="Ex: Womakers Code" />
       </div>
-      <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:14px;">
+      <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr 1fr; margin-top:14px;">
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Status</label>
           <select class="form-input" id="l-status"></select>
@@ -1722,6 +1742,10 @@
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Data</label>
           <input class="form-input" id="l-data" type="date" />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Horário</label>
+          <input class="form-input" id="l-hora" type="time" />
         </div>
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Formato</label>
@@ -3063,6 +3087,9 @@ let currentView      = 'calendario';
 let weekOffset   = 0;
 let monthOffset  = 0;
 let calView      = 'semana';
+let lectureWeekOffset  = 0;
+let lectureMonthOffset = 0;
+let lectureCalView     = 'semana';
 let strategyMonth = new Date(today().getFullYear(), today().getMonth(), 1);
 function recomputeRequiredPosts() {
   REQUIRED_POSTS = getRequiredPostsForMonth(monthKey(strategyMonth));
@@ -5332,7 +5359,7 @@ function renderLectureNotifBanner(upcoming) {
     title = diffDays <= 0 ? 'Você tem uma palestra hoje'
       : diffDays === 1 ? 'Sua próxima palestra é amanhã'
       : `Sua próxima palestra é em ${diffDays} dias`;
-    itemsHtml = `<div class="notif-today-banner-item" onclick="openLectureModal(${upcoming.id})">${escapeHtml(upcoming.tema)} — ${fmtDateBR(upcoming.data)}${upcoming.evento ? ' · ' + escapeHtml(upcoming.evento) : ''}</div>`;
+    itemsHtml = `<div class="notif-today-banner-item" onclick="openLectureModal(${upcoming.id})">${escapeHtml(upcoming.tema)} — ${fmtDateBR(upcoming.data)}${upcoming.hora ? ' às ' + upcoming.hora : ''}${upcoming.evento ? ' · ' + escapeHtml(upcoming.evento) : ''}</div>`;
   }
   LECTURE_NOTIF_BANNER_IDS.forEach(ids => {
     const banner = document.getElementById(ids.banner);
@@ -5351,6 +5378,150 @@ function dismissLectureNotifBanner() {
   });
 }
 
+/* ─── Calendário (semana/mês) de palestras ─────────────────────────────── */
+function setLectureCalView(view) {
+  lectureCalView = view;
+  document.getElementById('lecture-cal-view-btn-semana').classList.toggle('active', view === 'semana');
+  document.getElementById('lecture-cal-view-btn-mes').classList.toggle('active', view === 'mes');
+  document.getElementById('lecture-calendar-title').textContent = view === 'semana' ? 'Semana' : 'Mês';
+  document.getElementById('lecture-week-grid').style.display  = view === 'semana' ? '' : 'none';
+  document.getElementById('lecture-month-grid').style.display = view === 'mes' ? '' : 'none';
+  renderLectureCalendar();
+}
+
+function changeLectureCalPeriod(dir) {
+  if (lectureCalView === 'semana') { changeLectureWeek(dir); } else { changeLectureMonth(dir); }
+}
+
+function renderLectureCalendar() {
+  if (lectureCalView === 'semana') renderLectureWeek(); else renderLectureMonth();
+}
+
+function filteredDayLectures(dStr) {
+  return lectures.filter(l => l.data === dStr);
+}
+
+function renderLectureCalCard(l) {
+  const m = getLectureStatusMeta(l.status);
+  const subtitle = [l.hora, (l.evento || l.local)].filter(Boolean).join(' · ');
+  return `
+  <div class="week-post" draggable="true" ondragstart="onLectureCalDragStart(event,${l.id})" ondragend="onLectureCalDragEnd(event)" onclick="openLectureModal(${l.id})" title="Arraste para mudar a data">
+    <div class="week-post-title" title="${escapeHtml(l.tema)}">${escapeHtml(l.tema)}</div>
+    ${subtitle ? `<div class="week-post-meta"><span class="week-post-fmt">🎤 ${escapeHtml(subtitle)}</span></div>` : ''}
+    <div class="week-post-status-row"><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></div>
+  </div>`;
+}
+
+function renderLectureWeek() {
+  const start = getWeekStart(lectureWeekOffset);
+  const end   = new Date(start); end.setDate(start.getDate()+6);
+  const fmt   = d => `${d.getDate()} ${MONTH_NAMES[d.getMonth()]}`;
+  document.getElementById('lecture-week-label').textContent = `${fmt(start)} – ${fmt(end)} ${end.getFullYear()}`;
+
+  const tStr = todayStr();
+  let html = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(start); d.setDate(start.getDate()+i);
+    const dStr = isoDate(d);
+    const isToday = dStr === tStr;
+    const dayLectures = filteredDayLectures(dStr);
+    html += `<div class="week-day-col">
+      <div class="week-day-head">
+        <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
+        <div class="week-day-num${isToday?' today':''}">${d.getDate()}</div>
+      </div>
+      <div class="week-day-body" ondragover="allowDropLectureDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onLectureDayDrop(event,'${dStr}')">
+        ${dayLectures.length ? dayLectures.map(l => renderLectureCalCard(l)).join('') : '<div class="empty-day">—</div>'}
+      </div>
+    </div>`;
+  }
+  document.getElementById('lecture-week-grid').innerHTML = html;
+}
+
+function changeLectureWeek(dir) { lectureWeekOffset += dir; renderLectureWeek(); }
+
+function renderLectureMonth() {
+  const anchor = getMonthAnchor(lectureMonthOffset);
+  const year = anchor.getFullYear();
+  const month = anchor.getMonth();
+  document.getElementById('lecture-week-label').textContent = `${MONTH_NAMES[month]} ${year}`;
+
+  const firstOfMonth = new Date(year, month, 1);
+  const gridStart = new Date(firstOfMonth);
+  gridStart.setDate(firstOfMonth.getDate() - firstOfMonth.getDay());
+
+  const tStr = todayStr();
+  let dowHtml = DAY_NAMES.map(n => `<div class="month-dow">${n}</div>`).join('');
+  let cellsHtml = '';
+  const MAX_VISIBLE = 2;
+
+  for (let i = 0; i < 42; i++) {
+    const d = new Date(gridStart); d.setDate(gridStart.getDate() + i);
+    const dStr = isoDate(d);
+    const isToday = dStr === tStr;
+    const isOutside = d.getMonth() !== month;
+    const dayLectures = filteredDayLectures(dStr);
+    const visible = dayLectures.slice(0, MAX_VISIBLE);
+    const extra = dayLectures.length - visible.length;
+    cellsHtml += `<div class="month-day-cell${isOutside ? ' outside' : ''}" ondragover="allowDropLectureDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onLectureDayDrop(event,'${dStr}')">
+      <div class="month-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
+      ${visible.map(l => renderLectureCalCard(l)).join('')}
+      ${extra > 0 ? `<div class="month-post-more" onclick="goToWeekOfLecture('${dStr}')">+${extra} mais</div>` : ''}
+    </div>`;
+    if (i >= 34 && d.getMonth() !== month && d.getDay() === 6) break;
+  }
+
+  document.getElementById('lecture-month-grid').innerHTML = dowHtml + cellsHtml;
+}
+
+function goToWeekOfLecture(dStr) {
+  const target = new Date(dStr + 'T12:00:00');
+  const start = today(); start.setHours(0,0,0,0); start.setDate(start.getDate() - start.getDay());
+  const diffWeeks = Math.round((new Date(target.getFullYear(), target.getMonth(), target.getDate() - target.getDay()) - start) / (7*86400000));
+  lectureWeekOffset = diffWeeks;
+  setLectureCalView('semana');
+}
+
+function changeLectureMonth(dir) { lectureMonthOffset += dir; renderLectureMonth(); }
+
+function goToLectureToday() {
+  lectureWeekOffset = 0;
+  lectureMonthOffset = 0;
+  renderLectureCalendar();
+}
+
+/* Drag & drop de palestras no calendário semana/mês */
+let draggedLectureCalId = null;
+function onLectureCalDragStart(ev, id) {
+  draggedLectureCalId = id;
+  ev.dataTransfer.effectAllowed = 'move';
+  try { ev.dataTransfer.setData('text/plain', String(id)); } catch (e) {}
+  ev.target.closest('.week-post').classList.add('dragging');
+}
+function onLectureCalDragEnd(ev) {
+  const el = ev.target.closest('.week-post');
+  if (el) el.classList.remove('dragging');
+  document.querySelectorAll('.drop-target').forEach(el2 => el2.classList.remove('drop-target'));
+  draggedLectureCalId = null;
+}
+function allowDropLectureDay(ev) {
+  ev.preventDefault();
+  ev.currentTarget.classList.add('drop-target');
+}
+function onLectureDayDrop(ev, dateStr) {
+  ev.preventDefault();
+  ev.currentTarget.classList.remove('drop-target');
+  let id = draggedLectureCalId;
+  try { id = Number(ev.dataTransfer.getData('text/plain')) || id; } catch (e) {}
+  draggedLectureCalId = null;
+  if (!id) return;
+  const l = lectures.find(x => x.id === id);
+  if (!l || l.data === dateStr) return;
+  l.data = dateStr;
+  saveLecturesData();
+  renderLectures();
+}
+
 function renderLectures() {
   document.getElementById('lstat-total').textContent = lectures.length;
   document.getElementById('lstat-confirmadas').textContent = lectures.filter(l => getLectureStatusMeta(l.status).group === 'progress').length;
@@ -5359,6 +5530,7 @@ function renderLectures() {
   document.getElementById('lstat-cache').textContent = totalCache ? 'R$' + totalCache.toFixed(2) : 'R$0';
 
   renderLectureNotifBanner(getUpcomingLecture());
+  renderLectureCalendar();
 
   const overviewGrid = document.getElementById('lecture-overview-grid');
   if (!lectures.length) {
@@ -5372,7 +5544,7 @@ function renderLectures() {
       ].filter(Boolean).join('');
       const metaRows = [
         l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : '',
-        l.data ? `<span>📅 ${fmtDateBR(l.data)}${l.duracao ? ' · ' + fmtDuracao(l.duracao) : ''}</span>` : '',
+        l.data ? `<span>📅 ${fmtDateBR(l.data)}${l.hora ? ' às ' + l.hora : ''}${l.duracao ? ' · ' + fmtDuracao(l.duracao) : ''}</span>` : '',
         l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
         l.contato ? `<span>👤 ${escapeHtml(l.contato)}</span>` : '',
@@ -5443,6 +5615,7 @@ function openLectureModal(id) {
     document.getElementById('l-evento').value = l.evento || '';
     statusSel.value = l.status || 'ideia';
     document.getElementById('l-data').value = l.data || '';
+    document.getElementById('l-hora').value = l.hora || '';
     document.getElementById('l-formato').value = l.formato || 'Presencial';
     document.getElementById('l-local').value = l.local || '';
     document.getElementById('l-duracao').value = l.duracao || '';
@@ -5458,6 +5631,7 @@ function openLectureModal(id) {
     document.getElementById('l-evento').value = '';
     statusSel.value = 'ideia';
     document.getElementById('l-data').value = '';
+    document.getElementById('l-hora').value = '';
     document.getElementById('l-formato').value = 'Presencial';
     document.getElementById('l-local').value = '';
     document.getElementById('l-duracao').value = '';
@@ -5484,6 +5658,7 @@ function saveLecture() {
     evento: document.getElementById('l-evento').value.trim(),
     status: document.getElementById('l-status').value,
     data: document.getElementById('l-data').value,
+    hora: document.getElementById('l-hora').value,
     formato: document.getElementById('l-formato').value,
     local: document.getElementById('l-local').value.trim(),
     duracao: parseFloat(document.getElementById('l-duracao').value) || 0,
@@ -5522,7 +5697,7 @@ function renderLectureKanbanCard(l) {
   <div class="week-post" draggable="true" ondragstart="onLectureKanbanDragStart(event, ${l.id})" ondragend="onLectureKanbanDragEnd(event)" onclick="openLectureModal(${l.id})" title="Arraste para mudar a etapa">
     <div class="agenda-strategy-title-row">
       <div class="week-post-title" title="${escapeHtml(l.tema)}">${escapeHtml(l.tema)}</div>
-      ${l.data ? `<div class="agenda-strategy-date">${fmtDateBR(l.data)}</div>` : ''}
+      ${l.data ? `<div class="agenda-strategy-date">${fmtDateBR(l.data)}${l.hora ? ' ' + l.hora : ''}</div>` : ''}
     </div>
     ${l.evento ? `<div class="week-post-meta"><span class="week-post-fmt">🏢 ${escapeHtml(l.evento)}</span></div>` : ''}
     ${l.local ? `<div class="week-post-meta"><span class="week-post-fmt">📍 ${escapeHtml(l.local)}</span></div>` : ''}
