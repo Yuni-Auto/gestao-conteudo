@@ -1895,7 +1895,7 @@
       "status": "ideia",
       "data": "2026-10-06",
       "formato": "Presencial",
-      "local": "",
+      "local": "São Paulo",
       "duracao": 60,
       "cache": 0,
       "contato": "",
@@ -3198,5 +3198,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:05:36.408Z"
+  "_updatedAt": "2026-09-12T17:13:06.519Z"
 }
