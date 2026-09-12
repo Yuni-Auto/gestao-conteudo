@@ -1850,7 +1850,7 @@
       "status": "realizada",
       "data": "2026-08-25",
       "formato": "Online",
-      "local": "",
+      "local": "São Paulo",
       "duracao": 60,
       "cache": 0,
       "contato": "Alvaro",
@@ -3177,5 +3177,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T02:17:04.512Z"
+  "_updatedAt": "2026-09-12T02:17:07.597Z"
 }
