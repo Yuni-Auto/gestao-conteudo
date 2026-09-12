@@ -1826,7 +1826,23 @@
       ]
     }
   ],
-  "lectures": [],
+  "lectures": [
+    {
+      "id": 1,
+      "tema": "{ AngularJS para Angular 21 } - Acelerando migrações com GitHub Copilot",
+      "evento": "TDC",
+      "status": "preparando",
+      "data": "2026-09-25",
+      "formato": "Presencial",
+      "local": "São Paulo",
+      "duracao": 35,
+      "cache": 0,
+      "contato": "Danilo",
+      "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
+      "linkSlides": "https://canva.link/w88t5ycommevznj",
+      "notas": ""
+    }
+  ],
   "guidelines": [
     {
       "label": "Sponsored Posts",
@@ -3080,5 +3096,5 @@
     "byFormato": {},
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:11:07.051Z"
+  "_updatedAt": "2026-09-12T15:16:35.845Z"
 }
