@@ -1711,6 +1711,22 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 80,
+      "titulo": "Teste",
+      "desc": "Teste",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -1983,16 +1999,7 @@
       }
     }
   },
-  "brainstormNotes": [
-    {
-      "id": 5,
-      "text": "",
-      "x": 119.52734375,
-      "y": 113.50390625,
-      "color": "white",
-      "rot": 2
-    }
-  ],
+  "brainstormNotes": [],
   "inspirations": [
     {
       "id": 1,
@@ -3151,5 +3158,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:42:39.661Z"
+  "_updatedAt": "2026-09-12T16:14:21.634Z"
 }
