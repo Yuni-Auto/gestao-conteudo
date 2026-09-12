@@ -1826,54 +1826,7 @@
       ]
     }
   ],
-  "lectures": [
-    {
-      "id": 1,
-      "tema": "{ AngularJS para Angular 21 } - Acelerando migrações com GitHub Copilot",
-      "evento": "TDC",
-      "status": "preparando",
-      "data": "2026-09-25",
-      "formato": "Presencial",
-      "local": "São Paulo",
-      "cache": 0,
-      "contato": "Danilo",
-      "link": "",
-      "notas": "",
-      "duracao": 35,
-      "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
-      "linkSlides": "https://canva.link/w88t5ycommevznj"
-    },
-    {
-      "id": 2,
-      "tema": "Nosso caminho by Gabs",
-      "evento": "Angular SP",
-      "status": "realizada",
-      "data": "2026-08-25",
-      "formato": "Online",
-      "local": "São Paulo",
-      "duracao": 60,
-      "cache": 0,
-      "contato": "Alvaro",
-      "linkEvento": "",
-      "linkSlides": "https://canva.link/re0hgay331q0p76",
-      "notas": ""
-    },
-    {
-      "id": 3,
-      "tema": "{ Angular Imersão Tech }",
-      "evento": "Womakerscode",
-      "status": "realizada",
-      "data": "2026-07-19",
-      "formato": "Online",
-      "local": "São Paulo",
-      "duracao": 60,
-      "cache": 0,
-      "contato": "",
-      "linkEvento": "",
-      "linkSlides": "https://canva.link/c3e3h849alvk5w6",
-      "notas": ""
-    }
-  ],
+  "lectures": [],
   "guidelines": [
     {
       "label": "Sponsored Posts",
@@ -2090,23 +2043,13 @@
     },
     {
       "key": "motivacional",
-      "label": "Não técnico",
+      "label": "Motivacional",
       "icon": "💫"
     },
     {
       "key": "dicas",
       "label": "Dicas",
       "icon": "💡"
-    },
-    {
-      "key": "tipo_mtwigtqgltv3",
-      "label": "Motivacional",
-      "icon": "🏷️"
-    },
-    {
-      "key": "tipo_mtwihe8g9bqh",
-      "label": "Publi",
-      "icon": "🛍️"
     }
   ],
   "requiredPostsByMonth": {
@@ -3134,48 +3077,8 @@
     }
   ],
   "productionTimes": {
-    "byFormato": {
-      "Reels": {
-        "roteiro": 1,
-        "gravando": 1,
-        "editando": 1,
-        "legenda": 1
-      },
-      "Carousel": {
-        "legenda": 1,
-        "design": 2
-      },
-      "Foto": {
-        "legenda": 1,
-        "design": 1
-      },
-      "Live": {
-        "roteiro": 2,
-        "gravando": 1,
-        "editando": 1,
-        "legenda": 1
-      },
-      "Shorts": {
-        "roteiro": 1,
-        "gravando": 1,
-        "editando": 1,
-        "legenda": 1
-      },
-      "Pin": {
-        "legenda": 1,
-        "design": 1
-      },
-      "Thread": {
-        "legenda": 1
-      },
-      "Story": {
-        "roteiro": 2,
-        "gravando": 1,
-        "editando": 1,
-        "legenda": 1
-      }
-    },
+    "byFormato": {},
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T02:36:23.121Z"
+  "_updatedAt": "2026-09-12T15:06:30.083Z"
 }
