@@ -16,6 +16,7 @@
     --text-2: #6b6b68;
     --text-3: #9d9d9a;
     --radius: 10px;
+    --global-header-h: 52px;
   }
 
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; }
@@ -82,8 +83,11 @@
   /* Main */
   .main { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
 
+  /* Header global fixo (sempre visível, em qualquer aba) com status do Google Calendar / sincronização */
+  .global-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 26px 10px 58px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; position: sticky; top: 0; z-index: 11; }
+
   /* Topbar */
-  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: var(--global-header-h); z-index: 10; }
   .topbar-title { font-size: 15px; font-weight: 600; }
   .strat-menu { position: relative; display: inline-block; }
   .strat-menu-list { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); min-width: 180px; padding: 6px; z-index: 50; }
@@ -322,7 +326,7 @@
   .st-publicada      { background: #e4f7ee; color: #1a6b40; } .st-publicada .status-dot      { background: #2dbe6c; }
 
   /* ── Analytics ──────────────────────────────────────────────────────── */
-  .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+  .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: var(--global-header-h); z-index: 10; }
   .analytics-topbar-title { font-size: 15px; font-weight: 600; }
   .analytics-period-tabs { display: flex; gap: 4px; }
   .analytics-period-tab { font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); transition: all 0.12s; font-family: inherit; }
@@ -975,6 +979,7 @@
 
   /* Tablet estreito / celular grande: até 900px */
   @media (max-width: 900px) {
+    .global-header { flex-wrap: wrap; row-gap: 6px; padding: 8px 20px 8px 54px; }
     .topbar { flex-wrap: wrap; row-gap: 8px; }
     .topbar > div { flex-wrap: wrap; }
     .modal-overlay { padding: 0; align-items: flex-end; }
@@ -1047,6 +1052,17 @@
   </aside>
 
   <div class="main">
+
+    <div class="global-header">
+      <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
+        <span class="sync-dot sync-offline" id="gcal-dot"></span>
+        <span id="gcal-label">Google Calendar</span>
+      </button>
+      <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
+        <span class="sync-dot sync-syncing" id="sync-dot"></span>
+        <span id="sync-label">Carregando…</span>
+      </button>
+    </div>
 
     <!-- Placeholder view for menu items without functionality yet -->
     <div class="placeholder-wrap" id="view-placeholder" style="display:none;">
@@ -1131,14 +1147,6 @@
     <div class="topbar">
       <div class="topbar-title">Gestão de conteúdo</div>
       <div class="topbar-actions">
-        <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
-          <span class="sync-dot sync-offline" id="gcal-dot"></span>
-          <span id="gcal-label">Google Calendar</span>
-        </button>
-        <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
-          <span class="sync-dot sync-syncing" id="sync-dot"></span>
-          <span id="sync-label">Carregando…</span>
-        </button>
         <button class="btn btn-primary" onclick="openNewModal()">+ Novo post</button>
       </div>
     </div>
@@ -1730,9 +1738,15 @@
         <label class="form-label">Tema / Título da palestra</label>
         <input class="form-input" id="l-tema" placeholder="Ex: Carreira em tech para iniciantes" />
       </div>
-      <div class="form-group" style="margin-bottom:0;">
-        <label class="form-label">Evento / Organizador</label>
-        <input class="form-input" id="l-evento" placeholder="Ex: Womakers Code" />
+      <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr; margin-top:0;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Evento / Organizador</label>
+          <input class="form-input" id="l-evento" placeholder="Ex: Womakers Code" />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Tema do evento</label>
+          <input class="form-input" id="l-tema-evento" placeholder="Ex: Mulheres na tecnologia" />
+        </div>
       </div>
       <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr 1fr; margin-top:14px;">
         <div class="form-group" style="margin-bottom:0;">
@@ -3426,7 +3440,9 @@ let gcalAccounts = []; // {email, token, calendars:[{id,summary,color,enabled}],
 let gcalSilentQueue = [];
 let gcalPendingSilentEmail = null;
 let gcalEventsByDate = {};
+let gcalEventsByDateLecture = {};
 let gcalLastFetchKey = null;
+let gcalLastFetchKeyLecture = null;
 let gcalEventsVisible = localStorage.getItem('gcal_events_visible') !== '0';
 
 function gcalLoadConfig(){
@@ -3580,7 +3596,7 @@ document.addEventListener('click', e=>{
   cal.enabled = !cal.enabled;
   el.classList.toggle('off', !cal.enabled);
   gcalPersistAccountsMeta();
-  gcalLoadEventsForVisibleRange();
+  gcalLoadEventsForVisibleRange(); gcalLoadEventsForLectureVisibleRange();
 });
 
 /* ---- Google Identity Services ---- */
@@ -3641,7 +3657,7 @@ function gcalOnTokenResponse(resp){
       gcalApplyStoredCalPrefs(finalEmail, cals);
       gcalUpsertAccount(finalEmail, token, cals);
       gcalPersistAccountsMeta();
-      gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange();
+      gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange(); gcalLoadEventsForLectureVisibleRange();
       if(btn){ btn.disabled=false; btn.textContent='＋ Adicionar conta'; }
     });
   }).catch(()=>gcalOnTokenError({error:'lookup_failed'}));
@@ -3672,7 +3688,7 @@ function gcalDisconnectAccount(email){
   }
   gcalAccounts = gcalAccounts.filter(a=>a.email!==email);
   gcalForgetAccountMeta(email);
-  gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange();
+  gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange(); gcalLoadEventsForLectureVisibleRange();
 }
 
 /* ---- fluxo silencioso (reconexão automática ao carregar a página) ---- */
@@ -3709,7 +3725,7 @@ function gcalOnSilentTokenResponse(resp){
       if(finalEmail !== fallbackEmail) gcalAccounts = gcalAccounts.filter(a=>a.email!==fallbackEmail);
       gcalUpsertAccount(finalEmail, token, cals);
       gcalPersistAccountsMeta();
-      gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange();
+      gcalRenderAccounts(); gcalRenderCalendarsPanel(); gcalLoadEventsForVisibleRange(); gcalLoadEventsForLectureVisibleRange();
       gcalProcessNextSilent();
     });
   }).catch(()=>gcalOnSilentTokenError({error:'lookup_failed'}));
@@ -3744,6 +3760,18 @@ function gcalDateRangeForView(){
   const gridEnd = new Date(gridStart); gridEnd.setDate(gridStart.getDate()+42);
   return {start:gridStart, end:gridEnd};
 }
+function gcalDateRangeForLectureView(){
+  if(lectureCalView === 'semana'){
+    const start = getWeekStart(lectureWeekOffset);
+    const end = new Date(start); end.setDate(start.getDate()+7);
+    return {start, end};
+  }
+  const anchor = getMonthAnchor(lectureMonthOffset);
+  const gridStart = new Date(anchor.getFullYear(), anchor.getMonth(), 1);
+  gridStart.setDate(gridStart.getDate() - gridStart.getDay());
+  const gridEnd = new Date(gridStart); gridEnd.setDate(gridStart.getDate()+42);
+  return {start:gridStart, end:gridEnd};
+}
 function gcalFetchKey(start,end){
   const ids = [];
   gcalAccounts.forEach(a=>{ if(a.token) a.calendars.forEach(c=>{ if(c.enabled) ids.push(a.email+':'+c.id); }); });
@@ -3751,6 +3779,9 @@ function gcalFetchKey(start,end){
 }
 function gcalRedraw(){
   if (calView === 'semana') renderWeek(); else renderMonth();
+}
+function gcalRedrawLecture(){
+  if (lectureCalView === 'semana') renderLectureWeek(); else renderLectureMonth();
 }
 function gcalLoadEventsForVisibleRange(){
   const {start,end} = gcalDateRangeForView();
@@ -3785,6 +3816,39 @@ function gcalLoadEventsForVisibleRange(){
     });
   });
 }
+function gcalLoadEventsForLectureVisibleRange(){
+  const {start,end} = gcalDateRangeForLectureView();
+  const key = gcalFetchKey(start,end);
+  if(key === gcalLastFetchKeyLecture) return;
+  gcalLastFetchKeyLecture = key;
+  gcalEventsByDateLecture = {};
+  gcalRedrawLecture();
+  const withToken = gcalAccounts.filter(a=>a.token);
+  if(withToken.length===0) return;
+  const timeMin = start.toISOString(), timeMax = end.toISOString();
+  withToken.forEach(acc=>{
+    acc.calendars.filter(c=>c.enabled).forEach(cal=>{
+      const url = 'https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(cal.id)+'/events'
+        + '?timeMin='+encodeURIComponent(timeMin)
+        + '&timeMax='+encodeURIComponent(timeMax)
+        + '&singleEvents=true&orderBy=startTime&maxResults=250';
+      fetch(url, {headers:{Authorization:'Bearer '+acc.token}})
+        .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status+' em '+cal.summary); return r.json(); })
+        .then(data=>{
+          (data.items||[]).forEach(ev=>{
+            const dKey = ev.start.date || (ev.start.dateTime ? ev.start.dateTime.slice(0,10) : null);
+            if(!dKey) return;
+            const color = GCAL_EVENT_COLOR_MAP[ev.colorId] || cal.color || GCAL_DEFAULT_COLOR;
+            const time = ev.start.dateTime ? new Date(ev.start.dateTime).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}) : null;
+            if(!gcalEventsByDateLecture[dKey]) gcalEventsByDateLecture[dKey] = [];
+            gcalEventsByDateLecture[dKey].push({title: ev.summary || '(sem título)', time, color, accEmail: acc.email});
+          });
+          gcalRedrawLecture();
+        })
+        .catch(err=>console.error('Erro ao buscar eventos do Google Calendar:', err));
+    });
+  });
+}
 function gcalRenderChip(ev){
   return `<div class="gcal-event" style="border-left-color:${ev.color};background:${gcalHexToSoft(ev.color)};color:${ev.color};" title="${escapeHtml(ev.title)}${ev.accEmail?(' · '+ev.accEmail):''}">`+
     (ev.time ? `<span class="gcal-event-time">${ev.time}</span>` : '') +
@@ -3792,6 +3856,9 @@ function gcalRenderChip(ev){
 }
 function gcalEventsForDate(dStr){
   return gcalEventsVisible ? (gcalEventsByDate[dStr] || []) : [];
+}
+function gcalEventsForDateLecture(dStr){
+  return gcalEventsVisible ? (gcalEventsByDateLecture[dStr] || []) : [];
 }
 function gcalUpdateVisibilityBtn(){
   const btn = document.getElementById('gcal-vis-btn');
@@ -3804,6 +3871,7 @@ function gcalToggleVisibility(){
   try{ localStorage.setItem('gcal_events_visible', gcalEventsVisible ? '1' : '0'); }catch(e){}
   gcalUpdateVisibilityBtn();
   gcalRedraw();
+  gcalRedrawLecture();
 }
 
 /* ---- Reconexão automática ao abrir a página ---- */
@@ -3940,7 +4008,7 @@ function changeCalPeriod(dir) {
 
 function renderCalendar() {
   if (calView === 'semana') renderWeek(); else renderMonth();
-  gcalLoadEventsForVisibleRange();
+  gcalLoadEventsForVisibleRange(); gcalLoadEventsForLectureVisibleRange();
 }
 
 function renderWeek() {
@@ -5395,6 +5463,7 @@ function changeLectureCalPeriod(dir) {
 
 function renderLectureCalendar() {
   if (lectureCalView === 'semana') renderLectureWeek(); else renderLectureMonth();
+  gcalLoadEventsForLectureVisibleRange();
 }
 
 function filteredDayLectures(dStr) {
@@ -5425,13 +5494,15 @@ function renderLectureWeek() {
     const dStr = isoDate(d);
     const isToday = dStr === tStr;
     const dayLectures = filteredDayLectures(dStr);
+    const dayGcalEvents = gcalEventsForDateLecture(dStr);
     html += `<div class="week-day-col">
       <div class="week-day-head">
         <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
         <div class="week-day-num${isToday?' today':''}">${d.getDate()}</div>
       </div>
       <div class="week-day-body" ondragover="allowDropLectureDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onLectureDayDrop(event,'${dStr}')">
-        ${dayLectures.length ? dayLectures.map(l => renderLectureCalCard(l)).join('') : '<div class="empty-day">—</div>'}
+        ${dayGcalEvents.length ? `<div class="gcal-events-block${dayLectures.length ? '' : ' no-divider'}">${dayGcalEvents.map(gcalRenderChip).join('')}</div>` : ''}
+        ${dayLectures.length ? dayLectures.map(l => renderLectureCalCard(l)).join('') : (dayGcalEvents.length ? '' : '<div class="empty-day">—</div>')}
       </div>
     </div>`;
   }
@@ -5463,10 +5534,15 @@ function renderLectureMonth() {
     const dayLectures = filteredDayLectures(dStr);
     const visible = dayLectures.slice(0, MAX_VISIBLE);
     const extra = dayLectures.length - visible.length;
+    const allGcalEvents = gcalEventsForDateLecture(dStr);
+    const visibleGcalEvents = allGcalEvents.slice(0, MAX_VISIBLE);
+    const extraGcal = allGcalEvents.length - visibleGcalEvents.length;
+    const totalExtra = extra + extraGcal;
     cellsHtml += `<div class="month-day-cell${isOutside ? ' outside' : ''}" ondragover="allowDropLectureDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onLectureDayDrop(event,'${dStr}')">
       <div class="month-day-num${isToday ? ' today' : ''}">${d.getDate()}</div>
+      ${visibleGcalEvents.length ? `<div class="gcal-events-block${visible.length ? '' : ' no-divider'}">${visibleGcalEvents.map(gcalRenderChip).join('')}</div>` : ''}
       ${visible.map(l => renderLectureCalCard(l)).join('')}
-      ${extra > 0 ? `<div class="month-post-more" onclick="goToWeekOfLecture('${dStr}')">+${extra} mais</div>` : ''}
+      ${totalExtra > 0 ? `<div class="month-post-more" onclick="goToWeekOfLecture('${dStr}')">+${totalExtra} mais</div>` : ''}
     </div>`;
     if (i >= 34 && d.getMonth() !== month && d.getDay() === 6) break;
   }
@@ -5543,7 +5619,7 @@ function renderLectures() {
         l.linkSlides ? `<a href="${escapeHtml(l.linkSlides)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Slides</a>` : '',
       ].filter(Boolean).join('');
       const metaRows = [
-        l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : '',
+        l.evento ? `<span>🏢 ${escapeHtml(l.evento)}${l.temaEvento ? ' · ' + escapeHtml(l.temaEvento) : ''}</span>` : '',
         l.data ? `<span>📅 ${fmtDateBR(l.data)}${l.hora ? ' às ' + l.hora : ''}${l.duracao ? ' · ' + fmtDuracao(l.duracao) : ''}</span>` : '',
         l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
@@ -5613,6 +5689,7 @@ function openLectureModal(id) {
     document.getElementById('lecture-modal-title').textContent = 'Editar palestra';
     document.getElementById('l-tema').value = l.tema || '';
     document.getElementById('l-evento').value = l.evento || '';
+    document.getElementById('l-tema-evento').value = l.temaEvento || '';
     statusSel.value = l.status || 'ideia';
     document.getElementById('l-data').value = l.data || '';
     document.getElementById('l-hora').value = l.hora || '';
@@ -5629,6 +5706,7 @@ function openLectureModal(id) {
     document.getElementById('lecture-modal-title').textContent = 'Nova palestra';
     document.getElementById('l-tema').value = '';
     document.getElementById('l-evento').value = '';
+    document.getElementById('l-tema-evento').value = '';
     statusSel.value = 'ideia';
     document.getElementById('l-data').value = '';
     document.getElementById('l-hora').value = '';
@@ -5656,6 +5734,7 @@ function saveLecture() {
   const data = {
     tema,
     evento: document.getElementById('l-evento').value.trim(),
+    temaEvento: document.getElementById('l-tema-evento').value.trim(),
     status: document.getElementById('l-status').value,
     data: document.getElementById('l-data').value,
     hora: document.getElementById('l-hora').value,
@@ -6193,6 +6272,20 @@ function initPlatformUI() {
 
 // Run after DOM ready
 document.addEventListener('DOMContentLoaded', initPlatformUI);
+
+/* Mede a altura real do header global fixo (Google Calendar / Sincronização) e a
+   expõe via CSS var, para que o topbar de cada aba empilhe exatamente abaixo dele. */
+function syncGlobalHeaderHeight() {
+  const gh = document.querySelector('.global-header');
+  if (!gh) return;
+  document.documentElement.style.setProperty('--global-header-h', gh.offsetHeight + 'px');
+}
+document.addEventListener('DOMContentLoaded', syncGlobalHeaderHeight);
+syncGlobalHeaderHeight();
+window.addEventListener('resize', () => {
+  clearTimeout(window.__ghResizeTimer);
+  window.__ghResizeTimer = setTimeout(syncGlobalHeaderHeight, 150);
+});
 
 let __analyticsResizeTimer = null;
 window.addEventListener('resize', () => {
