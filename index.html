@@ -462,15 +462,13 @@
   .lecture-overview-card-footer { margin-top: 10px; display: flex; justify-content: flex-end; }
   .lecture-overview-empty { grid-column: 1 / -1; text-align: center; color: var(--text-3); padding: 24px; font-style: italic; }
 
-  /* Estilo "Notion" pra aba Parceiros: acento rosa nos títulos de seção,
-     colunas do board com indicador colorido e cards com ícone de marca. */
+  /* Título das seções da aba Parceiros com acento rosa; a tabela Overview
+     mantém o mesmo visual (plano, sem tingimento) da tabela de Gestão de conteúdo. */
   #view-parceiros .list-title { color: #c2255c; display: flex; align-items: center; gap: 6px; }
-  #view-parceiros .post-table thead th { background: #fdf1f6; }
-  #view-parceiros .post-table tbody tr:hover { background: #fef7fa; }
 
   .partner-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 16px 18px; }
   @media (max-width: 900px) { .partner-board { grid-template-columns: 1fr; } }
-  .partner-board-col { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; min-height: 70px; }
+  .partner-board-col { background: transparent; border: 1px solid var(--border); border-radius: 8px; padding: 10px; min-height: 70px; }
   .partner-board-col-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; padding: 0 2px; }
   .partner-board-col-head-label { display: flex; align-items: center; gap: 6px; }
   .partner-board-col-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -478,8 +476,16 @@
   .partner-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
   .partner-card:last-child { margin-bottom: 0; }
   .partner-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #f0b8d1; }
-  .partner-card-title { font-size: 13px; font-weight: 600; margin-bottom: 7px; display: flex; align-items: center; gap: 6px; }
+  .partner-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .partner-card-toggle { width: 22px; height: 22px; flex-shrink: 0; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 11px; display: flex; align-items: center; justify-content: center; transition: transform 0.15s, background 0.12s; }
+  .partner-card-toggle:hover { background: var(--bg); color: var(--text); }
+  .partner-card-toggle.collapsed { transform: rotate(-90deg); }
+  .partner-card-title { font-size: 13px; font-weight: 600; line-height: 1.35; flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; }
   .partner-card-title-icon { color: #c2255c; font-size: 12px; }
+  .partner-card-status { margin-bottom: 8px; }
+  .partner-card-details.collapsed { display: none; }
+  .partner-card-meta { font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+  .partner-card-meta a { color: inherit; text-decoration: underline; }
   .partner-board-empty { font-size: 11.5px; color: var(--text-3); text-align: center; padding: 10px 4px; font-style: italic; }
 
   /* Inspirações */
@@ -1349,28 +1355,6 @@
       <div class="list-section">
         <div class="list-header">
           <div class="list-title">👯 Overview</div>
-        </div>
-        <table class="post-table">
-          <thead>
-            <tr>
-              <th>💼 Nome da marca</th>
-              <th>⏳ Status</th>
-              <th>🔗 Link de afiliação</th>
-              <th>📅 Data de início</th>
-              <th>📅 Data final</th>
-              <th>💰 Comissão</th>
-              <th>💵 Pgto fixo</th>
-              <th>📦 Deliverables</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="partner-tbody"></tbody>
-        </table>
-      </div>
-
-      <div class="list-section">
-        <div class="list-header">
-          <div class="list-title">🚦 By Status</div>
         </div>
         <div class="partner-board" id="partner-board"></div>
       </div>
@@ -4790,6 +4774,14 @@ function savePartnersData() { localStorage.setItem(PARTNERS_STORAGE_KEY, JSON.st
 let partners = loadPartners();
 let nextPartnerId = partners.length ? Math.max(...partners.map(p => Number(p.id)||0)) + 1 : 1;
 let editingPartnerId = null;
+// Ids de parceiros com o card recolhido (accordion) no Overview — só em memória, some ao recarregar a página.
+let partnerCardCollapsed = new Set();
+function togglePartnerCard(id, ev) {
+  if (ev) ev.stopPropagation();
+  if (partnerCardCollapsed.has(id)) partnerCardCollapsed.delete(id);
+  else partnerCardCollapsed.add(id);
+  renderPartners();
+}
 let modalLinkedPosts = [];
 let modalFmtQty = {};
 
@@ -4842,27 +4834,6 @@ function renderPartners() {
   const totalPgto = partners.reduce((s,p) => s + (Number(p.pagamento)||0), 0);
   document.getElementById('pstat-pagamento').textContent = totalPgto ? 'R$' + totalPgto.toFixed(2) : 'R$0';
 
-  const tbody = document.getElementById('partner-tbody');
-  if (!partners.length) {
-    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--text-3);padding:24px;font-style:italic;">Nenhum parceiro cadastrado ainda.</td></tr>`;
-  } else {
-    tbody.innerHTML = partners.map(p => {
-      const m = getPartnerStatusMeta(p.status);
-      const linkCell = p.link ? `<a href="${escapeHtml(p.link)}" target="_blank" rel="noopener" class="partner-link" onclick="event.stopPropagation()">Abrir link</a>` : '—';
-      return `<tr style="cursor:pointer;" onclick="openPartnerModal(${p.id})">
-        <td><b>${escapeHtml(p.marca)}</b></td>
-        <td><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></td>
-        <td>${linkCell}</td>
-        <td>${fmtDateBR(p.dataInicio)}</td>
-        <td>${fmtDateBR(p.dataFinal)}</td>
-        <td>${fmtPct(p.comissao)}</td>
-        <td>${p.pagamento ? 'R$' + Number(p.pagamento).toFixed(2) : '—'}</td>
-        <td>${fmtDeliverables(p)}</td>
-        <td onclick="event.stopPropagation()"><button class="btn" style="padding:4px 9px;font-size:11px;" onclick="deletePartnerRow(${p.id})">Excluir</button></td>
-      </tr>`;
-    }).join('');
-  }
-
   const board = document.getElementById('partner-board');
   const PARTNER_GROUP_DOT = { todo:'#9d9d9a', progress:'#4a7de8', complete:'#2dbe6c' };
   board.innerHTML = ['todo','progress','complete'].map(g => {
@@ -4870,11 +4841,27 @@ function renderPartners() {
     const cards = items.length ? items.map(p => {
       const m = getPartnerStatusMeta(p.status);
       const deliv = fmtDeliverables(p);
+      const metaRows = [
+        (p.dataInicio || p.dataFinal) ? `<span>📅 ${p.dataInicio ? fmtDateBR(p.dataInicio) : '—'} – ${p.dataFinal ? fmtDateBR(p.dataFinal) : '—'}</span>` : '',
+        (Number(p.comissao) > 0) ? `<span>💰 Comissão ${fmtPct(p.comissao)}</span>` : '',
+        (Number(p.pagamento) > 0) ? `<span>💵 R$${Number(p.pagamento).toFixed(2)} fixo</span>` : '',
+      ].filter(Boolean).join('');
+      const linksCell = p.link ? `<a href="${escapeHtml(p.link)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Link de afiliação</a>` : '';
+      const platsHtml = (p.plataformas && p.plataformas.length) ? `<div style="margin-top:7px;">${platPills(p.plataformas)}</div>` : '';
+      const isCollapsed = partnerCardCollapsed.has(p.id);
       return `<div class="partner-card" onclick="openPartnerModal(${p.id})">
-        <div class="partner-card-title"><span class="partner-card-title-icon">💼</span>${escapeHtml(p.marca)}</div>
-        <span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span>
-        ${deliv !== '—' ? `<div class="deliverable-summary" style="margin-top:7px;">${deliv}</div>` : ''}
-        ${p.notas ? `<div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.5;border-top:1px solid var(--border);padding-top:7px;">${escapeHtml(p.notas).replace(/\n/g,'<br>')}</div>` : ''}
+        <div class="partner-card-top">
+          <button type="button" class="partner-card-toggle${isCollapsed ? ' collapsed' : ''}" onclick="togglePartnerCard(${p.id}, event)" title="${isCollapsed ? 'Expandir' : 'Recolher'}">▾</button>
+          <div class="partner-card-title"><span class="partner-card-title-icon">💼</span>${escapeHtml(p.marca)}</div>
+        </div>
+        <div class="partner-card-status"><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></div>
+        <div class="partner-card-details${isCollapsed ? ' collapsed' : ''}">
+          ${metaRows ? `<div class="partner-card-meta">${metaRows}</div>` : ''}
+          ${platsHtml}
+          ${deliv !== '—' ? `<div class="deliverable-summary" style="margin-top:7px;">${deliv}</div>` : ''}
+          ${linksCell ? `<div class="lecture-overview-card-links">${linksCell}</div>` : ''}
+          ${p.notas ? `<div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.5;border-top:1px solid var(--border);padding-top:7px;">${escapeHtml(p.notas).replace(/\n/g,'<br>')}</div>` : ''}
+        </div>
       </div>`;
     }).join('') : `<div class="partner-board-empty">Nada por aqui</div>`;
     return `<div class="partner-board-col">
