@@ -1902,6 +1902,21 @@
       "linkEvento": "",
       "linkSlides": "",
       "notas": ""
+    },
+    {
+      "id": 5,
+      "tema": "Pensar no tema",
+      "evento": "Fatec Registro",
+      "status": "ideia",
+      "data": "2026-10-01",
+      "formato": "Presencial",
+      "local": "São Paulo",
+      "duracao": 0,
+      "cache": 0,
+      "contato": "Laura",
+      "linkEvento": "",
+      "linkSlides": "",
+      "notas": ""
     }
   ],
   "guidelines": [
@@ -3183,5 +3198,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:04:37.495Z"
+  "_updatedAt": "2026-09-12T17:05:36.408Z"
 }
