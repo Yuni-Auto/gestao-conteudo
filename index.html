@@ -2218,6 +2218,7 @@ function applyRemoteData(data) {
   renderAll();
   if (document.getElementById('view-analytics').style.display !== 'none')  renderAnalytics();
   if (document.getElementById('view-parceiros').style.display !== 'none') { renderPartners(); renderGuidelines(); }
+  if (document.getElementById('view-palestras').style.display !== 'none') renderLectures();
   if (document.getElementById('view-brainstorm').style.display !== 'none') renderBrainstorm();
   if (document.getElementById('view-inspiracoes').style.display !== 'none') renderInspiracoes();
   // Alinha o "relógio" local com o da nuvem, já que agora estão iguais.
@@ -2265,9 +2266,14 @@ async function pullFromGitHub(silent) {
     const remoteTs = data._updatedAt;
     const remoteIsNewer = remoteTs && localTs && new Date(remoteTs) > new Date(localTs);
 
-    if (hasLocalData && !remoteIsNewer) {
+    // Só preserva o local quando existe uma marcação de horário local (localTs) —
+    // ou seja, quando já temos prova de que este aparelho salvou algo em algum momento.
+    // Sem localTs (primeiro acesso num aparelho novo, ex: tablet), não há prova de que
+    // os dados locais (que podem ser só os valores padrão de exemplo) sejam mais recentes
+    // que a nuvem — nesse caso sempre confiamos na nuvem, senão dados cadastrados em
+    // outro aparelho (como palestras) nunca chegariam aqui.
+    if (hasLocalData && localTs && !remoteIsNewer) {
       // Dados locais são iguais/mais novos (ou não dá pra saber) — preserva o local.
-      if (!localTs) touchLocalTimestamp();
       if (getGhToken()) {
         setSyncStatus('warn', 'Dados locais preservados — enviando pra nuvem…');
         scheduleCloudSync();
