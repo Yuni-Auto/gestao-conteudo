@@ -1856,6 +1856,21 @@
       "linkEvento": "",
       "linkSlides": "https://canva.link/re0hgay331q0p76",
       "notas": ""
+    },
+    {
+      "id": 3,
+      "tema": "{ Angular Imersão Tech }",
+      "evento": "Womakers Code",
+      "status": "realizada",
+      "data": "2026-07-18",
+      "formato": "Online",
+      "local": "",
+      "duracao": 480,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "https://www.instagram.com/womakersgram/",
+      "linkSlides": "https://canva.link/c3e3h849alvk5w6",
+      "notas": ""
     }
   ],
   "guidelines": [
@@ -3111,5 +3126,5 @@
     "byFormato": {},
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:17:26.770Z"
+  "_updatedAt": "2026-09-12T15:18:54.657Z"
 }
