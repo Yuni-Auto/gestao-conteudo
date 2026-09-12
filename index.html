@@ -517,6 +517,9 @@
   .insp-card-post-link svg { width: 12px; height: 12px; display: block; }
   .insp-empty { text-align: center; color: var(--text-3); font-style: italic; padding: 40px 20px; grid-column: 1 / -1; }
   .insp-category-section { margin: 10px 26px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px 6px; }
+  #insp-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; align-items: start; }
+  #insp-groups .insp-category-section { margin: 10px 13px 16px; }
+  @media (max-width: 700px) { #insp-groups { grid-template-columns: 1fr; } }
   .insp-category-header { display: flex; align-items: center; gap: 9px; padding: 0 0 12px; }
   .insp-category-title { font-size: 13.5px; font-weight: 700; color: var(--text); }
   .insp-category-count { font-size: 11px; color: var(--text-3); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px; }
