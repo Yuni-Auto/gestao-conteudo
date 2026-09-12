@@ -441,13 +441,17 @@
   .st-plt-cancelada  { background: #fde8e8; color: #b5223a; } .st-plt-cancelada .status-dot  { background: #e8445a; }
   .lecture-link { color: #5b50c8; text-decoration: none; font-weight: 500; }
   .lecture-link:hover { text-decoration: underline; }
-  .lecture-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  @media (max-width: 1100px) { .lecture-overview-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px)  { .lecture-overview-grid { grid-template-columns: 1fr; } }
+  .lecture-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 900px)  { .lecture-overview-grid { grid-template-columns: 1fr; } }
+  .lecture-board-col { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .lecture-board-col-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text-2); padding: 0 2px; }
+  .lecture-board-count { font-size: 11px; font-weight: 500; color: var(--text-3); background: var(--bg); border: 1px solid var(--border); padding: 1px 7px; border-radius: 999px; }
+  .lecture-board-empty { font-size: 11.5px; color: var(--text-3); text-align: center; padding: 16px 4px; font-style: italic; border: 1px dashed var(--border); border-radius: 10px; }
   .lecture-overview-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
   .lecture-overview-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
-  .lecture-overview-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .lecture-overview-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
   .lecture-overview-card-title { font-size: 14px; font-weight: 600; line-height: 1.35; }
+  .lecture-overview-card-status { margin-bottom: 8px; }
   .lecture-overview-card-meta { font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
   .lecture-overview-card-links { margin-top: 10px; display: flex; gap: 10px; font-size: 12px; }
   .lecture-overview-card-notas { margin-top: 10px; font-size: 11.5px; color: var(--text-3); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 8px; font-style: italic; }
@@ -1744,7 +1748,7 @@
     </div>
     <div class="new-modal-footer">
       <div class="new-modal-footer-actions" style="justify-content:space-between;">
-        <button class="btn" id="l-delete-btn" onclick="deleteLecture()" style="display:none; color:#b5223a; border-color:#f6c9dc;">Excluir</button>
+        <button class="btn" id="l-delete-btn" onclick="deleteLecture()" style="display:none; color:#e8445a; border-color:#fcd0d7;">Excluir</button>
         <div style="display:flex; gap:7px; margin-left:auto;">
           <button class="btn" onclick="closeLectureModal()">Cancelar</button>
           <button class="btn btn-primary" onclick="saveLecture()">Salvar</button>
@@ -5282,7 +5286,7 @@ function renderLectures() {
   if (!lectures.length) {
     overviewGrid.innerHTML = `<div class="lecture-overview-empty">Nenhuma palestra cadastrada ainda.</div>`;
   } else {
-    overviewGrid.innerHTML = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||'')).map(l => {
+    const renderLectureCard = (l) => {
       const m = getLectureStatusMeta(l.status);
       const linksCell = [
         l.linkEvento ? `<a href="${escapeHtml(l.linkEvento)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Evento</a>` : '',
@@ -5298,14 +5302,29 @@ function renderLectures() {
       return `<div class="lecture-overview-card" onclick="openLectureModal(${l.id})">
         <div class="lecture-overview-card-top">
           <div class="lecture-overview-card-title">${escapeHtml(l.tema)}</div>
-          <span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span>
         </div>
+        <div class="lecture-overview-card-status"><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></div>
         <div class="lecture-overview-card-meta">${metaRows}</div>
         ${linksCell ? `<div class="lecture-overview-card-links">${linksCell}</div>` : ''}
         ${l.notas ? `<div class="lecture-overview-card-notas">${escapeHtml(l.notas).replace(/\n/g,'<br>')}</div>` : ''}
-        <div class="lecture-overview-card-footer" onclick="event.stopPropagation()">
-          <button class="btn" style="padding:4px 9px;font-size:11px;" onclick="deleteLectureRow(${l.id})">Excluir</button>
-        </div>
+      </div>`;
+    };
+    const sorted = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||''));
+    const columns = [
+      { key: 'todo',     label: 'To-do' },
+      { key: 'progress', label: 'Em progresso' },
+      { key: 'complete', label: 'Completo' },
+    ];
+    overviewGrid.innerHTML = columns.map(col => {
+      const items = sorted.filter(l => {
+        const g = getLectureStatusMeta(l.status).group;
+        // Palestras canceladas entram na coluna "Completo" (fim do fluxo), sem perder o status/selo real.
+        return col.key === 'complete' ? (g === 'complete' || g === 'cancelled') : g === col.key;
+      });
+      const cards = items.length ? items.map(renderLectureCard).join('') : `<div class="lecture-board-empty">Nada por aqui</div>`;
+      return `<div class="lecture-board-col">
+        <div class="lecture-board-col-head"><span>${col.label}</span><span class="lecture-board-count">${items.length}</span></div>
+        ${cards}
       </div>`;
     }).join('');
   }
