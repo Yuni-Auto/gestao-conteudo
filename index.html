@@ -16,7 +16,6 @@
     --text-2: #6b6b68;
     --text-3: #9d9d9a;
     --radius: 10px;
-    --global-header-h: 52px;
   }
 
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; }
@@ -83,11 +82,12 @@
   /* Main */
   .main { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
 
-  /* Header global fixo (sempre visível, em qualquer aba) com status do Google Calendar / sincronização */
-  .global-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 26px 10px 58px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; position: sticky; top: 0; z-index: 11; }
+  /* Grupo dos botões de status (Google Calendar / Sincronização): agora fica
+     embutido na mesma linha do título da aba ativa, em vez de uma faixa própria. */
+  .global-status-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
   /* Topbar */
-  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: var(--global-header-h); z-index: 10; }
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
   .topbar-title { font-size: 15px; font-weight: 600; }
   .strat-menu { position: relative; display: inline-block; }
   .strat-menu-list { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); min-width: 180px; padding: 6px; z-index: 50; }
@@ -326,7 +326,7 @@
   .st-publicada      { background: #e4f7ee; color: #1a6b40; } .st-publicada .status-dot      { background: #2dbe6c; }
 
   /* ── Analytics ──────────────────────────────────────────────────────── */
-  .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: var(--global-header-h); z-index: 10; }
+  .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
   .analytics-topbar-title { font-size: 15px; font-weight: 600; }
   .analytics-period-tabs { display: flex; gap: 4px; }
   .analytics-period-tab { font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); transition: all 0.12s; font-family: inherit; }
@@ -979,7 +979,6 @@
 
   /* Tablet estreito / celular grande: até 900px */
   @media (max-width: 900px) {
-    .global-header { flex-wrap: wrap; row-gap: 6px; padding: 8px 20px 8px 54px; }
     .topbar { flex-wrap: wrap; row-gap: 8px; }
     .topbar > div { flex-wrap: wrap; }
     .modal-overlay { padding: 0; align-items: flex-end; }
@@ -1053,16 +1052,11 @@
 
   <div class="main">
 
-    <div class="global-header">
-      <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
-        <span class="sync-dot sync-offline" id="gcal-dot"></span>
-        <span id="gcal-label">Google Calendar</span>
-      </button>
-      <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
-        <span class="sync-dot sync-syncing" id="sync-dot"></span>
-        <span id="sync-label">Carregando…</span>
-      </button>
-    </div>
+    <!-- Estacionamento oculto: usado quando a aba ativa não tem topbar (ex: placeholder).
+         O grupo de botões de Google Calendar / Sincronização vive dentro da topbar da
+         aba Gestão de conteúdo (aba inicial) e o JS (placeGlobalStatusGroup) o move para
+         dentro da topbar de cada aba conforme a navegação, sempre na mesma linha do título. -->
+    <div id="global-status-holder" style="display:none;"></div>
 
     <!-- Placeholder view for menu items without functionality yet -->
     <div class="placeholder-wrap" id="view-placeholder" style="display:none;">
@@ -1078,7 +1072,7 @@
     <div id="view-brainstorm" style="display:none; flex-direction:column; flex:1; min-height:0;">
       <div class="topbar">
         <div class="topbar-title">🗝️ Brainstorm Board</div>
-        <div style="display:flex; gap:8px;">
+        <div style="display:flex; align-items:center; gap:8px;" id="brainstorm-topbar-actions">
           <button class="btn" onclick="clearBrainstormBoard()">🗑️ Limpar quadro</button>
           <button class="btn btn-primary" onclick="addBrainstormNote()">+ Nova nota</button>
         </div>
@@ -1091,7 +1085,7 @@
     <div id="view-agenda" style="display:none; flex-direction:column; flex:1; min-height:0; overflow-y:auto;">
       <div class="topbar">
         <div class="topbar-title">🕐 Agenda semanal</div>
-        <div class="strategy-month">
+        <div class="strategy-month" id="agenda-topbar-actions">
           <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
             <span style="font-size:12px;">⏱️</span>
             <span>Tempo de produção</span>
@@ -1146,7 +1140,17 @@
     <div id="view-gestao">
     <div class="topbar">
       <div class="topbar-title">Gestão de conteúdo</div>
-      <div class="topbar-actions">
+      <div class="topbar-actions" id="gestao-topbar-actions">
+        <div class="global-status-group" id="global-status-group">
+          <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
+            <span class="sync-dot sync-offline" id="gcal-dot"></span>
+            <span id="gcal-label">Google Calendar</span>
+          </button>
+          <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
+            <span class="sync-dot sync-syncing" id="sync-dot"></span>
+            <span id="sync-label">Carregando…</span>
+          </button>
+        </div>
         <button class="btn btn-primary" onclick="openNewModal()">+ Novo post</button>
       </div>
     </div>
@@ -1268,7 +1272,7 @@
     <div id="view-analytics" style="display:none; flex-direction:column; flex:1;">
       <div class="analytics-topbar">
         <div class="analytics-topbar-title">Analytics</div>
-        <div style="display:flex; align-items:center; gap:10px;">
+        <div style="display:flex; align-items:center; gap:10px;" id="analytics-topbar-actions">
           <button class="btn btn-primary" onclick="openAnalyticsDataModal()">+ Adicionar dados</button>
           <div class="analytics-period-tabs">
             <button class="analytics-period-tab" data-period="3" onclick="setAnalyticsPeriod(this)">3 meses</button>
@@ -1349,7 +1353,7 @@
   <div id="view-inspiracoes" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
     <div class="topbar">
       <div class="topbar-title">Inspirações</div>
-      <div style="display:flex; gap:8px; margin-left:auto;">
+      <div style="display:flex; align-items:center; gap:8px; margin-left:auto;" id="inspiracoes-topbar-actions">
         <button class="btn" onclick="openInspTiposModal()">⚙️ Tipos de conteúdo</button>
         <button class="btn btn-primary" onclick="openInspModal()">+ Nova inspiração</button>
       </div>
@@ -1361,7 +1365,9 @@
   <div id="view-parceiros" style="display:none; flex-direction:column; flex:1;">
     <div class="topbar">
       <div class="topbar-title">Parceiros</div>
-      <button class="btn btn-primary" onclick="openPartnerModal()">+ Novo parceiro</button>
+      <div class="topbar-actions" id="parceiros-topbar-actions">
+        <button class="btn btn-primary" onclick="openPartnerModal()">+ Novo parceiro</button>
+      </div>
     </div>
 
     <div class="stats-row" style="grid-template-columns: repeat(5, 1fr);">
@@ -1394,7 +1400,9 @@
   <div id="view-palestras" style="display:none; flex-direction:column; flex:1;">
     <div class="topbar">
       <div class="topbar-title">Palestras</div>
-      <button class="btn btn-primary" onclick="openLectureModal()">+ Nova palestra</button>
+      <div class="topbar-actions" id="palestras-topbar-actions">
+        <button class="btn btn-primary" onclick="openLectureModal()">+ Nova palestra</button>
+      </div>
     </div>
 
     <div class="notif-today-banner" id="lecture-notif-banner">
@@ -6384,20 +6392,6 @@ function initPlatformUI() {
 // Run after DOM ready
 document.addEventListener('DOMContentLoaded', initPlatformUI);
 
-/* Mede a altura real do header global fixo (Google Calendar / Sincronização) e a
-   expõe via CSS var, para que o topbar de cada aba empilhe exatamente abaixo dele. */
-function syncGlobalHeaderHeight() {
-  const gh = document.querySelector('.global-header');
-  if (!gh) return;
-  document.documentElement.style.setProperty('--global-header-h', gh.offsetHeight + 'px');
-}
-document.addEventListener('DOMContentLoaded', syncGlobalHeaderHeight);
-syncGlobalHeaderHeight();
-window.addEventListener('resize', () => {
-  clearTimeout(window.__ghResizeTimer);
-  window.__ghResizeTimer = setTimeout(syncGlobalHeaderHeight, 150);
-});
-
 let __analyticsResizeTimer = null;
 window.addEventListener('resize', () => {
   clearTimeout(__analyticsResizeTimer);
@@ -7528,11 +7522,32 @@ function closeSidebar() {
   document.getElementById('sidebar-backdrop').classList.remove('open');
 }
 
+/* Mapa de cada aba para o container (dentro da topbar daquela aba) onde o
+   grupo de botões "Google Calendar" / "Sincronizado" deve ficar — sempre na
+   mesma linha do título da aba. */
+const GLOBAL_STATUS_TARGETS = {
+  gestao: 'gestao-topbar-actions',
+  analytics: 'analytics-topbar-actions',
+  parceiros: 'parceiros-topbar-actions',
+  palestras: 'palestras-topbar-actions',
+  brainstorm: 'brainstorm-topbar-actions',
+  agenda: 'agenda-topbar-actions',
+  inspiracoes: 'inspiracoes-topbar-actions',
+};
+function placeGlobalStatusGroup(view) {
+  const group = document.getElementById('global-status-group');
+  if (!group) return;
+  const targetId = GLOBAL_STATUS_TARGETS[view];
+  const target = (targetId && document.getElementById(targetId)) || document.getElementById('global-status-holder');
+  if (target) target.insertBefore(group, target.firstChild);
+}
+
 function setMainNav(btn) {
   document.querySelectorAll('.nav-item-v2').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   closeSidebar();
   const view = btn.dataset.view;
+  placeGlobalStatusGroup(view);
   const gestao = document.getElementById('view-gestao');
   const placeholder = document.getElementById('view-placeholder');
   const analytics = document.getElementById('view-analytics');
