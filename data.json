@@ -1919,7 +1919,7 @@
       "id": 4,
       "tema": "Pensar no tema",
       "evento": "Fatec SP",
-      "status": "pesquisando",
+      "status": "ideia",
       "data": "2026-10-06",
       "formato": "Presencial",
       "local": "",
@@ -3243,5 +3243,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:30:32.612Z"
+  "_updatedAt": "2026-09-12T21:30:42.210Z"
 }
