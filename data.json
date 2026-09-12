@@ -1898,7 +1898,7 @@
       "local": "São Paulo",
       "duracao": 60,
       "cache": 0,
-      "contato": "",
+      "contato": "Grace Borges",
       "linkEvento": "",
       "linkSlides": "",
       "notas": ""
@@ -3198,5 +3198,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:13:06.519Z"
+  "_updatedAt": "2026-09-12T17:15:24.013Z"
 }
