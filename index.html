@@ -50,6 +50,16 @@
   .nav-item-v2-icon { font-size: 15px; flex-shrink: 0; width: 16px; text-align: center; }
   .nav-item-v2-label { font-size: 13.5px; font-weight: 400; color: var(--text-2); }
 
+  /* Grupo colapsável "Redes sociais" (agrupa Criação + Ferramentas) */
+  .nav-group-header { display: flex; align-items: center; gap: 9px; padding: 7px 10px; border: none; background: none; cursor: pointer; width: 100%; text-align: left; font-family: inherit; border-radius: 7px; transition: all 0.12s; font-size: 13.5px; font-weight: 500; color: var(--text); }
+  .nav-group-header:hover { background: var(--bg); }
+  .nav-group-header-icon { font-size: 15px; flex-shrink: 0; width: 16px; text-align: center; }
+  .nav-group-header-label { flex: 1; }
+  .nav-group-chevron { font-size: 10px; color: var(--text-3); transition: transform 0.15s; }
+  .nav-group-header.collapsed .nav-group-chevron { transform: rotate(-90deg); }
+  .nav-group-content { display: flex; flex-direction: column; gap: 4px; padding-left: 6px; }
+  .nav-group-content.collapsed { display: none; }
+
   /* Placeholder ("em breve") view for unbuilt menu items */
   .placeholder-wrap { display: flex; align-items: center; justify-content: center; height: 100%; padding: 40px; }
   .placeholder-panel { text-align: center; max-width: 360px; }
@@ -425,7 +435,7 @@
 
   /* Parceiros */
   .st-prt-naoiniciada { background: #eeeeec; color: #5b5b58; } .st-prt-naoiniciada .status-dot { background: #9d9d9a; }
-  .st-prt-naoaprovada { background: #fde8e8; color: #b5223a; } .st-prt-naoaprovada .status-dot { background: #e8445a; }
+  .st-prt-naoaprovada { background: #fff1db; color: #8a5a0a; } .st-prt-naoaprovada .status-dot { background: #e8a445; }
   .st-prt-progresso   { background: #e5eefe; color: #2a4db0; } .st-prt-progresso .status-dot   { background: #4a7de8; }
   .st-prt-completo    { background: #e4f7ee; color: #1a6b40; } .st-prt-completo .status-dot    { background: #2dbe6c; }
 
@@ -464,7 +474,7 @@
 
   /* Título das seções da aba Parceiros com acento rosa; a tabela Overview
      mantém o mesmo visual (plano, sem tingimento) da tabela de Gestão de conteúdo. */
-  #view-parceiros .list-title { color: #c2255c; display: flex; align-items: center; gap: 6px; }
+  #view-parceiros .list-title { color: var(--text); display: flex; align-items: center; gap: 6px; }
 
   .partner-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 16px 18px; }
   @media (max-width: 900px) { .partner-board { grid-template-columns: 1fr; } }
@@ -475,13 +485,13 @@
   .partner-board-count { font-size: 11px; font-weight: 500; color: var(--text-3); background: var(--surface); border: 1px solid var(--border); padding: 1px 7px; border-radius: 999px; }
   .partner-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
   .partner-card:last-child { margin-bottom: 0; }
-  .partner-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #f0b8d1; }
+  .partner-card:hover { box-shadow: none; border-color: var(--border); }
   .partner-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
   .partner-card-toggle { width: 22px; height: 22px; flex-shrink: 0; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 11px; display: flex; align-items: center; justify-content: center; transition: transform 0.15s, background 0.12s; }
   .partner-card-toggle:hover { background: var(--bg); color: var(--text); }
   .partner-card-toggle.collapsed { transform: rotate(-90deg); }
   .partner-card-title { font-size: 13px; font-weight: 600; line-height: 1.35; flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; }
-  .partner-card-title-icon { color: #c2255c; font-size: 12px; }
+  .partner-card-title-icon { color: #5b50c8; font-size: 12px; }
   .partner-card-status { margin-bottom: 8px; }
   .partner-card-details.collapsed { display: none; }
   .partner-card-meta { font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
@@ -992,36 +1002,42 @@
   <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-logo">✦ Content Studio</div>
 
-    <div class="nav-section-title">Criação</div>
     <button class="nav-item-v2" data-view="palestras" data-icon="🎤" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">🎤</span><span class="nav-item-v2-label">Gestão de palestras</span>
-    </button>
-    <button class="nav-item-v2 active" data-view="gestao" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">📝</span><span class="nav-item-v2-label">Gestão de conteúdo</span>
-    </button>
-    <button class="nav-item-v2" data-view="brainstorm" data-icon="🗝️" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">🗝️</span><span class="nav-item-v2-label">Brainstorm Board</span>
-    </button>
-    <button class="nav-item-v2" data-view="agenda" data-icon="🕐" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">🕐</span><span class="nav-item-v2-label">Agenda semanal</span>
-    </button>
-    <button class="nav-item-v2" data-view="inspiracoes" data-icon="🎭" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">🎭</span><span class="nav-item-v2-label">Inspirações</span>
-    </button>
-    <button class="nav-item-v2" data-view="colaboracoes" data-icon="👥" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">👥</span><span class="nav-item-v2-label">Colaborações</span>
-    </button>
-    <button class="nav-item-v2" data-view="parceiros" data-icon="💼" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">💼</span><span class="nav-item-v2-label">Parceiros</span>
+      <span class="nav-item-v2-label">Gestão de palestras</span>
     </button>
 
-    <div class="nav-section-title" style="margin-top: 14px;">Ferramentas</div>
-    <button class="nav-item-v2" data-view="analytics" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">📊</span><span class="nav-item-v2-label">Analytics</span>
+    <button class="nav-group-header" id="nav-group-header-redes-sociais" onclick="toggleNavGroup('redes-sociais')">
+      <span class="nav-group-header-label">Redes sociais</span><span class="nav-group-chevron">▾</span>
     </button>
-    <button class="nav-item-v2" data-view="financeiro" data-icon="💰" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">💰</span><span class="nav-item-v2-label">Financeiro</span>
-    </button>
+    <div class="nav-group-content" id="nav-group-redes-sociais">
+      <div class="nav-section-title">Criação</div>
+      <button class="nav-item-v2 active" data-view="gestao" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">📝</span><span class="nav-item-v2-label">Gestão de conteúdo</span>
+      </button>
+      <button class="nav-item-v2" data-view="brainstorm" data-icon="🗝️" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">🗝️</span><span class="nav-item-v2-label">Brainstorm Board</span>
+      </button>
+      <button class="nav-item-v2" data-view="agenda" data-icon="🕐" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">🕐</span><span class="nav-item-v2-label">Agenda semanal</span>
+      </button>
+      <button class="nav-item-v2" data-view="inspiracoes" data-icon="🎭" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">🎭</span><span class="nav-item-v2-label">Inspirações</span>
+      </button>
+      <button class="nav-item-v2" data-view="colaboracoes" data-icon="👥" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">👥</span><span class="nav-item-v2-label">Colaborações</span>
+      </button>
+      <button class="nav-item-v2" data-view="parceiros" data-icon="💼" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">💼</span><span class="nav-item-v2-label">Parceiros</span>
+      </button>
+
+      <div class="nav-section-title" style="margin-top: 14px;">Ferramentas</div>
+      <button class="nav-item-v2" data-view="analytics" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">📊</span><span class="nav-item-v2-label">Analytics</span>
+      </button>
+      <button class="nav-item-v2" data-view="financeiro" data-icon="💰" onclick="setMainNav(this)">
+        <span class="nav-item-v2-icon">💰</span><span class="nav-item-v2-label">Financeiro</span>
+      </button>
+    </div>
   </aside>
 
   <div class="main">
@@ -1076,15 +1092,6 @@
           <div class="notif-today-banner-items" id="notif-today-banner-items"></div>
         </div>
         <button type="button" class="notif-today-banner-close" onclick="dismissNotifBanner()" title="Dispensar por hoje">✕</button>
-      </div>
-
-      <div class="notif-today-banner" id="agenda-lecture-notif-banner">
-        <span class="notif-today-banner-icon">🎤</span>
-        <div class="notif-today-banner-body">
-          <div class="notif-today-banner-title" id="agenda-lecture-notif-banner-title">Próxima palestra</div>
-          <div class="notif-today-banner-items" id="agenda-lecture-notif-banner-items"></div>
-        </div>
-        <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
       </div>
 
       <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
@@ -5306,7 +5313,6 @@ const LECTURE_NOTIF_DISMISS_KEY = 'content-manager-lecture-notif-dismissed-v1';
 // Exibe o mesmo aviso de "próxima palestra" tanto na aba Palestras quanto na Agenda semanal.
 const LECTURE_NOTIF_BANNER_IDS = [
   { banner: 'lecture-notif-banner', title: 'lecture-notif-banner-title', items: 'lecture-notif-banner-items' },
-  { banner: 'agenda-lecture-notif-banner', title: 'agenda-lecture-notif-banner-title', items: 'agenda-lecture-notif-banner-items' },
 ];
 function getUpcomingLecture() {
   const todayIso = new Date().toISOString().slice(0,10);
@@ -7080,6 +7086,15 @@ function clearBrainstormBoard() {
   renderBrainstorm();
 }
 
+function toggleNavGroup(id) {
+  const header = document.getElementById('nav-group-header-' + id);
+  const content = document.getElementById('nav-group-' + id);
+  if (!header || !content) return;
+  const collapsed = content.classList.toggle('collapsed');
+  header.classList.toggle('collapsed', collapsed);
+  try { localStorage.setItem('content-manager-navgroup-' + id + '-collapsed', collapsed ? '1' : '0'); } catch (e) {}
+}
+
 function toggleSidebar() {
   document.getElementById('app-sidebar').classList.toggle('open');
   document.getElementById('sidebar-backdrop').classList.toggle('open');
@@ -7186,6 +7201,15 @@ if (localStorage.getItem('content-manager-table-collapsed') === '1') {
   document.getElementById('post-table-wrap').style.display = 'none';
   document.getElementById('list-collapse-btn').classList.add('collapsed');
 }
+
+try {
+  if (localStorage.getItem('content-manager-navgroup-redes-sociais-collapsed') === '1') {
+    const navGroupContent = document.getElementById('nav-group-redes-sociais');
+    const navGroupHeader = document.getElementById('nav-group-header-redes-sociais');
+    if (navGroupContent) navGroupContent.classList.add('collapsed');
+    if (navGroupHeader) navGroupHeader.classList.add('collapsed');
+  }
+} catch (e) {}
 
 /* Ao abrir: renderiza instantâneo com cache local, depois busca a versão mais
    recente no GitHub (funciona sem token; token só é necessário pra salvar). */
