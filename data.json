@@ -1826,7 +1826,53 @@
       ]
     }
   ],
-  "lectures": [],
+  "lectures": [
+    {
+      "id": 1,
+      "tema": "{ AngularJS para Angular 21 } - Acelerando migrações com GitHub Copilot",
+      "evento": "TDC",
+      "status": "preparando",
+      "data": "2026-09-25",
+      "formato": "Presencial",
+      "local": "São Paulo",
+      "duracao": 35,
+      "cache": 0,
+      "contato": "Danilo",
+      "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
+      "linkSlides": "https://canva.link/w88t5ycommevznj",
+      "notas": ""
+    },
+    {
+      "id": 2,
+      "tema": "Nosso caminho",
+      "evento": "Angular SP",
+      "status": "realizada",
+      "data": "2026-08-25",
+      "formato": "Online",
+      "local": "São Paulo",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "Alvaro",
+      "linkEvento": "https://www.instagram.com/angular_sp/",
+      "linkSlides": "https://canva.link/re0hgay331q0p76",
+      "notas": ""
+    },
+    {
+      "id": 3,
+      "tema": "{ Angular Imersão Tech }",
+      "evento": "Womakers Code",
+      "status": "realizada",
+      "data": "2026-07-18",
+      "formato": "Online",
+      "local": "",
+      "duracao": 480,
+      "cache": 0,
+      "contato": "Marilia",
+      "linkEvento": "https://www.instagram.com/womakersgram/",
+      "linkSlides": "https://canva.link/c3e3h849alvk5w6",
+      "notas": ""
+    }
+  ],
   "guidelines": [
     {
       "label": "Sponsored Posts",
@@ -3077,8 +3123,37 @@
     }
   ],
   "productionTimes": {
-    "byFormato": {},
+    "byFormato": {
+      "Reels": {
+        "roteiro": 2,
+        "gravando": 2,
+        "editando": 1,
+        "legenda": 1
+      },
+      "Carousel": {
+        "legenda": 1,
+        "design": 2
+      },
+      "Foto": {
+        "legenda": 1,
+        "design": 2
+      },
+      "Story": {
+        "roteiro": 1,
+        "gravando": 2,
+        "editando": 1,
+        "legenda": 1
+      },
+      "Live": {
+        "roteiro": 1
+      },
+      "Shorts": {
+        "roteiro": 2,
+        "gravando": 2,
+        "editando": 1
+      }
+    },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:11:07.051Z"
+  "_updatedAt": "2026-09-12T15:24:21.481Z"
 }
