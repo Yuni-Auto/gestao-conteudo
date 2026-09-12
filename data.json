@@ -1922,7 +1922,7 @@
       "status": "ideia",
       "data": "2026-10-06",
       "formato": "Presencial",
-      "local": "",
+      "local": "São Paulo - SP",
       "duracao": 60,
       "cache": 0,
       "contato": "Grace Borges",
@@ -1931,13 +1931,13 @@
       "notas": "",
       "temaEvento": "",
       "hora": "",
-      "cep": "",
-      "rua": "",
+      "cep": "01101-010",
+      "rua": "Avenida Tiradentes, 30",
       "numero": "",
       "complemento": "",
-      "bairro": "",
-      "cidade": "",
-      "uf": ""
+      "bairro": "Luz",
+      "cidade": "São Paulo",
+      "uf": "SP"
     },
     {
       "id": 5,
@@ -3243,5 +3243,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:30:47.277Z"
+  "_updatedAt": "2026-09-12T21:41:06.919Z"
 }
