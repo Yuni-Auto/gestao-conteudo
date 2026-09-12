@@ -1899,7 +1899,7 @@
       "data": "2026-07-18",
       "formato": "Online",
       "local": "São Paulo",
-      "duracao": 480,
+      "duracao": 360,
       "cache": 0,
       "contato": "Marilia",
       "linkEvento": "https://www.instagram.com/womakersgram/",
@@ -3234,5 +3234,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:14:31.261Z"
+  "_updatedAt": "2026-09-12T21:14:49.761Z"
 }
