@@ -322,7 +322,7 @@
   .st-publicada      { background: #e4f7ee; color: #1a6b40; } .st-publicada .status-dot      { background: #2dbe6c; }
 
   /* ── Analytics ──────────────────────────────────────────────────────── */
-  .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+  .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
   .analytics-topbar-title { font-size: 15px; font-weight: 600; }
   .analytics-period-tabs { display: flex; gap: 4px; }
   .analytics-period-tab { font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); transition: all 0.12s; font-family: inherit; }
@@ -919,11 +919,11 @@
     line-height:1.45; padding:3px 11px 12px; color:#332f22; outline:none; cursor:text;
   }
   .brain-note-text::placeholder { color:rgba(0,0,0,.32); }
-  .brain-note-foot { padding:0 9px 9px; }
+  .brain-note-foot { display:flex; gap:6px; padding:0 9px 9px; }
   .brain-note-convert {
-    width:100%; font-size:11.5px; font-weight:600; padding:6px 8px; border-radius:6px;
+    flex:1; min-width:0; font-size:10.5px; font-weight:600; padding:6px 6px; border-radius:6px;
     border:1px solid rgba(0,0,0,.14); background:rgba(255,255,255,.55); color:#3a3a2e;
-    cursor:pointer; transition:all .12s; font-family:inherit;
+    cursor:pointer; transition:all .12s; font-family:inherit; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
   .brain-note-convert:hover { background:rgba(255,255,255,.9); border-color:rgba(0,0,0,.24); }
   .brain-note-convert:disabled { opacity:.75; cursor:default; }
@@ -1005,8 +1005,12 @@
   <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-logo">✦ Content Studio</div>
 
+    <button class="nav-item-v2" data-view="brainstorm" data-icon="🗝️" onclick="setMainNav(this)">
+      <span class="nav-item-v2-label">Brainstorm Board</span>
+    </button>
+
     <button class="nav-item-v2" data-view="palestras" data-icon="🎤" onclick="setMainNav(this)">
-      <span class="nav-item-v2-label">Gestão de palestras</span>
+      <span class="nav-item-v2-label">Palestras</span>
     </button>
 
     <button class="nav-group-header" id="nav-group-header-redes-sociais" onclick="toggleNavGroup('redes-sociais')">
@@ -1017,15 +1021,14 @@
       <button class="nav-item-v2 active" data-view="gestao" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">📝</span><span class="nav-item-v2-label">Gestão de conteúdo</span>
       </button>
-      <button class="nav-item-v2" data-view="brainstorm" data-icon="🗝️" onclick="setMainNav(this)">
-        <span class="nav-item-v2-icon">🗝️</span><span class="nav-item-v2-label">Brainstorm Board</span>
-      </button>
       <button class="nav-item-v2" data-view="agenda" data-icon="🕐" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">🕐</span><span class="nav-item-v2-label">Agenda semanal</span>
       </button>
       <button class="nav-item-v2" data-view="inspiracoes" data-icon="🎭" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">🎭</span><span class="nav-item-v2-label">Inspirações</span>
       </button>
+
+      <div class="nav-section-title" style="margin-top: 14px;">Participação</div>
       <button class="nav-item-v2" data-view="colaboracoes" data-icon="👥" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">👥</span><span class="nav-item-v2-label">Colaborações</span>
       </button>
@@ -1382,7 +1385,7 @@
   <!-- ── Palestras View ──────────────────────────────────────────────── -->
   <div id="view-palestras" style="display:none; flex-direction:column; flex:1;">
     <div class="topbar">
-      <div class="topbar-title">Gestão de palestras</div>
+      <div class="topbar-title">Palestras</div>
       <button class="btn btn-primary" onclick="openLectureModal()">+ Nova palestra</button>
     </div>
 
@@ -1706,10 +1709,6 @@
       <div class="form-group">
         <label class="form-label">Tema / Título da palestra</label>
         <input class="form-input" id="l-tema" placeholder="Ex: Carreira em tech para iniciantes" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Parceiro (opcional)</label>
-        <select class="form-input" id="l-parceiro"><option value="">Nenhum</option></select>
       </div>
       <div class="form-group" style="margin-bottom:0;">
         <label class="form-label">Evento / Organizador</label>
@@ -5371,10 +5370,8 @@ function renderLectures() {
         l.linkEvento ? `<a href="${escapeHtml(l.linkEvento)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Evento</a>` : '',
         l.linkSlides ? `<a href="${escapeHtml(l.linkSlides)}" target="_blank" rel="noopener" class="lecture-link" onclick="event.stopPropagation()">🔗 Slides</a>` : '',
       ].filter(Boolean).join('');
-      const partnerLinked = l.parceiroId ? partners.find(pt => pt.id === l.parceiroId) : null;
       const metaRows = [
         l.evento ? `<span>🏢 ${escapeHtml(l.evento)}</span>` : '',
-        partnerLinked ? `<span>🤝 ${escapeHtml(partnerLinked.marca)}</span>` : '',
         l.data ? `<span>📅 ${fmtDateBR(l.data)}${l.duracao ? ' · ' + fmtDuracao(l.duracao) : ''}</span>` : '',
         l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
@@ -5443,7 +5440,6 @@ function openLectureModal(id) {
     if (!l) return;
     document.getElementById('lecture-modal-title').textContent = 'Editar palestra';
     document.getElementById('l-tema').value = l.tema || '';
-    populatePartnerSelect('l-parceiro', l.parceiroId || '');
     document.getElementById('l-evento').value = l.evento || '';
     statusSel.value = l.status || 'ideia';
     document.getElementById('l-data').value = l.data || '';
@@ -5459,7 +5455,6 @@ function openLectureModal(id) {
   } else {
     document.getElementById('lecture-modal-title').textContent = 'Nova palestra';
     document.getElementById('l-tema').value = '';
-    populatePartnerSelect('l-parceiro', '');
     document.getElementById('l-evento').value = '';
     statusSel.value = 'ideia';
     document.getElementById('l-data').value = '';
@@ -5486,7 +5481,6 @@ function saveLecture() {
   if (!tema) { alert('Por favor, informe o tema da palestra.'); return; }
   const data = {
     tema,
-    parceiroId: document.getElementById('l-parceiro').value ? Number(document.getElementById('l-parceiro').value) : null,
     evento: document.getElementById('l-evento').value.trim(),
     status: document.getElementById('l-status').value,
     data: document.getElementById('l-data').value,
@@ -6888,7 +6882,8 @@ function renderBrainstorm() {
       </div>
       <textarea class="brain-note-text" style="font-size:${size.px}px; font-weight:${style.weight}; font-style:${style.italic ? 'italic' : 'normal'};" onpointerdown="event.stopPropagation()" onclick="selectBrainNote(${n.id})" oninput="onNoteTextInput(${n.id}, this.value)" placeholder="Escreva sua ideia...">${escapeHtml(n.text || '')}</textarea>
       <div class="brain-note-foot">
-        <button type="button" class="brain-note-convert" onpointerdown="event.stopPropagation()" onclick="convertNoteToIdea(${n.id})" title="Cria um post com status Ideia na Gestão de conteúdo">💡 Virar ideia</button>
+        <button type="button" class="brain-note-convert" onpointerdown="event.stopPropagation()" onclick="convertNoteToIdea(${n.id}, this)" title="Cria um post com status Ideia na Gestão de conteúdo">💡 Virar ideia</button>
+        <button type="button" class="brain-note-convert" onpointerdown="event.stopPropagation()" onclick="convertNoteToLecture(${n.id}, this)" title="Cria uma palestra com status Ideia / Tema na Gestão de palestras">🎤 Virar palestra</button>
       </div>
     </div>`;
   }).join('');
@@ -7040,7 +7035,7 @@ function addBrainstormNote() {
   });
 }
 
-function convertNoteToIdea(id) {
+function convertNoteToIdea(id, btnEl) {
   const note = brainstormNotes.find(n => n.id === id);
   if (!note) return;
   const text = (note.text || '').trim();
@@ -7066,9 +7061,11 @@ function convertNoteToIdea(id) {
   savePosts();
 
   const el = document.getElementById('brain-note-' + id);
-  const btn = el ? el.querySelector('.brain-note-convert') : null;
-  if (btn) { btn.disabled = true; btn.textContent = '✓ Virou ideia!'; }
-  if (el) el.classList.add('brain-note-converted');
+  if (el) {
+    el.querySelectorAll('.brain-note-convert').forEach(b => b.disabled = true);
+    if (btnEl) btnEl.textContent = '✓ Virou ideia!';
+    el.classList.add('brain-note-converted');
+  }
 
   setTimeout(() => {
     brainstormNotes = brainstormNotes.filter(n => n.id !== id);
@@ -7076,6 +7073,51 @@ function convertNoteToIdea(id) {
     saveBrainstorm();
     renderBrainstorm();
     renderAll();
+  }, 500);
+}
+
+function convertNoteToLecture(id, btnEl) {
+  const note = brainstormNotes.find(n => n.id === id);
+  if (!note) return;
+  const text = (note.text || '').trim();
+  if (!text) { alert('Escreva algo na nota antes de transformá-la em palestra.'); return; }
+
+  const firstLine = text.split('\n')[0].trim();
+  const tema = firstLine.length > 70 ? firstLine.slice(0, 70).trim() + '…' : (firstLine || 'Palestra sem título');
+  const restoDoTexto = text.split('\n').slice(1).join('\n').trim();
+
+  lectures.push({
+    id: nextLectureId++,
+    tema,
+    evento: '',
+    status: 'ideia',
+    data: '',
+    formato: '',
+    local: '',
+    duracao: 0,
+    cache: 0,
+    contato: '',
+    linkEvento: '',
+    linkSlides: '',
+    notas: restoDoTexto,
+  });
+  saveLecturesData();
+
+  const el = document.getElementById('brain-note-' + id);
+  if (el) {
+    el.querySelectorAll('.brain-note-convert').forEach(b => b.disabled = true);
+    if (btnEl) btnEl.textContent = '✓ Virou palestra!';
+    el.classList.add('brain-note-converted');
+  }
+
+  setTimeout(() => {
+    brainstormNotes = brainstormNotes.filter(n => n.id !== id);
+    if (selectedNoteId === id) { selectedNoteId = null; openSubmenu = null; }
+    saveBrainstorm();
+    renderBrainstorm();
+    renderAll();
+    const palestrasEl = document.getElementById('view-palestras');
+    if (palestrasEl && palestrasEl.style.display !== 'none') renderLectures();
   }, 500);
 }
 
