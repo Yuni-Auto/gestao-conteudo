@@ -449,9 +449,13 @@
   .lecture-board-empty { font-size: 11.5px; color: var(--text-3); text-align: center; padding: 16px 4px; font-style: italic; border: 1px dashed var(--border); border-radius: 10px; }
   .lecture-overview-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: box-shadow 0.12s, border-color 0.12s; }
   .lecture-overview-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-color: #d8d3fb; }
-  .lecture-overview-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
-  .lecture-overview-card-title { font-size: 14px; font-weight: 600; line-height: 1.35; }
+  .lecture-overview-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .lecture-overview-card-toggle { width: 22px; height: 22px; flex-shrink: 0; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 11px; display: flex; align-items: center; justify-content: center; transition: transform 0.15s, background 0.12s; }
+  .lecture-overview-card-toggle:hover { background: var(--bg); color: var(--text); }
+  .lecture-overview-card-toggle.collapsed { transform: rotate(-90deg); }
+  .lecture-overview-card-title { font-size: 14px; font-weight: 600; line-height: 1.35; flex: 1; min-width: 0; }
   .lecture-overview-card-status { margin-bottom: 8px; }
+  .lecture-overview-card-details.collapsed { display: none; }
   .lecture-overview-card-meta { font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
   .lecture-overview-card-links { margin-top: 10px; display: flex; gap: 10px; font-size: 12px; }
   .lecture-overview-card-notas { margin-top: 10px; font-size: 11.5px; color: var(--text-3); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 8px; font-style: italic; }
@@ -5237,6 +5241,14 @@ function saveLecturesData() { localStorage.setItem(LECTURES_STORAGE_KEY, JSON.st
 let lectures = loadLectures();
 let nextLectureId = lectures.length ? Math.max(...lectures.map(l => Number(l.id)||0)) + 1 : 1;
 let editingLectureId = null;
+// Ids de palestras com o card recolhido (accordion) no Overview — só em memória, some ao recarregar a página.
+let lectureCardCollapsed = new Set();
+function toggleLectureCard(id, ev) {
+  if (ev) ev.stopPropagation();
+  if (lectureCardCollapsed.has(id)) lectureCardCollapsed.delete(id);
+  else lectureCardCollapsed.add(id);
+  renderLectures();
+}
 
 function fmtCache(v) { const n = Number(v)||0; return n ? 'R$' + n.toFixed(2) : '—'; }
 function fmtDuracao(v) {
@@ -5299,14 +5311,18 @@ function renderLectures() {
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
         l.contato ? `<span>👤 ${escapeHtml(l.contato)}</span>` : '',
       ].filter(Boolean).join('');
+      const isCollapsed = lectureCardCollapsed.has(l.id);
       return `<div class="lecture-overview-card" onclick="openLectureModal(${l.id})">
         <div class="lecture-overview-card-top">
+          <button type="button" class="lecture-overview-card-toggle${isCollapsed ? ' collapsed' : ''}" onclick="toggleLectureCard(${l.id}, event)" title="${isCollapsed ? 'Expandir' : 'Recolher'}">▾</button>
           <div class="lecture-overview-card-title">${escapeHtml(l.tema)}</div>
         </div>
         <div class="lecture-overview-card-status"><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></div>
-        <div class="lecture-overview-card-meta">${metaRows}</div>
-        ${linksCell ? `<div class="lecture-overview-card-links">${linksCell}</div>` : ''}
-        ${l.notas ? `<div class="lecture-overview-card-notas">${escapeHtml(l.notas).replace(/\n/g,'<br>')}</div>` : ''}
+        <div class="lecture-overview-card-details${isCollapsed ? ' collapsed' : ''}">
+          <div class="lecture-overview-card-meta">${metaRows}</div>
+          ${linksCell ? `<div class="lecture-overview-card-links">${linksCell}</div>` : ''}
+          ${l.notas ? `<div class="lecture-overview-card-notas">${escapeHtml(l.notas).replace(/\n/g,'<br>')}</div>` : ''}
+        </div>
       </div>`;
     };
     const sorted = lectures.slice().sort((a,b) => (a.data||'').localeCompare(b.data||''));
