@@ -2009,7 +2009,16 @@
       }
     }
   },
-  "brainstormNotes": [],
+  "brainstormNotes": [
+    {
+      "id": 1,
+      "text": "",
+      "x": 50,
+      "y": 40,
+      "color": "white",
+      "rot": 0.3
+    }
+  ],
   "inspirations": [
     {
       "id": 1,
@@ -3168,5 +3177,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T16:27:57.032Z"
+  "_updatedAt": "2026-09-12T16:28:23.782Z"
 }
