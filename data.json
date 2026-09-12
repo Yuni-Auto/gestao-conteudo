@@ -1880,7 +1880,16 @@
       "contato": "Alvaro",
       "linkEvento": "https://www.instagram.com/angular_sp/",
       "linkSlides": "https://canva.link/re0hgay331q0p76",
-      "notas": ""
+      "notas": "",
+      "temaEvento": "",
+      "hora": "19:00",
+      "cep": "",
+      "rua": "",
+      "numero": "",
+      "complemento": "",
+      "bairro": "",
+      "cidade": "",
+      "uf": ""
     },
     {
       "id": 3,
@@ -3225,5 +3234,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:03:04.764Z"
+  "_updatedAt": "2026-09-12T21:14:24.163Z"
 }
