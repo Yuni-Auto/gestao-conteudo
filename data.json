@@ -1850,7 +1850,7 @@
       "status": "preparando",
       "data": "2026-09-25",
       "formato": "Presencial",
-      "local": "Registro - SP",
+      "local": "São Paulo - SP",
       "duracao": 35,
       "cache": 0,
       "contato": "Danilo",
@@ -1859,12 +1859,12 @@
       "notas": "",
       "temaEvento": "",
       "hora": "10:30",
-      "cep": "11900-000",
-      "rua": "",
+      "cep": "02518-000",
+      "rua": "Avenida Professora Ida Kolb, 513",
       "numero": "",
       "complemento": "",
-      "bairro": "",
-      "cidade": "Registro",
+      "bairro": "Jardim das Laranjeiras",
+      "cidade": "São Paulo",
       "uf": "SP"
     },
     {
@@ -3207,5 +3207,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:45:42.808Z"
+  "_updatedAt": "2026-09-12T17:46:51.739Z"
 }
