@@ -1850,13 +1850,22 @@
       "status": "preparando",
       "data": "2026-09-25",
       "formato": "Presencial",
-      "local": "São Paulo",
+      "local": "Registro - SP",
       "duracao": 35,
       "cache": 0,
       "contato": "Danilo",
       "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
       "linkSlides": "https://canva.link/w88t5ycommevznj",
-      "notas": ""
+      "notas": "",
+      "temaEvento": "",
+      "hora": "",
+      "cep": "11900-000",
+      "rua": "",
+      "numero": "",
+      "complemento": "",
+      "bairro": "",
+      "cidade": "Registro",
+      "uf": "SP"
     },
     {
       "id": 2,
@@ -3198,5 +3207,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T17:44:39.413Z"
+  "_updatedAt": "2026-09-12T17:45:22.392Z"
 }
