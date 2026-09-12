@@ -1885,26 +1885,6 @@
     {
       "label": "Reel Creation",
       "text": "$70 per reel"
-    },
-    {
-      "label": "Requirements",
-      "text": "High-resolution images, brand guidelines, and a two-week lead time."
-    },
-    {
-      "label": "Novo item",
-      "text": ""
-    },
-    {
-      "label": "Novo item",
-      "text": ""
-    },
-    {
-      "label": "Novo item",
-      "text": ""
-    },
-    {
-      "label": "Novo item",
-      "text": ""
     }
   ],
   "analyticsOverrides": {
@@ -3171,5 +3151,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:42:28.691Z"
+  "_updatedAt": "2026-09-12T15:42:39.661Z"
 }
