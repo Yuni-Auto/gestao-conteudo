@@ -1841,6 +1841,21 @@
       "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
       "linkSlides": "https://canva.link/w88t5ycommevznj",
       "notas": ""
+    },
+    {
+      "id": 2,
+      "tema": "Nosso caminho",
+      "evento": "Angular SP",
+      "status": "realizada",
+      "data": "2026-08-25",
+      "formato": "Online",
+      "local": "São Paulo",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "Alvaro",
+      "linkEvento": "",
+      "linkSlides": "https://canva.link/re0hgay331q0p76",
+      "notas": ""
     }
   ],
   "guidelines": [
@@ -3096,5 +3111,5 @@
     "byFormato": {},
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T15:16:35.845Z"
+  "_updatedAt": "2026-09-12T15:17:26.770Z"
 }
