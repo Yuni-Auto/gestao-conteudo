@@ -1763,15 +1763,15 @@
         </div>
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Formato</label>
-          <select class="form-input" id="l-formato">
+          <select class="form-input" id="l-formato" onchange="toggleLectureAddressBlock()">
             <option value="Presencial">Presencial</option>
             <option value="Online">Online</option>
             <option value="Híbrido">Híbrido</option>
           </select>
         </div>
       </div>
-      <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:14px;">
-        <div class="form-group" style="margin-bottom:0;">
+      <div class="nf-meta-grid" id="l-local-row" style="grid-template-columns:1fr 1fr 1fr; margin-top:14px;">
+        <div class="form-group" id="l-local-group" style="margin-bottom:0;">
           <label class="form-label">Local</label>
           <input class="form-input" id="l-local" placeholder="Ex: São Paulo, SP ou link do evento online" />
         </div>
@@ -1782,6 +1782,42 @@
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Cachê (R$)</label>
           <input class="form-input" id="l-cache" type="number" step="0.01" min="0" placeholder="0.00" />
+        </div>
+      </div>
+
+      <div id="l-address-block" style="display:none; margin-top:14px;">
+        <div class="nf-meta-grid" style="grid-template-columns:140px 110px 1fr;">
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">CEP</label>
+            <input class="form-input" id="l-cep" placeholder="00000-000" maxlength="9" inputmode="numeric" oninput="onLectureCepInput(this)" />
+            <div id="l-cep-status" style="font-size:11px; margin-top:5px; color:var(--text-3);"></div>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Número</label>
+            <input class="form-input" id="l-numero" placeholder="Ex: 123" onchange="composeLectureLocalFromAddress()" />
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Complemento</label>
+            <input class="form-input" id="l-complemento" placeholder="Sala, bloco, andar..." />
+          </div>
+        </div>
+        <div class="form-group" style="margin-top:12px; margin-bottom:0;">
+          <label class="form-label">Rua / Logradouro</label>
+          <input class="form-input" id="l-rua" placeholder="Preenchido automaticamente pelo CEP" onchange="composeLectureLocalFromAddress()" />
+        </div>
+        <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 80px; margin-top:12px;">
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Bairro</label>
+            <input class="form-input" id="l-bairro" onchange="composeLectureLocalFromAddress()" />
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Cidade</label>
+            <input class="form-input" id="l-cidade" onchange="composeLectureLocalFromAddress()" />
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">UF</label>
+            <input class="form-input" id="l-uf" maxlength="2" style="text-transform:uppercase;" onchange="composeLectureLocalFromAddress()" />
+          </div>
         </div>
       </div>
       <div class="nf-meta-grid" style="margin-top:14px;">
@@ -5701,6 +5737,14 @@ function openLectureModal(id) {
     document.getElementById('l-link-evento').value = l.linkEvento || '';
     document.getElementById('l-link-slides').value = l.linkSlides || '';
     document.getElementById('l-notas').value = l.notas || '';
+    document.getElementById('l-cep').value = l.cep || '';
+    document.getElementById('l-rua').value = l.rua || '';
+    document.getElementById('l-numero').value = l.numero || '';
+    document.getElementById('l-complemento').value = l.complemento || '';
+    document.getElementById('l-bairro').value = l.bairro || '';
+    document.getElementById('l-cidade').value = l.cidade || '';
+    document.getElementById('l-uf').value = l.uf || '';
+    document.getElementById('l-cep-status').textContent = '';
     document.getElementById('l-delete-btn').style.display = '';
   } else {
     document.getElementById('lecture-modal-title').textContent = 'Nova palestra';
@@ -5718,9 +5762,69 @@ function openLectureModal(id) {
     document.getElementById('l-link-evento').value = '';
     document.getElementById('l-link-slides').value = '';
     document.getElementById('l-notas').value = '';
+    document.getElementById('l-cep').value = '';
+    document.getElementById('l-rua').value = '';
+    document.getElementById('l-numero').value = '';
+    document.getElementById('l-complemento').value = '';
+    document.getElementById('l-bairro').value = '';
+    document.getElementById('l-cidade').value = '';
+    document.getElementById('l-uf').value = '';
+    document.getElementById('l-cep-status').textContent = '';
     document.getElementById('l-delete-btn').style.display = 'none';
   }
+  toggleLectureAddressBlock();
   document.getElementById('lecture-modal').classList.add('open');
+}
+
+function toggleLectureAddressBlock() {
+  const isPresencial = document.getElementById('l-formato').value === 'Presencial';
+  document.getElementById('l-address-block').style.display = isPresencial ? '' : 'none';
+  document.getElementById('l-local-group').style.display = isPresencial ? 'none' : '';
+  document.getElementById('l-local-row').style.gridTemplateColumns = isPresencial ? '1fr 1fr' : '1fr 1fr 1fr';
+  if (isPresencial) composeLectureLocalFromAddress();
+}
+
+/* ─── Busca de endereço por CEP (ViaCEP) ───────────────────────────────── */
+let lectureCepDebounce = null;
+function onLectureCepInput(el) {
+  let digits = el.value.replace(/\D/g, '').slice(0, 8);
+  el.value = digits.length > 5 ? digits.slice(0, 5) + '-' + digits.slice(5) : digits;
+  clearTimeout(lectureCepDebounce);
+  const statusEl = document.getElementById('l-cep-status');
+  if (digits.length < 8) { statusEl.textContent = ''; return; }
+  statusEl.textContent = 'Buscando endereço...';
+  statusEl.style.color = 'var(--text-3)';
+  lectureCepDebounce = setTimeout(() => lookupLectureCep(digits), 300);
+}
+function lookupLectureCep(cep) {
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then(r => r.json())
+    .then(data => {
+      const statusEl = document.getElementById('l-cep-status');
+      if (!statusEl) return;
+      if (data.erro) {
+        statusEl.textContent = 'CEP não encontrado.';
+        statusEl.style.color = '#e8445a';
+        return;
+      }
+      document.getElementById('l-rua').value = data.logradouro || '';
+      document.getElementById('l-bairro').value = data.bairro || '';
+      document.getElementById('l-cidade').value = data.localidade || '';
+      document.getElementById('l-uf').value = data.uf || '';
+      statusEl.textContent = '✓ Endereço encontrado';
+      statusEl.style.color = '#2dbe6c';
+      composeLectureLocalFromAddress();
+    })
+    .catch(() => {
+      const statusEl = document.getElementById('l-cep-status');
+      if (statusEl) { statusEl.textContent = 'Não foi possível buscar o CEP.'; statusEl.style.color = '#e8445a'; }
+    });
+}
+function composeLectureLocalFromAddress() {
+  const cidade = document.getElementById('l-cidade').value.trim();
+  const uf = document.getElementById('l-uf').value.trim();
+  const composed = [cidade, uf].filter(Boolean).join(' - ');
+  document.getElementById('l-local').value = composed;
 }
 
 function closeLectureModal() {
@@ -5746,6 +5850,13 @@ function saveLecture() {
     linkEvento: document.getElementById('l-link-evento').value.trim(),
     linkSlides: document.getElementById('l-link-slides').value.trim(),
     notas: document.getElementById('l-notas').value.trim(),
+    cep: document.getElementById('l-cep').value.trim(),
+    rua: document.getElementById('l-rua').value.trim(),
+    numero: document.getElementById('l-numero').value.trim(),
+    complemento: document.getElementById('l-complemento').value.trim(),
+    bairro: document.getElementById('l-bairro').value.trim(),
+    cidade: document.getElementById('l-cidade').value.trim(),
+    uf: document.getElementById('l-uf').value.trim(),
   };
   if (editingLectureId) {
     const l = lectures.find(x => x.id === editingLectureId);
