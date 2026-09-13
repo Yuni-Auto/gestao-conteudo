@@ -1727,6 +1727,32 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 81,
+      "titulo": "[reels] Trend do Osmarzinho",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-13",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot4",
+      "parceiroId": null
     }
   ],
   "partners": [
@@ -3243,5 +3269,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:55:33.623Z"
+  "_updatedAt": "2026-09-13T02:03:52.134Z"
 }
