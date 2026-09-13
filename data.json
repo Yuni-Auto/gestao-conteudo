@@ -1742,7 +1742,7 @@
         }
       ],
       "data": "2026-09-13",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -1750,7 +1750,12 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdM3vzApYZp/?stkn=bWQydWFuYm00Mmpy"
+        }
+      ],
       "requiredTag": "slot4",
       "parceiroId": null
     }
@@ -3269,5 +3274,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-13T02:03:52.134Z"
+  "_updatedAt": "2026-09-13T02:05:46.435Z"
 }
