@@ -818,7 +818,7 @@
 
   /* Monthly strategy */
   .strategy-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .strategy-header { padding: 14px 18px 14px 54px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .strategy-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .strategy-title { font-size: 13px; font-weight: 600; }
   .strategy-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .strategy-month { display: flex; align-items: center; gap: 6px; }
@@ -1024,8 +1024,8 @@
   <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-logo">✦ Content Studio</div>
 
-    <button class="nav-item-v2 active" data-view="home" data-icon="🏠" onclick="setMainNav(this)">
-      <span class="nav-item-v2-icon">🏠</span><span class="nav-item-v2-label">Início</span>
+    <button class="nav-item-v2 active" data-view="home" onclick="setMainNav(this)">
+      <span class="nav-item-v2-label">Início</span>
     </button>
 
     <button class="nav-item-v2" data-view="brainstorm" data-icon="🗝️" onclick="setMainNav(this)">
@@ -1080,10 +1080,6 @@
         <div class="topbar-title">Início</div>
         <div class="topbar-actions" id="home-topbar-actions">
           <div class="strategy-month" style="margin-right:10px;">
-            <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
-              <span style="font-size:12px;">⏱️</span>
-              <span>Tempo de produção</span>
-            </button>
             <button class="sync-status" id="notif-status-btn" onclick="openNotifModal()" title="Configurar lembretes de produção" style="margin-right:6px;">
               <span style="font-size:12px;">🔔</span>
               <span>Notificações</span>
@@ -1107,11 +1103,6 @@
       </div>
 
       <div class="content-area">
-        <div class="home-hero">
-          <div class="home-hero-title">Bem-vindo(a) de volta ✦</div>
-          <div class="home-hero-text">Escolha uma área abaixo para continuar de onde parou.</div>
-        </div>
-
         <div class="notif-today-banner" id="home-notif-today-banner" style="margin:0 0 4px;">
           <span class="notif-today-banner-icon">🔔</span>
           <div class="notif-today-banner-body">
@@ -1192,6 +1183,10 @@
     <div class="topbar">
       <div class="topbar-title">Gestão de conteúdo</div>
       <div class="topbar-actions" id="gestao-topbar-actions">
+        <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
+          <span style="font-size:12px;">⏱️</span>
+          <span>Tempo de produção</span>
+        </button>
         <button class="btn btn-primary" onclick="openNewModal()">+ Novo post</button>
       </div>
     </div>
@@ -1276,6 +1271,11 @@
           </div>
           <div class="week-grid" id="week-grid"></div>
           <div class="month-grid" id="month-grid" style="display:none;"></div>
+        </div>
+
+        <div class="agenda-section" style="margin:16px 0 0;">
+          <div class="agenda-section-title">🔄 Processo de criação</div>
+          <div class="agenda-kanban home-kanban" id="gestao-unified-kanban"></div>
         </div>
       </div>
 
@@ -1445,6 +1445,10 @@
     <div class="topbar">
       <div class="topbar-title">Palestras</div>
       <div class="topbar-actions" id="palestras-topbar-actions">
+        <button class="sync-status" id="lecture-prodtime-status-btn" onclick="openLectureProductionModal()" title="Configurar tempo de produção por etapa" style="margin-right:6px;">
+          <span style="font-size:12px;">⏱️</span>
+          <span>Tempo de produção</span>
+        </button>
         <button class="btn btn-primary" onclick="openLectureModal()">+ Nova palestra</button>
       </div>
     </div>
@@ -2030,6 +2034,28 @@
       <div class="new-modal-footer-actions">
         <button class="btn" onclick="closeProductionModal()">Cancelar</button>
         <button class="btn btn-primary" onclick="saveProductionTimes()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lecture Production Time Modal -->
+<div class="modal-overlay" id="lecture-production-modal" onclick="handleOverlayClick(event,'lecture-production-modal')">
+  <div class="modal" style="max-width:560px;">
+    <div class="modal-hero">
+      <div class="modal-title-text">⏱️ Tempo de produção</div>
+      <div style="font-size:12.5px;color:var(--text-2);margin-top:4px;">Defina quantos dias cada etapa leva. O cronograma é calculado de trás pra frente a partir da data da palestra e aparece no card do processo de criação.</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;max-height:60vh;">
+      <div class="prod-formato-card">
+        <div class="prod-formato-head">🎤 Etapas de preparação</div>
+        <div class="prod-status-grid" id="lecture-prodtime-stages-list"></div>
+      </div>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions">
+        <button class="btn" onclick="closeLectureProductionModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="saveLectureProductionTimes()">Salvar</button>
       </div>
     </div>
   </div>
@@ -3010,6 +3036,87 @@ function renderProductionScheduleBlock(post) {
     </div>`;
   }).join('')}</div>`;
 }
+
+/* ─── Tempo de produção — Palestras ──────────────────────────────────────
+   Mesma ideia do tempo de produção dos posts, mas simplificada: sem
+   variação por formato, apenas um conjunto de dias por etapa (proposta,
+   confirmada, preparando, ensaiando), usado pra calcular um cronograma
+   sugerido contando pra trás a partir da data da palestra. */
+const LECTURE_PRODUCTION_TIMES_KEY = 'content-manager-lecture-production-times-v1';
+
+function loadLectureProductionTimes() {
+  try {
+    const saved = localStorage.getItem(LECTURE_PRODUCTION_TIMES_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && typeof parsed === 'object') return { days: parsed.days || {} };
+    }
+  } catch (e) {}
+  return { days: {} };
+}
+function saveLectureProductionTimesStore() {
+  localStorage.setItem(LECTURE_PRODUCTION_TIMES_KEY, JSON.stringify(lectureProductionTimes));
+  scheduleCloudSync();
+}
+let lectureProductionTimes = loadLectureProductionTimes();
+let modalLectureProductionTimes = null;
+
+function openLectureProductionModal() {
+  modalLectureProductionTimes = { days: { ...(lectureProductionTimes.days || {}) } };
+  renderLectureProdtimeStagesList();
+  document.getElementById('lecture-production-modal').classList.add('open');
+}
+function closeLectureProductionModal() {
+  document.getElementById('lecture-production-modal').classList.remove('open');
+  modalLectureProductionTimes = null;
+}
+function renderLectureProdtimeStagesList() {
+  const wrap = document.getElementById('lecture-prodtime-stages-list');
+  if (!wrap) return;
+  const stages = LECTURE_STATUS.filter(s => s.group === 'progress');
+  const days = modalLectureProductionTimes.days || {};
+  wrap.innerHTML = stages.map(s => `
+    <div class="prod-status-row">
+      <div class="prod-status-label"><span class="prod-status-dot" style="background:${s.dot}"></span>${s.label}</div>
+      <input type="number" min="0" step="1" class="form-input prod-day-input" value="${days[s.key] || ''}" placeholder="0"
+        oninput="updateLectureProdtimeDay('${s.key}',this.value)" />
+      <span class="prod-day-suffix">dia(s)</span>
+    </div>
+  `).join('');
+}
+function updateLectureProdtimeDay(statusKey, value) {
+  const n = Math.max(0, parseInt(value, 10) || 0);
+  if (n > 0) modalLectureProductionTimes.days[statusKey] = n;
+  else delete modalLectureProductionTimes.days[statusKey];
+}
+function saveLectureProductionTimes() {
+  lectureProductionTimes = { days: modalLectureProductionTimes.days };
+  saveLectureProductionTimesStore();
+  closeLectureProductionModal();
+  renderLectures();
+}
+
+/* Calcula o cronograma de preparação de uma palestra contando pra trás a
+   partir da data do evento, encadeando as etapas na ordem em que aparecem
+   em LECTURE_STATUS (proposta → confirmada → preparando → ensaiando). */
+function computeLectureProductionSchedule(l) {
+  if (!l.data) return [];
+  const cfg = lectureProductionTimes.days || {};
+  const stages = LECTURE_STATUS.filter(s => s.group === 'progress' && (cfg[s.key] || 0) > 0);
+  if (!stages.length) return [];
+  let cursor = new Date(l.data + 'T12:00:00');
+  const result = [];
+  for (let i = stages.length - 1; i >= 0; i--) {
+    const s = stages[i];
+    const days = cfg[s.key];
+    const end = new Date(cursor); end.setDate(end.getDate() - 1);
+    const start = new Date(end); start.setDate(start.getDate() - (days - 1));
+    result.unshift({ status: s, start, end });
+    cursor = start;
+  }
+  return result;
+}
+
 
 /* ─── Notificações de produção (Safari / navegador) ─────────────────────
    O app é só front-end (sem servidor próprio), então isso usa a Web
@@ -5963,12 +6070,26 @@ function deleteLectureRow(id) {
 }
 
 function renderLectureKanbanCard(l) {
+  const schedule = computeLectureProductionSchedule(l);
+  let suggestion = null;
+  if (schedule.length) {
+    const stageEntry = schedule.find(item => item.status.key === l.status);
+    if (stageEntry) {
+      const fmtDate = d => d.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit' });
+      const isSameDay = stageEntry.start.getTime() === stageEntry.end.getTime();
+      suggestion = isSameDay ? `até ${fmtDate(stageEntry.end)}` : `${fmtDate(stageEntry.start)} – ${fmtDate(stageEntry.end)}`;
+    } else if (getLectureStatusMeta(l.status).group === 'todo') {
+      const fmtDate = d => d.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit' });
+      suggestion = `até ${fmtDate(schedule[0].start)}`;
+    }
+  }
   return `
   <div class="week-post" draggable="true" ondragstart="onLectureKanbanDragStart(event, ${l.id})" ondragend="onLectureKanbanDragEnd(event)" onclick="openLectureModal(${l.id})" title="Arraste para mudar a etapa">
     <div class="agenda-strategy-title-row">
       <div class="week-post-title" title="${escapeHtml(l.tema)}">${escapeHtml(l.tema)}</div>
-      ${l.data ? `<div class="agenda-strategy-date">${fmtDateBR(l.data)}${l.hora ? ' ' + l.hora : ''}</div>` : ''}
+      ${suggestion ? '' : (l.data ? `<div class="agenda-strategy-date">${fmtDateBR(l.data)}${l.hora ? ' ' + l.hora : ''}</div>` : '')}
     </div>
+    ${suggestion ? `<div class="agenda-strategy-date agenda-strategy-date-below" title="Palestra: ${fmtDateBR(l.data)}${l.hora ? ' ' + l.hora : ''}"><span class="prod-suggestion-tag">preparar</span> ${suggestion}</div>` : ''}
     ${l.evento ? `<div class="week-post-meta"><span class="week-post-fmt">🏢 ${escapeHtml(l.evento)}</span></div>` : ''}
     ${l.local ? `<div class="week-post-meta"><span class="week-post-fmt">📍 ${escapeHtml(l.local)}</span></div>` : ''}
   </div>`;
@@ -7665,6 +7786,7 @@ function setPlatFilter(btn) {
   activePlatFilter = btn.dataset.plat || null;
   renderCalendar();
   renderList();
+  renderGestaoKanban();
 }
 
 function setFormatoFilter(btn) {
@@ -7673,6 +7795,7 @@ function setFormatoFilter(btn) {
   activeFormatoFilter = btn.dataset.formato || null;
   renderCalendar();
   renderList();
+  renderGestaoKanban();
 }
 function handleOverlayClick(e, id) { if (e.target === document.getElementById(id)) { document.getElementById(id).classList.remove('open'); if(id==='detail-modal'){document.getElementById('status-dropdown').classList.remove('open');currentPostId=null;} } }
 
@@ -7682,8 +7805,99 @@ document.addEventListener('click', e => {
   if (wrap && !wrap.contains(e.target)) document.getElementById('status-dropdown').classList.remove('open');
 });
 
+function renderGestaoKanbanCard(p, statusKey) {
+  const partnerNames = partnersForPost(p.id);
+  const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
+  const schedule = computeProductionSchedule(p);
+  let suggestion = null;
+  if (schedule.length) {
+    const stageEntry = schedule.find(item => item.status.key === statusKey);
+    if (stageEntry) {
+      const isSameDay = stageEntry.start.getTime() === stageEntry.end.getTime();
+      suggestion = isSameDay
+        ? shortDateWithDay(isoDate(stageEntry.end))
+        : `${shortDateWithDay(isoDate(stageEntry.start))} → ${shortDateWithDay(isoDate(stageEntry.end))}`;
+    } else if (getStatusMeta(statusKey).group === 'todo') {
+      suggestion = `até ${shortDateWithDay(isoDate(schedule[0].start))}`;
+    }
+  }
+  return `
+  <div class="week-post agenda-strategy-post ${platCls(p)}" draggable="true" ondragstart="onGestaoKanbanDragStart(event, ${p.id})" ondragend="onGestaoKanbanDragEnd(event)" onclick="openPost(${p.id})" title="Arraste para mudar a etapa">
+    <div class="agenda-strategy-title-row">
+      <div class="week-post-title" title="${escapeHtml(p.titulo)}">${escapeHtml(p.titulo)}</div>
+      ${suggestion ? '' : `<div class="agenda-strategy-date">${shortDateWithDay(p.data)}</div>`}
+    </div>
+    ${suggestion ? `<div class="agenda-strategy-date agenda-strategy-date-below" title="Publica: ${shortDateWithDay(p.data)}"><span class="prod-suggestion-tag">produzir</span> ${suggestion}</div>` : ''}
+    <div class="week-post-meta">
+      <div class="week-post-icons">
+        ${(p.plataformas||[]).map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
+      </div>
+      <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
+    </div>
+    ${partnerTags ? `<div class="agenda-strategy-tags">${partnerTags}</div>` : ''}
+  </div>`;
+}
+
+let draggedGestaoKanbanId = null;
+function onGestaoKanbanDragStart(ev, id) {
+  draggedGestaoKanbanId = id;
+  ev.dataTransfer.effectAllowed = 'move';
+  try { ev.dataTransfer.setData('text/plain', String(id)); } catch (e) {}
+  ev.target.closest('.week-post').classList.add('dragging');
+}
+function onGestaoKanbanDragEnd(ev) {
+  const el = ev.target.closest('.week-post');
+  if (el) el.classList.remove('dragging');
+  document.querySelectorAll('.agenda-kanban-col.drop-target').forEach(el2 => el2.classList.remove('drop-target'));
+  draggedGestaoKanbanId = null;
+}
+function allowDropGestaoStage(ev) {
+  ev.preventDefault();
+  ev.currentTarget.classList.add('drop-target');
+}
+function onGestaoStageDrop(ev, statusKey) {
+  ev.preventDefault();
+  ev.currentTarget.classList.remove('drop-target');
+  let id = draggedGestaoKanbanId;
+  try { id = Number(ev.dataTransfer.getData('text/plain')) || id; } catch (e) {}
+  draggedGestaoKanbanId = null;
+  if (!id) return;
+  const p = posts.find(x => x.id === id);
+  if (!p || p.status === statusKey) return;
+  p.status = statusKey;
+  savePosts();
+  renderAll();
+}
+
+function renderGestaoKanban() {
+  const wrap = document.getElementById('gestao-unified-kanban');
+  if (!wrap) return;
+  const filtered = posts.filter(p => {
+    if (activePlatFilter && !p.plataformas.includes(activePlatFilter)) return false;
+    if (activeFormatoFilter && p.formato !== activeFormatoFilter) return false;
+    return p.status !== 'ideia';
+  });
+  wrap.innerHTML = ALL_STATUS.filter(s => s.key !== 'ideia').map(s => {
+    const stageItems = filtered
+      .filter(p => p.status === s.key)
+      .sort((a,b) => (a.data||'').localeCompare(b.data||''));
+    return `<div class="agenda-kanban-col" ondragover="allowDropGestaoStage(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onGestaoStageDrop(event,'${s.key}')">
+      <div class="agenda-kanban-head">
+        <div class="agenda-kanban-group">${GROUP_LABELS[s.group]}</div>
+        <div class="agenda-kanban-title-row">
+          <span class="agenda-kanban-title"><span class="status-dot" style="background:${s.dot}"></span><span class="agenda-kanban-title-text" title="${s.label}">${s.label}</span></span>
+          <span class="agenda-kanban-count">${stageItems.length}</span>
+        </div>
+      </div>
+      <div class="agenda-kanban-body">
+        ${stageItems.length ? stageItems.map(p => renderGestaoKanbanCard(p, s.key)).join('') : '<div class="empty-day">—</div>'}
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function renderAll() {
-  renderStats(); renderCalendar(); renderList(); renderStrategyChecklist();
+  renderStats(); renderCalendar(); renderList(); renderStrategyChecklist(); renderGestaoKanban();
   const homeEl = document.getElementById('view-home');
   if (homeEl && homeEl.style.display !== 'none') renderHome();
 }
