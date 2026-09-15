@@ -1044,9 +1044,6 @@
       <button class="nav-item-v2" data-view="gestao" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">📝</span><span class="nav-item-v2-label">Gestão de conteúdo</span>
       </button>
-      <button class="nav-item-v2" data-view="agenda" data-icon="🕐" onclick="setMainNav(this)">
-        <span class="nav-item-v2-icon">🕐</span><span class="nav-item-v2-label">Agenda semanal</span>
-      </button>
       <button class="nav-item-v2" data-view="inspiracoes" data-icon="🎭" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">🎭</span><span class="nav-item-v2-label">Inspirações</span>
       </button>
@@ -1082,6 +1079,20 @@
       <div class="topbar">
         <div class="topbar-title">Início</div>
         <div class="topbar-actions" id="home-topbar-actions">
+          <div class="strategy-month" style="margin-right:10px;">
+            <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
+              <span style="font-size:12px;">⏱️</span>
+              <span>Tempo de produção</span>
+            </button>
+            <button class="sync-status" id="notif-status-btn" onclick="openNotifModal()" title="Configurar lembretes de produção" style="margin-right:6px;">
+              <span style="font-size:12px;">🔔</span>
+              <span>Notificações</span>
+            </button>
+            <button type="button" class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="goToAgendaToday()">Hoje</button>
+            <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(-1)">&#8249;</button>
+            <div class="strategy-month-label" id="agenda-week-label">semana</div>
+            <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(1)">&#8250;</button>
+          </div>
           <div class="global-status-group" id="global-status-group">
             <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
               <span class="sync-dot sync-offline" id="gcal-dot"></span>
@@ -1119,26 +1130,39 @@
           <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
         </div>
 
-        <div class="stats-row" style="grid-template-columns: repeat(3, 1fr); padding:0; margin-top:4px;">
-          <div class="stat-card"><div class="stat-label">Posts dessa semana</div><div class="stat-value" id="home-stat-posts">0/0</div></div>
-          <div class="stat-card"><div class="stat-label">Palestras dessa semana</div><div class="stat-value" id="home-stat-palestras">0/0</div></div>
-          <div class="stat-card" style="cursor:pointer;" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'agenda\']'))"><div class="stat-label">Parceiros com entrega pendente</div><div class="stat-value" id="home-stat-partners">0</div></div>
-        </div>
-
-        <div class="agenda-section-title" style="margin-top:16px;">🔄 Posts da semana · processo de criação</div>
-        <div class="agenda-kanban home-kanban" id="home-posts-kanban"></div>
-
-        <div class="agenda-section-title" style="margin-top:14px;">🔄 Palestras da semana · processo de criação</div>
-        <div class="agenda-kanban home-kanban" id="home-lectures-kanban"></div>
-
-        <div class="analytics-card" style="margin-top:14px;">
+        <div class="analytics-card" style="margin-top:4px;">
           <div class="analytics-card-header">
             <div class="analytics-card-title">📊 Números das redes</div>
             <div class="analytics-card-sub">seguidores atuais</div>
           </div>
           <div class="analytics-card-body" style="padding:14px 18px;">
-            <div id="home-social-numbers" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:12px;"></div>
+            <div id="home-social-numbers" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:10px;"></div>
           </div>
+        </div>
+
+        <div class="stats-row" style="grid-template-columns: repeat(3, 1fr); padding:0; margin-top:14px;">
+          <div class="stat-card"><div class="stat-label">Posts dessa semana</div><div class="stat-value" id="home-stat-posts">0/0</div></div>
+          <div class="stat-card"><div class="stat-label">Palestras dessa semana</div><div class="stat-value" id="home-stat-palestras">0/0</div></div>
+          <div class="stat-card" style="cursor:pointer;" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'parceiros\']'))"><div class="stat-label">Parceiros com entrega pendente</div><div class="stat-value" id="home-stat-partners">0</div></div>
+        </div>
+
+        <div class="agenda-section" style="margin:16px 0 0;">
+          <div class="agenda-section-title agenda-section-title-row">
+            <span>🗝️ Estratégia da semana</span>
+            <span class="agenda-section-count" id="agenda-strategy-count">0/0</span>
+          </div>
+          <div class="agenda-section-range" id="agenda-strategy-range"></div>
+          <div id="agenda-strategy-list" class="agenda-list"></div>
+        </div>
+
+        <div class="agenda-section" style="margin:16px 0 0;">
+          <div class="agenda-section-title">🔄 Posts &amp; palestras da semana · processo de criação</div>
+          <div class="agenda-kanban home-kanban" id="home-unified-kanban"></div>
+        </div>
+
+        <div class="agenda-section" style="margin:16px 0 0;">
+          <div class="agenda-section-title">🤝 Meta de entregas dos parceiros</div>
+          <div id="agenda-partners-list" class="agenda-list"></div>
         </div>
 
         <div class="home-grid">
@@ -1146,11 +1170,6 @@
             <div class="home-card-icon">📝</div>
             <div class="home-card-title">Gestão de conteúdo</div>
             <div class="home-card-text">Calendário, todos os posts e ideias.</div>
-          </button>
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'agenda\']'))">
-            <div class="home-card-icon">🕐</div>
-            <div class="home-card-title">Agenda semanal</div>
-            <div class="home-card-text">Veja sua semana organizada.</div>
           </button>
           <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'inspiracoes\']'))">
             <div class="home-card-icon">🎭</div>
@@ -1202,61 +1221,6 @@
       </div>
       <div class="brain-canvas-wrap" onpointerdown="deselectBrainNote()">
         <div class="brain-canvas" id="brain-canvas"></div>
-      </div>
-    </div>
-
-    <div id="view-agenda" style="display:none; flex-direction:column; flex:1; min-height:0; overflow-y:auto;">
-      <div class="topbar">
-        <div class="topbar-title">🕐 Agenda semanal</div>
-        <div class="strategy-month" id="agenda-topbar-actions">
-          <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
-            <span style="font-size:12px;">⏱️</span>
-            <span>Tempo de produção</span>
-          </button>
-          <button class="sync-status" id="notif-status-btn" onclick="openNotifModal()" title="Configurar lembretes de produção" style="margin-right:6px;">
-            <span style="font-size:12px;">🔔</span>
-            <span>Notificações</span>
-          </button>
-          <button type="button" class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="goToAgendaToday()">Hoje</button>
-          <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(-1)">&#8249;</button>
-          <div class="strategy-month-label" id="agenda-week-label">semana</div>
-          <button type="button" class="strategy-month-btn" onclick="changeAgendaWeek(1)">&#8250;</button>
-        </div>
-      </div>
-
-      <div class="notif-today-banner" id="notif-today-banner">
-        <span class="notif-today-banner-icon">🔔</span>
-        <div class="notif-today-banner-body">
-          <div class="notif-today-banner-title" id="notif-today-banner-title">Produção pra hoje</div>
-          <div class="notif-today-banner-items" id="notif-today-banner-items"></div>
-        </div>
-        <button type="button" class="notif-today-banner-close" onclick="dismissNotifBanner()" title="Dispensar por hoje">✕</button>
-      </div>
-
-      <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
-        <div class="stat-card"><div class="stat-label">Posts nessa semana</div><div class="stat-value" id="ag-stat-total">0</div></div>
-        <div class="stat-card"><div class="stat-label">Em progresso</div><div class="stat-value" id="ag-stat-progress">0</div></div>
-        <div class="stat-card"><div class="stat-label">Estratégia pendente (mês)</div><div class="stat-value" id="ag-stat-strategy">0</div></div>
-        <div class="stat-card"><div class="stat-label">Parceiros com entrega pendente</div><div class="stat-value" id="ag-stat-partners">0</div></div>
-      </div>
-
-      <div class="agenda-section">
-        <div class="agenda-section-title agenda-section-title-row">
-          <span>🗝️ Estratégia da semana</span>
-          <span class="agenda-section-count" id="agenda-strategy-count">0/0</span>
-        </div>
-        <div class="agenda-section-range" id="agenda-strategy-range"></div>
-        <div id="agenda-strategy-list" class="agenda-list"></div>
-      </div>
-
-      <div class="agenda-section">
-        <div class="agenda-section-title">🔄 Posts da semana · processo de criação</div>
-        <div class="agenda-kanban" id="agenda-progress-grid"></div>
-      </div>
-
-      <div class="agenda-section">
-        <div class="agenda-section-title">🤝 Meta de entregas dos parceiros</div>
-        <div id="agenda-partners-list" class="agenda-list"></div>
       </div>
     </div>
 
@@ -4163,8 +4127,8 @@ function onDayDrop(ev, dateStr) {
   savePosts();
   if (calView === 'semana') renderWeek(); else renderMonth();
   renderStats();
-  const agendaEl = document.getElementById('view-agenda');
-  if (agendaEl && agendaEl.style.display !== 'none') renderAgenda();
+  const homeEl = document.getElementById('view-home');
+  if (homeEl && homeEl.style.display !== 'none') renderHome();
 }
 
 function setCalView(view) {
@@ -7064,11 +7028,11 @@ let agendaWeekStartStr = '', agendaWeekEndStr = '';
 
 function changeAgendaWeek(dir) {
   agendaWeekOffset += dir;
-  renderAgenda();
+  renderHome();
 }
 function goToAgendaToday() {
   agendaWeekOffset = 0;
-  renderAgenda();
+  renderHome();
 }
 
 function partnerFormatPending(pt) {
@@ -7117,30 +7081,6 @@ function shortDateWithDayFromDate(d) {
   return `${dd}/${mm} - ${DAY_NAMES[d.getDay()]}`;
 }
 
-/* Sugestão de data pra uma coluna (status) do quadro "processo de criação",
-   com base no tempo de produção configurado (ver openProductionModal).
-   - Se a etapa da coluna faz parte do cronograma calculado (roteiro/gravando/
-     editando/legenda/design), sugere o prazo daquela etapa.
-   - Se a coluna é uma etapa "to-do" (ideia/a fazer/pesquisar), sugere que o
-     conteúdo esteja pronto pra entrar em produção até o início da 1ª etapa.
-   Retorna null quando não há tempo de produção configurado pro post. */
-function productionSuggestionForStage(post, statusKey) {
-  const schedule = computeProductionSchedule(post);
-  if (!schedule.length) return null;
-  const stageEntry = schedule.find(item => item.status.key === statusKey);
-  if (stageEntry) {
-    const isSameDay = stageEntry.start.getTime() === stageEntry.end.getTime();
-    return isSameDay
-      ? shortDateWithDayFromDate(stageEntry.end)
-      : `${shortDateWithDayFromDate(stageEntry.start)} → ${shortDateWithDayFromDate(stageEntry.end)}`;
-  }
-  const meta = getStatusMeta(statusKey);
-  if (meta.group === 'todo') {
-    return `até ${shortDateWithDayFromDate(schedule[0].start)}`;
-  }
-  return null;
-}
-
 function renderAgendaPostCard(p, onclickJs) {
   const partnerNames = partnersForPost(p.id);
   const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
@@ -7160,178 +7100,19 @@ function renderAgendaPostCard(p, onclickJs) {
   </div>`;
 }
 
-function renderAgendaKanbanCard(p, statusKey) {
-  const partnerNames = partnersForPost(p.id);
-  const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
-  const suggestion = productionSuggestionForStage(p, statusKey);
+function renderHomeLectureCard(l) {
+  const m = getLectureStatusMeta(l.status);
   return `
-  <div class="week-post agenda-strategy-post ${platCls(p)}" draggable="true" ondragstart="onKanbanDragStart(event, ${p.id})" ondragend="onKanbanDragEnd(event)" onclick="openPost(${p.id})" title="Arraste para mudar a etapa">
+  <div class="week-post agenda-strategy-post" onclick="openLectureModal(${l.id})">
     <div class="agenda-strategy-title-row">
-      <div class="week-post-title" title="${escapeHtml(p.titulo)}">${escapeHtml(p.titulo)}</div>
-      ${suggestion ? '' : `<div class="agenda-strategy-date">${shortDateWithDay(p.data)}</div>`}
+      <div class="week-post-title" title="${escapeHtml(l.tema)}">🎤 ${escapeHtml(l.tema)}</div>
+      ${l.data ? `<div class="agenda-strategy-date">${shortDateWithDay(l.data)}</div>` : ''}
     </div>
-    ${suggestion ? `<div class="agenda-strategy-date agenda-strategy-date-below" title="Publica: ${shortDateWithDay(p.data)}"><span class="prod-suggestion-tag">produzir</span> ${suggestion}</div>` : ''}
-    <div class="week-post-meta">
-      <div class="week-post-icons">
-        ${(p.plataformas||[]).map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
-      </div>
-      <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
-    </div>
-    ${partnerTags ? `<div class="agenda-strategy-tags">${partnerTags}</div>` : ''}
+    ${l.evento ? `<div class="week-post-meta"><span class="week-post-fmt">🏢 ${escapeHtml(l.evento)}</span></div>` : ''}
+    <div class="agenda-strategy-tags"><span class="status-pill ${m.cls}"><span class="status-dot"></span>${m.label}</span></div>
   </div>`;
 }
 
-/* ─── Drag & drop de posts entre etapas do processo de criação ────────── */
-let draggedKanbanId = null;
-function onKanbanDragStart(ev, id) {
-  draggedKanbanId = id;
-  ev.dataTransfer.effectAllowed = 'move';
-  try { ev.dataTransfer.setData('text/plain', String(id)); } catch (e) {}
-  ev.target.closest('.week-post').classList.add('dragging');
-}
-function onKanbanDragEnd(ev) {
-  const el = ev.target.closest('.week-post');
-  if (el) el.classList.remove('dragging');
-  document.querySelectorAll('.agenda-kanban-col.drop-target').forEach(el2 => el2.classList.remove('drop-target'));
-  draggedKanbanId = null;
-}
-function allowDropStage(ev) {
-  ev.preventDefault();
-  ev.currentTarget.classList.add('drop-target');
-}
-function onStageDrop(ev, statusKey) {
-  ev.preventDefault();
-  ev.currentTarget.classList.remove('drop-target');
-  let id = draggedKanbanId;
-  try { id = Number(ev.dataTransfer.getData('text/plain')) || id; } catch (e) {}
-  draggedKanbanId = null;
-  if (!id) return;
-  const p = posts.find(x => x.id === id);
-  if (!p || p.status === statusKey) return;
-  p.status = statusKey;
-  savePosts();
-  renderAgenda();
-  renderStats();
-  renderCalendar();
-  renderList();
-}
-
-function renderAgenda() {
-  renderNotifBanner(getTodayProductionTasks());
-  renderLectureNotifBanner(getUpcomingLecture());
-  const start = getWeekStart(agendaWeekOffset);
-  const end = new Date(start); end.setDate(end.getDate() + 6);
-  const startStr = isoDate(start), endStr = isoDate(end);
-  agendaWeekStartStr = startStr;
-  agendaWeekEndStr = endStr;
-  document.getElementById('agenda-week-label').textContent =
-    `${start.getDate()} ${MONTH_NAMES[start.getMonth()]} – ${end.getDate()} ${MONTH_NAMES[end.getMonth()]}`;
-
-  const weekPosts = posts.filter(p => p.data && p.data >= startStr && p.data <= endStr);
-  const progressPosts = weekPosts.filter(p => groupOf(p.status) === 'progress');
-
-  // Mês "dono" dessa semana: usa a quarta-feira como dia representativo
-  const anchor = new Date(start); anchor.setDate(anchor.getDate() + 3);
-  const weekMonthKey = monthKey(anchor);
-  const weekMonthReq = getRequiredPostsForMonth(weekMonthKey);
-  const monthWeeks = getMonthWeeks(anchor);
-  const weekIdx = monthWeeks.findIndex(w => isoDate(w) === startStr);
-  const perWeek = monthWeeks.length ? Math.ceil(weekMonthReq.length / monthWeeks.length) : 0;
-  const assignedItems = (weekIdx >= 0 && perWeek > 0)
-    ? weekMonthReq.slice(weekIdx * perWeek, weekIdx * perWeek + perWeek)
-    : [];
-
-  // Posts realmente agendados essa semana que carregam a tag de estratégia
-  const scheduledTagged = weekPosts
-    .filter(p => p.requiredTag)
-    .map(p => {
-      const pmk = postMonthKey(p);
-      const reqList = getRequiredPostsForMonth(pmk);
-      const item = reqList.find(it => it.key === p.requiredTag) || { key: p.requiredTag, title: p.titulo, formato: p.formato };
-      return { item, linkedPost: p };
-    });
-  const scheduledKeys = new Set(scheduledTagged.map(x => x.item.key));
-
-  // Ainda faltam criar (nenhum post no mês usa essa tag) — só como lembrete
-  const notYetCreated = assignedItems
-    .filter(item => !scheduledKeys.has(item.key) && !posts.find(p => p.requiredTag === item.key && postMonthKey(p) === weekMonthKey))
-    .map(item => ({ item, linkedPost: null }));
-
-  agendaWeekStrategyItems = [...scheduledTagged, ...notYetCreated];
-  const doneThisWeek = scheduledTagged.length;
-
-  const curMonthKey = monthKey(today());
-  const monthReqNow = getRequiredPostsForMonth(curMonthKey);
-  const pendingStrategyMonth = monthReqNow.filter(item => !posts.find(p => p.requiredTag === item.key && postMonthKey(p) === curMonthKey));
-
-  const activePartners = partners.filter(pt => getPartnerStatusMeta(pt.status).group !== 'complete');
-  const pendingPartners = activePartners.filter(partnerFormatPending);
-
-  document.getElementById('ag-stat-total').textContent = weekPosts.length;
-  document.getElementById('ag-stat-progress').textContent = progressPosts.length;
-  document.getElementById('ag-stat-strategy').textContent = pendingStrategyMonth.length;
-  document.getElementById('ag-stat-partners').textContent = pendingPartners.length;
-
-  document.getElementById('agenda-strategy-count').textContent = `${doneThisWeek}/${Math.max(assignedItems.length, doneThisWeek)}`;
-  document.getElementById('agenda-strategy-range').textContent =
-    `${start.getDate()} ${MONTH_NAMES[start.getMonth()]} – ${end.getDate()} ${MONTH_NAMES[end.getMonth()]} ${end.getFullYear()}`;
-
-  const stratWrap = document.getElementById('agenda-strategy-list');
-  if (!agendaWeekStrategyItems.length) {
-    stratWrap.innerHTML = `<div class="agenda-empty">Nenhum item da estratégia atribuído a essa semana.</div>`;
-  } else {
-    stratWrap.innerHTML = agendaWeekStrategyItems.map(({ item, linkedPost }, i) => {
-      if (linkedPost) {
-        return renderAgendaPostCard(linkedPost, `openAgendaStrategyItem(${i})`);
-      }
-      return `
-        <div class="week-post agenda-strategy-post plat-todo" onclick="openAgendaStrategyItem(${i})">
-          <div class="week-post-title" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</div>
-          <div class="week-post-meta">
-            <div class="week-post-icons"></div>
-            <span class="week-post-fmt">${FORMAT_ICON[item.formato]||''} ${escapeHtml(item.formato || '')}</span>
-          </div>
-          <div class="agenda-strategy-tags"><span class="status-pill st-acriar"><span class="status-dot"></span>a criar</span></div>
-        </div>`;
-    }).join('');
-  }
-
-  const gridWrap = document.getElementById('agenda-progress-grid');
-  gridWrap.innerHTML = ALL_STATUS.map(s => {
-    const stageItems = weekPosts
-      .filter(p => p.status === s.key)
-      .sort((a, b) => (a.data || '').localeCompare(b.data || ''));
-    return `<div class="agenda-kanban-col" ondragover="allowDropStage(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onStageDrop(event,'${s.key}')">
-      <div class="agenda-kanban-head">
-        <div class="agenda-kanban-group">${GROUP_LABELS[s.group]}</div>
-        <div class="agenda-kanban-title-row">
-          <span class="agenda-kanban-title"><span class="status-dot" style="background:${s.dot}"></span><span class="agenda-kanban-title-text" title="${s.label}">${s.label}</span></span>
-          <span class="agenda-kanban-count">${stageItems.length}</span>
-        </div>
-      </div>
-      <div class="agenda-kanban-body">
-        ${stageItems.length ? stageItems.map(p => renderAgendaKanbanCard(p, s.key)).join('') : '<div class="empty-day">—</div>'}
-      </div>
-    </div>`;
-  }).join('');
-
-  const ptWrap = document.getElementById('agenda-partners-list');
-  if (!activePartners.length) {
-    ptWrap.innerHTML = `<div class="agenda-empty">Nenhum parceiro ativo no momento.</div>`;
-  } else {
-    ptWrap.innerHTML = activePartners.map(pt => {
-      const pending = partnerFormatPending(pt);
-      return `
-      <div class="agenda-item" onclick="openPartnerModal(${pt.id})">
-        <div class="agenda-item-top">
-          <div class="agenda-item-main"><div class="agenda-item-title">${escapeHtml(pt.marca)}</div></div>
-          <span class="agenda-item-badge" style="${pending ? 'background:#fff4d8;color:#8a5b00;border-color:#f3dfa8;' : 'background:#e6f4ee;color:#17613c;border-color:#c9ead9;'}">${pending ? 'pendente' : 'em dia'}</span>
-        </div>
-        <div class="agenda-item-sub">${fmtDeliverables(pt)}</div>
-      </div>`;
-    }).join('');
-  }
-}
 
 let draggingNoteId = null;
 let dragOffsetX = 0, dragOffsetY = 0;
@@ -7676,7 +7457,6 @@ const GLOBAL_STATUS_TARGETS = {
   parceiros: 'parceiros-topbar-actions',
   palestras: 'palestras-topbar-actions',
   brainstorm: 'brainstorm-topbar-actions',
-  agenda: 'agenda-topbar-actions',
   inspiracoes: 'inspiracoes-topbar-actions',
 };
 function placeGlobalStatusGroup(view) {
@@ -7693,9 +7473,17 @@ function renderHome() {
   const partnersEl = document.getElementById('home-stat-partners');
   if (!postsEl || !lecturesEl) return;
 
-  const start = getWeekStart(0);
+  renderNotifBanner(getTodayProductionTasks());
+  renderLectureNotifBanner(getUpcomingLecture());
+
+  const start = getWeekStart(agendaWeekOffset);
   const end = new Date(start); end.setDate(end.getDate() + 6);
   const startStr = isoDate(start), endStr = isoDate(end);
+  agendaWeekStartStr = startStr;
+  agendaWeekEndStr = endStr;
+  const weekLabelEl = document.getElementById('agenda-week-label');
+  if (weekLabelEl) weekLabelEl.textContent =
+    `${start.getDate()} ${MONTH_NAMES[start.getMonth()]} – ${end.getDate()} ${MONTH_NAMES[end.getMonth()]}`;
 
   const weekPosts = posts.filter(p => p.data && p.data >= startStr && p.data <= endStr);
   const donePosts = weekPosts.filter(p => groupOf(p.status) === 'complete');
@@ -7705,76 +7493,143 @@ function renderHome() {
   const doneLectures = weekLectures.filter(l => getLectureStatusMeta(l.status).group === 'complete');
   lecturesEl.textContent = `${doneLectures.length}/${weekLectures.length}`;
 
-  if (partnersEl) {
-    const activePartners = partners.filter(pt => getPartnerStatusMeta(pt.status).group !== 'complete');
-    const pendingPartners = activePartners.filter(partnerFormatPending);
-    partnersEl.textContent = pendingPartners.length;
+  const activePartners = partners.filter(pt => getPartnerStatusMeta(pt.status).group !== 'complete');
+  const pendingPartners = activePartners.filter(partnerFormatPending);
+  if (partnersEl) partnersEl.textContent = pendingPartners.length;
+
+  // Estratégia da semana (antes exclusiva da Agenda semanal)
+  const anchor = new Date(start); anchor.setDate(anchor.getDate() + 3);
+  const weekMonthKey = monthKey(anchor);
+  const weekMonthReq = getRequiredPostsForMonth(weekMonthKey);
+  const monthWeeks = getMonthWeeks(anchor);
+  const weekIdx = monthWeeks.findIndex(w => isoDate(w) === startStr);
+  const perWeek = monthWeeks.length ? Math.ceil(weekMonthReq.length / monthWeeks.length) : 0;
+  const assignedItems = (weekIdx >= 0 && perWeek > 0)
+    ? weekMonthReq.slice(weekIdx * perWeek, weekIdx * perWeek + perWeek)
+    : [];
+
+  const scheduledTagged = weekPosts
+    .filter(p => p.requiredTag)
+    .map(p => {
+      const pmk = postMonthKey(p);
+      const reqList = getRequiredPostsForMonth(pmk);
+      const item = reqList.find(it => it.key === p.requiredTag) || { key: p.requiredTag, title: p.titulo, formato: p.formato };
+      return { item, linkedPost: p };
+    });
+  const scheduledKeys = new Set(scheduledTagged.map(x => x.item.key));
+
+  const notYetCreated = assignedItems
+    .filter(item => !scheduledKeys.has(item.key) && !posts.find(p => p.requiredTag === item.key && postMonthKey(p) === weekMonthKey))
+    .map(item => ({ item, linkedPost: null }));
+
+  agendaWeekStrategyItems = [...scheduledTagged, ...notYetCreated];
+  const doneThisWeek = scheduledTagged.length;
+
+  const stratCountEl = document.getElementById('agenda-strategy-count');
+  if (stratCountEl) stratCountEl.textContent = `${doneThisWeek}/${Math.max(assignedItems.length, doneThisWeek)}`;
+  const stratRangeEl = document.getElementById('agenda-strategy-range');
+  if (stratRangeEl) stratRangeEl.textContent =
+    `${start.getDate()} ${MONTH_NAMES[start.getMonth()]} – ${end.getDate()} ${MONTH_NAMES[end.getMonth()]} ${end.getFullYear()}`;
+
+  const stratWrap = document.getElementById('agenda-strategy-list');
+  if (stratWrap) {
+    if (!agendaWeekStrategyItems.length) {
+      stratWrap.innerHTML = `<div class="agenda-empty">Nenhum item da estratégia atribuído a essa semana.</div>`;
+    } else {
+      stratWrap.innerHTML = agendaWeekStrategyItems.map(({ item, linkedPost }, i) => {
+        if (linkedPost) {
+          return renderAgendaPostCard(linkedPost, `openAgendaStrategyItem(${i})`);
+        }
+        return `
+          <div class="week-post agenda-strategy-post plat-todo" onclick="openAgendaStrategyItem(${i})">
+            <div class="week-post-title" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</div>
+            <div class="week-post-meta">
+              <div class="week-post-icons"></div>
+              <span class="week-post-fmt">${FORMAT_ICON[item.formato]||''} ${escapeHtml(item.formato || '')}</span>
+            </div>
+            <div class="agenda-strategy-tags"><span class="status-pill st-acriar"><span class="status-dot"></span>a criar</span></div>
+          </div>`;
+      }).join('');
+    }
   }
 
-  const postsKanbanWrap = document.getElementById('home-posts-kanban');
-  if (postsKanbanWrap) {
-    postsKanbanWrap.innerHTML = ALL_STATUS.map(s => {
-      const stageItems = weekPosts
-        .filter(p => p.status === s.key)
-        .sort((a, b) => (a.data || '').localeCompare(b.data || ''));
+  const unifiedKanbanWrap = document.getElementById('home-unified-kanban');
+  if (unifiedKanbanWrap) {
+    const HOME_UNIFIED_GROUPS = [
+      { key:'todo',     label:'To-do',        dot:'#9d9d9a' },
+      { key:'progress', label:'Em progresso', dot:'#4a7de8' },
+      { key:'complete', label:'Completo',     dot:'#2dbe6c' },
+    ];
+    unifiedKanbanWrap.innerHTML = HOME_UNIFIED_GROUPS.map(g => {
+      const postItems = weekPosts
+        .filter(p => groupOf(p.status) === g.key)
+        .map(p => ({ date: p.data || '', html: renderAgendaPostCard(p, `openPost(${p.id})`) }));
+      const lectureItems = weekLectures
+        .filter(l => getLectureStatusMeta(l.status).group === g.key)
+        .map(l => ({ date: l.data || '', html: renderHomeLectureCard(l) }));
+      const stageItems = postItems.concat(lectureItems).sort((a, b) => a.date.localeCompare(b.date));
       return `<div class="agenda-kanban-col">
         <div class="agenda-kanban-head">
-          <div class="agenda-kanban-group">${GROUP_LABELS[s.group]}</div>
           <div class="agenda-kanban-title-row">
-            <span class="agenda-kanban-title"><span class="status-dot" style="background:${s.dot}"></span><span class="agenda-kanban-title-text" title="${s.label}">${s.label}</span></span>
+            <span class="agenda-kanban-title"><span class="status-dot" style="background:${g.dot}"></span><span class="agenda-kanban-title-text">${g.label}</span></span>
             <span class="agenda-kanban-count">${stageItems.length}</span>
           </div>
         </div>
         <div class="agenda-kanban-body">
-          ${stageItems.length ? stageItems.map(p => renderAgendaKanbanCard(p, s.key)).join('') : '<div class="empty-day">—</div>'}
+          ${stageItems.length ? stageItems.map(x => x.html).join('') : '<div class="empty-day">—</div>'}
         </div>
       </div>`;
     }).join('');
   }
 
-  const lecturesKanbanWrap = document.getElementById('home-lectures-kanban');
-  if (lecturesKanbanWrap) {
-    lecturesKanbanWrap.innerHTML = LECTURE_STATUS.map(s => {
-      const stageItems = weekLectures
-        .filter(l => l.status === s.key)
-        .sort((a, b) => (a.data || '').localeCompare(b.data || ''));
-      return `<div class="agenda-kanban-col">
-        <div class="agenda-kanban-head">
-          <div class="agenda-kanban-group">${LECTURE_GROUP_LABELS[s.group]}</div>
-          <div class="agenda-kanban-title-row">
-            <span class="agenda-kanban-title"><span class="status-dot" style="background:${s.dot}"></span><span class="agenda-kanban-title-text" title="${s.label}">${s.label}</span></span>
-            <span class="agenda-kanban-count">${stageItems.length}</span>
+  // Meta de entregas dos parceiros (antes exclusiva da Agenda semanal)
+  const ptWrap = document.getElementById('agenda-partners-list');
+  if (ptWrap) {
+    if (!activePartners.length) {
+      ptWrap.innerHTML = `<div class="agenda-empty">Nenhum parceiro ativo no momento.</div>`;
+    } else {
+      ptWrap.innerHTML = activePartners.map(pt => {
+        const pending = partnerFormatPending(pt);
+        return `
+        <div class="agenda-item" onclick="openPartnerModal(${pt.id})">
+          <div class="agenda-item-top">
+            <div class="agenda-item-main"><div class="agenda-item-title">${escapeHtml(pt.marca)}</div></div>
+            <span class="agenda-item-badge" style="${pending ? 'background:#fff4d8;color:#8a5b00;border-color:#f3dfa8;' : 'background:#e6f4ee;color:#17613c;border-color:#c9ead9;'}">${pending ? 'pendente' : 'em dia'}</span>
           </div>
-        </div>
-        <div class="agenda-kanban-body">
-          ${stageItems.length ? stageItems.map(l => renderLectureKanbanCard(l)).join('') : '<div class="empty-day">—</div>'}
-        </div>
-      </div>`;
-    }).join('');
+          <div class="agenda-item-sub">${fmtDeliverables(pt)}</div>
+        </div>`;
+      }).join('');
+    }
   }
 
   const socialWrap = document.getElementById('home-social-numbers');
   if (socialWrap) {
+    const PLAT_AKPI_COLOR = { ig:'#b5223a', tt:'#222222', li:'#0a66c2', yt:'#c00000' };
     socialWrap.innerHTML = PLAT_META.map(p => {
-      const seguidores = getLatestSeguidores(p.key);
+      const stats = getSeguidoresStats(p.key);
+      const up = stats.delta >= 0;
       return `
-        <div style="text-align:center; padding:10px 8px; border:1px solid var(--border); border-radius:8px;">
-          <div style="font-size:20px; margin-bottom:4px;">${platIcon(p.key, 18)}</div>
-          <div style="font-size:16px; font-weight:700;">${fmtNum(seguidores)}</div>
-          <div style="font-size:11.5px; color:var(--text-2);">${p.labelShort}</div>
+        <div class="akpi" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\\'analytics\\']'))" style="cursor:pointer;">
+          <div class="akpi-label">${platIcon(p.key, 11)} ${p.labelShort}</div>
+          <div class="akpi-value">${fmtNum(stats.value)}</div>
+          <div class="akpi-delta ${up?'up':'down'}">${up?'↑':'↓'} ${fmtNum(Math.abs(stats.delta))} no período</div>
+          <div class="akpi-bar" style="background:${PLAT_AKPI_COLOR[p.key]||'#5b50c8'};opacity:.22;"></div>
         </div>`;
     }).join('');
   }
 }
 
-function getLatestSeguidores(plat) {
+function getSeguidoresStats(plat) {
   const base = MONTHLY_DATA_BY_PLAT[plat] || [];
   const overrides = analyticsOverrides[plat] || {};
   const merged = base
     .filter(row => !isFutureAnalyticsMonth(row.month) || overrides[row.month])
     .map(row => ({ ...row, ...(overrides[row.month] || {}) }));
-  if (!merged.length) return 0;
-  return merged[merged.length - 1].seguidores || 0;
+  if (!merged.length) return { value: 0, delta: 0 };
+  const period = merged.slice(-6);
+  const value = merged[merged.length - 1].seguidores || 0;
+  const delta = value - (period[0].seguidores || 0);
+  return { value, delta };
 }
 
 function setMainNav(btn) {
@@ -7790,7 +7645,6 @@ function setMainNav(btn) {
   const parceiros = document.getElementById('view-parceiros');
   const palestras = document.getElementById('view-palestras');
   const brainstorm = document.getElementById('view-brainstorm');
-  const agenda = document.getElementById('view-agenda');
   const inspiracoes = document.getElementById('view-inspiracoes');
 
   home.style.display = 'none';
@@ -7800,7 +7654,6 @@ function setMainNav(btn) {
   parceiros.style.display = 'none';
   palestras.style.display = 'none';
   brainstorm.style.display = 'none';
-  agenda.style.display = 'none';
   inspiracoes.style.display = 'none';
 
   if (view === 'home') {
@@ -7821,9 +7674,6 @@ function setMainNav(btn) {
   } else if (view === 'brainstorm') {
     brainstorm.style.display = 'flex';
     renderBrainstorm();
-  } else if (view === 'agenda') {
-    agenda.style.display = 'flex';
-    renderAgenda();
   } else if (view === 'inspiracoes') {
     inspiracoes.style.display = 'flex';
     renderInspiracoes();
@@ -7871,8 +7721,8 @@ document.addEventListener('click', e => {
 
 function renderAll() {
   renderStats(); renderCalendar(); renderList(); renderStrategyChecklist();
-  const agendaEl = document.getElementById('view-agenda');
-  if (agendaEl && agendaEl.style.display !== 'none') renderAgenda();
+  const homeEl = document.getElementById('view-home');
+  if (homeEl && homeEl.style.display !== 'none') renderHome();
 }
 renderAll();
 
