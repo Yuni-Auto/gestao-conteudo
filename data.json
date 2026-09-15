@@ -629,7 +629,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-15",
+      "data": "2026-09-16",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -645,15 +645,16 @@
       ],
       "requiredTag": "slot14",
       "plataformasDatas": {
-        "ig": "2026-09-15",
-        "tt": "2026-09-15",
-        "yt": "2026-09-15"
+        "ig": "2026-09-16",
+        "tt": "2026-09-16",
+        "yt": "2026-09-16"
       },
       "plataformasStatus": {
         "ig": "roteiro",
         "tt": "roteiro",
         "yt": "roteiro"
-      }
+      },
+      "parceiroId": null
     },
     {
       "id": 37,
@@ -1261,7 +1262,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-09",
+      "data": "2026-09-15",
       "status": "publicada",
       "plataformas": [
         "ig",
@@ -1274,13 +1275,14 @@
       "plataformasDatas": {
         "ig": "2026-09-07",
         "tt": "2026-09-09",
-        "yt": "2026-09-13"
+        "yt": "2026-09-15"
       },
       "plataformasStatus": {
         "ig": "publicada",
         "tt": "publicada",
         "yt": "pronto"
-      }
+      },
+      "parceiroId": null
     },
     {
       "id": 65,
@@ -1388,7 +1390,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-17",
+      "data": "2026-09-18",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1457,7 +1459,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-13",
+      "data": "2026-09-15",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1468,7 +1470,8 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot15",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 71,
@@ -1727,6 +1730,37 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 81,
+      "titulo": "[reels] Trend do Osmarzinho",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-15",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdM3vzApYZp/?stkn=bWQydWFuYm00Mmpy"
+        }
+      ],
+      "requiredTag": "slot4",
+      "parceiroId": null
     }
   ],
   "partners": [
@@ -1919,10 +1953,10 @@
       "id": 4,
       "tema": "Pensar no tema",
       "evento": "Fatec SP",
-      "status": "ideia",
+      "status": "recusada",
       "data": "2026-10-06",
       "formato": "Presencial",
-      "local": "",
+      "local": "São Paulo - SP",
       "duracao": 60,
       "cache": 0,
       "contato": "Grace Borges",
@@ -1930,20 +1964,20 @@
       "linkSlides": "",
       "notas": "",
       "temaEvento": "",
-      "hora": "",
-      "cep": "",
-      "rua": "",
+      "hora": "19:00",
+      "cep": "01101-010",
+      "rua": "Avenida Tiradentes, 30",
       "numero": "",
       "complemento": "",
-      "bairro": "",
-      "cidade": "",
-      "uf": ""
+      "bairro": "Luz",
+      "cidade": "São Paulo",
+      "uf": "SP"
     },
     {
       "id": 5,
-      "tema": "Pensar no tema",
+      "tema": "Bate papo: Girls na tecnologia",
       "evento": "FATEC Itaquera",
-      "status": "pesquisando",
+      "status": "recusada",
       "data": "2026-10-01",
       "formato": "Presencial",
       "local": "São Paulo - SP",
@@ -1953,8 +1987,8 @@
       "linkEvento": "https://www.linkedin.com/posts/laura-rfs_o-para-elas-est%C3%A1-crescendo-o-evento-share-7504545647807725568-hzR9/",
       "linkSlides": "",
       "notas": "",
-      "temaEvento": "",
-      "hora": "",
+      "temaEvento": "Para {Elas}",
+      "hora": "16:00",
       "cep": "08295-005",
       "rua": "Avenida Miguel Ignácio Curi, 360",
       "numero": "",
@@ -2075,10 +2109,10 @@
     },
     "yt": {
       "Set 26": {
-        "seguidores": 4,
-        "views": 0,
-        "alcance": 0,
-        "eng": 0,
+        "seguidores": 5,
+        "views": 1200,
+        "alcance": 1.5,
+        "eng": 20,
         "conteudo": 2,
         "clicks": 0
       }
@@ -3243,5 +3277,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-12T21:30:47.277Z"
+  "_updatedAt": "2026-09-15T02:16:01.467Z"
 }
