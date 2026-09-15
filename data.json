@@ -1458,7 +1458,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-13",
+      "data": "2026-09-15",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1469,7 +1469,8 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot15",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 71,
@@ -3275,5 +3276,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-15T02:13:20.997Z"
+  "_updatedAt": "2026-09-15T02:13:28.569Z"
 }
