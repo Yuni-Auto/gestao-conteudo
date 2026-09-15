@@ -1130,14 +1130,8 @@
           <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
         </div>
 
-        <div class="analytics-card" style="margin-top:4px;">
-          <div class="analytics-card-header">
-            <div class="analytics-card-title">📊 Números das redes</div>
-            <div class="analytics-card-sub">seguidores atuais</div>
-          </div>
-          <div class="analytics-card-body" style="padding:14px 18px;">
-            <div id="home-social-numbers" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:10px;"></div>
-          </div>
+        <div style="margin-top:4px;">
+          <div id="home-social-numbers" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:10px;"></div>
         </div>
 
         <div class="stats-row" style="grid-template-columns: repeat(3, 1fr); padding:0; margin-top:14px;">
@@ -1155,48 +1149,18 @@
           <div id="agenda-strategy-list" class="agenda-list"></div>
         </div>
 
-        <div class="agenda-section" style="margin:16px 0 0;">
-          <div class="agenda-section-title">🔄 Posts &amp; palestras da semana · processo de criação</div>
-          <div class="agenda-kanban home-kanban" id="home-unified-kanban"></div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px;">
+          <div class="agenda-section" style="margin:0;">
+            <div class="agenda-section-title">🔄 Posts &amp; palestras da semana · processo de criação</div>
+            <div class="agenda-kanban home-kanban" id="home-unified-kanban"></div>
+          </div>
+
+          <div class="agenda-section" style="margin:0;">
+            <div class="agenda-section-title">🤝 Meta de entregas dos parceiros</div>
+            <div id="agenda-partners-list" class="agenda-list"></div>
+          </div>
         </div>
 
-        <div class="agenda-section" style="margin:16px 0 0;">
-          <div class="agenda-section-title">🤝 Meta de entregas dos parceiros</div>
-          <div id="agenda-partners-list" class="agenda-list"></div>
-        </div>
-
-        <div class="home-grid">
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'gestao\']'))">
-            <div class="home-card-icon">📝</div>
-            <div class="home-card-title">Gestão de conteúdo</div>
-            <div class="home-card-text">Calendário, todos os posts e ideias.</div>
-          </button>
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'inspiracoes\']'))">
-            <div class="home-card-icon">🎭</div>
-            <div class="home-card-title">Inspirações</div>
-            <div class="home-card-text">Referências e ideias salvas.</div>
-          </button>
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'parceiros\']'))">
-            <div class="home-card-icon">💼</div>
-            <div class="home-card-title">Parceiros</div>
-            <div class="home-card-text">Diretrizes e parcerias ativas.</div>
-          </button>
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'analytics\']'))">
-            <div class="home-card-icon">📊</div>
-            <div class="home-card-title">Analytics</div>
-            <div class="home-card-text">Métricas e desempenho.</div>
-          </button>
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'brainstorm\']'))">
-            <div class="home-card-icon">🗝️</div>
-            <div class="home-card-title">Brainstorm Board</div>
-            <div class="home-card-text">Anote e organize novas ideias.</div>
-          </button>
-          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'palestras\']'))">
-            <div class="home-card-icon">🎤</div>
-            <div class="home-card-title">Palestras</div>
-            <div class="home-card-text">Próximas palestras e materiais.</div>
-          </button>
-        </div>
       </div>
     </div>
 
@@ -7613,7 +7577,6 @@ function renderHome() {
           <div class="akpi-label">${platIcon(p.key, 11)} ${p.labelShort}</div>
           <div class="akpi-value">${fmtNum(stats.value)}</div>
           <div class="akpi-delta ${up?'up':'down'}">${up?'↑':'↓'} ${fmtNum(Math.abs(stats.delta))} no período</div>
-          <div class="akpi-bar" style="background:${PLAT_AKPI_COLOR[p.key]||'#5b50c8'};opacity:.22;"></div>
         </div>`;
     }).join('');
   }
