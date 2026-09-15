@@ -1275,13 +1275,14 @@
       "plataformasDatas": {
         "ig": "2026-09-07",
         "tt": "2026-09-09",
-        "yt": "2026-09-13"
+        "yt": "2026-09-15"
       },
       "plataformasStatus": {
         "ig": "publicada",
         "tt": "publicada",
         "yt": "pronto"
-      }
+      },
+      "parceiroId": null
     },
     {
       "id": 65,
@@ -3276,5 +3277,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-15T02:13:44.069Z"
+  "_updatedAt": "2026-09-15T02:13:52.651Z"
 }
