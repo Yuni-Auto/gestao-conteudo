@@ -68,6 +68,17 @@
   .placeholder-text { font-size: 13.5px; color: var(--text-2); line-height: 1.6; }
   .placeholder-badge { display: inline-block; margin-top: 16px; font-size: 11.5px; font-weight: 600; color: #c2185b; background: #fdeaf1; padding: 4px 12px; border-radius: 999px; }
 
+  /* Home view */
+  .home-hero { padding: 22px 4px 6px; }
+  .home-hero-title { font-size: 21px; font-weight: 700; margin-bottom: 6px; }
+  .home-hero-text { font-size: 13.5px; color: var(--text-2); }
+  .home-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; padding-bottom: 26px; }
+  .home-card { text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; cursor: pointer; font-family: inherit; transition: all 0.12s; }
+  .home-card:hover { border-color: #d8d3fb; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transform: translateY(-1px); }
+  .home-card-icon { font-size: 22px; margin-bottom: 10px; }
+  .home-card-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+  .home-card-text { font-size: 12.5px; color: var(--text-2); line-height: 1.5; }
+
   /* Sub-nav inside Gestão de conteúdo (calendário / todos / ideias + plataformas + formatos) */
   .subnav-wrap { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
   .subnav-row { display: flex; align-items: center; flex-wrap: wrap; row-gap: 8px; column-gap: 10px; margin: 0; line-height: 1; }
@@ -1012,6 +1023,10 @@
   <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-logo">✦ Content Studio</div>
 
+    <button class="nav-item-v2 active" data-view="home" data-icon="🏠" onclick="setMainNav(this)">
+      <span class="nav-item-v2-icon">🏠</span><span class="nav-item-v2-label">Início</span>
+    </button>
+
     <button class="nav-item-v2" data-view="brainstorm" data-icon="🗝️" onclick="setMainNav(this)">
       <span class="nav-item-v2-label">Brainstorm Board</span>
     </button>
@@ -1025,7 +1040,7 @@
     </button>
     <div class="nav-group-content" id="nav-group-redes-sociais">
       <div class="nav-section-title">Criação</div>
-      <button class="nav-item-v2 active" data-view="gestao" onclick="setMainNav(this)">
+      <button class="nav-item-v2" data-view="gestao" onclick="setMainNav(this)">
         <span class="nav-item-v2-icon">📝</span><span class="nav-item-v2-label">Gestão de conteúdo</span>
       </button>
       <button class="nav-item-v2" data-view="agenda" data-icon="🕐" onclick="setMainNav(this)">
@@ -1060,6 +1075,93 @@
          aba Gestão de conteúdo (aba inicial) e o JS (placeGlobalStatusGroup) o move para
          dentro da topbar de cada aba conforme a navegação, sempre na mesma linha do título. -->
     <div id="global-status-holder" style="display:none;"></div>
+
+    <!-- Home view: primeira tela carregada ao entrar no app -->
+    <div id="view-home" style="display:flex; flex-direction:column; flex:1; min-height:0; overflow-y:auto;">
+      <div class="topbar">
+        <div class="topbar-title">Início</div>
+        <div class="topbar-actions" id="home-topbar-actions">
+          <div class="global-status-group" id="global-status-group">
+            <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
+              <span class="sync-dot sync-offline" id="gcal-dot"></span>
+              <span id="gcal-label">Google Calendar</span>
+            </button>
+            <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
+              <span class="sync-dot sync-syncing" id="sync-dot"></span>
+              <span id="sync-label">Carregando…</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-area">
+        <div class="home-hero">
+          <div class="home-hero-title">Bem-vindo(a) de volta ✦</div>
+          <div class="home-hero-text">Escolha uma área abaixo para continuar de onde parou.</div>
+        </div>
+
+        <div class="notif-today-banner" id="home-notif-today-banner" style="margin:0 0 4px;">
+          <span class="notif-today-banner-icon">🔔</span>
+          <div class="notif-today-banner-body">
+            <div class="notif-today-banner-title" id="home-notif-today-banner-title">Produção pra hoje</div>
+            <div class="notif-today-banner-items" id="home-notif-today-banner-items"></div>
+          </div>
+          <button type="button" class="notif-today-banner-close" onclick="dismissNotifBanner()" title="Dispensar por hoje">✕</button>
+        </div>
+
+        <div class="notif-today-banner" id="home-lecture-notif-banner" style="margin:0 0 4px;">
+          <span class="notif-today-banner-icon">🔔</span>
+          <div class="notif-today-banner-body">
+            <div class="notif-today-banner-title" id="home-lecture-notif-banner-title">Próxima palestra</div>
+            <div class="notif-today-banner-items" id="home-lecture-notif-banner-items"></div>
+          </div>
+          <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
+        </div>
+
+        <div class="stats-row" style="grid-template-columns: repeat(2, 1fr); padding:0; margin-top:4px;">
+          <div class="stat-card"><div class="stat-label">Posts dessa semana</div><div class="stat-value" id="home-stat-posts">0/0</div></div>
+          <div class="stat-card"><div class="stat-label">Palestras dessa semana</div><div class="stat-value" id="home-stat-palestras">0/0</div></div>
+        </div>
+
+        <div class="home-grid">
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'gestao\']'))">
+            <div class="home-card-icon">📝</div>
+            <div class="home-card-title">Gestão de conteúdo</div>
+            <div class="home-card-text">Calendário, todos os posts e ideias.</div>
+          </button>
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'agenda\']'))">
+            <div class="home-card-icon">🕐</div>
+            <div class="home-card-title">Agenda semanal</div>
+            <div class="home-card-text">Veja sua semana organizada.</div>
+          </button>
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'inspiracoes\']'))">
+            <div class="home-card-icon">🎭</div>
+            <div class="home-card-title">Inspirações</div>
+            <div class="home-card-text">Referências e ideias salvas.</div>
+          </button>
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'parceiros\']'))">
+            <div class="home-card-icon">💼</div>
+            <div class="home-card-title">Parceiros</div>
+            <div class="home-card-text">Diretrizes e parcerias ativas.</div>
+          </button>
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'analytics\']'))">
+            <div class="home-card-icon">📊</div>
+            <div class="home-card-title">Analytics</div>
+            <div class="home-card-text">Métricas e desempenho.</div>
+          </button>
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'brainstorm\']'))">
+            <div class="home-card-icon">🗝️</div>
+            <div class="home-card-title">Brainstorm Board</div>
+            <div class="home-card-text">Anote e organize novas ideias.</div>
+          </button>
+          <button class="home-card" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\'palestras\']'))">
+            <div class="home-card-icon">🎤</div>
+            <div class="home-card-title">Palestras</div>
+            <div class="home-card-text">Próximas palestras e materiais.</div>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Placeholder view for menu items without functionality yet -->
     <div class="placeholder-wrap" id="view-placeholder" style="display:none;">
@@ -1140,20 +1242,10 @@
       </div>
     </div>
 
-    <div id="view-gestao">
+    <div id="view-gestao" style="display:none;">
     <div class="topbar">
       <div class="topbar-title">Gestão de conteúdo</div>
       <div class="topbar-actions" id="gestao-topbar-actions">
-        <div class="global-status-group" id="global-status-group">
-          <button class="sync-status" id="gcal-status-btn" onclick="openGcalModal()">
-            <span class="sync-dot sync-offline" id="gcal-dot"></span>
-            <span id="gcal-label">Google Calendar</span>
-          </button>
-          <button class="sync-status" id="sync-status-btn" onclick="openSyncModal()">
-            <span class="sync-dot sync-syncing" id="sync-dot"></span>
-            <span id="sync-label">Carregando…</span>
-          </button>
-        </div>
         <button class="btn btn-primary" onclick="openNewModal()">+ Novo post</button>
       </div>
     </div>
@@ -3064,22 +3156,37 @@ function getTodayProductionTasks() {
   return tasks;
 }
 
+// Exibe o mesmo aviso de "produção pra hoje" tanto na Agenda semanal quanto na Home.
+const NOTIF_BANNER_IDS = [
+  { banner: 'notif-today-banner', title: 'notif-today-banner-title', items: 'notif-today-banner-items' },
+  { banner: 'home-notif-today-banner', title: 'home-notif-today-banner-title', items: 'home-notif-today-banner-items' },
+];
 function renderNotifBanner(tasks) {
-  const banner = document.getElementById('notif-today-banner');
-  if (!banner) return;
   const dismissedFor = localStorage.getItem(NOTIF_DISMISS_KEY);
-  if (!tasks || !tasks.length || dismissedFor === todayStr()) { banner.classList.remove('show'); return; }
-  document.getElementById('notif-today-banner-title').textContent =
-    tasks.length === 1 ? 'Você tem 1 produção pra hoje' : `Você tem ${tasks.length} produções pra hoje`;
-  document.getElementById('notif-today-banner-items').innerHTML = tasks.map(t =>
-    `<div class="notif-today-banner-item" onclick="openPost(${t.post.id})">${escapeHtml(t.post.titulo)} — ${t.stage.label}</div>`
-  ).join('');
-  banner.classList.add('show');
+  const shouldShow = !!(tasks && tasks.length) && dismissedFor !== todayStr();
+  let title = '', itemsHtml = '';
+  if (shouldShow) {
+    title = tasks.length === 1 ? 'Você tem 1 produção pra hoje' : `Você tem ${tasks.length} produções pra hoje`;
+    itemsHtml = tasks.map(t =>
+      `<div class="notif-today-banner-item" onclick="openPost(${t.post.id})">${escapeHtml(t.post.titulo)} — ${t.stage.label}</div>`
+    ).join('');
+  }
+  NOTIF_BANNER_IDS.forEach(ids => {
+    const banner = document.getElementById(ids.banner);
+    if (!banner) return;
+    if (!shouldShow) { banner.classList.remove('show'); return; }
+    document.getElementById(ids.title).textContent = title;
+    document.getElementById(ids.items).innerHTML = itemsHtml;
+    banner.classList.add('show');
+  });
 }
 
 function dismissNotifBanner() {
   localStorage.setItem(NOTIF_DISMISS_KEY, todayStr());
-  document.getElementById('notif-today-banner').classList.remove('show');
+  NOTIF_BANNER_IDS.forEach(ids => {
+    const banner = document.getElementById(ids.banner);
+    if (banner) banner.classList.remove('show');
+  });
 }
 
 function sendBrowserNotification(tasks) {
@@ -5469,6 +5576,7 @@ const LECTURE_NOTIF_DISMISS_KEY = 'content-manager-lecture-notif-dismissed-v1';
 // Exibe o mesmo aviso de "próxima palestra" tanto na aba Palestras quanto na Agenda semanal.
 const LECTURE_NOTIF_BANNER_IDS = [
   { banner: 'lecture-notif-banner', title: 'lecture-notif-banner-title', items: 'lecture-notif-banner-items' },
+  { banner: 'home-lecture-notif-banner', title: 'home-lecture-notif-banner-title', items: 'home-lecture-notif-banner-items' },
 ];
 function getUpcomingLecture() {
   const todayIso = new Date().toISOString().slice(0,10);
@@ -7544,6 +7652,7 @@ function closeSidebar() {
    grupo de botões "Google Calendar" / "Sincronizado" deve ficar — sempre na
    mesma linha do título da aba. */
 const GLOBAL_STATUS_TARGETS = {
+  home: 'home-topbar-actions',
   gestao: 'gestao-topbar-actions',
   analytics: 'analytics-topbar-actions',
   parceiros: 'parceiros-topbar-actions',
@@ -7560,12 +7669,31 @@ function placeGlobalStatusGroup(view) {
   if (target) target.insertBefore(group, target.firstChild);
 }
 
+function renderHome() {
+  const postsEl = document.getElementById('home-stat-posts');
+  const lecturesEl = document.getElementById('home-stat-palestras');
+  if (!postsEl || !lecturesEl) return;
+
+  const start = getWeekStart(0);
+  const end = new Date(start); end.setDate(end.getDate() + 6);
+  const startStr = isoDate(start), endStr = isoDate(end);
+
+  const weekPosts = posts.filter(p => p.data && p.data >= startStr && p.data <= endStr);
+  const donePosts = weekPosts.filter(p => groupOf(p.status) === 'complete');
+  postsEl.textContent = `${donePosts.length}/${weekPosts.length}`;
+
+  const weekLectures = lectures.filter(l => l.data && l.data >= startStr && l.data <= endStr);
+  const doneLectures = weekLectures.filter(l => getLectureStatusMeta(l.status).group === 'complete');
+  lecturesEl.textContent = `${doneLectures.length}/${weekLectures.length}`;
+}
+
 function setMainNav(btn) {
   document.querySelectorAll('.nav-item-v2').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   closeSidebar();
   const view = btn.dataset.view;
   placeGlobalStatusGroup(view);
+  const home = document.getElementById('view-home');
   const gestao = document.getElementById('view-gestao');
   const placeholder = document.getElementById('view-placeholder');
   const analytics = document.getElementById('view-analytics');
@@ -7575,6 +7703,7 @@ function setMainNav(btn) {
   const agenda = document.getElementById('view-agenda');
   const inspiracoes = document.getElementById('view-inspiracoes');
 
+  home.style.display = 'none';
   gestao.style.display = 'none';
   placeholder.style.display = 'none';
   analytics.style.display = 'none';
@@ -7584,7 +7713,10 @@ function setMainNav(btn) {
   agenda.style.display = 'none';
   inspiracoes.style.display = 'none';
 
-  if (view === 'gestao') {
+  if (view === 'home') {
+    home.style.display = 'flex';
+    renderHome();
+  } else if (view === 'gestao') {
     gestao.style.display = '';
   } else if (view === 'analytics') {
     analytics.style.display = 'flex';
@@ -7683,6 +7815,7 @@ pullFromGitHub(false).then(() => {
   // que ainda não tinham os posts/palestras reais carregados nesse momento.
   checkProductionTasksNow(false);
   renderLectureNotifBanner(getUpcomingLecture());
+  renderHome();
 });
 
 </script>
