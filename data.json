@@ -1785,8 +1785,8 @@
         "li": "2026-09-16"
       },
       "plataformasStatus": {
-        "ig": "programada",
-        "li": "programada"
+        "ig": "publicada",
+        "li": "publicada"
       },
       "formato": "Foto",
       "inspiracoes": [],
@@ -3308,5 +3308,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T20:37:08.676Z"
+  "_updatedAt": "2026-09-16T20:37:36.666Z"
 }
