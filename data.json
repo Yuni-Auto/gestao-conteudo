@@ -1775,7 +1775,7 @@
       ],
       "scenes": [],
       "data": "2026-09-16",
-      "status": "programada",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "li"
@@ -3308,5 +3308,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T20:42:39.573Z"
+  "_updatedAt": "2026-09-16T20:42:44.572Z"
 }
