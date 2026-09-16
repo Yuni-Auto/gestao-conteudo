@@ -629,7 +629,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-19",
+      "data": "2026-09-20",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -645,9 +645,9 @@
       ],
       "requiredTag": "slot14",
       "plataformasDatas": {
-        "ig": "2026-09-17",
-        "tt": "2026-09-17",
-        "yt": "2026-09-17"
+        "ig": "2026-09-20",
+        "tt": "2026-09-20",
+        "yt": "2026-09-20"
       },
       "plataformasStatus": {
         "ig": "roteiro",
@@ -3308,5 +3308,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T20:41:35.292Z"
+  "_updatedAt": "2026-09-16T20:41:53.113Z"
 }
