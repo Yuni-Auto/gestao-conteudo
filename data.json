@@ -629,7 +629,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-16",
+      "data": "2026-09-17",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1459,7 +1459,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-15",
+      "data": "2026-09-17",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1744,7 +1744,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-15",
+      "data": "2026-09-17",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3277,5 +3277,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T17:08:28.652Z"
+  "_updatedAt": "2026-09-16T17:09:58.904Z"
 }
