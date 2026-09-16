@@ -1761,6 +1761,40 @@
       ],
       "requiredTag": "slot4",
       "parceiroId": null
+    },
+    {
+      "id": 82,
+      "titulo": "[post] Palestrante no TDC",
+      "desc": "🚀 Agora é oficial: vou palestrar no TDC São Paulo! 💜\n\nVou falar sobre um tema que surgiu a partir de um desafio real de modernização que vivenciei nos últimos meses e que me levou a estudar diferentes possibilidades para conduzir uma migração de AngularJS para Angular 21.\n\nAngularJS para Angular 21: acelerando migrações com GitHub Copilot.\n\nDurante esse processo, uma das coisas que mais chamou minha atenção foi perceber que o Copilot pode ir muito além da geração de código.\n\nO Copilot acelerou o processo porque não foi utilizado apenas para gerar código. Ele também ajudou a entender o legado, estruturar a análise, planejar a migração, implementar, testar e validar.\n\nÉ justamente essa abordagem que vou mostrar no TDC: como usar IA como parte de um processo estruturado de migração, e não apenas como uma ferramenta para gerar código. Contexto, estratégia, colaboração e validação são fundamentais para conduzir uma migração com qualidade.\n\nE tem mais: vou levar uma demo prática mostrando um pouco desse processo do AngularJS ao Angular 21+. 👀🤖",
+      "carouselLegenda": "🚀 Agora é oficial: vou palestrar no TDC São Paulo! 💜\n\nVou falar sobre um tema que surgiu a partir de um desafio real de modernização que vivenciei nos últimos meses e que me levou a estudar diferentes possibilidades para conduzir uma migração de AngularJS para Angular 21.\n\nAngularJS para Angular 21: acelerando migrações com GitHub Copilot.\n\nDurante esse processo, uma das coisas que mais chamou minha atenção foi perceber que o Copilot pode ir muito além da geração de código.\n\nO Copilot acelerou o processo porque não foi utilizado apenas para gerar código. Ele também ajudou a entender o legado, estruturar a análise, planejar a migração, implementar, testar e validar.\n\nÉ justamente essa abordagem que vou mostrar no TDC: como usar IA como parte de um processo estruturado de migração, e não apenas como uma ferramenta para gerar código. Contexto, estratégia, colaboração e validação são fundamentais para conduzir uma migração com qualidade.\n\nE tem mais: vou levar uma demo prática mostrando um pouco desse processo do AngularJS ao Angular 21+. 👀🤖",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-16",
+      "status": "programada",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-09-16",
+        "tt": "2026-09-16",
+        "li": "2026-09-16"
+      },
+      "plataformasStatus": {
+        "ig": "programada",
+        "tt": "pronto",
+        "li": "programada"
+      },
+      "formato": "Foto",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null
     }
   ],
   "partners": [
@@ -3277,5 +3311,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T17:10:18.202Z"
+  "_updatedAt": "2026-09-16T17:44:07.582Z"
 }
