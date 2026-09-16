@@ -1778,17 +1778,14 @@
       "status": "programada",
       "plataformas": [
         "ig",
-        "tt",
         "li"
       ],
       "plataformasDatas": {
         "ig": "2026-09-16",
-        "tt": "2026-09-16",
         "li": "2026-09-16"
       },
       "plataformasStatus": {
         "ig": "programada",
-        "tt": "pronto",
         "li": "programada"
       },
       "formato": "Foto",
@@ -3311,5 +3308,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T17:59:26.018Z"
+  "_updatedAt": "2026-09-16T17:59:58.793Z"
 }
