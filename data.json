@@ -645,9 +645,9 @@
       ],
       "requiredTag": "slot14",
       "plataformasDatas": {
-        "ig": "2026-09-16",
-        "tt": "2026-09-16",
-        "yt": "2026-09-16"
+        "ig": "2026-09-17",
+        "tt": "2026-09-17",
+        "yt": "2026-09-17"
       },
       "plataformasStatus": {
         "ig": "roteiro",
@@ -3277,5 +3277,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T17:09:58.904Z"
+  "_updatedAt": "2026-09-16T17:10:18.202Z"
 }
