@@ -2110,10 +2110,10 @@
     "yt": {
       "Set 26": {
         "seguidores": 5,
-        "views": 1200,
-        "alcance": 1.5,
-        "eng": 20,
-        "conteudo": 2,
+        "views": 2600,
+        "alcance": 2.9,
+        "eng": 36,
+        "conteudo": 3,
         "clicks": 0
       }
     }
@@ -3277,5 +3277,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-16T17:02:55.523Z"
+  "_updatedAt": "2026-09-16T17:08:28.652Z"
 }
