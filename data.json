@@ -2161,14 +2161,14 @@
     {
       "id": 1,
       "text": "Metas que eu estabeleci para mês/ano",
-      "x": 50,
-      "y": 39.875,
-      "color": "white",
+      "x": 59.98046875,
+      "y": 296.828125,
+      "color": "pink",
       "rot": -2.1
     },
     {
       "id": 2,
-      "text": "",
+      "text": "Dicas ",
       "x": 418.90625,
       "y": 167.984375,
       "color": "gray",
@@ -3333,5 +3333,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T22:20:27.647Z"
+  "_updatedAt": "2026-09-17T22:20:36.660Z"
 }
