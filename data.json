@@ -645,9 +645,9 @@
       ],
       "requiredTag": "slot14",
       "plataformasDatas": {
-        "ig": "2026-09-20",
-        "tt": "2026-09-20",
-        "yt": "2026-09-20"
+        "ig": "2026-09-28",
+        "tt": "2026-09-28",
+        "yt": "2026-09-28"
       },
       "plataformasStatus": {
         "ig": "roteiro",
@@ -1460,7 +1460,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-19",
+      "data": "2026-09-20",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -3309,5 +3309,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T21:09:46.822Z"
+  "_updatedAt": "2026-09-17T21:10:02.258Z"
 }
