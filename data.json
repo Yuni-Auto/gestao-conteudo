@@ -2168,7 +2168,7 @@
     },
     {
       "id": 2,
-      "text": "Dicas gerais de TI ou Front",
+      "text": "Dicas gerais de TI ou Front-end",
       "x": 418.90625,
       "y": 167.984375,
       "color": "gray",
@@ -3333,5 +3333,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T22:21:11.717Z"
+  "_updatedAt": "2026-09-17T22:21:14.446Z"
 }
