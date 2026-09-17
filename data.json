@@ -1426,14 +1426,19 @@
       ],
       "scenes": [],
       "data": "2026-09-30",
-      "status": "afazer",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DdFLYURETWq/?stkn=a3Q5c2k2eDQ5azgx"
+        }
+      ],
       "requiredTag": "slot1",
       "plataformasStatus": null,
       "parceiroId": null
@@ -3311,5 +3316,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T22:16:12.980Z"
+  "_updatedAt": "2026-09-17T22:17:20.883Z"
 }
