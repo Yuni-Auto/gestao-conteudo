@@ -2176,7 +2176,7 @@
     },
     {
       "id": 3,
-      "text": "Coisas sobre mim que explicam por que eu",
+      "text": "Coisas sobre mim que explicam por que eu fui prar",
       "x": 106,
       "y": 96,
       "color": "coral",
@@ -3341,5 +3341,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T22:24:43.019Z"
+  "_updatedAt": "2026-09-17T22:24:45.842Z"
 }
