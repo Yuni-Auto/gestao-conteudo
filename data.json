@@ -1386,7 +1386,7 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "Programas de estagio Setembro/2026 ✨💜👩🏾‍💻\n\n📍Comente \"Estágio\" para receber o links de inscrições na sua DM\n\n#dev #tech #tecnologia #programacao"
         }
       ],
       "scenes": [],
@@ -1410,7 +1410,8 @@
         }
       ],
       "requiredTag": "slot3",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 69,
@@ -3308,5 +3309,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T20:34:19.487Z"
+  "_updatedAt": "2026-09-17T20:37:41.215Z"
 }
