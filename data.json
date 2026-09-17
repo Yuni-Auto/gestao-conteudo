@@ -629,7 +629,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-20",
+      "data": "2026-09-28",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1745,7 +1745,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-20",
+      "data": "2026-09-21",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3309,5 +3309,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T21:09:40.189Z"
+  "_updatedAt": "2026-09-17T21:09:46.822Z"
 }
