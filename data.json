@@ -1415,7 +1415,7 @@
     },
     {
       "id": 69,
-      "titulo": "[carrossel] Dump do mês",
+      "titulo": "[carrossel] Dump do mês (Melhores momentos do TDC)",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1434,7 +1434,9 @@
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot1"
+      "requiredTag": "slot1",
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 70,
@@ -3309,5 +3311,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T21:24:56.454Z"
+  "_updatedAt": "2026-09-17T22:16:12.980Z"
 }
