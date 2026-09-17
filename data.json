@@ -2160,7 +2160,7 @@
   "brainstormNotes": [
     {
       "id": 1,
-      "text": "Metas que ",
+      "text": "Metas que eu estabeleci para mês/ano",
       "x": 50,
       "y": 40,
       "color": "white",
@@ -3325,5 +3325,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T22:19:19.076Z"
+  "_updatedAt": "2026-09-17T22:19:42.078Z"
 }
