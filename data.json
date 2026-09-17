@@ -1098,7 +1098,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-09-21",
+      "data": "2026-09-22",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1494,7 +1494,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-22",
+      "data": "2026-09-26",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3309,5 +3309,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T21:21:42.785Z"
+  "_updatedAt": "2026-09-17T21:24:11.753Z"
 }
