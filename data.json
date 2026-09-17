@@ -374,7 +374,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-22",
+      "data": "2026-09-21",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1745,7 +1745,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-22",
+      "data": "2026-09-21",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3309,5 +3309,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T21:11:13.689Z"
+  "_updatedAt": "2026-09-17T21:11:24.806Z"
 }
