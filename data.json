@@ -1461,7 +1461,7 @@
       ],
       "scenes": [],
       "data": "2026-09-19",
-      "status": "design",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
@@ -3309,5 +3309,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-17T20:37:41.215Z"
+  "_updatedAt": "2026-09-17T20:57:43.726Z"
 }
