@@ -1425,7 +1425,7 @@
       "requiredTag": "slot3",
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto",
+        "tt": "publicada",
         "li": "pronto"
       },
       "parceiroId": null
@@ -3366,5 +3366,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T21:11:26.738Z"
+  "_updatedAt": "2026-09-18T21:19:34.707Z"
 }
