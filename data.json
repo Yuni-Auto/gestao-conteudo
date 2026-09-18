@@ -2184,7 +2184,7 @@
     },
     {
       "id": 6,
-      "text": "Meus gastos ",
+      "text": "Meus gastos [a",
       "x": 662.046875,
       "y": 83.3984375,
       "color": "purple",
@@ -3349,5 +3349,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T01:12:31.755Z"
+  "_updatedAt": "2026-09-18T01:13:11.522Z"
 }
