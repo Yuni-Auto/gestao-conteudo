@@ -1113,8 +1113,17 @@
         }
       ],
       "requiredTag": "slot4",
-      "plataformasDatas": null,
-      "plataformasStatus": null
+      "plataformasDatas": {
+        "ig": "2026-09-22",
+        "tt": "2026-09-22",
+        "yt": "2026-09-22"
+      },
+      "plataformasStatus": {
+        "ig": "programada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
+      "parceiroId": null
     },
     {
       "id": 53,
@@ -3349,5 +3358,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T14:55:56.609Z"
+  "_updatedAt": "2026-09-18T15:07:34.938Z"
 }
