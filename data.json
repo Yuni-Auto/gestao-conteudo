@@ -2184,9 +2184,9 @@
     },
     {
       "id": 4,
-      "text": "Coisas que são óbvias pra mim como front-end ou TI, mas para você talvez não ",
-      "x": 887.96484375,
-      "y": 275.05859375,
+      "text": "Coisas que são óbvias pra mim como front-end ou TI, mas para você talvez não seja",
+      "x": 395.08203125,
+      "y": 386.43359375,
       "color": "orange",
       "rot": -2.1
     }
@@ -3349,5 +3349,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T00:25:00.136Z"
+  "_updatedAt": "2026-09-18T00:25:05.913Z"
 }
