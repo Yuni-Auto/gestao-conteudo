@@ -2184,7 +2184,7 @@
     },
     {
       "id": 4,
-      "text": "Coisas que são ob",
+      "text": "Coisas que são óbvias pra m",
       "x": 887.96484375,
       "y": 275.05859375,
       "color": "orange",
@@ -3349,5 +3349,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T00:24:27.681Z"
+  "_updatedAt": "2026-09-18T00:24:34.735Z"
 }
