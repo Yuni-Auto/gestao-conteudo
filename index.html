@@ -197,6 +197,7 @@
   .agenda-kanban-title span.agenda-kanban-title-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .agenda-kanban-count { font-size: 10.5px; font-weight: 700; color: var(--text-2); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 1px 7px; flex-shrink: 0; }
   .agenda-kanban-body { padding: 8px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  #gestao-unified-kanban .agenda-kanban-body { max-height: 420px; overflow-y: auto; }
   .agenda-kanban-body .week-post { cursor: grab; }
   .agenda-kanban-body .week-post:active { cursor: grabbing; }
   .stat-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
@@ -7618,23 +7619,15 @@ function renderHome() {
 
   const stratWrap = document.getElementById('agenda-strategy-list');
   if (stratWrap) {
-    if (!agendaWeekStrategyItems.length) {
+    const createdItems = agendaWeekStrategyItems
+      .map((entry, i) => ({ ...entry, i }))
+      .filter(({ linkedPost }) => linkedPost);
+    if (!createdItems.length) {
       stratWrap.innerHTML = `<div class="agenda-empty">Nenhum item da estratégia atribuído a essa semana.</div>`;
     } else {
-      stratWrap.innerHTML = agendaWeekStrategyItems.map(({ item, linkedPost }, i) => {
-        if (linkedPost) {
-          return renderAgendaPostCard(linkedPost, `openAgendaStrategyItem(${i})`);
-        }
-        return `
-          <div class="week-post agenda-strategy-post plat-todo" onclick="openAgendaStrategyItem(${i})">
-            <div class="week-post-title" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</div>
-            <div class="week-post-meta">
-              <div class="week-post-icons"></div>
-              <span class="week-post-fmt">${FORMAT_ICON[item.formato]||''} ${escapeHtml(item.formato || '')}</span>
-            </div>
-            <div class="agenda-strategy-tags"><span class="status-pill st-acriar"><span class="status-dot"></span>a criar</span></div>
-          </div>`;
-      }).join('');
+      stratWrap.innerHTML = createdItems.map(({ linkedPost, i }) =>
+        renderAgendaPostCard(linkedPost, `openAgendaStrategyItem(${i})`)
+      ).join('');
     }
   }
 
