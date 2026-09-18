@@ -2184,7 +2184,7 @@
     },
     {
       "id": 6,
-      "text": "Meus gastos para me mant",
+      "text": "Meus gastos para me manter atualizad",
       "x": 662.046875,
       "y": 83.3984375,
       "color": "purple",
@@ -3349,5 +3349,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T01:13:13.986Z"
+  "_updatedAt": "2026-09-18T01:13:16.444Z"
 }
