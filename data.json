@@ -375,7 +375,7 @@
         }
       ],
       "data": "2026-09-21",
-      "status": "gravando",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
@@ -554,7 +554,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-27",
+      "data": "2026-09-24",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -629,7 +629,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-16",
+      "data": "2026-09-28",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -645,9 +645,9 @@
       ],
       "requiredTag": "slot14",
       "plataformasDatas": {
-        "ig": "2026-09-16",
-        "tt": "2026-09-16",
-        "yt": "2026-09-16"
+        "ig": "2026-09-24",
+        "tt": "2026-09-24",
+        "yt": "2026-09-24"
       },
       "plataformasStatus": {
         "ig": "roteiro",
@@ -1098,7 +1098,7 @@
           "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
         }
       ],
-      "data": "2026-09-23",
+      "data": "2026-09-22",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1386,12 +1386,12 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "Programas de estagio Setembro/2026 ✨💜👩🏾‍💻\n\n📍Comente \"Estágio\" para receber o links de inscrições na sua DM\n\n#dev #tech #tecnologia #programacao"
         }
       ],
       "scenes": [],
       "data": "2026-09-18",
-      "status": "design",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
@@ -1410,11 +1410,12 @@
         }
       ],
       "requiredTag": "slot3",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 69,
-      "titulo": "[carrossel] Dump do mês",
+      "titulo": "[carrossel] Dump do mês (Melhores momentos do TDC)",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1425,15 +1426,22 @@
       ],
       "scenes": [],
       "data": "2026-09-30",
-      "status": "afazer",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot1"
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DdFLYURETWq/?stkn=a3Q5c2k2eDQ5azgx"
+        }
+      ],
+      "requiredTag": "slot1",
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 70,
@@ -1459,8 +1467,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-15",
-      "status": "design",
+      "data": "2026-09-20",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
@@ -1493,7 +1501,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-19",
+      "data": "2026-09-26",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1744,8 +1752,8 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-15",
-      "status": "pesquisar",
+      "data": "2026-09-21",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -1760,6 +1768,37 @@
         }
       ],
       "requiredTag": "slot4",
+      "parceiroId": null
+    },
+    {
+      "id": 82,
+      "titulo": "[post] Palestrante no TDC",
+      "desc": "🚀 Agora é oficial: vou palestrar no TDC São Paulo! 💜\n\nVou falar sobre um tema que surgiu a partir de um desafio real de modernização que vivenciei nos últimos meses e que me levou a estudar diferentes possibilidades para conduzir uma migração de AngularJS para Angular 21.\n\nAngularJS para Angular 21: acelerando migrações com GitHub Copilot.\n\nDurante esse processo, uma das coisas que mais chamou minha atenção foi perceber que o Copilot pode ir muito além da geração de código.\n\nO Copilot acelerou o processo porque não foi utilizado apenas para gerar código. Ele também ajudou a entender o legado, estruturar a análise, planejar a migração, implementar, testar e validar.\n\nÉ justamente essa abordagem que vou mostrar no TDC: como usar IA como parte de um processo estruturado de migração, e não apenas como uma ferramenta para gerar código. Contexto, estratégia, colaboração e validação são fundamentais para conduzir uma migração com qualidade.\n\nE tem mais: vou levar uma demo prática mostrando um pouco desse processo do AngularJS ao Angular 21+. 👀🤖",
+      "carouselLegenda": "🚀 Agora é oficial: vou palestrar no TDC São Paulo! 💜\n\nVou falar sobre um tema que surgiu a partir de um desafio real de modernização que vivenciei nos últimos meses e que me levou a estudar diferentes possibilidades para conduzir uma migração de AngularJS para Angular 21.\n\nAngularJS para Angular 21: acelerando migrações com GitHub Copilot.\n\nDurante esse processo, uma das coisas que mais chamou minha atenção foi perceber que o Copilot pode ir muito além da geração de código.\n\nO Copilot acelerou o processo porque não foi utilizado apenas para gerar código. Ele também ajudou a entender o legado, estruturar a análise, planejar a migração, implementar, testar e validar.\n\nÉ justamente essa abordagem que vou mostrar no TDC: como usar IA como parte de um processo estruturado de migração, e não apenas como uma ferramenta para gerar código. Contexto, estratégia, colaboração e validação são fundamentais para conduzir uma migração com qualidade.\n\nE tem mais: vou levar uma demo prática mostrando um pouco desse processo do AngularJS ao Angular 21+. 👀🤖",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": ""
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-16",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-09-16",
+        "li": "2026-09-16"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "li": "publicada"
+      },
+      "formato": "Foto",
+      "inspiracoes": [],
+      "requiredTag": null,
       "parceiroId": null
     }
   ],
@@ -2110,15 +2149,48 @@
     "yt": {
       "Set 26": {
         "seguidores": 5,
-        "views": 1200,
-        "alcance": 1.5,
-        "eng": 20,
-        "conteudo": 2,
+        "views": 2600,
+        "alcance": 2.9,
+        "eng": 36,
+        "conteudo": 3,
         "clicks": 0
       }
     }
   },
-  "brainstormNotes": [],
+  "brainstormNotes": [
+    {
+      "id": 1,
+      "text": "Metas que eu estabeleci para mês/ano",
+      "x": 59.98046875,
+      "y": 296.828125,
+      "color": "pink",
+      "rot": -2.1
+    },
+    {
+      "id": 2,
+      "text": "Dicas gerais de TI ou Front-end",
+      "x": 418.90625,
+      "y": 167.984375,
+      "color": "mint",
+      "rot": 0
+    },
+    {
+      "id": 3,
+      "text": "Coisas sobre mim que explicam por que eu fui parar ne TI ",
+      "x": 106,
+      "y": 96,
+      "color": "coral",
+      "rot": 2.6
+    },
+    {
+      "id": 4,
+      "text": "Coisas que são óbvias pra mim como front-end ou TI, mas para você talvez não seja",
+      "x": 395.08203125,
+      "y": 386.43359375,
+      "color": "orange",
+      "rot": -2.1
+    }
+  ],
   "inspirations": [
     {
       "id": 1,
@@ -3277,5 +3349,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-15T22:08:35.663Z"
+  "_updatedAt": "2026-09-18T00:25:08.822Z"
 }
