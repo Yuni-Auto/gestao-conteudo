@@ -1406,7 +1406,11 @@
         "tt",
         "li"
       ],
-      "plataformasDatas": null,
+      "plataformasDatas": {
+        "ig": "2026-09-18",
+        "tt": "2026-09-18",
+        "li": "2026-09-18"
+      },
       "formato": "Carousel",
       "inspiracoes": [
         {
@@ -1419,7 +1423,11 @@
         }
       ],
       "requiredTag": "slot3",
-      "plataformasStatus": null,
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto",
+        "li": "pronto"
+      },
       "parceiroId": null
     },
     {
@@ -3358,5 +3366,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T15:07:34.938Z"
+  "_updatedAt": "2026-09-18T21:11:26.738Z"
 }
