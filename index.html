@@ -1141,6 +1141,15 @@
           <div id="agenda-strategy-list" class="agenda-list"></div>
         </div>
 
+        <div class="week-section" style="margin-top:16px;">
+          <div class="week-header">
+            <div class="week-header-left">
+              <div class="week-title">📅 Calendário da semana · posts &amp; palestras</div>
+            </div>
+          </div>
+          <div class="week-grid" id="home-week-grid"></div>
+        </div>
+
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px;">
           <div class="agenda-section" style="margin:0;">
             <div class="agenda-section-title">🔄 Posts &amp; palestras da semana · processo de criação</div>
@@ -7553,6 +7562,33 @@ function placeGlobalStatusGroup(view) {
   if (target) target.insertBefore(group, target.firstChild);
 }
 
+function renderHomeWeekCalendar(start, startStr) {
+  const grid = document.getElementById('home-week-grid');
+  if (!grid) return;
+  const tStr = todayStr();
+  let html = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(start); d.setDate(start.getDate() + i);
+    const dStr = isoDate(d);
+    const isToday = dStr === tStr;
+    const dayPosts = filteredDayPosts(dStr);
+    const dayLectures = filteredDayLectures(dStr);
+    const hasItems = dayPosts.length || dayLectures.length;
+    html += `<div class="week-day-col">
+      <div class="week-day-head">
+        <div class="week-day-name">${DAY_NAMES[d.getDay()]}</div>
+        <div class="week-day-num${isToday?' today':''}">${d.getDate()}</div>
+      </div>
+      <div class="week-day-body">
+        ${dayPosts.map(p => renderPostCard(p, dStr)).join('')}
+        ${dayLectures.map(l => renderLectureCalCard(l)).join('')}
+        ${hasItems ? '' : '<div class="empty-day">—</div>'}
+      </div>
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+
 function renderHome() {
   const postsEl = document.getElementById('home-stat-posts');
   const lecturesEl = document.getElementById('home-stat-palestras');
@@ -7630,6 +7666,8 @@ function renderHome() {
       ).join('');
     }
   }
+
+  renderHomeWeekCalendar(start, startStr);
 
   const unifiedKanbanWrap = document.getElementById('home-unified-kanban');
   if (unifiedKanbanWrap) {
