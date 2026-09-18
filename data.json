@@ -1099,7 +1099,7 @@
         }
       ],
       "data": "2026-09-22",
-      "status": "gravando",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -3349,5 +3349,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T01:13:30.754Z"
+  "_updatedAt": "2026-09-18T14:55:56.609Z"
 }
