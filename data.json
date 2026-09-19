@@ -1856,7 +1856,7 @@
         }
       ],
       "data": "2026-09-27",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -3433,5 +3433,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:38:37.723Z"
+  "_updatedAt": "2026-09-19T14:39:21.335Z"
 }
