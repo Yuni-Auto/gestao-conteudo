@@ -1539,7 +1539,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-26",
+      "data": "2026-09-27",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1576,7 +1576,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-28",
+      "data": "2026-09-29",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -3406,5 +3406,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:34:45.392Z"
+  "_updatedAt": "2026-09-19T14:34:53.087Z"
 }
