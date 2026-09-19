@@ -1873,6 +1873,34 @@
       ],
       "requiredTag": null,
       "parceiroId": null
+    },
+    {
+      "id": 84,
+      "titulo": "[reels] Isso ou aquilo ?",
+      "desc": "A gente entrou no clima do “isso ou aquilo”. \n\n👇 Responde aí nos comentários:\n\nFront 🎨 or Back ⚙️?\nJavascript 🐍 or Java ☕?\nCopilot 🤖 or GPT 🧠?\nEscrever código do zero 👩‍💻 or usar IA pra acelerar 🚀?\nMonolito 🧱 or MFEs 🔗?\nStack nova ✨ or stack estável 🛡️?\nAWS ☁️ or Azure 🔵?",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-19",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null
     }
   ],
   "partners": [
@@ -3466,5 +3494,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:44:26.210Z"
+  "_updatedAt": "2026-09-19T14:49:00.138Z"
 }
