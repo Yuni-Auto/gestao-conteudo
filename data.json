@@ -1841,6 +1841,33 @@
       "inspiracoes": [],
       "requiredTag": null,
       "parceiroId": null
+    },
+    {
+      "id": 83,
+      "titulo": "[Reels] Mimos que recebi sendo palestrante no TDC 2026",
+      "desc": "Alguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-19",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null
     }
   ],
   "partners": [
@@ -3406,5 +3433,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:35:01.124Z"
+  "_updatedAt": "2026-09-19T14:36:20.837Z"
 }
