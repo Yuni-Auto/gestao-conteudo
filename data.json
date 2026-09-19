@@ -2379,6 +2379,11 @@
       "key": "dicas",
       "label": "Dicas",
       "icon": "💡"
+    },
+    {
+      "key": "tipo_mu8huiwhd0hb",
+      "label": "Recebidos",
+      "icon": "🏷️"
     }
   ],
   "requiredPostsByMonth": {
@@ -3438,5 +3443,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:39:28.350Z"
+  "_updatedAt": "2026-09-19T14:39:55.851Z"
 }
