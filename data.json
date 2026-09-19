@@ -1574,7 +1574,23 @@
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Foto com uma pessoal ou lugar",
+          "texto": ""
+        },
+        {
+          "titulo": "Foto da credencial",
+          "texto": ""
+        },
+        {
+          "titulo": "Vídeo apresentando ou falando",
+          "texto": ""
+        },
+        {
+          "titulo": "Foto de comida",
+          "texto": ""
+        },
+        {
+          "titulo": "Foto do evento",
           "texto": ""
         }
       ],
@@ -1582,13 +1598,16 @@
       "data": "2026-09-25",
       "status": "legenda",
       "plataformas": [
+        "ig",
+        "tt",
         "li"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "parceiroId": null
     },
     {
       "id": 74,
@@ -3366,5 +3385,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:20:42.610Z"
+  "_updatedAt": "2026-09-19T14:25:42.019Z"
 }
