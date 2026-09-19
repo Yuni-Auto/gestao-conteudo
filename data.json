@@ -1591,8 +1591,8 @@
     {
       "id": 73,
       "titulo": "[carrossel] Dump do TDC",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
+      "carouselLegenda": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
       "slides": [
         {
           "titulo": "Foto com uma pessoal ou lugar",
@@ -3406,5 +3406,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:30:14.451Z"
+  "_updatedAt": "2026-09-19T14:32:07.766Z"
 }
