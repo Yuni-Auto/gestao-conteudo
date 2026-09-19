@@ -2290,8 +2290,8 @@
     {
       "id": 8,
       "text": "Aprenda esses termo da Engenharia de Software em vez de perder tempo",
-      "x": 246,
-      "y": 236,
+      "x": 900.2109375,
+      "y": 263.296875,
       "color": "blue",
       "rot": 2.4
     }
@@ -3466,5 +3466,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:44:20.662Z"
+  "_updatedAt": "2026-09-19T14:44:26.210Z"
 }
