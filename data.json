@@ -2289,7 +2289,7 @@
     },
     {
       "id": 8,
-      "text": "Aprenda esses ",
+      "text": "Aprenda esses termo da Engenharia de ",
       "x": 246,
       "y": 236,
       "color": "blue",
@@ -3466,5 +3466,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:44:10.169Z"
+  "_updatedAt": "2026-09-19T14:44:14.456Z"
 }
