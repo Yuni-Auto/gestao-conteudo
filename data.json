@@ -1865,7 +1865,12 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/Dcqu1PlIZF6/"
+        }
+      ],
       "requiredTag": null,
       "parceiroId": null
     }
@@ -3433,5 +3438,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:39:21.335Z"
+  "_updatedAt": "2026-09-19T14:39:28.350Z"
 }
