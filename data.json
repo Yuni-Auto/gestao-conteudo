@@ -1902,7 +1902,8 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": 1
     }
   ],
   "partners": [
@@ -3496,5 +3497,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T17:08:27.241Z"
+  "_updatedAt": "2026-09-19T17:08:31.272Z"
 }
