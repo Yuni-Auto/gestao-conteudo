@@ -2357,6 +2357,13 @@
       "instagram": "giselletechh",
       "nome": "Giselle Costa",
       "tipo": "dicas"
+    },
+    {
+      "id": 12,
+      "rede": "ig",
+      "instagram": "laura_data_talks",
+      "nome": "Laura",
+      "tipo": "tipo_mu8huiwhd0hb"
     }
   ],
   "inspTipos": [
@@ -3443,5 +3450,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:39:55.851Z"
+  "_updatedAt": "2026-09-19T14:40:13.217Z"
 }
