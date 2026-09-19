@@ -2281,7 +2281,7 @@
     },
     {
       "id": 7,
-      "text": "Front-end vs Back-end. Qual carreira combina mais com você?",
+      "text": "Front-end vs Back-end. \nQual carreira combina mais com você?",
       "x": 717.64453125,
       "y": 474.1328125,
       "color": "yellow",
@@ -3458,5 +3458,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:43:34.955Z"
+  "_updatedAt": "2026-09-19T14:43:38.211Z"
 }
