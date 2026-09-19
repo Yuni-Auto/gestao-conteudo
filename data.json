@@ -1876,7 +1876,7 @@
     },
     {
       "id": 84,
-      "titulo": "[reels] Isso ou aquilo ?",
+      "titulo": "[reels] Isso ou aquilo no TDC 2026 ?",
       "desc": "A gente entrou no clima do “isso ou aquilo”. \n\n👇 Responde aí nos comentários:\n\nFront 🎨 or Back ⚙️?\nJavascript 🐍 or Java ☕?\nCopilot 🤖 or GPT 🧠?\nEscrever código do zero 👩‍💻 or usar IA pra acelerar 🚀?\nMonolito 🧱 or MFEs 🔗?\nStack nova ✨ or stack estável 🛡️?\nAWS ☁️ or Azure 🔵?",
       "carouselLegenda": "",
       "slides": [],
@@ -3494,5 +3494,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:49:03.050Z"
+  "_updatedAt": "2026-09-19T14:49:31.751Z"
 }
