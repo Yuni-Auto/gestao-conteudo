@@ -1371,11 +1371,31 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "Take me filmando "
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Trajeto até o evento"
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Filmando o ambiente do evento"
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Filmando o público ou stands"
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Palestras acontecendo"
         }
       ],
       "data": "2026-09-25",
-      "status": "roteiro",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -1385,7 +1405,8 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot13",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 68,
@@ -3385,5 +3406,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:25:42.019Z"
+  "_updatedAt": "2026-09-19T14:30:14.451Z"
 }
