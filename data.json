@@ -1099,7 +1099,7 @@
         }
       ],
       "data": "2026-09-22",
-      "status": "gravando",
+      "status": "programada",
       "plataformas": [
         "ig",
         "tt",
@@ -1113,8 +1113,17 @@
         }
       ],
       "requiredTag": "slot4",
-      "plataformasDatas": null,
-      "plataformasStatus": null
+      "plataformasDatas": {
+        "ig": "2026-09-22",
+        "tt": "2026-09-22",
+        "yt": "2026-09-22"
+      },
+      "plataformasStatus": {
+        "ig": "programada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
+      "parceiroId": null
     },
     {
       "id": 53,
@@ -1355,18 +1364,38 @@
     {
       "id": 67,
       "titulo": "[reels] Um dia comigo no TDC 2026",
-      "desc": "",
+      "desc": "Um dia comigo no TDC 2026 💜\n\n#dev #rotina #tech #tecnologia #tdc",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "Take me filmando "
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Trajeto até o evento"
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Filmando o ambiente do evento"
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Filmando o público ou stands"
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Palestras acontecendo"
         }
       ],
       "data": "2026-09-25",
-      "status": "roteiro",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -1376,7 +1405,8 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": "slot13",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 68,
@@ -1397,7 +1427,11 @@
         "tt",
         "li"
       ],
-      "plataformasDatas": null,
+      "plataformasDatas": {
+        "ig": "2026-09-18",
+        "tt": "2026-09-18",
+        "li": "2026-09-18"
+      },
       "formato": "Carousel",
       "inspiracoes": [
         {
@@ -1410,7 +1444,11 @@
         }
       ],
       "requiredTag": "slot3",
-      "plataformasStatus": null,
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "li": "pronto"
+      },
       "parceiroId": null
     },
     {
@@ -1425,7 +1463,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-30",
+      "data": "2026-10-03",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1501,7 +1539,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-26",
+      "data": "2026-09-29",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1538,7 +1576,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-28",
+      "data": "2026-10-01",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1553,25 +1591,44 @@
     {
       "id": 73,
       "titulo": "[carrossel] Dump do TDC",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
+      "carouselLegenda": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Foto com uma pessoal ou lugar",
+          "texto": ""
+        },
+        {
+          "titulo": "Foto da credencial",
+          "texto": ""
+        },
+        {
+          "titulo": "Vídeo apresentando ou falando",
+          "texto": ""
+        },
+        {
+          "titulo": "Foto de comida",
+          "texto": ""
+        },
+        {
+          "titulo": "Foto do evento",
           "texto": ""
         }
       ],
       "scenes": [],
       "data": "2026-09-25",
-      "status": "legenda",
+      "status": "design",
       "plataformas": [
+        "ig",
+        "tt",
         "li"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "parceiroId": null
     },
     {
       "id": 74,
@@ -1724,22 +1781,6 @@
       "requiredTag": null
     },
     {
-      "id": 80,
-      "titulo": "Teste",
-      "desc": "Teste",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": null
-    },
-    {
       "id": 81,
       "titulo": "[reels] Trend do Osmarzinho",
       "desc": "",
@@ -1797,6 +1838,66 @@
         "li": "publicada"
       },
       "formato": "Foto",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null
+    },
+    {
+      "id": 83,
+      "titulo": "[Reels] Mimos que recebi sendo palestrante no TDC 2026",
+      "desc": "Alguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-27",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "Laura",
+          "link": "https://www.instagram.com/p/Dcqu1PlIZF6/"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null
+    },
+    {
+      "id": 84,
+      "titulo": "[reels] Isso ou aquilo no TDC 2026 ?",
+      "desc": "A gente entrou no clima do “isso ou aquilo”. \n\n👇 Responde aí nos comentários:\n\nFront 🎨 or Back ⚙️?\nJavascript 🐍 or Java ☕?\nCopilot 🤖 or GPT 🧠?\nEscrever código do zero 👩‍💻 or usar IA pra acelerar 🚀?\nMonolito 🧱 or MFEs 🔗?\nStack nova ✨ or stack estável 🛡️?\nAWS ☁️ or Azure 🔵?",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "2026-09-25",
+      "status": "gravando",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
       "parceiroId": null
@@ -1930,11 +2031,11 @@
       "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
       "linkSlides": "https://canva.link/w88t5ycommevznj",
       "notas": "",
-      "temaEvento": "",
+      "temaEvento": "Front-end Moderno e Arquitetura Web",
       "hora": "10:30",
       "cep": "02518-000",
-      "rua": "Avenida Professora Ida Kolb, 513",
-      "numero": "",
+      "rua": "Avenida Professora Ida Kolb",
+      "numero": "513",
       "complemento": "",
       "bairro": "Jardim das Laranjeiras",
       "cidade": "São Paulo",
@@ -1978,7 +2079,7 @@
       "linkEvento": "https://www.instagram.com/womakersgram/",
       "linkSlides": "https://canva.link/c3e3h849alvk5w6",
       "notas": "",
-      "temaEvento": "",
+      "temaEvento": "Imersão no mundo Tech",
       "hora": "09:00",
       "cep": "",
       "rua": "",
@@ -1990,7 +2091,7 @@
     },
     {
       "id": 4,
-      "tema": "Pensar no tema",
+      "tema": "Bate papo: Mentoria para meninas",
       "evento": "Fatec SP",
       "status": "recusada",
       "data": "2026-10-06",
@@ -2002,7 +2103,7 @@
       "linkEvento": "",
       "linkSlides": "",
       "notas": "",
-      "temaEvento": "",
+      "temaEvento": "Tecnologia em Diálogo: a Formação Plural como Resposta às Demandas do Mercado",
       "hora": "19:00",
       "cep": "01101-010",
       "rua": "Avenida Tiradentes, 30",
@@ -2189,6 +2290,38 @@
       "y": 386.43359375,
       "color": "orange",
       "rot": -2.1
+    },
+    {
+      "id": 5,
+      "text": "Coisas que depois de 8 anos de TI ganharam outro peso",
+      "x": 649.625,
+      "y": 264.15625,
+      "color": "green",
+      "rot": -1.7
+    },
+    {
+      "id": 6,
+      "text": "Meus gastos mensais para me manter atualizada na TI",
+      "x": 662.046875,
+      "y": 83.3984375,
+      "color": "purple",
+      "rot": 2.2
+    },
+    {
+      "id": 7,
+      "text": "Front-end vs Back-end. \nQual carreira combina mais com você?",
+      "x": 717.64453125,
+      "y": 474.1328125,
+      "color": "yellow",
+      "rot": -0.5
+    },
+    {
+      "id": 8,
+      "text": "Aprenda esses termo da Engenharia de Software em vez de perder tempo",
+      "x": 900.2109375,
+      "y": 263.296875,
+      "color": "blue",
+      "rot": 2.4
     }
   ],
   "inspirations": [
@@ -2268,6 +2401,13 @@
       "instagram": "giselletechh",
       "nome": "Giselle Costa",
       "tipo": "dicas"
+    },
+    {
+      "id": 12,
+      "rede": "ig",
+      "instagram": "laura_data_talks",
+      "nome": "Laura",
+      "tipo": "tipo_mu8huiwhd0hb"
     }
   ],
   "inspTipos": [
@@ -2290,6 +2430,11 @@
       "key": "dicas",
       "label": "Dicas",
       "icon": "💡"
+    },
+    {
+      "key": "tipo_mu8huiwhd0hb",
+      "label": "Recebidos",
+      "icon": "🏷️"
     }
   ],
   "requiredPostsByMonth": {
@@ -3349,5 +3494,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-18T00:44:00.214Z"
+  "_updatedAt": "2026-09-19T14:58:56.285Z"
 }
