@@ -915,6 +915,31 @@
   .m-slide-text { font-size:13px; color:var(--text-2); line-height:1.65; }
   .m-slide-empty { font-size:13px; color:var(--text-3); font-style:italic; }
 
+  /* Evento de gravação: lista de cenas/posts vinculados a um evento */
+  .evprod-section-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin: 4px 0 8px; }
+  .evprod-section-label:not(:first-child) { margin-top: 20px; }
+  .evprod-post { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+  .evprod-post-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 9px 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .evprod-post-title { font-size: 13.5px; font-weight: 600; flex: 1; min-width: 120px; cursor: pointer; }
+  .evprod-post-title:hover { color: #5b50c8; }
+  .evprod-post-count { font-size: 11.5px; color: var(--text-3); }
+  .evprod-unlink { width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-3); cursor: pointer; font-size: 14px; line-height: 1; }
+  .evprod-unlink:hover { color: #e8445a; border-color: #fcd0d7; }
+  .evprod-post-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+  .evprod-empty { font-size: 13px; color: var(--text-3); text-align: center; padding: 26px 10px; line-height: 1.6; }
+  .evprod-check { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 3px 2px; font-size: 12px; font-weight: 600; color: var(--text-2); cursor: pointer; user-select: none; }
+  .evprod-check input { width: 18px; height: 18px; accent-color: #2dbe6c; cursor: pointer; margin: 0; }
+  .evprod-item-done { border-color: #b8ecce !important; }
+  .evprod-item-done .m-scene-head, .evprod-item-done .m-slide-head { background: #eafbf1; }
+  .evprod-item-done .m-scene-body, .evprod-item-done .m-slide-body { opacity: 0.5; text-decoration: line-through; }
+  .evprod-item-done .evprod-check { color: #1a6b40; }
+  .evprod-count-done { color: #1a6b40; font-weight: 700; }
+  .evprod-suggest-box { margin-top: 20px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .evprod-suggest-hint { font-size: 12px; color: var(--text-2); margin-bottom: 9px; line-height: 1.5; }
+  .evprod-suggest-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 8px 10px; border: 1px dashed #d8d3fb; border-radius: 8px; margin-bottom: 7px; background: #faf9ff; }
+  .evprod-suggest-row .evprod-post-title { cursor: default; }
+  .evprod-suggest-row .evprod-post-title:hover { color: inherit; }
+
   /* ── Brainstorm Board ─────────────────────────────────────────────────── */
   .brain-canvas-wrap { flex:1; overflow:auto; position:relative; background:var(--bg); }
   .brain-canvas {
@@ -1670,6 +1695,13 @@
         <div class="meta-label">🤝 Parcerias vinculadas</div>
         <div class="meta-value" id="m-partners"></div>
       </div>
+      <div class="meta-row full" id="m-evento-row" style="display:none;">
+        <div class="meta-label">🎤 Evento</div>
+        <div class="meta-value">
+          <select class="form-input" id="m-evento-select" onchange="onDetailEventoChange(this.value)"></select>
+          <div id="m-evento-link" style="margin-top:6px;"></div>
+        </div>
+      </div>
     </div>
     <!-- non-carousel body -->
     <div class="modal-body" id="m-desc-body">
@@ -1800,6 +1832,9 @@
     </div>
     <div class="modal-body" style="padding:20px 22px;">
 
+      <div id="l-evprod-row" style="display:none; margin-bottom:14px;">
+        <button type="button" class="btn" style="width:100%; justify-content:center;" onclick="openEventoProducao(editingLectureId)">🎬 <span id="l-evprod-label"></span></button>
+      </div>
       <div class="form-group">
         <label class="form-label">Tema / Título da palestra</label>
         <input class="form-input" id="l-tema" placeholder="Ex: Carreira em tech para iniciantes" />
@@ -1912,6 +1947,25 @@
           <button class="btn" onclick="closeLectureModal()">Cancelar</button>
           <button class="btn btn-primary" onclick="saveLecture()">Salvar</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Produção do evento: cenas e posts vinculados -->
+<div class="modal-overlay" id="evprod-modal" onclick="handleOverlayClick(event,'evprod-modal')">
+  <div class="modal" style="max-width:680px;">
+    <div class="modal-hero">
+      <div class="modal-format-badge">🎬 Para produzir no evento</div>
+      <div class="modal-title-text" id="evprod-title">—</div>
+      <div id="evprod-sub" style="font-size:12.5px; color:var(--text-2); margin-top:6px; line-height:1.5;"></div>
+    </div>
+    <div class="modal-body" id="evprod-body"></div>
+    <div class="modal-footer">
+      <div style="font-size:11.5px; color:var(--text-3);" id="evprod-count"></div>
+      <div class="modal-actions">
+        <button class="btn" onclick="editEventoFromProd()">Editar evento</button>
+        <button class="btn" onclick="closeEventoProducao()">Fechar</button>
       </div>
     </div>
   </div>
@@ -2128,7 +2182,7 @@
 
       <div class="form-group">
         <label class="form-label">Tag de estratégia (opcional)</label>
-        <select class="form-input" id="n-reqtag">
+        <select class="form-input" id="n-reqtag" onchange="toggleEventoWrap()">
           <option value="">Nenhuma</option>
         </select>
       </div>
@@ -2173,7 +2227,7 @@
         <div class="nf-meta-grid">
           <div class="form-group" style="margin-bottom:0;">
             <label class="form-label">Data de publicação</label>
-            <input class="form-input" id="n-data" type="date" />
+            <input class="form-input" id="n-data" type="date" onchange="toggleEventoWrap()" />
           </div>
           <div class="form-group" style="margin-bottom:0;">
             <label class="form-label">Formato</label>
@@ -2216,6 +2270,13 @@
           <label class="form-label">Inspirações</label>
           <div id="n-insp-list"></div>
           <button type="button" class="btn insp-add-btn" onclick="addInspField()">+ Adicionar inspiração</button>
+        </div>
+
+        <!-- Evento da gravação (só quando status = gravando ou design/arte) -->
+        <div class="form-group" id="n-evento-wrap" style="display:none; margin-bottom:0;">
+          <label class="form-label">🎤 Evento onde vai produzir (opcional)</label>
+          <select class="form-input" id="n-evento" onchange="onNewEventoChange(this.value)"></select>
+          <div style="font-size:11.5px; color:var(--text-3); margin-top:5px; line-height:1.5;">As cenas / slides deste post aparecem na lista de produção do evento. Cadastre o evento na aba Palestras.</div>
         </div>
 
       </div>
@@ -4441,6 +4502,7 @@ function selectStatus(key) {
   document.getElementById('status-dropdown').classList.remove('open');
   refreshTriggerBtn(p);
   updateModalDateField(p);
+  renderDetalheEvento(p);
   renderAll();
 }
 
@@ -4463,6 +4525,7 @@ function openPost(id) {
   document.getElementById('m-plat').innerHTML           = platPills(p.plataformas);
   updateModalDateField(p);
   renderProductionScheduleBlock(p);
+  renderDetalheEvento(p);
   if (p.formato === 'Carousel' || p.formato === 'Foto' || p.formato === 'Pin') {
     document.getElementById('m-desc-body').style.display    = 'none';
     document.getElementById('m-scene-body').style.display   = 'none';
@@ -4711,6 +4774,7 @@ function getSlides() {
   return Array.from(document.querySelectorAll('#n-slides-list .slide-card')).map((card, i) => ({
     titulo: (card.querySelector(`[data-t="${i+1}"]`) || {}).value || '',
     texto:  (card.querySelector(`[data-x="${i+1}"]`) || {}).value || '',
+    feito:  card.dataset.feito === '1',
   }));
 }
 
@@ -4721,6 +4785,7 @@ function addSceneCard(prefill = {}) {
   const card = document.createElement('div');
   card.className  = 'scene-card';
   card.dataset.idx = idx;
+  card.dataset.feito = prefill.feito ? '1' : '';   // marcação "feita" (lista de produção do evento)
   card.innerHTML = `
     <div class="scene-card-head">
       <div class="scene-num">${idx}</div>
@@ -4766,6 +4831,7 @@ function getScenes() {
       inicio: +(card.querySelector(`[data-s="${n}"]`)?.value || 0),
       fim:    +(card.querySelector(`[data-e="${n}"]`)?.value || 0),
       cena:     card.querySelector(`[data-c="${n}"]`)?.value || '',
+      feito:    card.dataset.feito === '1',
     };
   });
 }
@@ -4854,6 +4920,7 @@ function toggleInspWrap() {
   const wrap = document.getElementById('n-insp-wrap');
   wrap.style.display = show ? 'block' : 'none';
   if (show && document.getElementById('n-insp-list').children.length === 0) addInspField();
+  toggleEventoWrap();
 }
 
 function populateReqTagSelect(selected) {
@@ -4882,6 +4949,7 @@ function populatePartnerSelect(selectId, selected) {
 
 function openNewModal(prefill = {}) {
   editingPostId = prefill.id || null;
+  newEventoId = prefill.eventoId || null;
   document.getElementById('n-titulo').value  = prefill.titulo || '';
   populateReqTagSelect(prefill.requiredTag || '');
   populatePartnerSelect('n-parceiro', prefill.parceiroId || '');
@@ -4934,6 +5002,7 @@ function openNewModal(prefill = {}) {
       const te = card.querySelector(`[data-x="${i + 1}"]`);
       if (ti) ti.value = s.titulo || '';
       if (te) te.value = s.texto  || '';
+      card.dataset.feito = s.feito ? '1' : '';
     });
   }
 
@@ -4956,11 +5025,13 @@ function duplicatePost(id) {
     id: nextId++,
     titulo: orig.titulo + ' (cópia)',
     status: 'ideia',
+    eventoId: null,
     data: '',
     plataformas: [...(orig.plataformas || [])],
     plataformasDatas: null,
     plataformasStatus: null,
-    slides: orig.slides ? orig.slides.map(s => ({ ...s })) : [],
+    slides: orig.slides ? orig.slides.map(s => ({ ...s, feito: false })) : [],
+    scenes: orig.scenes ? orig.scenes.map(s => ({ ...s, feito: false })) : [],
     inspiracoes: [...(orig.inspiracoes || [])],
   };
   posts.push(copy);
@@ -4992,6 +5063,9 @@ function saveNewPost() {
   const requiredTag = document.getElementById('n-reqtag').value || null;
   const parceiroSel = document.getElementById('n-parceiro');
   const parceiroId = parceiroSel && parceiroSel.value ? Number(parceiroSel.value) : null;
+  const eventoSel = document.getElementById('n-evento');
+  const eventoVisivel = statusUsaEvento(status);
+  const eventoId = eventoVisivel && eventoSel && eventoSel.value ? Number(eventoSel.value) : null;
   const plataformasDatas = getPlatDatesValues();
   const plataformasStatus = getPlatStatusValues();
   if (editingPostId) {
@@ -5018,6 +5092,8 @@ function saveNewPost() {
       post.inspiracoes     = formInsp;
       post.requiredTag     = requiredTag;
       post.parceiroId      = parceiroId;
+      // fora de gravando/design o campo fica oculto: mantém o vínculo que já existia
+      if (eventoVisivel) post.eventoId = eventoId;
     }
   } else {
     const fmtN   = document.getElementById('n-formato').value;
@@ -5039,11 +5115,297 @@ function saveNewPost() {
       inspiracoes:     formInsp,
       requiredTag,
       parceiroId,
+      eventoId,
     });
   }
   savePosts();
   closeNewModal();
   renderAll();
+}
+
+/* ─── Evento de gravação (post ↔ evento cadastrado em Palestras) ─────────
+   Quando o post está em "Gravando" ou "Design / arte", dá pra relacionar o
+   evento onde ele vai ser produzido. O evento passa a listar as cenas dos
+   reels e os posts (carrossel/foto/pin) vinculados, pra produzir lá.
+   Também sugere posts cuja etapa (calculada pelo "Tempo de produção") cai
+   no mesmo dia do evento. */
+const EVENTO_STATUS_KEYS = ['gravando', 'design'];
+function statusUsaEvento(key) { return EVENTO_STATUS_KEYS.includes(key); }
+function isCarouselLike(p) { return p.formato === 'Carousel' || p.formato === 'Foto' || p.formato === 'Pin'; }
+function getEventoById(id) {
+  if (id === null || id === undefined || id === '') return null;
+  return lectures.find(l => Number(l.id) === Number(id)) || null;
+}
+let newEventoId = null;
+let evprodLectureId = null;
+
+/* Janela de datas (início/fim) da etapa atual do post, segundo o Tempo de produção. */
+function stageWindowForPost(p) {
+  if (!p || !p.data) return null;
+  const item = computeProductionSchedule(p).find(i => i.status.key === p.status);
+  return item ? { start: isoDate(item.start), end: isoDate(item.end) } : null;
+}
+
+/* <option>s de eventos: os que caem no período da etapa vêm primeiro. */
+function eventoOptionsHtml(draft, selectedId) {
+  const win = stageWindowForPost(draft);
+  const t = todayStr();
+  const list = lectures.filter(l => (l.status !== 'cancelada' && l.status !== 'recusada') || Number(l.id) === Number(selectedId));
+  const same = [], upcoming = [], past = [];
+  list.forEach(l => {
+    if (win && l.data && l.data >= win.start && l.data <= win.end) same.push(l);
+    else if (!l.data || l.data >= t) upcoming.push(l);
+    else past.push(l);
+  });
+  const byDateAsc = (a, b) => (a.data || '9999').localeCompare(b.data || '9999');
+  same.sort(byDateAsc); upcoming.sort(byDateAsc); past.sort((a, b) => b.data.localeCompare(a.data));
+  const label = l => `${l.data ? fmtDateBR(l.data).slice(0, 5) : 's/ data'} · ${l.evento ? l.evento + ' — ' : ''}${l.tema || ''}`;
+  const opt = l => `<option value="${l.id}"${Number(l.id) === Number(selectedId) ? ' selected' : ''}>${escapeHtml(label(l))}</option>`;
+  const group = (name, arr) => arr.length ? `<optgroup label="${name}">${arr.map(opt).join('')}</optgroup>` : '';
+  const empty = lectures.length ? '' : '<option value="" disabled>Nenhum evento cadastrado (aba Palestras)</option>';
+  return `<option value="">Nenhum</option>${empty}${group('⭐ Cai no prazo desta etapa', same)}${group('Próximos', upcoming)}${group('Anteriores', past)}`;
+}
+
+/* — Campo no modal "novo / editar post" — */
+function toggleEventoWrap() {
+  const wrap = document.getElementById('n-evento-wrap');
+  const statusSel = document.getElementById('n-status');
+  if (!wrap || !statusSel) return;
+  const show = statusUsaEvento(statusSel.value);
+  wrap.style.display = show ? 'block' : 'none';
+  if (!show) return;
+  const draft = {
+    data:        document.getElementById('n-data').value,
+    formato:     document.getElementById('n-formato').value,
+    status:      statusSel.value,
+    requiredTag: document.getElementById('n-reqtag').value || null,
+  };
+  document.getElementById('n-evento').innerHTML = eventoOptionsHtml(draft, newEventoId);
+}
+function onNewEventoChange(v) { newEventoId = v ? Number(v) : null; }
+
+/* — Campo no card (modal de detalhe) — */
+function renderDetalheEvento(p) {
+  const row = document.getElementById('m-evento-row');
+  if (!row) return;
+  if (!statusUsaEvento(p.status)) { row.style.display = 'none'; return; }
+  row.style.display = 'flex';
+  document.getElementById('m-evento-select').innerHTML = eventoOptionsHtml(p, p.eventoId);
+  refreshDetalheEventoLink(p);
+}
+function refreshDetalheEventoLink(p) {
+  const ev = getEventoById(p.eventoId);
+  document.getElementById('m-evento-link').innerHTML = ev
+    ? `<span class="partner-link-chip" onclick="openEventoProducao(${ev.id})" title="Ver tudo que vai ser produzido neste evento">🎬 Ver o que produzir no evento</span>`
+    : '';
+}
+function onDetailEventoChange(value) {
+  const p = posts.find(x => x.id === currentPostId);
+  if (!p) return;
+  p.eventoId = value ? Number(value) : null;
+  savePosts();
+  refreshDetalheEventoLink(p);
+  const pal = document.getElementById('view-palestras');
+  if (pal && pal.style.display !== 'none') renderLectures();
+  renderGestaoKanban();
+}
+
+/* — Consultas — */
+function postsLinkedToEvento(lectureId) {
+  return posts.filter(p => Number(p.eventoId) === Number(lectureId) && statusUsaEvento(p.status));
+}
+/* Posts em gravando/design, ainda sem evento, cuja etapa cai no dia do evento. */
+function postsSuggestedForEvento(l) {
+  if (!l || !l.data) return [];
+  return posts.filter(p => {
+    if (!statusUsaEvento(p.status) || getEventoById(p.eventoId)) return false;
+    const w = stageWindowForPost(p);
+    return !!w && l.data >= w.start && l.data <= w.end;
+  });
+}
+function unlinkPostsFromEvento(lectureId) {
+  let changed = false;
+  posts.forEach(p => { if (Number(p.eventoId) === Number(lectureId)) { p.eventoId = null; changed = true; } });
+  if (changed) savePosts();
+}
+
+/* — Modal "O que produzir no evento" — */
+function evprodCheckHtml(postId, kind, idx, done, label) {
+  return `<label class="evprod-check" title="Marcar como ${label.toLowerCase()}"><input type="checkbox" ${done ? 'checked' : ''} onchange="toggleEventoItem(${postId},'${kind}',${idx},this.checked)" /> ${label}</label>`;
+}
+/* Progresso (feitos / total) das cenas ou slides de um post. */
+function eventoProgress(p) {
+  const arr = (isCarouselLike(p) ? p.slides : p.scenes) || [];
+  return { done: arr.filter(x => x && x.feito).length, total: arr.length };
+}
+function eventoProgressTotal(lectureId) {
+  return postsLinkedToEvento(lectureId).reduce((acc, p) => {
+    const pr = eventoProgress(p); acc.done += pr.done; acc.total += pr.total; return acc;
+  }, { done: 0, total: 0 });
+}
+function toggleEventoItem(postId, kind, idx, checked) {
+  const p = posts.find(x => x.id === postId);
+  if (!p) return;
+  const arr = kind === 'slide' ? p.slides : p.scenes;
+  if (!arr || !arr[idx]) return;
+  arr[idx].feito = !!checked;
+  savePosts();
+  const body = document.getElementById('evprod-body');
+  const top = body.scrollTop;
+  renderEventoProducao();
+  body.scrollTop = top;
+  const pal = document.getElementById('view-palestras');
+  if (pal && pal.style.display !== 'none') renderLectures();
+}
+
+function eventoPostBlockHtml(p) {
+  const carousel = isCarouselLike(p);
+  const pr = eventoProgress(p);
+  let items, countLabel;
+  if (carousel) {
+    const slides = p.slides || [];
+    countLabel = `${pr.done}/${pr.total} slide${pr.total !== 1 ? 's' : ''}`;
+    items = slides.length ? slides.map((s, i) => `
+      <div class="m-slide-card${s.feito ? ' evprod-item-done' : ''}">
+        <div class="m-slide-head"><div class="slide-num">${i + 1}</div><span class="m-slide-head-label">Slide ${i + 1}</span>${evprodCheckHtml(p.id, 'slide', i, s.feito, 'Feito')}</div>
+        <div class="m-slide-body">
+          ${s.titulo ? `<div class="m-slide-title">${escapeHtml(s.titulo)}</div>` : ''}
+          ${s.texto ? `<div class="m-slide-text">${escapeHtml(s.texto)}</div>` : '<div class="m-slide-empty">Sem texto</div>'}
+        </div>
+      </div>`).join('') : '<div class="m-slide-empty">Nenhum slide escrito ainda.</div>';
+  } else {
+    const scenes = p.scenes || [];
+    countLabel = `${pr.done}/${pr.total} cena${pr.total !== 1 ? 's' : ''}`;
+    if (scenes.length) {
+      items = scenes.map((s, i) => `
+      <div class="m-scene-card${s.feito ? ' evprod-item-done' : ''}">
+        <div class="m-scene-head"><div class="scene-num">${i + 1}</div><span class="m-scene-time">${s.inicio}s a ${s.fim}s</span><span class="m-scene-head-label">Cena ${i + 1}</span>${evprodCheckHtml(p.id, 'scene', i, s.feito, 'Feita')}</div>
+        <div class="m-scene-body">${escapeHtml(s.cena || '')}</div>
+      </div>`).join('');
+    } else if (p.desc) {
+      countLabel = 'roteiro';
+      items = `<div class="m-scene-card"><div class="m-scene-body">${escapeHtml(p.desc)}</div></div>`;
+    } else {
+      items = '<div class="m-slide-empty">Nenhuma cena escrita ainda.</div>';
+    }
+  }
+  const allDone = pr.total > 0 && pr.done === pr.total;
+  return `
+  <div class="evprod-post">
+    <div class="evprod-post-head">
+      <span class="evprod-post-title" onclick="openPostFromEvento(${p.id})" title="Abrir o post">${FORMAT_ICON[p.formato] || ''} ${escapeHtml(p.titulo)}</span>
+      ${statusPill(p.status)}
+      <span class="evprod-post-count${allDone ? ' evprod-count-done' : ''}">${allDone ? '✓ ' : ''}${countLabel}</span>
+      <button type="button" class="evprod-unlink" onclick="unlinkPostFromEvento(${p.id})" title="Desvincular deste evento">×</button>
+    </div>
+    <div class="evprod-post-body">${items}</div>
+  </div>`;
+}
+
+function renderEventoProducao() {
+  const l = getEventoById(evprodLectureId);
+  if (!l) return;
+  document.getElementById('evprod-title').textContent = l.evento || l.tema || 'Evento';
+  const sub = [
+    l.evento && l.tema ? l.tema : '',
+    l.data ? '📅 ' + fmtDateBR(l.data) + (l.hora ? ' às ' + l.hora : '') : '',
+    l.local ? '📍 ' + l.local : '',
+  ].filter(Boolean);
+  document.getElementById('evprod-sub').innerHTML = sub.map(escapeHtml).join(' &nbsp;·&nbsp; ');
+
+  const linked = postsLinkedToEvento(l.id).sort((a, b) => (isCarouselLike(a) - isCarouselLike(b)) || (a.titulo || '').localeCompare(b.titulo || '', 'pt-BR'));
+  const videos = linked.filter(p => !isCarouselLike(p));
+  const cars   = linked.filter(p => isCarouselLike(p));
+  const suggested = postsSuggestedForEvento(l);
+
+  let html = '';
+  if (videos.length) html += `<div class="evprod-section-label">Cenas para gravar</div>${videos.map(eventoPostBlockHtml).join('')}`;
+  if (cars.length)   html += `<div class="evprod-section-label">Posts para produzir</div>${cars.map(eventoPostBlockHtml).join('')}`;
+  if (!linked.length) {
+    html += `<div class="evprod-empty">Nada vinculado a este evento ainda.<br>Em um post com status <strong>Gravando</strong> ou <strong>Design / arte</strong>, escolha este evento no campo "Evento".</div>`;
+  }
+  if (suggested.length) {
+    html += `<div class="evprod-suggest-box">
+      <div class="evprod-suggest-hint">💡 <strong>Previstos para este dia</strong> — a etapa desses posts cai na data do evento e eles ainda não estão vinculados a nenhum evento.</div>
+      ${suggested.map(p => `
+      <div class="evprod-suggest-row">
+        <span class="evprod-post-title">${FORMAT_ICON[p.formato] || ''} ${escapeHtml(p.titulo)}</span>
+        ${statusPill(p.status)}
+        <button type="button" class="btn" style="padding:4px 10px;font-size:12px;" onclick="linkPostToEvento(${p.id})">+ Vincular</button>
+      </div>`).join('')}
+    </div>`;
+  }
+  document.getElementById('evprod-body').innerHTML = html;
+
+  const nScenes = videos.reduce((n, p) => n + (p.scenes || []).length, 0);
+  const nSlides = cars.reduce((n, p) => n + (p.slides || []).length, 0);
+  const parts = [];
+  if (linked.length) parts.push(linked.length + ' conteúdo' + (linked.length !== 1 ? 's' : ''));
+  if (nScenes) parts.push(nScenes + ' cena' + (nScenes !== 1 ? 's' : ''));
+  if (nSlides) parts.push(nSlides + ' slide' + (nSlides !== 1 ? 's' : ''));
+  const prog = eventoProgressTotal(l.id);
+  if (prog.total) parts.push(`${prog.done}/${prog.total} feitos`);
+  document.getElementById('evprod-count').textContent = parts.join(' · ');
+}
+
+function openEventoProducao(id) {
+  const l = getEventoById(id);
+  if (!l) return;
+  evprodLectureId = l.id;
+  renderEventoProducao();
+  document.getElementById('evprod-modal').classList.add('open');
+}
+function closeEventoProducao() {
+  document.getElementById('evprod-modal').classList.remove('open');
+  evprodLectureId = null;
+}
+function refreshAfterEventoLinkChange() {
+  renderEventoProducao();
+  const pal = document.getElementById('view-palestras');
+  if (pal && pal.style.display !== 'none') renderLectures();
+  renderGestaoKanban();
+}
+function linkPostToEvento(postId) {
+  const p = posts.find(x => x.id === postId);
+  if (!p || evprodLectureId === null) return;
+  p.eventoId = evprodLectureId;
+  savePosts();
+  refreshAfterEventoLinkChange();
+}
+function unlinkPostFromEvento(postId) {
+  const p = posts.find(x => x.id === postId);
+  if (!p) return;
+  p.eventoId = null;
+  savePosts();
+  refreshAfterEventoLinkChange();
+}
+function openPostFromEvento(postId) {
+  closeEventoProducao();
+  const lm = document.getElementById('lecture-modal');
+  if (lm) lm.classList.remove('open');
+  openPost(postId);
+}
+function editEventoFromProd() {
+  const id = evprodLectureId;
+  closeEventoProducao();
+  const lm = document.getElementById('lecture-modal');
+  // se veio de dentro do modal da palestra, ele já está aberto (não recarrega pra não perder edições)
+  if (id && !(lm && lm.classList.contains('open'))) openLectureModal(id);
+}
+
+/* Botão no modal da palestra: aparece quando há conteúdo vinculado ou previsto. */
+function updateLectureEvprodRow(id) {
+  const row = document.getElementById('l-evprod-row');
+  if (!row) return;
+  const l = id ? getEventoById(id) : null;
+  if (!l) { row.style.display = 'none'; return; }
+  const nLinked = postsLinkedToEvento(l.id).length;
+  const nSug = postsSuggestedForEvento(l).length;
+  if (!nLinked && !nSug) { row.style.display = 'none'; return; }
+  document.getElementById('l-evprod-label').textContent = nLinked
+    ? `Ver o que produzir neste evento (${nLinked})`
+    : `Ver conteúdos previstos para este dia (${nSug})`;
+  row.style.display = '';
 }
 
 /* ─── Parceiros: status definitions ──────────────────────────────────────── */
@@ -5854,6 +6216,15 @@ function renderLectures() {
         l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
         l.contato ? `<span>👤 ${escapeHtml(l.contato)}</span>` : '',
+        (() => {
+          const nLinked = postsLinkedToEvento(l.id).length;
+          if (nLinked) {
+            const prog = eventoProgressTotal(l.id);
+            return `<span class="lecture-link" style="cursor:pointer;" onclick="event.stopPropagation();openEventoProducao(${l.id})">🎬 ${nLinked} conteúdo${nLinked !== 1 ? 's' : ''} para produzir${prog.total ? ` · ${prog.done}/${prog.total} feitos` : ''}</span>`;
+          }
+          const nSug = postsSuggestedForEvento(l).length;
+          return nSug ? `<span class="lecture-link" style="cursor:pointer;" onclick="event.stopPropagation();openEventoProducao(${l.id})">💡 ${nSug} previsto${nSug !== 1 ? 's' : ''} para este dia</span>` : '';
+        })(),
       ].filter(Boolean).join('');
       const isCollapsed = lectureCardCollapsed.has(l.id);
       return `<div class="lecture-overview-card" onclick="openLectureModal(${l.id})">
@@ -5969,6 +6340,7 @@ function openLectureModal(id) {
     document.getElementById('l-cep-status').textContent = '';
     document.getElementById('l-delete-btn').style.display = 'none';
   }
+  updateLectureEvprodRow(id);
   toggleLectureAddressBlock();
   document.getElementById('lecture-modal').classList.add('open');
 }
@@ -6069,12 +6441,14 @@ function saveLecture() {
 function deleteLecture() {
   if (!editingLectureId) return;
   if (!confirm('Remover esta palestra?')) return;
+  unlinkPostsFromEvento(editingLectureId);
   lectures = lectures.filter(l => l.id !== editingLectureId);
   saveLecturesData(); renderLectures(); closeLectureModal();
 }
 
 function deleteLectureRow(id) {
   if (!confirm('Remover esta palestra?')) return;
+  unlinkPostsFromEvento(id);
   lectures = lectures.filter(l => l.id !== id);
   saveLecturesData(); renderLectures();
 }
@@ -7838,7 +8212,9 @@ document.addEventListener('click', e => {
 
 function renderGestaoKanbanCard(p, statusKey) {
   const partnerNames = partnersForPost(p.id);
-  const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('');
+  const eventoDoCard = statusUsaEvento(p.status) ? getEventoById(p.eventoId) : null;
+  const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('')
+    + (eventoDoCard ? `<span class="week-post-partner" title="Evento onde vai produzir">🎤 ${escapeHtml(eventoDoCard.evento || eventoDoCard.tema || 'Evento')}</span>` : '');
   const schedule = computeProductionSchedule(p);
   let suggestion = null;
   if (schedule.length) {
