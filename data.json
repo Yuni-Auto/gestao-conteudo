@@ -1617,7 +1617,7 @@
       ],
       "scenes": [],
       "data": "2026-09-25",
-      "status": "legenda",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -3406,5 +3406,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:32:07.766Z"
+  "_updatedAt": "2026-09-19T14:32:14.171Z"
 }
