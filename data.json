@@ -2026,6 +2026,7 @@
       ]
     }
   ],
+  "collaborations": [],
   "lectures": [
     {
       "id": 1,
@@ -3504,5 +3505,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T01:24:18.406Z"
+  "_updatedAt": "2026-09-20T02:57:37.660Z"
 }
