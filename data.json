@@ -2013,6 +2013,40 @@
       "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 88,
+      "titulo": "[reels] acho chique",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-09-20",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdfiKpbAAJC/?stkn=OTg3czJwZjg3eW41"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3650,5 +3684,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T14:05:22.919Z"
+  "_updatedAt": "2026-09-20T14:50:39.159Z"
 }
