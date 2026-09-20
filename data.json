@@ -2081,7 +2081,7 @@
       "perfil": "Womakerscodebr",
       "contato": "",
       "tipo": "collab",
-      "status": "ideia",
+      "status": "publicada",
       "data": "2026-04-25",
       "seguidores": 0,
       "plataformas": [
@@ -3576,5 +3576,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T03:05:01.302Z"
+  "_updatedAt": "2026-09-20T03:05:10.066Z"
 }
