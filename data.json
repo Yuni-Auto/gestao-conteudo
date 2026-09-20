@@ -2029,7 +2029,7 @@
         }
       ],
       "data": "2026-09-20",
-      "status": "pesquisar",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -3684,5 +3684,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T14:50:39.159Z"
+  "_updatedAt": "2026-09-20T15:25:21.812Z"
 }
