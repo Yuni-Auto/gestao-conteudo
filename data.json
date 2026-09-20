@@ -2030,7 +2030,7 @@
     {
       "id": 1,
       "nome": "Gabriel Nogueira",
-      "perfil": "",
+      "perfil": "gsnogueira.meta",
       "contato": "",
       "tipo": "convite",
       "status": "publicada",
@@ -3526,5 +3526,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T02:58:54.747Z"
+  "_updatedAt": "2026-09-20T03:00:12.469Z"
 }
