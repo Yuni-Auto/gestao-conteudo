@@ -1974,6 +1974,35 @@
       "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 87,
+      "titulo": "[reels] Dica: Se estiver triste, entre na área de TI",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-09-20",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot4",
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3611,5 +3640,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T14:01:50.876Z"
+  "_updatedAt": "2026-09-20T14:04:43.354Z"
 }
