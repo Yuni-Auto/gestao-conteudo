@@ -1961,7 +1961,7 @@
         }
       ],
       "data": "2026-09-20",
-      "status": "ideia",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -1970,7 +1970,12 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Reels",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdIFS1MsCle/?stkn=MTV4YmMxbHp3cW4zbA=="
+        }
+      ],
       "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
@@ -3645,5 +3650,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T14:05:05.454Z"
+  "_updatedAt": "2026-09-20T14:05:22.919Z"
 }
