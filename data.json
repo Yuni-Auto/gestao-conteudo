@@ -2078,7 +2078,7 @@
     {
       "id": 2,
       "nome": "Womakers Code",
-      "perfil": "Womakerscodebr",
+      "perfil": "Womakerscode",
       "contato": "",
       "tipo": "collab",
       "status": "publicada",
@@ -3576,5 +3576,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T03:05:36.924Z"
+  "_updatedAt": "2026-09-20T03:07:23.132Z"
 }
