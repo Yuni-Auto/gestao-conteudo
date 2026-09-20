@@ -1040,6 +1040,85 @@
     .strategy-controls { width: 100%; justify-content: flex-start; }
     .agenda-section { margin: 6px 14px; padding: 14px; }
   }
+
+  /* ═══ Responsivo — celular e tablet estreito ═══════════════════════════════
+     Ajustes empilhados por último de propósito: vários trechos usam
+     style="grid-template-columns:…" inline, que só dá pra vencer com !important. */
+  @media (max-width: 900px) {
+    /* Detalhe do post: "grid-column: span 2" criava uma 2ª coluna implícita e estourava a largura */
+    .meta-row.full { grid-column: auto; }
+    .meta-row:nth-child(odd):not(.full) { border-right: none; }
+    .meta-row > .meta-value { min-width: 0; overflow-wrap: anywhere; }
+    .meta-value .form-input { max-width: 100%; }
+    .modal { max-height: 92vh; max-height: 92dvh; }
+
+    /* Modais longos (detalhe do post e novo/editar): a tela inteira rola junto e
+       só os botões ficam fixos embaixo — antes os campos fixos "espremiam" o conteúdo */
+    #detail-modal .modal, #new-modal .modal { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+    #detail-modal .modal > *, #new-modal .modal > * { flex-shrink: 0; }
+    #detail-modal .modal-body, #new-modal .modal-body { overflow: visible; flex: none; }
+    #detail-modal .modal-footer, #new-modal .new-modal-footer-actions {
+      position: sticky; bottom: 0; z-index: 3; background: var(--surface);
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+    #new-modal .new-modal-footer { border-radius: 0; }
+
+    /* Cabeçalho das páginas */
+    .topbar > div, .analytics-topbar > div { min-width: 0; max-width: 100%; }
+    .analytics-topbar { flex-wrap: wrap; row-gap: 8px; }
+    #analytics-topbar-actions { flex-wrap: wrap; }
+    .an-plat-tabs { flex-wrap: wrap; max-width: 100%; }
+    .topbar-actions { flex-wrap: wrap; }
+    .sync-status { max-width: 100%; }
+    .sync-status span { min-width: 0; white-space: normal; text-align: left; }
+    .week-header { flex-wrap: wrap; gap: 10px; }
+    .week-header-left { flex-wrap: wrap; }
+    .week-nav { flex-wrap: wrap; }
+    .week-nav-label { min-width: 0; }
+    .analytics-period-tabs { flex-wrap: wrap; }
+    /* Home: duas colunas viram uma; o kanban rola na horizontal dentro do próprio card */
+    .home-two-col { grid-template-columns: 1fr !important; }
+    .home-two-col > * { min-width: 0; }
+    #post-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    #post-table-wrap .post-table { min-width: 560px; }
+  }
+
+  @media (max-width: 600px) {
+    /* Cabeçalho deixa de ficar grudado: ocupava ~20% da tela */
+    .topbar, .analytics-topbar { position: static; padding: 12px 14px 12px 58px; }
+    .guideline-row { flex-wrap: wrap; }
+    .content-area { padding-left: 12px; padding-right: 12px; }
+    .agenda-section { margin-left: 12px; margin-right: 12px; }
+    .notif-today-banner { margin-left: 12px; margin-right: 12px; }
+
+    /* Cards de números em 2 colunas (o inline repeat(4,1fr) deixava o 4º cortado) */
+    #view-palestras .stats-row, #view-parceiros .stats-row { grid-template-columns: repeat(2, 1fr) !important; padding-left: 12px; padding-right: 12px; }
+
+    /* Rodapés dos modais: texto em cima, botões embaixo, sem quebrar o rótulo */
+    .modal-footer { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+    .modal-actions { flex-wrap: wrap; justify-content: flex-end; }
+    .modal-actions .btn { white-space: nowrap; }
+    .meta-row { padding: 12px 16px; }
+    .modal-body { padding-left: 16px !important; padding-right: 16px !important; }
+    .new-modal-footer-fields { padding: 14px 16px 10px; }
+    .new-modal-footer-actions { padding: 10px 16px 12px; }
+
+    /* Modal da palestra: campos em 2 colunas em vez de 3–4 espremidas */
+    #lecture-modal .nf-meta-grid, #partner-modal .nf-meta-grid { grid-template-columns: 1fr 1fr !important; }
+    #lecture-modal .nf-meta-grid > :nth-child(3):last-child, #partner-modal .nf-meta-grid > :nth-child(3):last-child { grid-column: 1 / -1; }
+    .strategy-month { margin-right: 0 !important; max-width: 100%; }
+    .strategy-month-label { min-width: 0; white-space: nowrap; }
+
+    /* Lista de produção do evento */
+    .evprod-post-title { flex: 1 1 100%; }
+    .evprod-unlink { margin-left: auto; }
+    .evprod-check { padding: 6px 2px; }
+    .evprod-check input { width: 22px; height: 22px; }
+    #evprod-modal .modal-footer { flex-direction: column; align-items: stretch; }
+    #evprod-modal .modal-actions { justify-content: flex-end; }
+
+    .guideline-input-label { width: 110px; }
+  }
 </style>
 </head>
 <body>
@@ -1175,7 +1254,7 @@
           <div class="week-grid" id="home-week-grid"></div>
         </div>
 
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px;">
+        <div class="home-two-col" style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px;">
           <div class="agenda-section" style="margin:0;">
             <div class="agenda-section-title">🔄 Posts &amp; palestras da semana · processo de criação</div>
             <div class="agenda-kanban home-kanban" id="home-unified-kanban"></div>
