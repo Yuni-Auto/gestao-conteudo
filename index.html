@@ -535,6 +535,8 @@
   .collab-post-chip { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; font-size: 11.5px; font-weight: 600; color: #5b50c8; background: #f1eefb; border: 1px solid #e0d9fa; border-radius: 999px; padding: 2px 9px; cursor: pointer; }
   .collab-post-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 150px; }
   .collab-post-chip:hover { background: #e6ddfd; }
+  .collab-post-chip.lect { background: #fff4e5; border-color: #f6dcae; color: #9a5b0a; }
+  .collab-post-chip.lect:hover { background: #ffecd0; }
   .collab-post-chip.more { background: var(--bg); color: var(--text-2); border-color: var(--border); cursor: default; }
   .collab-advance { margin-top: 10px; width: 100%; font-family: inherit; font-size: 12px; font-weight: 600; color: #5b50c8; background: none; border: 1px dashed #cfc8f5; border-radius: 7px; padding: 6px 8px; cursor: pointer; }
   .collab-advance:hover { background: #f6f4fe; }
@@ -1322,7 +1324,7 @@
           <div class="list-title">👥 Overview</div>
         </div>
         <div class="collab-empty-hint" id="collab-empty-hint" style="display:none;">
-          Aqui ficam suas collabs com outras pessoas criadoras: posts a duas mãos, lives, podcasts, trocas de divulgação…<br>
+          Aqui ficam suas collabs com outras pessoas criadoras: posts a duas mãos, lives, podcasts, palestras em dupla, trocas de divulgação…<br>
           Comece registrando uma ideia com <strong>+ Nova colaboração</strong> e vá avançando de etapa até publicar.
         </div>
         <div class="collab-board" id="collab-board"></div>
@@ -2032,6 +2034,15 @@
       </div>
 
       <div class="form-group" style="margin-top:16px; margin-bottom:0;">
+        <label class="form-label">Palestras / eventos vinculados</label>
+        <div style="display:flex; gap:7px; align-items:center;">
+          <select class="form-input" id="c-lecture-select" style="flex:1; min-width:0;"></select>
+          <button type="button" class="btn" style="flex-shrink:0;" onclick="addCollabLecture()">Vincular</button>
+        </div>
+        <div class="cb-linked-list" id="c-lecture-list"></div>
+      </div>
+
+      <div class="form-group" style="margin-top:16px; margin-bottom:0;">
         <label class="form-label">Notas</label>
         <textarea class="form-input" id="c-notas" rows="3" placeholder="Anotações livres, próximos passos…" style="resize:vertical; font-family:inherit; font-size:13px; line-height:1.5;"></textarea>
       </div>
@@ -2056,6 +2067,10 @@
     </div>
     <div class="modal-body" style="padding:20px 22px;">
 
+      <div id="l-collabs-row" style="display:none; margin-bottom:14px;">
+        <label class="form-label">👥 Colaborações desta palestra</label>
+        <div id="l-collabs"></div>
+      </div>
       <div id="l-evprod-row" style="display:none; margin-bottom:14px;">
         <button type="button" class="btn" style="width:100%; justify-content:center;" onclick="openEventoProducao(editingLectureId)">🎬 <span id="l-evprod-label"></span></button>
       </div>
@@ -5625,6 +5640,22 @@ function editEventoFromProd() {
 }
 
 /* Botão no modal da palestra: aparece quando há conteúdo vinculado ou previsto. */
+/* Colaborações vinculadas à palestra (chips no modal da palestra) */
+function updateLectureCollabsRow(id) {
+  const row = document.getElementById('l-collabs-row');
+  if (!row) return;
+  const list = id ? collabsForLecture(id) : [];
+  if (!list.length) { row.style.display = 'none'; return; }
+  row.style.display = '';
+  document.getElementById('l-collabs').innerHTML = list.map(c =>
+    `<span class="partner-link-chip" onclick="goToCollabFromLecture(${c.id})" title="Ver colaboração">👥 ${escapeHtml(c.nome)}</span>`).join('');
+}
+function goToCollabFromLecture(collabId) {
+  closeLectureModal();
+  const navBtn = document.querySelector('.nav-item-v2[data-view="colaboracoes"]');
+  if (navBtn) setMainNav(navBtn);
+  openCollabModal(collabId);
+}
 function updateLectureEvprodRow(id) {
   const row = document.getElementById('l-evprod-row');
   if (!row) return;
@@ -5676,6 +5707,7 @@ function getCollabType(key) { return COLLAB_TYPES.find(x => x.key === key) || CO
 function normalizeCollab(c) {
   c.plataformas = Array.isArray(c.plataformas) ? c.plataformas : [];
   c.postIds = Array.isArray(c.postIds) ? c.postIds.map(Number).filter(Number.isFinite) : [];
+  c.lectureIds = Array.isArray(c.lectureIds) ? c.lectureIds.map(Number).filter(Number.isFinite) : [];
   if (!c.status) c.status = 'ideia';
   if (!c.tipo) c.tipo = 'collab';
   return c;
@@ -5692,10 +5724,22 @@ let collaborations = loadCollabs();
 let nextCollabId = collaborations.length ? Math.max(...collaborations.map(c => Number(c.id) || 0)) + 1 : 1;
 let editingCollabId = null;
 let collabModalPostIds = [];
+let collabModalLectureIds = [];
 
 function collabsForPost(postId) {
   return collaborations.filter(c => (c.postIds || []).includes(postId));
 }
+function collabsForLecture(lectureId) {
+  return collaborations.filter(c => (c.lectureIds || []).includes(Number(lectureId)));
+}
+function unlinkLectureFromCollabs(lectureId) {
+  let changed = false;
+  collaborations.forEach(c => {
+    if ((c.lectureIds || []).includes(Number(lectureId))) { c.lectureIds = c.lectureIds.filter(x => x !== Number(lectureId)); changed = true; }
+  });
+  if (changed) saveCollabsData();
+}
+function collabLectureName(l) { return l.evento || l.tema || 'Palestra'; }
 function fmtFollowers(n) {
   n = Number(n) || 0;
   const f = (v, suf) => (Math.round(v * 10) / 10).toString().replace('.', ',') + suf;
@@ -5732,6 +5776,10 @@ function collabCardHtml(c) {
     c.contato ? `<span>✉️ ${escapeHtml(c.contato)}</span>` : '',
   ].filter(Boolean).join('');
   const linked = (c.postIds || []).map(id => posts.find(p => p.id === id)).filter(Boolean);
+  const linkedLec = (c.lectureIds || []).map(id => getEventoById(id)).filter(Boolean);
+  const lecChips = linkedLec.slice(0, 2).map(l =>
+    `<span class="collab-post-chip lect" onclick="event.stopPropagation();openLectureModal(${l.id})" title="${escapeHtml(collabLectureName(l) + (l.tema && l.evento ? ' — ' + l.tema : ''))}">🎤 <span>${escapeHtml(collabLectureName(l))}${l.data ? ' · ' + fmtDateBR(l.data).slice(0, 5) : ''}</span></span>`).join('')
+    + (linkedLec.length > 2 ? `<span class="collab-post-chip more">+${linkedLec.length - 2}</span>` : '');
   const chips = linked.slice(0, 3).map(p =>
     `<span class="collab-post-chip" onclick="event.stopPropagation();openPost(${p.id})" title="${escapeHtml(p.titulo)}">${FORMAT_ICON[p.formato] || '📎'} <span>${escapeHtml(p.titulo)}</span></span>`).join('')
     + (linked.length > 3 ? `<span class="collab-post-chip more">+${linked.length - 3}</span>` : '');
@@ -5749,6 +5797,7 @@ function collabCardHtml(c) {
     ${c.tema ? `<div class="collab-card-tema">${escapeHtml(c.tema)}</div>` : ''}
     ${metaRows ? `<div class="collab-card-meta">${metaRows}</div>` : ''}
     ${platsHtml}
+    ${lecChips ? `<div class="collab-post-chips">${lecChips}</div>` : ''}
     ${chips ? `<div class="collab-post-chips">${chips}</div>` : ''}
     ${next ? `<button type="button" class="collab-advance" onclick="advanceCollab(${c.id}, event)">→ ${next.label}</button>` : ''}
   </div>`;
@@ -5826,6 +5875,32 @@ function removeCollabPost(id) {
   renderCollabPostSelect(); renderCollabLinkedPosts();
 }
 
+function renderCollabLectureSelect() {
+  const sel = document.getElementById('c-lecture-select');
+  const avail = lectures.filter(l => !collabModalLectureIds.includes(Number(l.id)))
+    .sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+  sel.innerHTML = '<option value="">Escolher uma palestra…</option>' + avail.map(l =>
+    `<option value="${l.id}">${l.data ? fmtDateBR(l.data).slice(0, 5) + ' · ' : ''}${escapeHtml(collabLectureName(l))}${l.evento && l.tema ? ' — ' + escapeHtml(l.tema) : ''}</option>`).join('');
+}
+function renderCollabLinkedLectures() {
+  const wrap = document.getElementById('c-lecture-list');
+  const items = collabModalLectureIds.map(id => getEventoById(id)).filter(Boolean);
+  wrap.innerHTML = items.length ? items.map(l =>
+    `<span class="cb-linked-item"><span title="${escapeHtml(collabLectureName(l))}">🎤 ${escapeHtml(collabLectureName(l))}${l.data ? ' · ' + fmtDateBR(l.data).slice(0, 5) : ''}</span><button type="button" onclick="removeCollabLecture(${l.id})" title="Remover vínculo">✕</button></span>`).join('')
+    : '<div class="partner-board-empty" style="text-align:left;padding:2px;">Nenhuma palestra vinculada ainda.</div>';
+}
+function addCollabLecture() {
+  const sel = document.getElementById('c-lecture-select');
+  const id = Number(sel.value);
+  if (!sel.value || !Number.isFinite(id) || collabModalLectureIds.includes(id)) return;
+  collabModalLectureIds.push(id);
+  renderCollabLectureSelect(); renderCollabLinkedLectures();
+}
+function removeCollabLecture(id) {
+  collabModalLectureIds = collabModalLectureIds.filter(x => x !== Number(id));
+  renderCollabLectureSelect(); renderCollabLinkedLectures();
+}
+
 function openCollabModal(id) {
   editingCollabId = id || null;
   const c = id ? collaborations.find(x => x.id === id) : null;
@@ -5846,7 +5921,9 @@ function openCollabModal(id) {
   document.getElementById('c-delete-btn').style.display = c ? '' : 'none';
   buildCollabPlatChips(c ? c.plataformas : []);
   collabModalPostIds = c ? [...c.postIds] : [];
+  collabModalLectureIds = c ? [...(c.lectureIds || [])] : [];
   renderCollabPostSelect(); renderCollabLinkedPosts();
+  renderCollabLectureSelect(); renderCollabLinkedLectures();
   document.getElementById('collab-modal').classList.add('open');
 }
 function closeCollabModal() {
@@ -5869,6 +5946,7 @@ function saveCollab() {
     combinado:  document.getElementById('c-combinado').value.trim(),
     notas:      document.getElementById('c-notas').value.trim(),
     postIds:    [...collabModalPostIds],
+    lectureIds: collabModalLectureIds.filter(id => getEventoById(id)),
   };
   if (editingCollabId) {
     const c = collaborations.find(x => x.id === editingCollabId);
@@ -6712,6 +6790,10 @@ function renderLectures() {
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
         l.contato ? `<span>👤 ${escapeHtml(l.contato)}</span>` : '',
         (() => {
+          const cbs = collabsForLecture(l.id);
+          return cbs.length ? `<span>👥 Collab: ${cbs.map(c => escapeHtml(c.nome)).join(', ')}</span>` : '';
+        })(),
+        (() => {
           const nLinked = postsLinkedToEvento(l.id).length;
           if (nLinked) {
             const prog = eventoProgressTotal(l.id);
@@ -6836,6 +6918,7 @@ function openLectureModal(id) {
     document.getElementById('l-delete-btn').style.display = 'none';
   }
   updateLectureEvprodRow(id);
+  updateLectureCollabsRow(id);
   toggleLectureAddressBlock();
   document.getElementById('lecture-modal').classList.add('open');
 }
@@ -6937,6 +7020,7 @@ function deleteLecture() {
   if (!editingLectureId) return;
   if (!confirm('Remover esta palestra?')) return;
   unlinkPostsFromEvento(editingLectureId);
+  unlinkLectureFromCollabs(editingLectureId);
   lectures = lectures.filter(l => l.id !== editingLectureId);
   saveLecturesData(); renderLectures(); closeLectureModal();
 }
@@ -6944,6 +7028,7 @@ function deleteLecture() {
 function deleteLectureRow(id) {
   if (!confirm('Remover esta palestra?')) return;
   unlinkPostsFromEvento(id);
+  unlinkLectureFromCollabs(id);
   lectures = lectures.filter(l => l.id !== id);
   saveLecturesData(); renderLectures();
 }
