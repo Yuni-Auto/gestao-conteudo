@@ -2074,6 +2074,28 @@
       "lectureIds": [
         2
       ]
+    },
+    {
+      "id": 2,
+      "nome": "Womakers Code",
+      "perfil": "Womakerscodebr",
+      "contato": "",
+      "tipo": "collab",
+      "status": "ideia",
+      "data": "2026-04-25",
+      "seguidores": 0,
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "tema": "Front end nos dias de hoje",
+      "combinado": "Eu gravo e edito",
+      "notas": "",
+      "postIds": [
+        25,
+        85
+      ],
+      "lectureIds": []
     }
   ],
   "lectures": [
@@ -3554,5 +3576,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T03:02:11.281Z"
+  "_updatedAt": "2026-09-20T03:05:01.302Z"
 }
