@@ -1406,7 +1406,8 @@
       "inspiracoes": [],
       "requiredTag": "slot13",
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": 1
     },
     {
       "id": 68,
@@ -1628,7 +1629,8 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": 1
     },
     {
       "id": 74,
@@ -1884,7 +1886,14 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "Isso 🎨 ou Aquilo ⚙️?",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Aquilo",
+          "feito": false
         }
       ],
       "data": "2026-09-25",
@@ -1900,7 +1909,8 @@
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": 1
     }
   ],
   "partners": [
@@ -3494,5 +3504,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-19T14:58:56.285Z"
+  "_updatedAt": "2026-09-20T01:24:18.406Z"
 }
