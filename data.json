@@ -2208,7 +2208,7 @@
       "contato": "Laura",
       "linkEvento": "https://www.linkedin.com/posts/laura-rfs_o-para-elas-est%C3%A1-crescendo-o-evento-share-7504545647807725568-hzR9/",
       "linkSlides": "",
-      "notas": "",
+      "notas": "Recusada: Por conta do horário do evento ser as 16h :(",
       "temaEvento": "Para {Elas}",
       "hora": "16:00",
       "cep": "08295-005",
@@ -3576,5 +3576,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T03:07:55.384Z"
+  "_updatedAt": "2026-09-20T13:22:19.021Z"
 }
