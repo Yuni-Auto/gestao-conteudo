@@ -1911,6 +1911,34 @@
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1
+    },
+    {
+      "id": 85,
+      "titulo": "[reels] o que faz um front-end nos dias de hoje ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-09-20",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3526,5 +3554,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T03:00:16.981Z"
+  "_updatedAt": "2026-09-20T03:02:11.281Z"
 }
