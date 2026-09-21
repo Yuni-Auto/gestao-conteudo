@@ -2515,7 +2515,7 @@
     },
     {
       "id": 9,
-      "text": "Na entrevista: Poderia me explixar inner",
+      "text": "Na entrevista: Poderia me explixar inner-source e dar ",
       "x": 1366.62109375,
       "y": 291.61328125,
       "color": "purple",
@@ -3692,5 +3692,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-21T22:51:40.364Z"
+  "_updatedAt": "2026-09-21T22:51:43.264Z"
 }
