@@ -2512,6 +2512,14 @@
       "y": 263.296875,
       "color": "blue",
       "rot": 2.4
+    },
+    {
+      "id": 9,
+      "text": "Na entrevista: ",
+      "x": 1366.62109375,
+      "y": 291.61328125,
+      "color": "purple",
+      "rot": 2.9
     }
   ],
   "inspirations": [
@@ -3684,5 +3692,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-21T22:39:27.680Z"
+  "_updatedAt": "2026-09-21T22:51:34.506Z"
 }
