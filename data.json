@@ -1506,7 +1506,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-20",
+      "data": "2026-09-21",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1960,7 +1960,7 @@
           "feito": false
         }
       ],
-      "data": "2026-09-20",
+      "data": "2026-09-22",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1994,7 +1994,7 @@
           "feito": false
         }
       ],
-      "data": "2026-09-20",
+      "data": "2026-09-22",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2028,7 +2028,7 @@
           "feito": false
         }
       ],
-      "data": "2026-09-20",
+      "data": "2026-09-22",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -3684,5 +3684,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T15:25:21.812Z"
+  "_updatedAt": "2026-09-21T22:39:27.680Z"
 }
