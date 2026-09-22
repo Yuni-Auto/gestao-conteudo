@@ -1095,7 +1095,8 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
+          "cena": "Meu fone enquanto eu estou resolvendo um bug em produção ",
+          "feito": false
         }
       ],
       "data": "2026-09-21",
@@ -1119,7 +1120,7 @@
         "yt": "2026-09-22"
       },
       "plataformasStatus": {
-        "ig": "programada",
+        "ig": "publicada",
         "tt": "pronto",
         "yt": "pronto"
       },
@@ -3778,5 +3779,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T22:25:33.929Z"
+  "_updatedAt": "2026-09-22T22:26:09.707Z"
 }
