@@ -2204,6 +2204,25 @@
         85
       ],
       "lectureIds": []
+    },
+    {
+      "id": 3,
+      "nome": "Rubi Rails",
+      "perfil": "",
+      "contato": "",
+      "tipo": "convite",
+      "status": "combinada",
+      "data": "2026-09-22",
+      "seguidores": 0,
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "postIds": [],
+      "lectureIds": []
     }
   ],
   "lectures": [
@@ -3692,5 +3711,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T02:16:58.837Z"
+  "_updatedAt": "2026-09-22T02:22:33.152Z"
 }
