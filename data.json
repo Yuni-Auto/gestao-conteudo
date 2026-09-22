@@ -2679,6 +2679,13 @@
       "instagram": "lletcode",
       "nome": "Letícia Baldin",
       "tipo": "tipo_muc2481l6geu"
+    },
+    {
+      "id": 14,
+      "rede": "ig",
+      "instagram": "grazi.tech",
+      "nome": "Grazi Rodrigues",
+      "tipo": "tipo_muc2481l6geu"
     }
   ],
   "inspTipos": [
@@ -3770,5 +3777,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T02:32:25.615Z"
+  "_updatedAt": "2026-09-22T02:33:16.379Z"
 }
