@@ -2672,6 +2672,13 @@
       "instagram": "laura_data_talks",
       "nome": "Laura",
       "tipo": "tipo_mu8huiwhd0hb"
+    },
+    {
+      "id": 13,
+      "rede": "ig",
+      "instagram": "lletcode",
+      "nome": "Letícia Baldin",
+      "tipo": "tipo_muc2481l6geu"
     }
   ],
   "inspTipos": [
@@ -3763,5 +3770,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T02:31:36.607Z"
+  "_updatedAt": "2026-09-22T02:32:25.615Z"
 }
