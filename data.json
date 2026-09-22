@@ -2211,7 +2211,7 @@
       "perfil": "",
       "contato": "",
       "tipo": "convite",
-      "status": "combinada",
+      "status": "publicada",
       "data": "2026-09-22",
       "seguidores": 0,
       "plataformas": [
@@ -3711,5 +3711,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T02:22:33.152Z"
+  "_updatedAt": "2026-09-22T02:22:44.793Z"
 }
