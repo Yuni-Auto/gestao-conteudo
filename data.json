@@ -2699,6 +2699,11 @@
       "key": "tipo_mu8huiwhd0hb",
       "label": "Recebidos",
       "icon": "🏷️"
+    },
+    {
+      "key": "tipo_muc2481l6geu",
+      "label": "Divulgação de oportunidade",
+      "icon": "🏷️"
     }
   ],
   "requiredPostsByMonth": {
@@ -3758,5 +3763,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T02:30:03.809Z"
+  "_updatedAt": "2026-09-22T02:31:15.582Z"
 }
