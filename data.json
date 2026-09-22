@@ -2047,6 +2047,48 @@
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 89,
+      "titulo": "[reels] Divulgação de evento -  Rails Girls São Paulo",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-09-22",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-09-21",
+        "tt": "2026-09-21",
+        "li": "2026-09-21"
+      },
+      "plataformasStatus": {
+        "ig": "pesquisar",
+        "tt": "pesquisar",
+        "li": "pesquisar"
+      },
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DcTmr6KO7pE/"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3712,5 +3754,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-22T02:25:22.640Z"
+  "_updatedAt": "2026-09-22T02:27:53.149Z"
 }
