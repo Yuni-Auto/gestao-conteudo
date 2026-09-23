@@ -2096,6 +2096,54 @@
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 90,
+      "titulo": "[carrossel] Dump do TDC (cópia)",
+      "desc": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
+      "carouselLegenda": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
+      "slides": [
+        {
+          "titulo": "Foto com uma pessoal ou lugar",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Foto da credencial",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Vídeo apresentando ou falando",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Foto de comida",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Foto do evento",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3713,5 +3761,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T23:54:45.981Z"
+  "_updatedAt": "2026-09-23T23:56:24.938Z"
 }
