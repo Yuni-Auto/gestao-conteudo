@@ -547,8 +547,8 @@
     {
       "id": 31,
       "titulo": "[carrossel] Quando gastei para ter um setup nomadi",
-      "desc": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
-      "carouselLegenda": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
+      "desc": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
+      "carouselLegenda": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
       "slides": [
         {
           "titulo": "",
@@ -558,7 +558,7 @@
       ],
       "scenes": [],
       "data": "2026-09-23",
-      "status": "pesquisar",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -577,7 +577,8 @@
       "requiredTag": null,
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": null
     },
     {
       "id": 32,
@@ -3716,5 +3717,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T23:48:39.713Z"
+  "_updatedAt": "2026-09-23T23:53:55.683Z"
 }
