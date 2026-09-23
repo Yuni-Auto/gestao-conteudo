@@ -2586,8 +2586,8 @@
     {
       "id": 9,
       "text": "Na entrevista: Poderia me explixar inner-source e dar um exemplo",
-      "x": 1366.62109375,
-      "y": 291.61328125,
+      "x": 982.96484375,
+      "y": 500.640625,
       "color": "purple",
       "rot": 2.9
     }
@@ -3781,5 +3781,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T13:40:24.761Z"
+  "_updatedAt": "2026-09-23T17:24:15.718Z"
 }
