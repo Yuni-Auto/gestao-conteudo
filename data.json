@@ -2072,13 +2072,13 @@
         "li"
       ],
       "plataformasDatas": {
-        "ig": "2026-09-22",
-        "tt": "2026-09-22",
-        "li": "2026-09-22"
+        "ig": "2026-09-23",
+        "tt": "2026-09-23",
+        "li": "2026-09-23"
       },
       "plataformasStatus": {
-        "ig": "pesquisar",
-        "tt": "pesquisar",
+        "ig": "publicada",
+        "tt": "publicada",
         "li": "pesquisar"
       },
       "formato": "Reels",
@@ -3779,5 +3779,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T10:41:39.373Z"
+  "_updatedAt": "2026-09-23T10:41:48.746Z"
 }
