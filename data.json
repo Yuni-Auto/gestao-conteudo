@@ -2051,7 +2051,7 @@
     {
       "id": 89,
       "titulo": "[reels] Divulgação de evento -  Rails Girls São Paulo",
-      "desc": "Roteiro 1: Oportunidade perfeita para você que quer ingressar no mercado. \n\nEste é o evento 100% gratuito da Rails Girls que acontecerá no dia 17 de Outubro. \n\nEste é um evento que vai abordar:\n** conceitos básicos de programação\n** como construir uma aplicação web usando Ruby on Rails\n\nAh, você não precisa saber programar.\n\n\n",
+      "desc": "Roteiro 1: Oportunidade perfeita para você que quer ingressar no mercado. \n\nEste é o evento 100% gratuito da Rails Girls que vai acontecer no dia 17 de Outubro. \n\nEste é um evento que conta com:\n** workshop com conceitos básicos de programação\n** como construir uma aplicação web do zero usando Ruby on Rails\n\nAh, para participar você não precisa saber programar.\n\nComenta aqui 'evento' que te mando o link. \n\n",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -3720,5 +3720,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T23:35:52.808Z"
+  "_updatedAt": "2026-09-23T23:39:57.884Z"
 }
