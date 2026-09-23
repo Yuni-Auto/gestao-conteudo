@@ -2099,7 +2099,7 @@
     },
     {
       "id": 90,
-      "titulo": "[carrossel] Dump do TDC (cópia)",
+      "titulo": "[carrossel] Dump do MVP Conference",
       "desc": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
       "carouselLegenda": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
       "slides": [
@@ -2130,7 +2130,7 @@
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-09-27",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -3761,5 +3761,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T23:56:24.938Z"
+  "_updatedAt": "2026-09-23T23:57:20.695Z"
 }
