@@ -2075,16 +2075,8 @@
         "tt",
         "li"
       ],
-      "plataformasDatas": {
-        "ig": "2026-09-23",
-        "tt": "2026-09-23",
-        "li": "2026-09-23"
-      },
-      "plataformasStatus": {
-        "ig": "gravando",
-        "tt": "gravando",
-        "li": "gravando"
-      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [
         {
@@ -3720,5 +3712,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T23:43:11.080Z"
+  "_updatedAt": "2026-09-23T23:43:16.553Z"
 }
