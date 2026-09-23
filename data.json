@@ -2051,7 +2051,7 @@
     {
       "id": 89,
       "titulo": "[reels] Divulgação de evento -  Rails Girls São Paulo",
-      "desc": "",
+      "desc": "Roteiro 1: Oportunidade perfeita para você que quer ingressar no mercado. Este é o evento gratuito da Rails Girls SP que acontecerá nos ",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -3714,5 +3714,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T23:16:28.046Z"
+  "_updatedAt": "2026-09-23T23:19:54.977Z"
 }
