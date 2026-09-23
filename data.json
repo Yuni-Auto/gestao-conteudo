@@ -2060,20 +2060,20 @@
         }
       ],
       "data": "2026-09-23",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
         "li"
       ],
       "plataformasDatas": {
-        "ig": "2026-09-23",
-        "tt": "2026-09-23",
+        "ig": "2026-09-24",
+        "tt": "2026-09-24",
         "li": "2026-09-23"
       },
       "plataformasStatus": {
-        "ig": "publicada",
-        "tt": "publicada",
+        "ig": "roteiro",
+        "tt": "roteiro",
         "li": "pesquisar"
       },
       "formato": "Reels",
@@ -3711,5 +3711,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T21:29:29.787Z"
+  "_updatedAt": "2026-09-23T21:36:43.763Z"
 }
