@@ -2212,70 +2212,7 @@
       ]
     }
   ],
-  "collaborations": [
-    {
-      "id": 1,
-      "nome": "Gabriel Nogueira",
-      "perfil": "gsnogueira.meta",
-      "contato": "",
-      "tipo": "convite",
-      "status": "publicada",
-      "data": "2026-08-25",
-      "seguidores": 129,
-      "plataformas": [
-        "yt"
-      ],
-      "tema": "",
-      "combinado": "",
-      "notas": "",
-      "postIds": [],
-      "lectureIds": [
-        2
-      ]
-    },
-    {
-      "id": 2,
-      "nome": "Womakers Code",
-      "perfil": "Womakersgram",
-      "contato": "",
-      "tipo": "collab",
-      "status": "publicada",
-      "data": "2026-04-25",
-      "seguidores": 36300,
-      "plataformas": [
-        "ig",
-        "li"
-      ],
-      "tema": "Front end nos dias de hoje",
-      "combinado": "Eu gravo e edito",
-      "notas": "",
-      "postIds": [
-        25,
-        85
-      ],
-      "lectureIds": []
-    },
-    {
-      "id": 3,
-      "nome": "Rails Girls São Paulo",
-      "perfil": "railsgirls.sp",
-      "contato": "Daniela",
-      "tipo": "convite",
-      "status": "contato",
-      "data": "2026-09-22",
-      "seguidores": 3,
-      "plataformas": [
-        "ig",
-        "tt",
-        "li"
-      ],
-      "tema": "Divulgação do evento",
-      "combinado": "Eu gravo e edito",
-      "notas": "🚨 SAVE THE DATE! O próximo workshop gratuito de programação do Rails Girls São Paulo será dia 17 de outubro (sábado), em São Paulo/SP!\n📣 As inscrições já estão abertas: https://luma.com/c28tapf3! Vagas limitadas!\n\n𝗤𝘂𝗲𝗺 𝗽𝗼𝗱𝗲 𝗽𝗮𝗿𝘁𝗶𝗰𝗶𝗽𝗮𝗿?\nSe você se identifica como mulher (cis ou trans), pessoa trans e/ou não-binária e tem vontade de entrar na área de tecnologia e, junto com a gente, mudar o cenário global na área de tecnologia, trazendo inclusão de grupos sub-representados, esse workshop é para você!\n\n𝗣𝗼𝗿 𝗾𝘂𝗲 𝗲𝗻𝘀𝗶𝗻𝗮𝗿 𝗽𝗿𝗼𝗴𝗿𝗮𝗺𝗮𝗰̧𝗮̃𝗼 𝗲𝗺 𝘂𝗺 𝗺𝘂𝗻𝗱𝗼 𝗱𝗲 𝗜𝗔?\nCom ferramentas como ChatGPT, Gemini e Copilot cada vez mais presentes no nosso dia a dia, entender um pouco de como o software é construído pode ser um diferencial para aproveitar melhor o que a IA pode fazer e guiar melhor os agentes de IA.\n\n𝗘 𝘃𝗼𝗰𝗲̂ 𝗻𝗮̃𝗼 𝗽𝗿𝗲𝗰𝗶𝘀𝗮 𝘀𝗲𝗿 𝗲𝘅𝗽𝗲𝗿𝘁 𝗽𝗮𝗿𝗮 𝗰𝗼𝗺𝗲𝗰̧𝗮𝗿!\nO Rails Girls é um workshop gratuito e voltado para mulheres (cis ou trans), pessoas trans e/ou não-binárias que querem dar seus primeiros passos no mundo da programação.\nEm um dia de muita mão na massa, vamos dar uma pincelada nos conceitos básicos de programação e construir juntas uma aplicação web simples usando Ruby on Rails.\n\n𝗣𝗿𝗲𝗰𝗶𝘀𝗼 𝘀𝗮𝗯𝗲𝗿 𝗽𝗿𝗼𝗴𝗿𝗮𝗺𝗮𝗿? 𝗡𝗮̃𝗼 𝘀𝗲𝗶 𝗻𝗲𝗺 𝗼 𝗾𝘂𝗲 𝗲́ 𝗶𝘀𝘀𝗼\nVocê não precisa saber programar — e vamos explicar o que é programação, código etc. ao longo do evento.\nA ideia é conhecer um pouco desse universo, entender como as coisas funcionam e experimentar na prática — sempre com a ajuda das nossas mentoras. 💜\n\n#RubyonRails #Workshop #EventoGratuito #ProgramaçãoDeComputadores #DesenvolvimentoDeSoftware",
-      "postIds": [],
-      "lectureIds": []
-    }
-  ],
+  "collaborations": [],
   "lectures": [
     {
       "id": 1,
@@ -3781,5 +3718,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-23T17:24:15.718Z"
+  "_updatedAt": "2026-09-23T17:34:42.865Z"
 }
