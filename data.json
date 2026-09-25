@@ -1609,11 +1609,13 @@
         },
         {
           "titulo": "Foto da credencial",
-          "texto": ""
+          "texto": "",
+          "feito": true
         },
         {
           "titulo": "Vídeo apresentando ou falando",
-          "texto": ""
+          "texto": "",
+          "feito": true
         },
         {
           "titulo": "Foto de comida",
@@ -3767,5 +3769,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-25T18:21:21.793Z"
+  "_updatedAt": "2026-09-25T18:21:27.574Z"
 }
