@@ -1894,13 +1894,13 @@
           "inicio": 0,
           "fim": 0,
           "cena": "Isso 🎨 ou Aquilo ⚙️?",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Aquilo",
-          "feito": false
+          "feito": true
         }
       ],
       "data": "2026-09-25",
@@ -3763,5 +3763,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-25T11:28:42.362Z"
+  "_updatedAt": "2026-09-25T18:19:00.568Z"
 }
