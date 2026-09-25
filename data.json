@@ -1617,11 +1617,13 @@
         },
         {
           "titulo": "Foto de comida",
-          "texto": ""
+          "texto": "",
+          "feito": true
         },
         {
           "titulo": "Foto do evento",
-          "texto": ""
+          "texto": "",
+          "feito": true
         }
       ],
       "scenes": [],
@@ -3765,5 +3767,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-25T18:19:06.781Z"
+  "_updatedAt": "2026-09-25T18:21:21.793Z"
 }
