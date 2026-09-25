@@ -1392,12 +1392,14 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Filmando o público ou stands"
+          "cena": "Filmando o público ou stands",
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Palestras acontecendo"
+          "cena": "Palestras acontecendo",
+          "feito": true
         }
       ],
       "data": "2026-09-25",
@@ -3763,5 +3765,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-25T18:19:00.568Z"
+  "_updatedAt": "2026-09-25T18:19:06.781Z"
 }
