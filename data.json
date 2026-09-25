@@ -1386,7 +1386,8 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Filmando o ambiente do evento"
+          "cena": "Filmando o ambiente do evento",
+          "feito": true
         },
         {
           "inicio": 0,
@@ -3762,5 +3763,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-25T11:07:49.928Z"
+  "_updatedAt": "2026-09-25T11:07:54.322Z"
 }
