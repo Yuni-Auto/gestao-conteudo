@@ -1381,7 +1381,8 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Trajeto até o evento"
+          "cena": "Trajeto até o evento",
+          "feito": false
         },
         {
           "inicio": 0,
@@ -1402,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-26",
+      "data": "2026-09-27",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -3778,5 +3779,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-26T22:35:07.541Z"
+  "_updatedAt": "2026-09-26T22:35:14.904Z"
 }
