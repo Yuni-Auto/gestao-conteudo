@@ -2170,33 +2170,6 @@
       "requiredTag": "slot1",
       "parceiroId": null,
       "eventoId": null
-    },
-    {
-      "id": 93,
-      "titulo": "3 projetos para iniciantes",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        }
-      ],
-      "scenes": [],
-      "data": "2026-10-28",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": "slot5",
-      "parceiroId": null,
-      "eventoId": null
     }
   ],
   "partners": [
@@ -3814,5 +3787,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:48:20.545Z"
+  "_updatedAt": "2026-09-27T01:48:29.528Z"
 }
