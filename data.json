@@ -2308,7 +2308,27 @@
       ]
     }
   ],
-  "collaborations": [],
+  "collaborations": [
+    {
+      "id": 1,
+      "nome": "Laura Rodrigues",
+      "perfil": "laurarodrigues.dev",
+      "contato": "",
+      "tipo": "collab",
+      "status": "produzindo",
+      "data": "2026-10-02",
+      "seguidores": 3,
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "postIds": [],
+      "lectureIds": []
+    }
+  ],
   "lectures": [
     {
       "id": 1,
@@ -3808,5 +3828,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:28:41.652Z"
+  "_updatedAt": "2026-09-27T14:38:03.994Z"
 }
