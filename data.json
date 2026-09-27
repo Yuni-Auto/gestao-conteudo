@@ -2143,6 +2143,33 @@
       "requiredTag": "slot9",
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 92,
+      "titulo": "Dump do mês",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-31",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1",
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3761,5 +3788,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:29:45.759Z"
+  "_updatedAt": "2026-09-27T01:30:15.572Z"
 }
