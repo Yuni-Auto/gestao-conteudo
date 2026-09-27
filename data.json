@@ -1890,7 +1890,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-27",
+      "data": "2026-09-28",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2101,7 +2101,7 @@
           "feito": false
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-09-30",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -3790,5 +3790,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:21:54.295Z"
+  "_updatedAt": "2026-09-27T01:21:59.430Z"
 }
