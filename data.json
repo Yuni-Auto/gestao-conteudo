@@ -640,7 +640,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-15",
+      "data": "2026-10-22",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -3791,5 +3791,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:23:00.400Z"
+  "_updatedAt": "2026-09-27T01:23:20.390Z"
 }
