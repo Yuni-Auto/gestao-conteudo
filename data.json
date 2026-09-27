@@ -1403,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-30",
+      "data": "2026-09-28",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1832,7 +1832,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-09-30",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2678,7 +2678,8 @@
         "alcance": 85,
         "eng": 7,
         "conteudo": 4,
-        "clicks": 0
+        "clicks": 0,
+        "followers": 980
       },
       "Out 26": {
         "seguidores": 15,
@@ -2686,7 +2687,8 @@
         "alcance": 86,
         "eng": 7,
         "conteudo": 4,
-        "clicks": 0
+        "clicks": 0,
+        "followers": 980
       },
       "Mai 26": {
         "seguidores": 26,
@@ -2757,10 +2759,10 @@
     },
     "yt": {
       "Set 26": {
-        "seguidores": 5,
-        "views": 2600,
-        "alcance": 2.9,
-        "eng": 36,
+        "seguidores": 6,
+        "views": 3700,
+        "alcance": 4.5,
+        "eng": 50,
         "conteudo": 3,
         "clicks": 0
       }
@@ -4020,5 +4022,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T16:19:36.063Z"
+  "_updatedAt": "2026-09-27T16:47:47.737Z"
 }
