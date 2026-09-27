@@ -375,7 +375,7 @@
           "feito": false
         }
       ],
-      "data": "2026-09-27",
+      "data": "2026-10-12",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -557,7 +557,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-27",
+      "data": "2026-10-06",
       "status": "design",
       "plataformas": [
         "ig",
@@ -640,7 +640,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-15",
+      "data": "2026-10-22",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1382,7 +1382,7 @@
           "inicio": 0,
           "fim": 0,
           "cena": "Trajeto até o evento",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
@@ -1403,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-09-30",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1462,36 +1462,6 @@
       "parceiroId": null
     },
     {
-      "id": 69,
-      "titulo": "[carrossel] Dump do mês (Melhores momentos do TDC)",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-10-03",
-      "status": "pesquisar",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "plataformasDatas": null,
-      "formato": "Carousel",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://www.instagram.com/p/DdFLYURETWq/?stkn=a3Q5c2k2eDQ5azgx"
-        }
-      ],
-      "requiredTag": "slot1",
-      "plataformasStatus": null,
-      "parceiroId": null
-    },
-    {
       "id": 70,
       "titulo": "[carrossel] Coisas legais que aprendi estudando Angular em diferentes versões",
       "desc": "",
@@ -1519,7 +1489,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-27",
+      "data": "2026-10-24",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1541,19 +1511,22 @@
       "slides": [
         {
           "titulo": "Criação de uma interface",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Criação da lógica",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Criação de testes unitários",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-09-30",
+      "data": "2026-10-20",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1564,7 +1537,8 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot5",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 72,
@@ -1574,23 +1548,27 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-10-02",
+      "data": "2026-10-08",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1600,7 +1578,8 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot6",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 73,
@@ -1636,7 +1615,7 @@
       ],
       "scenes": [],
       "data": "2026-09-25",
-      "status": "design",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -1667,7 +1646,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-15",
+      "data": "2026-10-26",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1717,32 +1696,6 @@
         }
       ],
       "data": "2026-11-06",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt",
-        "yt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": null
-    },
-    {
-      "id": 77,
-      "titulo": "[reels] Um dia comigo no AI CONF'ROLL",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-10-15",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1881,7 +1834,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-27",
+      "data": "2026-09-28",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1920,7 +1873,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-27",
+      "data": "2026-10-02",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1984,7 +1937,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-13",
+      "data": "2026-10-18",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2018,7 +1971,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-06",
+      "data": "2026-10-10",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -2052,7 +2005,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-08",
+      "data": "2026-10-16",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2092,7 +2045,7 @@
           "feito": false
         }
       ],
-      "data": "2026-09-27",
+      "data": "2026-10-04",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2149,7 +2102,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-09-27",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2161,6 +2114,60 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 91,
+      "titulo": "Vocabulário da programação",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-14",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot9",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 92,
+      "titulo": "Dump do mês",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-31",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1",
       "parceiroId": null,
       "eventoId": null
     }
@@ -2298,7 +2305,8 @@
       "complemento": "",
       "bairro": "Jardim das Laranjeiras",
       "cidade": "São Paulo",
-      "uf": "SP"
+      "uf": "SP",
+      "avaliacao": 0
     },
     {
       "id": 2,
@@ -3780,5 +3788,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T00:51:11.546Z"
+  "_updatedAt": "2026-09-27T01:30:15.572Z"
 }
