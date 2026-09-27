@@ -2333,7 +2333,7 @@
       "bairro": "Jardim das Laranjeiras",
       "cidade": "São Paulo",
       "uf": "SP",
-      "avaliacao": 0
+      "avaliacao": 2
     },
     {
       "id": 2,
@@ -3806,5 +3806,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:49:46.144Z"
+  "_updatedAt": "2026-09-27T01:56:09.548Z"
 }
