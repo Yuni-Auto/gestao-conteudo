@@ -2177,15 +2177,26 @@
       "desc": "Metas que eu estabeleci para mês/ano",
       "carouselLegenda": "",
       "slides": [],
-      "scenes": [],
-      "data": "",
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-28",
       "status": "ideia",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null
     }
   ],
   "partners": [
@@ -3795,5 +3806,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:48:59.064Z"
+  "_updatedAt": "2026-09-27T01:49:46.144Z"
 }
