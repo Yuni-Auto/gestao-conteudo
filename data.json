@@ -2196,7 +2196,7 @@
     {
       "id": 2,
       "marca": "Rocketseat",
-      "status": "naoiniciada",
+      "status": "naoaprovada",
       "link": "",
       "dataInicio": "2026-07-01",
       "dataFinal": "2026-09-01",
@@ -4020,5 +4020,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T16:15:41.447Z"
+  "_updatedAt": "2026-09-27T16:19:36.063Z"
 }
