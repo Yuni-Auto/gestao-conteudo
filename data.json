@@ -2298,7 +2298,8 @@
       "complemento": "",
       "bairro": "Jardim das Laranjeiras",
       "cidade": "São Paulo",
-      "uf": "SP"
+      "uf": "SP",
+      "avaliacao": 0
     },
     {
       "id": 2,
@@ -3780,5 +3781,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T00:59:18.160Z"
+  "_updatedAt": "2026-09-27T00:59:29.429Z"
 }
