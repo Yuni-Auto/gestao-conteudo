@@ -2643,41 +2643,41 @@
         "views": 36651,
         "alcance": 15718,
         "eng": 2941,
-        "conteudo": 1,
+        "conteudo": 8,
         "clicks": 22
       }
     },
     "tt": {
       "Jun 26": {
-        "seguidores": 997,
-        "views": 2000,
-        "alcance": 0,
+        "seguidores": 20,
+        "views": 1500,
+        "alcance": 87,
         "eng": 0,
         "conteudo": 2,
         "clicks": 0
       },
       "Jul 26": {
-        "seguidores": 991,
-        "views": 1760,
-        "alcance": 996,
-        "eng": 119,
-        "conteudo": 4,
-        "clicks": 0
-      },
-      "Ago 26": {
-        "seguidores": 982,
-        "views": 658,
-        "alcance": 0,
-        "eng": 0,
-        "conteudo": 0,
-        "clicks": 0
-      },
-      "Set 26": {
         "seguidores": 31,
         "views": 1800,
         "alcance": 108,
         "eng": 1,
         "conteudo": 3,
+        "clicks": 0
+      },
+      "Ago 26": {
+        "seguidores": 19,
+        "views": 777,
+        "alcance": 15,
+        "eng": 0,
+        "conteudo": 2,
+        "clicks": 0
+      },
+      "Set 26": {
+        "seguidores": 14,
+        "views": 809,
+        "alcance": 85,
+        "eng": 7,
+        "conteudo": 4,
         "clicks": 0
       },
       "Out 26": {
@@ -2686,6 +2686,46 @@
         "alcance": 86,
         "eng": 7,
         "conteudo": 4,
+        "clicks": 0
+      },
+      "Mai 26": {
+        "seguidores": 26,
+        "views": 2400,
+        "alcance": 90,
+        "eng": 3,
+        "conteudo": 5,
+        "clicks": 0
+      },
+      "Abr 26": {
+        "seguidores": 105,
+        "views": 10200,
+        "alcance": 582,
+        "eng": 1,
+        "conteudo": 43,
+        "clicks": 0
+      },
+      "Mar 26": {
+        "seguidores": 337,
+        "views": 28500,
+        "alcance": 2200,
+        "eng": 23,
+        "conteudo": 244,
+        "clicks": 0
+      },
+      "Fev 26": {
+        "seguidores": 467,
+        "views": 24600,
+        "alcance": 2100,
+        "eng": 49,
+        "conteudo": 101,
+        "clicks": 0
+      },
+      "Jan 26": {
+        "seguidores": 585,
+        "views": 20900,
+        "alcance": 1800,
+        "eng": 55,
+        "conteudo": 25,
         "clicks": 0
       }
     },
@@ -2707,10 +2747,10 @@
         "clicks": 0
       },
       "Set 26": {
-        "seguidores": 2413,
-        "views": 251,
-        "alcance": 9,
-        "eng": 251,
+        "seguidores": 2441,
+        "views": 191,
+        "alcance": 244,
+        "eng": 48,
         "conteudo": 0,
         "clicks": 0
       }
@@ -3980,5 +4020,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T16:01:35.028Z"
+  "_updatedAt": "2026-09-27T16:15:41.447Z"
 }
