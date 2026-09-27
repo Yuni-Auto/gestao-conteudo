@@ -2673,11 +2673,11 @@
         "clicks": 0
       },
       "Set 26": {
-        "seguidores": 979,
-        "views": 711,
-        "alcance": 26,
+        "seguidores": 31,
+        "views": 1800,
+        "alcance": 108,
         "eng": 1,
-        "conteudo": 2,
+        "conteudo": 3,
         "clicks": 0
       },
       "Out 26": {
@@ -3980,5 +3980,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T15:57:20.014Z"
+  "_updatedAt": "2026-09-27T16:01:35.028Z"
 }
