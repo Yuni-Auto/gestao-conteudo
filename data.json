@@ -3760,8 +3760,7 @@
       "Reels": {
         "roteiro": 2,
         "gravando": 2,
-        "editando": 1,
-        "legenda": 1
+        "editando": 1
       },
       "Carousel": {
         "legenda": 1,
@@ -3788,5 +3787,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:41:51.376Z"
+  "_updatedAt": "2026-09-27T01:46:15.145Z"
 }
