@@ -2327,6 +2327,27 @@
       "notas": "",
       "postIds": [],
       "lectureIds": []
+    },
+    {
+      "id": 2,
+      "nome": "Gabriel Nogueira",
+      "perfil": "gsnogueira.meta",
+      "contato": "",
+      "tipo": "collab",
+      "status": "produzindo",
+      "data": "2026-10-02",
+      "seguidores": 129,
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "postIds": [
+        84
+      ],
+      "lectureIds": []
     }
   ],
   "lectures": [
@@ -3828,5 +3849,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:38:03.994Z"
+  "_updatedAt": "2026-09-27T14:39:14.660Z"
 }
