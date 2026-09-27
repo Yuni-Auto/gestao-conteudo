@@ -2116,6 +2116,33 @@
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 91,
+      "titulo": "Vocabulário da programação",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-14",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot9",
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3734,5 +3761,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:28:41.475Z"
+  "_updatedAt": "2026-09-27T01:29:35.288Z"
 }
