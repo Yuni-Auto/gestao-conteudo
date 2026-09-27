@@ -1431,7 +1431,7 @@
       ],
       "scenes": [],
       "data": "2026-09-18",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -3808,5 +3808,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:56:20.708Z"
+  "_updatedAt": "2026-09-27T14:56:26.958Z"
 }
