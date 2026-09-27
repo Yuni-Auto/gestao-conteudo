@@ -5478,8 +5478,11 @@ function onDetailEventoChange(value) {
 }
 
 /* — Consultas — */
+/* Um post fica "vinculado" ao evento enquanto tiver eventoId setado, mesmo depois
+   de publicado — senão o conteúdo some da tela de produção do evento assim que
+   passa de status (bug reportado). */
 function postsLinkedToEvento(lectureId) {
-  return posts.filter(p => Number(p.eventoId) === Number(lectureId) && statusUsaEvento(p.status));
+  return posts.filter(p => Number(p.eventoId) === Number(lectureId));
 }
 /* Posts em gravando/design, ainda sem evento, cuja etapa cai no dia do evento. */
 function postsSuggestedForEvento(l) {
@@ -6963,7 +6966,7 @@ function setLectureModalRating(n) {
   document.querySelectorAll('#l-avaliacao-stars .star-pick').forEach((s, i) => s.classList.toggle('filled', i < n));
   resetLectureRatingLabel();
 }
-const LECTURE_RATING_LABELS = { 1:'Ruim', 2:'Pontos a melhorar', 3:'Ok', 4:'Ótimo', 5:'Ótimo' };
+const LECTURE_RATING_LABELS = { 1:'Ruim', 2:'Pontos a melhorar', 3:'Ok', 4:'Bom', 5:'Ótimo' };
 function hoverLectureRatingLabel(n) {
   const el = document.getElementById('l-avaliacao-label');
   if (el) el.textContent = LECTURE_RATING_LABELS[n] || '';
@@ -8854,7 +8857,7 @@ document.addEventListener('click', e => {
 
 function renderGestaoKanbanCard(p, statusKey) {
   const partnerNames = partnersForPost(p.id);
-  const eventoDoCard = statusUsaEvento(p.status) ? getEventoById(p.eventoId) : null;
+  const eventoDoCard = getEventoById(p.eventoId);
   const partnerTags = partnerNames.map(n => `<span class="week-post-partner">🤝 ${escapeHtml(n)}</span>`).join('')
     + (eventoDoCard ? `<span class="week-post-partner" title="Evento onde vai produzir">🎤 ${escapeHtml(eventoDoCard.evento || eventoDoCard.tema || 'Evento')}</span>` : '');
   const schedule = computeProductionSchedule(p);
