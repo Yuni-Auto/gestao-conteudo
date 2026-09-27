@@ -2348,7 +2348,7 @@
       "contato": "Alvaro",
       "linkEvento": "https://www.instagram.com/angular_sp/",
       "linkSlides": "https://canva.link/re0hgay331q0p76",
-      "notas": "",
+      "notas": "Pontos positivos: \n* Estrutura do local (fácil de fazer live)\n\nPontos negativos: \n* Equipe da comunidade sem orientação\n\nAprendizados: \n* Preparar algo mais técnico (vide coding) por ser 1h de live",
       "temaEvento": "",
       "hora": "19:00",
       "cep": "",
@@ -3808,5 +3808,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:14:36.970Z"
+  "_updatedAt": "2026-09-27T14:28:41.652Z"
 }
