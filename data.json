@@ -2170,6 +2170,22 @@
       "requiredTag": "slot1",
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 94,
+      "titulo": "Metas que eu estabeleci para mês/ano",
+      "desc": "Metas que eu estabeleci para mês/ano",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null
     }
   ],
   "partners": [
@@ -2526,14 +2542,6 @@
     }
   },
   "brainstormNotes": [
-    {
-      "id": 1,
-      "text": "Metas que eu estabeleci para mês/ano",
-      "x": 59.98046875,
-      "y": 296.828125,
-      "color": "pink",
-      "rot": -2.1
-    },
     {
       "id": 2,
       "text": "Dicas gerais de TI ou Front-end",
@@ -3787,5 +3795,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:48:29.528Z"
+  "_updatedAt": "2026-09-27T01:48:59.064Z"
 }
