@@ -1009,7 +1009,7 @@
       ],
       "scenes": [],
       "data": "",
-      "status": "pesquisar",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt",
@@ -1103,7 +1103,7 @@
         }
       ],
       "data": "2026-09-21",
-      "status": "programada",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -1218,7 +1218,7 @@
       ],
       "scenes": [],
       "data": "",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -1247,7 +1247,7 @@
       ],
       "scenes": [],
       "data": "",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1403,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-30",
+      "data": "2026-09-28",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1426,21 +1426,20 @@
       "slides": [
         {
           "titulo": "",
-          "texto": "Programas de estagio Setembro/2026 ✨💜👩🏾‍💻\n\n📍Comente \"Estágio\" para receber o links de inscrições na sua DM\n\n#dev #tech #tecnologia #programacao"
+          "texto": "Programas de estagio Setembro/2026 ✨💜👩🏾‍💻\n\n📍Comente \"Estágio\" para receber o links de inscrições na sua DM\n\n#dev #tech #tecnologia #programacao",
+          "feito": false
         }
       ],
       "scenes": [],
       "data": "2026-09-18",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
       "plataformasDatas": {
-        "ig": "2026-09-18",
-        "tt": "2026-09-18",
-        "li": "2026-09-18"
+        "ig": "2026-09-22",
+        "tt": "2026-09-22"
       },
       "formato": "Carousel",
       "inspiracoes": [
@@ -1456,8 +1455,7 @@
       "requiredTag": "slot3",
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "publicada",
-        "li": "pronto"
+        "tt": "publicada"
       },
       "parceiroId": null
     },
@@ -1834,7 +1832,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-09-30",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1938,7 +1936,7 @@
         }
       ],
       "data": "2026-10-18",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -1972,7 +1970,7 @@
         }
       ],
       "data": "2026-10-10",
-      "status": "pesquisar",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt",
@@ -1981,12 +1979,7 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Reels",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://www.instagram.com/reel/DbT2reQgBzs/?stkn=MXJrYmQwOGV0bjBzdw=="
-        }
-      ],
+      "inspiracoes": [],
       "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
@@ -2157,7 +2150,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-31",
+      "data": "2026-10-30",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2170,13 +2163,40 @@
       "requiredTag": "slot1",
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 94,
+      "titulo": "Metas que eu estabeleci para mês/ano",
+      "desc": "Metas que eu estabeleci para mês/ano",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-28",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null
     }
   ],
   "partners": [
     {
       "id": 2,
       "marca": "Rocketseat",
-      "status": "naoiniciada",
+      "status": "naoaprovada",
       "link": "",
       "dataInicio": "2026-07-01",
       "dataFinal": "2026-09-01",
@@ -2281,7 +2301,178 @@
       ]
     }
   ],
-  "collaborations": [],
+  "collaborations": [
+    {
+      "id": 1,
+      "nome": "Laura Rodrigues",
+      "perfil": "laurarodrigues.dev",
+      "contato": "",
+      "status": "combinada",
+      "seguidores": 3348,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 2,
+      "nome": "Gabriel Nogueira",
+      "perfil": "gsnogueira.meta",
+      "contato": "",
+      "status": "produzindo",
+      "seguidores": 129,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        },
+        {
+          "id": 2,
+          "tipo": "convite",
+          "data": "2026-08-25",
+          "status": "publicada",
+          "contentType": "lecture",
+          "contentId": 2
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [
+        2
+      ],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 3,
+      "nome": "Hebert Esteves",
+      "perfil": "heebertesteves",
+      "contato": "",
+      "status": "combinada",
+      "seguidores": 399,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 4,
+      "nome": "Danilo Régis",
+      "perfil": "daniloregis.arq",
+      "contato": "",
+      "status": "combinada",
+      "seguidores": 309,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 5,
+      "nome": "Samira Bittar",
+      "perfil": "olhosespanhois",
+      "contato": "",
+      "status": "produzindo",
+      "seguidores": 419,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "combinada",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    }
+  ],
   "lectures": [
     {
       "id": 1,
@@ -2306,7 +2497,7 @@
       "bairro": "Jardim das Laranjeiras",
       "cidade": "São Paulo",
       "uf": "SP",
-      "avaliacao": 0
+      "avaliacao": 2
     },
     {
       "id": 2,
@@ -2330,7 +2521,8 @@
       "complemento": "",
       "bairro": "",
       "cidade": "",
-      "uf": ""
+      "uf": "",
+      "avaliacao": 3
     },
     {
       "id": 3,
@@ -2354,7 +2546,8 @@
       "complemento": "",
       "bairro": "",
       "cidade": "",
-      "uf": ""
+      "uf": "",
+      "avaliacao": 4
     },
     {
       "id": 4,
@@ -2450,41 +2643,91 @@
         "views": 36651,
         "alcance": 15718,
         "eng": 2941,
-        "conteudo": 1,
+        "conteudo": 8,
         "clicks": 22
       }
     },
     "tt": {
       "Jun 26": {
-        "seguidores": 997,
-        "views": 2000,
-        "alcance": 0,
+        "seguidores": 20,
+        "views": 1500,
+        "alcance": 87,
         "eng": 0,
         "conteudo": 2,
         "clicks": 0
       },
       "Jul 26": {
-        "seguidores": 991,
-        "views": 1760,
-        "alcance": 996,
-        "eng": 119,
-        "conteudo": 4,
+        "seguidores": 31,
+        "views": 1800,
+        "alcance": 108,
+        "eng": 1,
+        "conteudo": 3,
         "clicks": 0
       },
       "Ago 26": {
-        "seguidores": 982,
-        "views": 658,
-        "alcance": 0,
+        "seguidores": 19,
+        "views": 777,
+        "alcance": 15,
         "eng": 0,
-        "conteudo": 0,
+        "conteudo": 2,
         "clicks": 0
       },
       "Set 26": {
-        "seguidores": 979,
-        "views": 711,
-        "alcance": 26,
+        "seguidores": 14,
+        "views": 809,
+        "alcance": 85,
+        "eng": 7,
+        "conteudo": 4,
+        "clicks": 0,
+        "followers": 980
+      },
+      "Out 26": {
+        "seguidores": 15,
+        "views": 851,
+        "alcance": 86,
+        "eng": 7,
+        "conteudo": 4,
+        "clicks": 0,
+        "followers": 980
+      },
+      "Mai 26": {
+        "seguidores": 26,
+        "views": 2400,
+        "alcance": 90,
+        "eng": 3,
+        "conteudo": 5,
+        "clicks": 0
+      },
+      "Abr 26": {
+        "seguidores": 105,
+        "views": 10200,
+        "alcance": 582,
         "eng": 1,
-        "conteudo": 2,
+        "conteudo": 43,
+        "clicks": 0
+      },
+      "Mar 26": {
+        "seguidores": 337,
+        "views": 28500,
+        "alcance": 2200,
+        "eng": 23,
+        "conteudo": 244,
+        "clicks": 0
+      },
+      "Fev 26": {
+        "seguidores": 467,
+        "views": 24600,
+        "alcance": 2100,
+        "eng": 49,
+        "conteudo": 101,
+        "clicks": 0
+      },
+      "Jan 26": {
+        "seguidores": 585,
+        "views": 20900,
+        "alcance": 1800,
+        "eng": 55,
+        "conteudo": 25,
         "clicks": 0
       }
     },
@@ -2506,34 +2749,26 @@
         "clicks": 0
       },
       "Set 26": {
-        "seguidores": 2413,
-        "views": 251,
-        "alcance": 9,
-        "eng": 251,
+        "seguidores": 2441,
+        "views": 191,
+        "alcance": 244,
+        "eng": 48,
         "conteudo": 0,
         "clicks": 0
       }
     },
     "yt": {
       "Set 26": {
-        "seguidores": 5,
-        "views": 2600,
-        "alcance": 2.9,
-        "eng": 36,
+        "seguidores": 6,
+        "views": 3700,
+        "alcance": 4.5,
+        "eng": 50,
         "conteudo": 3,
         "clicks": 0
       }
     }
   },
   "brainstormNotes": [
-    {
-      "id": 1,
-      "text": "Metas que eu estabeleci para mês/ano",
-      "x": 59.98046875,
-      "y": 296.828125,
-      "color": "pink",
-      "rot": -2.1
-    },
     {
       "id": 2,
       "text": "Dicas gerais de TI ou Front-end",
@@ -2640,7 +2875,7 @@
       "rede": "ig",
       "instagram": "pam.dev",
       "nome": "Pamela Mendes",
-      "tipo": "tipo_mtwihe8g9bqh"
+      "tipo": "tipo_mu8huiwhd0hb"
     },
     {
       "id": 7,
@@ -3760,8 +3995,7 @@
       "Reels": {
         "roteiro": 2,
         "gravando": 2,
-        "editando": 1,
-        "legenda": 1
+        "editando": 1
       },
       "Carousel": {
         "legenda": 1,
@@ -3788,5 +4022,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:33:20.491Z"
+  "_updatedAt": "2026-09-27T16:47:47.737Z"
 }
