@@ -1462,37 +1462,6 @@
       "parceiroId": null
     },
     {
-      "id": 69,
-      "titulo": "[carrossel] Dump do mês (Melhores momentos do TDC)",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        }
-      ],
-      "scenes": [],
-      "data": "2026-10-06",
-      "status": "pesquisar",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "plataformasDatas": null,
-      "formato": "Carousel",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://www.instagram.com/p/DdFLYURETWq/?stkn=a3Q5c2k2eDQ5azgx"
-        }
-      ],
-      "requiredTag": "slot1",
-      "plataformasStatus": null,
-      "parceiroId": null
-    },
-    {
       "id": 70,
       "titulo": "[carrossel] Coisas legais que aprendi estudando Angular em diferentes versões",
       "desc": "",
@@ -3791,5 +3760,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:25:51.258Z"
+  "_updatedAt": "2026-09-27T01:26:08.871Z"
 }
