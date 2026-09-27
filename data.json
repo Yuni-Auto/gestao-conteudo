@@ -2357,7 +2357,8 @@
       "complemento": "",
       "bairro": "",
       "cidade": "",
-      "uf": ""
+      "uf": "",
+      "avaliacao": 3
     },
     {
       "id": 3,
@@ -3806,5 +3807,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:56:09.548Z"
+  "_updatedAt": "2026-09-27T01:56:21.197Z"
 }
