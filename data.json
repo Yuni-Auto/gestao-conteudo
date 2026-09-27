@@ -371,11 +371,12 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
-      "data": "2026-09-21",
-      "status": "ideia",
+      "data": "2026-09-27",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -385,7 +386,8 @@
       "inspiracoes": [],
       "requiredTag": null,
       "plataformasDatas": null,
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 24,
@@ -545,17 +547,18 @@
     {
       "id": 31,
       "titulo": "[carrossel] Quando gastei para ter um setup nomadi",
-      "desc": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
-      "carouselLegenda": "Itens: \n\n* Fone de ouvido\n* Notebook\n* Monitor\n* Necessier de maquiagem \n* Necessier de cabos e conectores",
+      "desc": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
+      "carouselLegenda": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-09-24",
-      "status": "pesquisar",
+      "data": "2026-09-27",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -565,10 +568,17 @@
         {
           "creator": "Pamela Mendes",
           "link": "https://www.instagram.com/reel/DZ7p0KDx8Z0/?igsh=MWNxdW96Y2o5YmlxcQ=="
+        },
+        {
+          "creator": "",
+          "link": "https://vt.tiktok.com/ZSbeH7R7b/"
         }
       ],
       "requiredTag": null,
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null,
+      "eventoId": null
     },
     {
       "id": 32,
@@ -626,10 +636,11 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-10-15",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -644,16 +655,8 @@
         }
       ],
       "requiredTag": "slot14",
-      "plataformasDatas": {
-        "ig": "2026-09-24",
-        "tt": "2026-09-24",
-        "yt": "2026-09-24"
-      },
-      "plataformasStatus": {
-        "ig": "roteiro",
-        "tt": "roteiro",
-        "yt": "roteiro"
-      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
       "parceiroId": null
     },
     {
@@ -1095,10 +1098,11 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Meu fone enquanto eu estou resolvendo um bug em produção "
+          "cena": "Meu fone enquanto eu estou resolvendo um bug em produção ",
+          "feito": false
         }
       ],
-      "data": "2026-09-22",
+      "data": "2026-09-21",
       "status": "programada",
       "plataformas": [
         "ig",
@@ -1116,12 +1120,12 @@
       "plataformasDatas": {
         "ig": "2026-09-22",
         "tt": "2026-09-22",
-        "yt": "2026-09-22"
+        "yt": "2026-09-23"
       },
       "plataformasStatus": {
-        "ig": "programada",
-        "tt": "pronto",
-        "yt": "pronto"
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "parceiroId": null
     },
@@ -1371,31 +1375,36 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Take me filmando "
+          "cena": "Take me filmando ",
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Trajeto até o evento"
+          "cena": "Trajeto até o evento",
+          "feito": false
         },
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Filmando o ambiente do evento"
+          "cena": "Filmando o ambiente do evento",
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Filmando o público ou stands"
+          "cena": "Filmando o público ou stands",
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "Palestras acontecendo"
+          "cena": "Palestras acontecendo",
+          "feito": true
         }
       ],
-      "data": "2026-09-25",
-      "status": "gravando",
+      "data": "2026-09-27",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1490,23 +1499,27 @@
       "slides": [
         {
           "titulo": "Angular JS",
-          "texto": "Como o angular foi pensado inicialmente migrar um sistema de 17 mil linhas em 2 semanas. "
+          "texto": "Como o angular foi pensado inicialmente migrar um sistema de 17 mil linhas em 2 semanas. ",
+          "feito": false
         },
         {
           "titulo": "Angular JS",
-          "texto": "Já existiu diretivas, como: ng-show, ng-required"
+          "texto": "Já existiu diretivas, como: ng-show, ng-required",
+          "feito": false
         },
         {
           "titulo": "Angular 21",
-          "texto": "Agora em versões mais novas do angular é usado standalone do que modules"
+          "texto": "Agora em versões mais novas do angular é usado standalone do que modules",
+          "feito": false
         },
         {
           "titulo": "Angular 21",
-          "texto": "Uso do track no @for do Angular"
+          "texto": "Uso do track no @for do Angular",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-09-20",
+      "data": "2026-09-27",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1597,35 +1610,45 @@
       "slides": [
         {
           "titulo": "Foto com uma pessoal ou lugar",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Foto da credencial",
-          "texto": ""
+          "texto": "",
+          "feito": true
         },
         {
           "titulo": "Vídeo apresentando ou falando",
-          "texto": ""
+          "texto": "",
+          "feito": true
         },
         {
           "titulo": "Foto de comida",
-          "texto": ""
+          "texto": "",
+          "feito": true
         },
         {
           "titulo": "Foto do evento",
-          "texto": ""
+          "texto": "",
+          "feito": true
         }
       ],
       "scenes": [],
-      "data": "2026-09-25",
-      "status": "design",
+      "data": "2026-09-26",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-09-26",
+        "tt": "2026-09-26"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada"
+      },
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null,
@@ -1792,10 +1815,11 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
-      "data": "2026-09-21",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1858,7 +1882,7 @@
         }
       ],
       "data": "2026-09-27",
-      "status": "pesquisar",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -1887,17 +1911,17 @@
           "inicio": 0,
           "fim": 0,
           "cena": "Isso 🎨 ou Aquilo ⚙️?",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Aquilo",
-          "feito": false
+          "feito": true
         }
       ],
-      "data": "2026-09-25",
-      "status": "gravando",
+      "data": "2026-09-27",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1911,6 +1935,234 @@
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1
+    },
+    {
+      "id": 85,
+      "titulo": "[reels] o que faz um front-end nos dias de hoje ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-04-25",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 86,
+      "titulo": "[reels] \"como você se vê daqui a 5 anos na carreira de tech\" ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Sentada na frente do PC com a frase no superior de vídeo: \"Como vc se vê aqui a 5 anos na carreira tech\"?",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Carreira tech???",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-13",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdIFS1MsCle/?stkn=MTV4YmMxbHp3cW4zbA=="
+        }
+      ],
+      "requiredTag": "slot4",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 87,
+      "titulo": "[reels] Dica: Se estiver triste, entre na área de TI",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-06",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DbT2reQgBzs/?stkn=MXJrYmQwOGV0bjBzdw=="
+        }
+      ],
+      "requiredTag": "slot4",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 88,
+      "titulo": "[reels] acho chique",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-08",
+      "status": "editando",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdfiKpbAAJC/?stkn=OTg3czJwZjg3eW41"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 89,
+      "titulo": "[reels] Divulgação de evento -  Rails Girls São Paulo",
+      "desc": "Roteiro: Oportunidade perfeita para você que quer ingressar no mercado. \n\nEste é o evento 100% gratuito da Rails Girls que vai acontecer no dia 17 de Outubro. \n\nEste é um evento que conta com:\n** workshop com conceitos básicos de programação\n** como construir uma aplicação web do zero usando Ruby on Rails\n\nAh, para participar você não precisa saber programar.\n\nComenta aqui 'evento' que te mando o link. \n\n",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-09-27",
+      "status": "gravando",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "Grazi Rodrigues",
+          "link": "https://www.instagram.com/p/DcTmr6KO7pE/"
+        },
+        {
+          "creator": "Letícia Baldin",
+          "link": "https://www.instagram.com/p/DcRp_TDpJAF/"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 90,
+      "titulo": "[carrossel] Dump do MVP Conference",
+      "desc": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
+      "carouselLegenda": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
+      "slides": [
+        {
+          "titulo": "Foto com uma pessoal ou lugar",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Foto da credencial",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Vídeo apresentando ou falando",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Foto de comida",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Foto do evento",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-09-27",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -1980,10 +2232,6 @@
         {
           "type": "Carousel",
           "postId": 35
-        },
-        {
-          "type": "Reels",
-          "postId": 31
         }
       ]
     },
@@ -2026,12 +2274,13 @@
       ]
     }
   ],
+  "collaborations": [],
   "lectures": [
     {
       "id": 1,
       "tema": "{ AngularJS para Angular 21 } - Acelerando migrações com GitHub Copilot",
       "evento": "TDC",
-      "status": "ensaiando",
+      "status": "realizada",
       "data": "2026-09-25",
       "formato": "Presencial",
       "local": "São Paulo - SP",
@@ -2040,7 +2289,7 @@
       "contato": "Danilo",
       "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
       "linkSlides": "https://canva.link/w88t5ycommevznj",
-      "notas": "",
+      "notas": "Pontos positivos: \n* Estrutura do local\n* Visibilidade/Networking\n* Produção de conteúdo\n\nPontos negativos: \n* Equipe de gravação sem orientação\n* Locomoção\n* Sem orientação de como fazer a palestra \n\nAprendizados: \n* Não usar apresentação com live coding em palestras de 35min\n* Apresentar somente resultado\n* Treinar se gravando\n* Mandar apresentação em pptx e/ou pdf\n* Se tiver video add na pasta junto da apresentação",
       "temaEvento": "Front-end Moderno e Arquitetura Web",
       "hora": "10:30",
       "cep": "02518-000",
@@ -2112,7 +2361,7 @@
       "contato": "Grace Borges",
       "linkEvento": "",
       "linkSlides": "",
-      "notas": "",
+      "notas": "Recusada: Muito próximo do TDC e não tinha tema :(",
       "temaEvento": "Tecnologia em Diálogo: a Formação Plural como Resposta às Demandas do Mercado",
       "hora": "19:00",
       "cep": "01101-010",
@@ -2136,7 +2385,7 @@
       "contato": "Laura",
       "linkEvento": "https://www.linkedin.com/posts/laura-rfs_o-para-elas-est%C3%A1-crescendo-o-evento-share-7504545647807725568-hzR9/",
       "linkSlides": "",
-      "notas": "",
+      "notas": "Recusada: Horário do evento ser as 16h :(",
       "temaEvento": "Para {Elas}",
       "hora": "16:00",
       "cep": "08295-005",
@@ -2332,6 +2581,14 @@
       "y": 263.296875,
       "color": "blue",
       "rot": 2.4
+    },
+    {
+      "id": 9,
+      "text": "Na entrevista: Poderia me explixar inner-source e dar um exemplo",
+      "x": 982.96484375,
+      "y": 500.640625,
+      "color": "purple",
+      "rot": 2.9
     }
   ],
   "inspirations": [
@@ -2418,6 +2675,20 @@
       "instagram": "laura_data_talks",
       "nome": "Laura",
       "tipo": "tipo_mu8huiwhd0hb"
+    },
+    {
+      "id": 13,
+      "rede": "ig",
+      "instagram": "lletcode",
+      "nome": "Letícia Baldin",
+      "tipo": "tipo_muc2481l6geu"
+    },
+    {
+      "id": 14,
+      "rede": "ig",
+      "instagram": "grazi.tech",
+      "nome": "Grazi Rodrigues",
+      "tipo": "tipo_muc2481l6geu"
     }
   ],
   "inspTipos": [
@@ -2444,6 +2715,11 @@
     {
       "key": "tipo_mu8huiwhd0hb",
       "label": "Recebidos",
+      "icon": "🏷️"
+    },
+    {
+      "key": "tipo_muc2481l6geu",
+      "label": "Divulgação de oportunidade",
       "icon": "🏷️"
     }
   ],
@@ -3504,5 +3780,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-20T01:24:18.406Z"
+  "_updatedAt": "2026-09-27T00:28:38.693Z"
 }
