@@ -2280,7 +2280,7 @@
       "id": 1,
       "tema": "{ AngularJS para Angular 21 } - Acelerando migrações com GitHub Copilot",
       "evento": "TDC",
-      "status": "ensaiando",
+      "status": "realizada",
       "data": "2026-09-25",
       "formato": "Presencial",
       "local": "São Paulo - SP",
@@ -3780,5 +3780,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T00:21:59.555Z"
+  "_updatedAt": "2026-09-27T00:22:12.054Z"
 }
