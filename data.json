@@ -2373,6 +2373,27 @@
         84
       ],
       "lectureIds": []
+    },
+    {
+      "id": 4,
+      "nome": "Hebert Esteves",
+      "perfil": "heebertesteves",
+      "contato": "",
+      "tipo": "collab",
+      "status": "produzindo",
+      "data": "2026-10-02",
+      "seguidores": 399,
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "postIds": [
+        84
+      ],
+      "lectureIds": []
     }
   ],
   "lectures": [
@@ -3874,5 +3895,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:41:54.623Z"
+  "_updatedAt": "2026-09-27T14:43:17.588Z"
 }
