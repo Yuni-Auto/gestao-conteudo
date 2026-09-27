@@ -1520,7 +1520,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-10",
+      "data": "2026-10-13",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -3791,5 +3791,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:23:31.475Z"
+  "_updatedAt": "2026-09-27T01:23:40.323Z"
 }
