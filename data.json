@@ -2301,7 +2301,178 @@
       ]
     }
   ],
-  "collaborations": [],
+  "collaborations": [
+    {
+      "id": 1,
+      "nome": "Laura Rodrigues",
+      "perfil": "laurarodrigues.dev",
+      "contato": "",
+      "status": "combinada",
+      "seguidores": 3348,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 2,
+      "nome": "Gabriel Nogueira",
+      "perfil": "gsnogueira.meta",
+      "contato": "",
+      "status": "produzindo",
+      "seguidores": 129,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        },
+        {
+          "id": 2,
+          "tipo": "convite",
+          "data": "2026-08-25",
+          "status": "publicada",
+          "contentType": "lecture",
+          "contentId": 2
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [
+        2
+      ],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 3,
+      "nome": "Hebert Esteves",
+      "perfil": "heebertesteves",
+      "contato": "",
+      "status": "combinada",
+      "seguidores": 399,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 4,
+      "nome": "Danilo Régis",
+      "perfil": "daniloregis.arq",
+      "contato": "",
+      "status": "combinada",
+      "seguidores": 309,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    },
+    {
+      "id": 5,
+      "nome": "Samira Bittar",
+      "perfil": "olhosespanhois",
+      "contato": "",
+      "status": "produzindo",
+      "seguidores": 419,
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-02",
+          "status": "combinada",
+          "contentType": "post",
+          "contentId": 84
+        }
+      ],
+      "postIds": [
+        84
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-02"
+    }
+  ],
   "lectures": [
     {
       "id": 1,
@@ -2654,7 +2825,7 @@
       "rede": "ig",
       "instagram": "pam.dev",
       "nome": "Pamela Mendes",
-      "tipo": "tipo_mtwihe8g9bqh"
+      "tipo": "tipo_mu8huiwhd0hb"
     },
     {
       "id": 7,
@@ -3801,5 +3972,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T15:04:22.048Z"
+  "_updatedAt": "2026-09-27T15:22:11.832Z"
 }
