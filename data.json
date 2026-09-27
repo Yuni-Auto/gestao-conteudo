@@ -1709,32 +1709,6 @@
       "requiredTag": null
     },
     {
-      "id": 77,
-      "titulo": "[reels] Um dia comigo no AI CONF'ROLL",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "2026-10-15",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt",
-        "yt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": null
-    },
-    {
       "id": 78,
       "titulo": "[reels] Um dia comigo no PrograMaria Summit",
       "desc": "",
@@ -3760,5 +3734,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:27:15.323Z"
+  "_updatedAt": "2026-09-27T01:27:52.271Z"
 }
