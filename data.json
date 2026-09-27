@@ -1382,7 +1382,7 @@
           "inicio": 0,
           "fim": 0,
           "cena": "Trajeto até o evento",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
@@ -3780,5 +3780,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T00:58:55.728Z"
+  "_updatedAt": "2026-09-27T00:59:18.160Z"
 }
