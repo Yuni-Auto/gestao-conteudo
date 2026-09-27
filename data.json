@@ -1009,7 +1009,7 @@
       ],
       "scenes": [],
       "data": "",
-      "status": "pesquisar",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt",
@@ -1218,7 +1218,7 @@
       ],
       "scenes": [],
       "data": "",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -1247,7 +1247,7 @@
       ],
       "scenes": [],
       "data": "",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt"
@@ -1936,7 +1936,7 @@
         }
       ],
       "data": "2026-10-18",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -1970,7 +1970,7 @@
         }
       ],
       "data": "2026-10-10",
-      "status": "pesquisar",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt",
@@ -1979,12 +1979,7 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Reels",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://www.instagram.com/reel/DbT2reQgBzs/?stkn=MXJrYmQwOGV0bjBzdw=="
-        }
-      ],
+      "inspiracoes": [],
       "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
@@ -3806,5 +3801,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:56:32.939Z"
+  "_updatedAt": "2026-09-27T15:04:22.048Z"
 }
