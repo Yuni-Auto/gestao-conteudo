@@ -2289,7 +2289,7 @@
       "contato": "Danilo",
       "linkEvento": "https://thedevconf.com/tdc/2026/sao-paulo/trilha-front-end-moderno-e-arquitetura-web",
       "linkSlides": "https://canva.link/w88t5ycommevznj",
-      "notas": "Pontos positivos: \n* Estrutura do local\n* Visibilidade/Networking\n* Produção de conteúdo\n\nPontos negativos: \n* Equipe de gravação sem orientação\n\nAprendizados: \n* Não usar apresentação com live coding em palestras de 35min\n* Apresentar somente resultado\n* Treinar se gravando",
+      "notas": "Pontos positivos: \n* Estrutura do local\n* Visibilidade/Networking\n* Produção de conteúdo\n\nPontos negativos: \n* Equipe de gravação sem orientação\n\nAprendizados: \n* Não usar apresentação com live coding em palestras de 35min\n* Apresentar somente resultado\n* Treinar se gravando\n* Mandar apresentação em ppt e/ou pdf",
       "temaEvento": "Front-end Moderno e Arquitetura Web",
       "hora": "10:30",
       "cep": "02518-000",
@@ -3780,5 +3780,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T00:23:09.171Z"
+  "_updatedAt": "2026-09-27T00:23:34.738Z"
 }
