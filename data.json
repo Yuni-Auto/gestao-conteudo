@@ -1103,7 +1103,7 @@
         }
       ],
       "data": "2026-09-21",
-      "status": "programada",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -1403,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-09-30",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1834,7 +1834,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-30",
+      "data": "2026-09-28",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2308,94 +2308,7 @@
       ]
     }
   ],
-  "collaborations": [
-    {
-      "id": 1,
-      "nome": "Laura Rodrigues",
-      "perfil": "laurarodrigues.dev",
-      "contato": "",
-      "tipo": "collab",
-      "status": "produzindo",
-      "data": "2026-10-02",
-      "seguidores": 3347,
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "tema": "",
-      "combinado": "",
-      "notas": "",
-      "postIds": [
-        84
-      ],
-      "lectureIds": []
-    },
-    {
-      "id": 2,
-      "nome": "Gabriel Nogueira",
-      "perfil": "gsnogueira.meta",
-      "contato": "",
-      "tipo": "collab",
-      "status": "produzindo",
-      "data": "2026-10-02",
-      "seguidores": 129,
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "tema": "",
-      "combinado": "",
-      "notas": "",
-      "postIds": [
-        84
-      ],
-      "lectureIds": [
-        2
-      ]
-    },
-    {
-      "id": 3,
-      "nome": "Danilo Régis",
-      "perfil": "daniloregis.arq",
-      "contato": "",
-      "tipo": "collab",
-      "status": "produzindo",
-      "data": "2026-10-02",
-      "seguidores": 309,
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "tema": "",
-      "combinado": "",
-      "notas": "",
-      "postIds": [
-        84
-      ],
-      "lectureIds": []
-    },
-    {
-      "id": 4,
-      "nome": "Hebert Esteves",
-      "perfil": "heebertesteves",
-      "contato": "",
-      "tipo": "collab",
-      "status": "produzindo",
-      "data": "2026-10-02",
-      "seguidores": 399,
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "tema": "",
-      "combinado": "",
-      "notas": "",
-      "postIds": [
-        84
-      ],
-      "lectureIds": []
-    }
-  ],
+  "collaborations": [],
   "lectures": [
     {
       "id": 1,
@@ -2435,7 +2348,7 @@
       "contato": "Alvaro",
       "linkEvento": "https://www.instagram.com/angular_sp/",
       "linkSlides": "https://canva.link/re0hgay331q0p76",
-      "notas": "Pontos positivos: \n* Estrutura do local (fácil de fazer live)\n\nPontos negativos: \n* Equipe da comunidade sem orientação\n\nAprendizados: \n* Preparar algo mais técnico (vide coding) por ser 1h de live",
+      "notas": "",
       "temaEvento": "",
       "hora": "19:00",
       "cep": "",
@@ -3895,5 +3808,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:43:17.588Z"
+  "_updatedAt": "2026-09-27T14:56:20.708Z"
 }
