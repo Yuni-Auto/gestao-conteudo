@@ -236,6 +236,17 @@
   .week-day-body.drop-target, .month-day-cell.drop-target { background: #f1eefb; outline: 2px dashed #5b50c8; outline-offset: -2px; }
   .week-post-title { display: block; width: 100%; max-width: 100%; font-weight: 600; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
 
+  /* Day calendar view */
+  .day-view-wrap { max-width: 560px; margin: 0 auto; width: 100%; }
+  .day-view-head { text-align: center; padding: 16px 6px 10px; }
+  .day-view-name { font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .day-view-today-tag { font-size: 10.5px; font-weight: 700; color: #5b50c8; background: #f0effe; border-radius: 999px; padding: 2px 9px; }
+  .day-view-date { font-size: 12.5px; color: var(--text-2); margin-top: 3px; }
+  .day-view-body { display: flex; flex-direction: column; gap: 8px; padding: 6px 6px 26px; }
+  .day-view-body .week-post { font-size: 13px; padding: 10px 12px; }
+  .day-view-body .prod-reminder-chip { font-size: 12px; padding: 8px 10px; }
+  .day-view-body .empty-day { padding: 40px 6px; }
+
   /* Month calendar view */
   .month-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
   .month-dow-row { display: contents; }
@@ -1459,9 +1470,10 @@
         <div class="week-section">
           <div class="week-header">
             <div class="week-header-left">
-              <div class="week-title" id="calendar-title">Semana</div>
+              <div class="week-title" id="calendar-title">Dia</div>
               <div class="cal-view-toggle">
-                <button class="cal-view-btn active" id="cal-view-btn-semana" onclick="setCalView('semana')">Semana</button>
+                <button class="cal-view-btn active" id="cal-view-btn-dia" onclick="setCalView('dia')">Dia</button>
+                <button class="cal-view-btn" id="cal-view-btn-semana" onclick="setCalView('semana')">Semana</button>
                 <button class="cal-view-btn" id="cal-view-btn-mes" onclick="setCalView('mes')">Mês</button>
               </div>
             </div>
@@ -1472,7 +1484,8 @@
               <button class="week-nav-btn" onclick="changeCalPeriod(1)">&#8250;</button>
             </div>
           </div>
-          <div class="week-grid" id="week-grid"></div>
+          <div class="day-grid" id="day-grid"></div>
+          <div class="week-grid" id="week-grid" style="display:none;"></div>
           <div class="month-grid" id="month-grid" style="display:none;"></div>
         </div>
 
@@ -3088,6 +3101,7 @@ function platIcon(key, size=13) {
 }
 const PLATFORM_ICONS  = { ig: platIcon('ig'), tt: platIcon('tt'), li: platIcon('li'), yt: platIcon('yt'), pt: platIcon('pt'), tw: platIcon('tw') };
 const DAY_NAMES    = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const DAY_NAMES_FULL = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
 const MONTH_NAMES  = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 const STORAGE_KEY  = 'content-manager-posts-v2';
 const REQUIRED_POSTS_KEY = 'content-manager-required-posts-v2';
@@ -3679,7 +3693,8 @@ let activeFormatoFilter = null;
 let currentView      = 'calendario';
 let weekOffset   = 0;
 let monthOffset  = 0;
-let calView      = 'semana';
+let dayOffset    = 0;
+let calView      = 'dia';
 let lectureWeekOffset  = 0;
 let lectureMonthOffset = 0;
 let lectureCalView     = 'semana';
@@ -4328,6 +4343,11 @@ function gcalWaitForGIS(cb, tries){
 
 /* ---- Eventos: busca no intervalo visível (semana ou mês) e cache ---- */
 function gcalDateRangeForView(){
+  if(calView === 'dia'){
+    const start = getDayAnchor(dayOffset);
+    const end = new Date(start); end.setDate(start.getDate()+1);
+    return {start, end};
+  }
   if(calView === 'semana'){
     const start = getWeekStart(weekOffset);
     const end = new Date(start); end.setDate(start.getDate()+7);
@@ -4357,7 +4377,7 @@ function gcalFetchKey(start,end){
   return start.toISOString()+'|'+end.toISOString()+'|'+ids.sort().join(',');
 }
 function gcalRedraw(){
-  if (calView === 'semana') renderWeek(); else renderMonth();
+  if (calView === 'dia') renderDay(); else if (calView === 'semana') renderWeek(); else renderMonth();
 }
 function gcalRedrawLecture(){
   if (lectureCalView === 'semana') renderLectureWeek(); else renderLectureMonth();
@@ -4464,6 +4484,44 @@ function gcalToggleVisibility(){
   }
 })();
 
+/* ─── Day calendar ──────────────────────────────────────────────────────── */
+function getDayAnchor(offset) {
+  const d = today(); d.setHours(0,0,0,0); d.setDate(d.getDate() + offset); return d;
+}
+
+function renderDay() {
+  const d = getDayAnchor(dayOffset);
+  const dStr = isoDate(d);
+  const tStr = todayStr();
+  const isToday = dStr === tStr;
+  document.getElementById('week-label').textContent = `${DAY_NAMES_FULL[d.getDay()]}, ${d.getDate()} ${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}`;
+
+  const dayPosts = filteredDayPosts(dStr);
+  const dayGcalEvents = gcalEventsForDate(dStr);
+  const dayProdTasks = getProductionTasksForDate(dStr).filter(t => {
+    if (activePlatFilter && !t.post.plataformas.includes(activePlatFilter)) return false;
+    if (activeFormatoFilter && t.post.formato !== activeFormatoFilter) return false;
+    return true;
+  });
+  const isEmpty = !dayPosts.length && !dayGcalEvents.length && !dayProdTasks.length;
+
+  document.getElementById('day-grid').innerHTML = `
+    <div class="day-view-wrap">
+      <div class="day-view-head">
+        <div class="day-view-name">${DAY_NAMES_FULL[d.getDay()]}${isToday ? ' <span class="day-view-today-tag">hoje</span>' : ''}</div>
+        <div class="day-view-date">${d.getDate()} de ${MONTH_NAMES[d.getMonth()]}</div>
+      </div>
+      <div class="day-view-body" ondragover="allowDropDay(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onDayDrop(event,'${dStr}')">
+        ${dayGcalEvents.length ? `<div class="gcal-events-block${dayPosts.length ? '' : ' no-divider'}">${dayGcalEvents.map(gcalRenderChip).join('')}</div>` : ''}
+        ${dayPosts.map(p => renderPostCard(p, dStr)).join('')}
+        ${dayProdTasks.map(renderProdReminderChip).join('')}
+        ${isEmpty ? '<div class="empty-day">Nada por aqui neste dia.</div>' : ''}
+      </div>
+    </div>`;
+}
+
+function changeDay(dir) { dayOffset += dir; renderDay(); }
+
 /* ─── Week calendar ─────────────────────────────────────────────────────── */
 function getWeekStart(offset) {
   const d = today(); d.setDate(d.getDate() - d.getDay() + offset * 7); d.setHours(0,0,0,0); return d;
@@ -4565,7 +4623,7 @@ function onDayDrop(ev, dateStr) {
   if (!p || p.data === dateStr) return;
   p.data = dateStr;
   savePosts();
-  if (calView === 'semana') renderWeek(); else renderMonth();
+  if (calView === 'dia') renderDay(); else if (calView === 'semana') renderWeek(); else renderMonth();
   renderStats();
   const homeEl = document.getElementById('view-home');
   if (homeEl && homeEl.style.display !== 'none') renderHome();
@@ -4573,20 +4631,22 @@ function onDayDrop(ev, dateStr) {
 
 function setCalView(view) {
   calView = view;
+  document.getElementById('cal-view-btn-dia').classList.toggle('active', view === 'dia');
   document.getElementById('cal-view-btn-semana').classList.toggle('active', view === 'semana');
   document.getElementById('cal-view-btn-mes').classList.toggle('active', view === 'mes');
-  document.getElementById('calendar-title').textContent = view === 'semana' ? 'Semana' : 'Mês';
+  document.getElementById('calendar-title').textContent = view === 'dia' ? 'Dia' : view === 'semana' ? 'Semana' : 'Mês';
+  document.getElementById('day-grid').style.display   = view === 'dia' ? '' : 'none';
   document.getElementById('week-grid').style.display  = view === 'semana' ? '' : 'none';
   document.getElementById('month-grid').style.display = view === 'mes' ? '' : 'none';
   renderCalendar();
 }
 
 function changeCalPeriod(dir) {
-  if (calView === 'semana') { changeWeek(dir); } else { changeMonth(dir); }
+  if (calView === 'dia') { changeDay(dir); } else if (calView === 'semana') { changeWeek(dir); } else { changeMonth(dir); }
 }
 
 function renderCalendar() {
-  if (calView === 'semana') renderWeek(); else renderMonth();
+  if (calView === 'dia') renderDay(); else if (calView === 'semana') renderWeek(); else renderMonth();
   gcalLoadEventsForVisibleRange(); gcalLoadEventsForLectureVisibleRange();
 }
 
@@ -4698,6 +4758,7 @@ function changeMonth(dir) { monthOffset += dir; renderMonth(); }
 function goToToday() {
   weekOffset = 0;
   monthOffset = 0;
+  dayOffset = 0;
   renderCalendar();
 }
 
