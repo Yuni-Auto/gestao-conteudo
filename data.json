@@ -1925,7 +1925,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-30",
+      "data": "2026-10-02",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -3786,5 +3786,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:20:25.891Z"
+  "_updatedAt": "2026-09-27T01:20:35.280Z"
 }
