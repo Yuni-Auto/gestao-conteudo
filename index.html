@@ -491,6 +491,16 @@
   .lecture-overview-card-footer { margin-top: 10px; display: flex; justify-content: flex-end; }
   .lecture-overview-empty { grid-column: 1 / -1; text-align: center; color: var(--text-3); padding: 24px; font-style: italic; }
 
+  /* Avaliação (rating) de palestras */
+  .lecture-rating-stars { display: inline-flex; gap: 2px; }
+  .lecture-rating-stars .star-pick { font-size: 22px; line-height: 1; cursor: pointer; color: var(--border); transition: color 0.1s, transform 0.1s; user-select: none; }
+  .lecture-rating-stars .star-pick:hover { transform: scale(1.12); }
+  .lecture-rating-stars .star-pick.filled { color: #e8a445; }
+  .lecture-rating-stars-sm .star-pick { font-size: 15px; }
+  .lecture-rating-clear { font-size: 11.5px; color: var(--text-3); background: none; border: none; cursor: pointer; margin-left: 8px; text-decoration: underline; }
+  .lecture-rating-label { font-size: 12px; color: var(--text-2); margin-left: 10px; min-width: 90px; }
+  .lecture-rating-readonly { color: #e8a445; letter-spacing: 1px; font-size: 12px; }
+
   /* Título das seções da aba Parceiros com acento rosa; a tabela Overview
      mantém o mesmo visual (plano, sem tingimento) da tabela de Gestão de conteúdo. */
   #view-parceiros .list-title { color: var(--text); display: flex; align-items: center; gap: 6px; }
@@ -1639,11 +1649,12 @@
       <button type="button" class="notif-today-banner-close" onclick="dismissLectureNotifBanner()" title="Dispensar por hoje">✕</button>
     </div>
 
-    <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="stats-row" style="grid-template-columns: repeat(5, 1fr);">
       <div class="stat-card"><div class="stat-label">Palestras</div><div class="stat-value" id="lstat-total">0</div></div>
       <div class="stat-card"><div class="stat-label">Em progresso</div><div class="stat-value" id="lstat-confirmadas">0</div></div>
       <div class="stat-card"><div class="stat-label">Realizadas</div><div class="stat-value" id="lstat-realizadas">0</div></div>
       <div class="stat-card"><div class="stat-label">Cachê total</div><div class="stat-value" id="lstat-cache">R$0</div></div>
+      <div class="stat-card"><div class="stat-label">Avaliação média</div><div class="stat-value" id="lstat-avaliacao">—</div></div>
     </div>
 
     <div class="content-area">
@@ -2091,7 +2102,17 @@
       <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr 1fr; margin-top:14px;">
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Status</label>
-          <select class="form-input" id="l-status"></select>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <select class="form-input" id="l-status" onchange="toggleLectureRatingRow()" style="flex:1; min-width:110px;"></select>
+            <div id="l-avaliacao-row" style="display:none; align-items:center;">
+              <input type="hidden" id="l-avaliacao" value="0" />
+              <div class="lecture-rating-stars lecture-rating-stars-sm" id="l-avaliacao-stars" onmouseleave="resetLectureRatingLabel()">
+                <span class="star-pick" onclick="setLectureModalRating(1)" onmouseenter="hoverLectureRatingLabel(1)">★</span><span class="star-pick" onclick="setLectureModalRating(2)" onmouseenter="hoverLectureRatingLabel(2)">★</span><span class="star-pick" onclick="setLectureModalRating(3)" onmouseenter="hoverLectureRatingLabel(3)">★</span><span class="star-pick" onclick="setLectureModalRating(4)" onmouseenter="hoverLectureRatingLabel(4)">★</span><span class="star-pick" onclick="setLectureModalRating(5)" onmouseenter="hoverLectureRatingLabel(5)">★</span>
+              </div>
+              <span class="lecture-rating-label" id="l-avaliacao-label"></span>
+              <button type="button" class="lecture-rating-clear" onclick="setLectureModalRating(0)">limpar</button>
+            </div>
+          </div>
         </div>
         <div class="form-group" style="margin-bottom:0;">
           <label class="form-label">Data</label>
@@ -6769,6 +6790,9 @@ function renderLectures() {
   document.getElementById('lstat-realizadas').textContent = lectures.filter(l => getLectureStatusMeta(l.status).group === 'complete').length;
   const totalCache = lectures.reduce((s,l) => s + (Number(l.cache)||0), 0);
   document.getElementById('lstat-cache').textContent = totalCache ? 'R$' + totalCache.toFixed(2) : 'R$0';
+  const rated = lectures.filter(l => Number(l.avaliacao) > 0);
+  const avgRating = rated.length ? rated.reduce((s,l) => s + Number(l.avaliacao), 0) / rated.length : 0;
+  document.getElementById('lstat-avaliacao').textContent = rated.length ? avgRating.toFixed(1) + ' ★' : '—';
 
   renderLectureNotifBanner(getUpcomingLecture());
   renderLectureCalendar();
@@ -6789,6 +6813,7 @@ function renderLectures() {
         l.local ? `<span>📍 ${escapeHtml(l.local)}${l.formato ? ' · ' + escapeHtml(l.formato) : ''}</span>` : '',
         l.cache ? `<span>💰 ${fmtCache(l.cache)}</span>` : '',
         l.contato ? `<span>👤 ${escapeHtml(l.contato)}</span>` : '',
+        l.avaliacao ? `<span>${renderStarsHtml(l.avaliacao)}</span>` : '',
         (() => {
           const cbs = collabsForLecture(l.id);
           return cbs.length ? `<span>👥 Collab: ${cbs.map(c => escapeHtml(c.nome)).join(', ')}</span>` : '';
@@ -6891,6 +6916,7 @@ function openLectureModal(id) {
     document.getElementById('l-uf').value = l.uf || '';
     document.getElementById('l-cep-status').textContent = '';
     document.getElementById('l-delete-btn').style.display = '';
+    setLectureModalRating(Number(l.avaliacao) || 0);
   } else {
     document.getElementById('lecture-modal-title').textContent = 'Nova palestra';
     document.getElementById('l-tema').value = '';
@@ -6916,11 +6942,41 @@ function openLectureModal(id) {
     document.getElementById('l-uf').value = '';
     document.getElementById('l-cep-status').textContent = '';
     document.getElementById('l-delete-btn').style.display = 'none';
+    setLectureModalRating(0);
   }
   updateLectureEvprodRow(id);
   updateLectureCollabsRow(id);
   toggleLectureAddressBlock();
+  toggleLectureRatingRow();
   document.getElementById('lecture-modal').classList.add('open');
+}
+
+/* ─── Avaliação (rating) da palestra: exibida só quando já foi realizada ── */
+function toggleLectureRatingRow() {
+  const statusEl = document.getElementById('l-status');
+  const row = document.getElementById('l-avaliacao-row');
+  if (!statusEl || !row) return;
+  row.style.display = statusEl.value === 'realizada' ? '' : 'none';
+}
+function setLectureModalRating(n) {
+  document.getElementById('l-avaliacao').value = n;
+  document.querySelectorAll('#l-avaliacao-stars .star-pick').forEach((s, i) => s.classList.toggle('filled', i < n));
+  resetLectureRatingLabel();
+}
+const LECTURE_RATING_LABELS = { 1:'Ruim', 2:'Pontos a melhorar', 3:'Ok', 4:'Ótimo', 5:'Ótimo' };
+function hoverLectureRatingLabel(n) {
+  const el = document.getElementById('l-avaliacao-label');
+  if (el) el.textContent = LECTURE_RATING_LABELS[n] || '';
+}
+function resetLectureRatingLabel() {
+  const el = document.getElementById('l-avaliacao-label');
+  if (!el) return;
+  const n = Number(document.getElementById('l-avaliacao').value) || 0;
+  el.textContent = n ? (LECTURE_RATING_LABELS[n] || '') : '';
+}
+function renderStarsHtml(n) {
+  n = Math.max(0, Math.min(5, Number(n) || 0));
+  return `<span class="lecture-rating-readonly">${'★'.repeat(n)}${'☆'.repeat(5 - n)}</span>`;
 }
 
 function toggleLectureAddressBlock() {
@@ -7004,6 +7060,7 @@ function saveLecture() {
     bairro: document.getElementById('l-bairro').value.trim(),
     cidade: document.getElementById('l-cidade').value.trim(),
     uf: document.getElementById('l-uf').value.trim(),
+    avaliacao: parseInt(document.getElementById('l-avaliacao').value, 10) || 0,
   };
   if (editingLectureId) {
     const l = lectures.find(x => x.id === editingLectureId);
