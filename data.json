@@ -2681,8 +2681,8 @@
         "clicks": 0
       },
       "Out 26": {
-        "seguidores": 851,
-        "views": 0,
+        "seguidores": 15,
+        "views": 851,
         "alcance": 86,
         "eng": 7,
         "conteudo": 4,
@@ -3980,5 +3980,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T15:52:09.578Z"
+  "_updatedAt": "2026-09-27T15:57:20.014Z"
 }
