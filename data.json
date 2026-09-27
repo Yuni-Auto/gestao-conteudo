@@ -2325,7 +2325,9 @@
       "tema": "",
       "combinado": "",
       "notas": "",
-      "postIds": [],
+      "postIds": [
+        84
+      ],
       "lectureIds": []
     },
     {
@@ -3851,5 +3853,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:40:25.590Z"
+  "_updatedAt": "2026-09-27T14:40:35.908Z"
 }
