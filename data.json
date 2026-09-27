@@ -1574,23 +1574,27 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-10-02",
+      "data": "2026-10-07",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1600,7 +1604,8 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot6",
-      "plataformasStatus": null
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 73,
@@ -3781,5 +3786,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T01:20:11.254Z"
+  "_updatedAt": "2026-09-27T01:20:25.891Z"
 }
