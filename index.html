@@ -963,12 +963,17 @@
   .evprod-section-label:not(:first-child) { margin-top: 20px; }
   .evprod-post { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
   .evprod-post-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 9px 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .evprod-post-toggle { width: 22px; height: 22px; flex-shrink: 0; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 11px; display: flex; align-items: center; justify-content: center; transition: transform 0.15s, background 0.12s; }
+  .evprod-post-toggle:hover { background: var(--surface); color: var(--text); }
+  .evprod-post-toggle.collapsed { transform: rotate(-90deg); }
+  .evprod-post.collapsed .evprod-post-head { border-bottom: none; }
   .evprod-post-title { font-size: 13.5px; font-weight: 600; flex: 1; min-width: 120px; cursor: pointer; }
   .evprod-post-title:hover { color: #5b50c8; }
   .evprod-post-count { font-size: 11.5px; color: var(--text-3); }
   .evprod-unlink { width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-3); cursor: pointer; font-size: 14px; line-height: 1; }
   .evprod-unlink:hover { color: #e8445a; border-color: #fcd0d7; }
   .evprod-post-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+  .evprod-post-body.collapsed { display: none; }
   .evprod-empty { font-size: 13px; color: var(--text-3); text-align: center; padding: 26px 10px; line-height: 1.6; }
   .evprod-check { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 3px 2px; font-size: 12px; font-weight: 600; color: var(--text-2); cursor: pointer; user-select: none; }
   .evprod-check input { width: 18px; height: 18px; accent-color: #2dbe6c; cursor: pointer; margin: 0; }
@@ -2100,11 +2105,11 @@
         </div>
       </div>
       <div class="nf-meta-grid" style="grid-template-columns:1fr 1fr 1fr 1fr; margin-top:14px;">
-        <div class="form-group" style="margin-bottom:0;">
+        <div class="form-group" style="margin-bottom:0; min-width:0;">
           <label class="form-label">Status</label>
-          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-            <select class="form-input" id="l-status" onchange="toggleLectureRatingRow()" style="flex:1; min-width:110px;"></select>
-            <div id="l-avaliacao-row" style="display:none; align-items:center;">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; min-width:0;">
+            <select class="form-input" id="l-status" onchange="toggleLectureRatingRow()" style="flex:1 1 100px; min-width:0;"></select>
+            <div id="l-avaliacao-row" style="display:none; align-items:center; flex-wrap:wrap;">
               <input type="hidden" id="l-avaliacao" value="0" />
               <div class="lecture-rating-stars lecture-rating-stars-sm" id="l-avaliacao-stars" onmouseleave="resetLectureRatingLabel()">
                 <span class="star-pick" onclick="setLectureModalRating(1)" onmouseenter="hoverLectureRatingLabel(1)">★</span><span class="star-pick" onclick="setLectureModalRating(2)" onmouseenter="hoverLectureRatingLabel(2)">★</span><span class="star-pick" onclick="setLectureModalRating(3)" onmouseenter="hoverLectureRatingLabel(3)">★</span><span class="star-pick" onclick="setLectureModalRating(4)" onmouseenter="hoverLectureRatingLabel(4)">★</span><span class="star-pick" onclick="setLectureModalRating(5)" onmouseenter="hoverLectureRatingLabel(5)">★</span>
@@ -5500,6 +5505,15 @@ function unlinkPostsFromEvento(lectureId) {
 }
 
 /* — Modal "O que produzir no evento" — */
+let evprodPostCollapsed = new Set();
+function toggleEvprodPost(postId) {
+  if (evprodPostCollapsed.has(postId)) evprodPostCollapsed.delete(postId);
+  else evprodPostCollapsed.add(postId);
+  const body = document.getElementById('evprod-body');
+  const top = body ? body.scrollTop : 0;
+  renderEventoProducao();
+  if (body) body.scrollTop = top;
+}
 function evprodCheckHtml(postId, kind, idx, done, label) {
   return `<label class="evprod-check" title="Marcar como ${label.toLowerCase()}"><input type="checkbox" ${done ? 'checked' : ''} onchange="toggleEventoItem(${postId},'${kind}',${idx},this.checked)" /> ${label}</label>`;
 }
@@ -5560,15 +5574,17 @@ function eventoPostBlockHtml(p) {
     }
   }
   const allDone = pr.total > 0 && pr.done === pr.total;
+  const isCollapsed = evprodPostCollapsed.has(p.id);
   return `
-  <div class="evprod-post">
+  <div class="evprod-post${isCollapsed ? ' collapsed' : ''}">
     <div class="evprod-post-head">
+      <button type="button" class="evprod-post-toggle${isCollapsed ? ' collapsed' : ''}" onclick="toggleEvprodPost(${p.id})" title="${isCollapsed ? 'Expandir' : 'Recolher'}">▾</button>
       <span class="evprod-post-title" onclick="openPostFromEvento(${p.id})" title="Abrir o post">${FORMAT_ICON[p.formato] || ''} ${escapeHtml(p.titulo)}</span>
       ${statusPill(p.status)}
       <span class="evprod-post-count${allDone ? ' evprod-count-done' : ''}">${allDone ? '✓ ' : ''}${countLabel}</span>
       <button type="button" class="evprod-unlink" onclick="unlinkPostFromEvento(${p.id})" title="Desvincular deste evento">×</button>
     </div>
-    <div class="evprod-post-body">${items}</div>
+    <div class="evprod-post-body${isCollapsed ? ' collapsed' : ''}">${items}</div>
   </div>`;
 }
 
@@ -6959,7 +6975,7 @@ function toggleLectureRatingRow() {
   const statusEl = document.getElementById('l-status');
   const row = document.getElementById('l-avaliacao-row');
   if (!statusEl || !row) return;
-  row.style.display = statusEl.value === 'realizada' ? '' : 'none';
+  row.style.display = statusEl.value === 'realizada' ? 'flex' : 'none';
 }
 function setLectureModalRating(n) {
   document.getElementById('l-avaliacao').value = n;
