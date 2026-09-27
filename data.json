@@ -1426,7 +1426,8 @@
       "slides": [
         {
           "titulo": "",
-          "texto": "Programas de estagio Setembro/2026 ✨💜👩🏾‍💻\n\n📍Comente \"Estágio\" para receber o links de inscrições na sua DM\n\n#dev #tech #tecnologia #programacao"
+          "texto": "Programas de estagio Setembro/2026 ✨💜👩🏾‍💻\n\n📍Comente \"Estágio\" para receber o links de inscrições na sua DM\n\n#dev #tech #tecnologia #programacao",
+          "feito": false
         }
       ],
       "scenes": [],
@@ -1434,13 +1435,11 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
       "plataformasDatas": {
-        "ig": "2026-09-18",
-        "tt": "2026-09-18",
-        "li": "2026-09-18"
+        "ig": "2026-09-22",
+        "tt": "2026-09-22"
       },
       "formato": "Carousel",
       "inspiracoes": [
@@ -1456,8 +1455,7 @@
       "requiredTag": "slot3",
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "publicada",
-        "li": "pronto"
+        "tt": "publicada"
       },
       "parceiroId": null
     },
@@ -3808,5 +3806,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T14:56:26.958Z"
+  "_updatedAt": "2026-09-27T14:56:32.939Z"
 }
