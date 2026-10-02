@@ -865,6 +865,16 @@
   .platdate-row input[type="date"] { flex: 1 1 130px; min-width: 120px; padding: 6px 9px; }
   .platdate-row select.platstatus-select { flex: 1 1 130px; min-width: 120px; padding: 6px 9px; font-size: 12.5px; }
 
+  /* Horário de postagem por plataforma (configuração global) */
+  .plathora-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .plathora-row:last-child { border-bottom: none; }
+  .plathora-row .plathora-label { flex: 1; font-size: 13.5px; color: var(--text); display: flex; align-items: center; gap: 7px; }
+  .plathora-row input[type="time"] { flex: 0 0 130px; padding: 6px 9px; }
+  .postar-banner { background: #e8f7ee; border-color: #b6e3c6; color: #1b6b3a; }
+  .postar-banner .notif-today-banner-close { color: #1b6b3a; }
+  .postar-banner .notif-today-banner-item:hover { text-decoration-color: #1b6b3a; }
+  .week-post-hora { font-size: 10px; font-weight: 600; color: var(--text-3); margin-right: 3px; }
+
   /* Inspirações (status: pesquisar) */
   .insp-row { display: flex; gap: 6px; margin-bottom: 6px; }
   .insp-row .n-insp-creator { flex: 0 0 130px; }
@@ -1311,6 +1321,15 @@
           <button type="button" class="notif-today-banner-close" onclick="dismissNotifBanner()" title="Dispensar por hoje">✕</button>
         </div>
 
+<div class="notif-today-banner postar-banner" id="home-postar-banner" style="margin:0 0 4px;">
+          <span class="notif-today-banner-icon">⏰</span>
+          <div class="notif-today-banner-body">
+            <div class="notif-today-banner-title" id="home-postar-banner-title">Hora de postar</div>
+            <div class="notif-today-banner-items" id="home-postar-banner-items"></div>
+          </div>
+          <button type="button" class="notif-today-banner-close" onclick="dismissPostarBanner()" title="Dispensar">✕</button>
+        </div>
+
         <div class="notif-today-banner" id="home-lecture-notif-banner" style="margin:0 0 4px;">
           <span class="notif-today-banner-icon">🔔</span>
           <div class="notif-today-banner-body">
@@ -1421,6 +1440,10 @@
     <div class="topbar">
       <div class="topbar-title">Gestão de conteúdo</div>
       <div class="topbar-actions" id="gestao-topbar-actions">
+        <button class="sync-status" id="plathoras-btn" onclick="openPlatHorasModal()" title="Definir horário de postagem de cada plataforma" style="margin-right:6px;">
+          <span style="font-size:12px;">🕐</span>
+          <span>Horários de post</span>
+        </button>
         <button class="sync-status" id="prodtime-status-btn" onclick="openProductionModal()" title="Configurar tempo de produção por status" style="margin-right:6px;">
           <span style="font-size:12px;">⏱️</span>
           <span>Tempo de produção</span>
@@ -1439,7 +1462,16 @@
 
     <div class="content-area">
 
-      <div class="subnav-wrap">
+      <div class="notif-today-banner postar-banner" id="gestao-postar-banner" style="margin:0 0 12px;">
+          <span class="notif-today-banner-icon">⏰</span>
+          <div class="notif-today-banner-body">
+            <div class="notif-today-banner-title" id="gestao-postar-banner-title">Hora de postar</div>
+            <div class="notif-today-banner-items" id="gestao-postar-banner-items"></div>
+          </div>
+          <button type="button" class="notif-today-banner-close" onclick="dismissPostarBanner()" title="Dispensar">✕</button>
+        </div>
+
+        <div class="subnav-wrap">
         <div class="subnav-row subnav-row-top">
           <div class="subnav-tabs">
             <button class="subnav-tab active" data-content-view="calendario" onclick="setContentView(this)">📅 Calendário</button>
@@ -2375,6 +2407,25 @@
   </div>
 </div>
 
+<!-- Horários de postagem por plataforma -->
+<div class="modal-overlay" id="plathoras-modal" onclick="handleOverlayClick(event,'plathoras-modal')">
+  <div class="modal" style="max-width:440px;">
+    <div class="modal-hero">
+      <div class="modal-title-text">🕐 Horários de post</div>
+      <div style="font-size:12.5px;color:var(--text-2);margin-top:4px;">Defina o horário de postagem de cada plataforma. Vale para todos os posts da rede e aparece no calendário e no detalhe do post.</div>
+    </div>
+    <div class="modal-body" style="padding:12px 22px;">
+      <div id="plathoras-list"></div>
+    </div>
+    <div class="new-modal-footer">
+      <div class="new-modal-footer-actions">
+        <button class="btn" onclick="closePlatHorasModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="savePlatHoras()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Production Time Modal -->
 <div class="modal-overlay" id="production-modal" onclick="handleOverlayClick(event,'production-modal')">
   <div class="modal" style="max-width:640px;">
@@ -2704,7 +2755,7 @@ function setSyncStatus(state, msg) {
 function collectAllData() {
   return {
     posts, partners, collaborations, lectures, guidelines, analyticsOverrides, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
-    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes,
+    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras,
     _updatedAt: new Date().toISOString(),
   };
 }
@@ -2769,6 +2820,10 @@ function applyRemoteData(data) {
   if (data.productionTimes && typeof data.productionTimes === 'object') {
     productionTimes = { byFormato: data.productionTimes.byFormato || {}, overrides: Array.isArray(data.productionTimes.overrides) ? data.productionTimes.overrides : [] };
     localStorage.setItem(PRODUCTION_TIMES_KEY, JSON.stringify(productionTimes));
+  }
+  if (data.platHoras && typeof data.platHoras === 'object') {
+    platHoras = data.platHoras;
+    localStorage.setItem(PLAT_HORAS_KEY, JSON.stringify(platHoras));
   }
   renderAll();
   if (document.getElementById('view-analytics').style.display !== 'none')  renderAnalytics();
@@ -3284,6 +3339,123 @@ function saveProductionTimesStore() {
 }
 
 let productionTimes = loadProductionTimes();
+
+/* ─── Horário de postagem por plataforma (configuração global) ──────────
+   { ig:'18:00', tt:'20:30', li:'08:00', yt:'12:00' } — vale para todos os posts da plataforma. */
+const PLAT_HORAS_KEY = 'content-manager-plat-horas-v1';
+function loadPlatHoras() {
+  try {
+    const o = JSON.parse(localStorage.getItem(PLAT_HORAS_KEY) || '{}');
+    return o && typeof o === 'object' && !Array.isArray(o) ? o : {};
+  } catch (e) { return {}; }
+}
+let platHoras = loadPlatHoras();
+function platHora(plat) { return platHoras[plat] || ''; }
+function openPlatHorasModal() {
+  document.getElementById('plathoras-list').innerHTML = PLAT_META.map(p => `
+    <div class="plathora-row" data-plat="${p.key}">
+      <span class="plathora-label">${buildPlatHtml(p.key, p.label, 14)}</span>
+      <input class="form-input" type="time" value="${platHora(p.key)}" />
+    </div>`).join('');
+  document.getElementById('plathoras-modal').classList.add('open');
+}
+function closePlatHorasModal() {
+  document.getElementById('plathoras-modal').classList.remove('open');
+}
+/* ─── Alerta "hora de postar" ───────────────────────────────────────────
+   Quando chega o horário da plataforma (Horários de post) e o post está
+   no grupo Complete (Pronto para postar / Programada) com data de hoje,
+   mostra um banner e avisa (notificação nativa ou alert). Posts já
+   Publicados não entram. */
+const POSTAR_DISMISS_KEY = 'content-manager-postar-dismissed-v1';
+const POSTAR_NOTIFIED_KEY = 'content-manager-postar-notified-v1';
+function getPostsDueNow() {
+  const now = new Date();
+  const nowMin = now.getHours() * 60 + now.getMinutes();
+  const todayS = todayStr();
+  const out = [];
+  posts.forEach(p => {
+    (p.plataformas || []).forEach(plat => {
+      const hora = platHora(plat);
+      if (!hora) return;
+      if (platEffectiveDate(p, plat) !== todayS) return;
+      const st = platEffectiveStatus(p, plat);
+      if (groupOf(st) !== 'complete' || st === 'publicada') return;
+      const [hh, mm] = hora.split(':').map(Number);
+      if (nowMin < hh * 60 + mm) return;
+      out.push({ post: p, plat, hora, key: p.id + ':' + plat });
+    });
+  });
+  return out.sort((a, b) => a.hora.localeCompare(b.hora));
+}
+function loadDayKeys(storageKey) {
+  try {
+    const o = JSON.parse(localStorage.getItem(storageKey) || 'null');
+    if (o && o.date === todayStr() && Array.isArray(o.keys)) return o.keys;
+  } catch (e) {}
+  return [];
+}
+function saveDayKeys(storageKey, keys) {
+  localStorage.setItem(storageKey, JSON.stringify({ date: todayStr(), keys }));
+}
+function renderPostarBanners(items) {
+  const dismissed = loadDayKeys(POSTAR_DISMISS_KEY);
+  const visible = items.filter(i => !dismissed.includes(i.key));
+  ['home', 'gestao'].forEach(prefix => {
+    const banner = document.getElementById(prefix + '-postar-banner');
+    if (!banner) return;
+    if (!visible.length) { banner.classList.remove('show'); return; }
+    document.getElementById(prefix + '-postar-banner-title').textContent =
+      visible.length === 1 ? 'Hora de postar!' : `Hora de postar! (${visible.length} posts)`;
+    document.getElementById(prefix + '-postar-banner-items').innerHTML = visible.map(i =>
+      `<div class="notif-today-banner-item" onclick="openPost(${i.post.id})">${escapeHtml(i.post.titulo)} — ${PLATFORM_LABELS[i.plat] || i.plat} (${i.hora})</div>`
+    ).join('');
+    banner.classList.add('show');
+  });
+  return visible;
+}
+function dismissPostarBanner() {
+  const keys = new Set(loadDayKeys(POSTAR_DISMISS_KEY));
+  getPostsDueNow().forEach(i => keys.add(i.key));
+  saveDayKeys(POSTAR_DISMISS_KEY, [...keys]);
+  renderPostarBanners(getPostsDueNow());
+}
+function notifyPostsDue(items) {
+  const notified = loadDayKeys(POSTAR_NOTIFIED_KEY);
+  const fresh = items.filter(i => !notified.includes(i.key));
+  if (!fresh.length) return;
+  saveDayKeys(POSTAR_NOTIFIED_KEY, [...notified, ...fresh.map(i => i.key)]);
+  const title = fresh.length === 1 ? '⏰ Hora de postar!' : `⏰ Hora de postar! (${fresh.length} posts)`;
+  const body = fresh.slice(0, 5).map(i => `${i.post.titulo} — ${PLATFORM_LABELS[i.plat] || i.plat} (${i.hora})`).join('\n')
+    + (fresh.length > 5 ? `\n+${fresh.length - 5} outro(s)` : '');
+  if (notifPermissionSupported() && Notification.permission === 'granted') {
+    try {
+      const n = new Notification(title, { body, tag: 'content-manager-postar-' + todayStr() });
+      n.onclick = () => { window.focus(); n.close(); };
+      return;
+    } catch (e) { /* cai pro alert */ }
+  }
+  alert(title + '\n\n' + body);
+}
+function checkPostTimeAlerts() {
+  const items = getPostsDueNow();
+  const visible = renderPostarBanners(items);
+  if (visible.length) setTimeout(() => notifyPostsDue(visible), 0);
+}
+setInterval(checkPostTimeAlerts, 30 * 1000);
+
+function savePlatHoras() {
+  const out = {};
+  document.querySelectorAll('#plathoras-list .plathora-row').forEach(row => {
+    const v = row.querySelector('input[type="time"]').value;
+    if (v) out[row.dataset.plat] = v;
+  });
+  platHoras = out;
+  localStorage.setItem(PLAT_HORAS_KEY, JSON.stringify(platHoras));
+  scheduleCloudSync();
+  closePlatHorasModal();
+  renderAll();
+}
 let modalProductionTimes = null; // rascunho editado dentro do modal, só vira "productionTimes" ao salvar
 
 function newProdOverrideId() {
@@ -4647,7 +4819,7 @@ function renderPostCard(p, dStr) {
     <div class="week-post-title" title="${escapeHtml(p.titulo)}">${p.titulo}</div>
     <div class="week-post-meta">
       <div class="week-post-icons">
-        ${platsHere.map(x => `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}">${platIcon(x,10)}</span>`).join('')}
+        ${platsHere.map(x => { const h = platHora(x); return `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}${h?' · '+h:''}">${platIcon(x,10)}</span>${h?`<span class="week-post-hora">${h}</span>`:''}`; }).join('')}
       </div>
       <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
     </div>
@@ -4962,7 +5134,7 @@ function openPost(id) {
   document.getElementById('m-format-badge').textContent = `${FORMAT_ICON[p.formato]||''} ${p.formato}`;
   document.getElementById('m-title').textContent        = p.titulo;
   document.getElementById('m-type').textContent         = p.formato;
-  document.getElementById('m-plat').innerHTML           = platPills(p.plataformas);
+  document.getElementById('m-plat').innerHTML           = (p.plataformas || []).map(pl => { const h = platHora(pl); return `<span class="plat-pill ${pl}" style="display:inline-flex;align-items:center;gap:4px;">${PLATFORM_ICONS[pl]||''} ${PLATFORM_LABELS[pl]||pl}${h ? ' · ' + h : ''}</span>`; }).join('');
   updateModalDateField(p);
   renderProductionScheduleBlock(p);
   renderDetalheEvento(p);
@@ -5074,6 +5246,8 @@ function copyCurrentPost(e) {
   const plats = (p.plataformas || []).map(pl => PLATFORM_LABELS[pl] || pl).join(', ');
   lines.push(`Formato: ${p.formato || '—'}`);
   if (plats) lines.push(`Plataforma: ${plats}`);
+  const horasTxt = (p.plataformas || []).filter(pl => platHora(pl)).map(pl => `${PLATFORM_LABELS[pl] || pl} ${platHora(pl)}`).join(', ');
+  if (horasTxt) lines.push(`Horário: ${horasTxt}`);
   const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}) : '—';
   lines.push(`Publicação: ${dateStr}`);
   lines.push('');
@@ -9223,6 +9397,7 @@ function renderAll() {
   renderStats(); renderCalendar(); renderList(); renderStrategyChecklist(); renderGestaoKanban();
   const homeEl = document.getElementById('view-home');
   if (homeEl && homeEl.style.display !== 'none') renderHome();
+  checkPostTimeAlerts();
 }
 renderAll();
 
