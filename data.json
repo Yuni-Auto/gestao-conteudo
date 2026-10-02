@@ -1872,7 +1872,7 @@
         }
       ],
       "data": "2026-10-02",
-      "status": "editando",
+      "status": "programada",
       "plataformas": [
         "ig",
         "tt",
@@ -2343,7 +2343,7 @@
       "plataformas": [
         "ig",
         "tt",
-        "yt"
+        "li"
       ],
       "tema": "",
       "combinado": "",
@@ -2383,9 +2383,7 @@
       "status": "produzindo",
       "seguidores": 399,
       "plataformas": [
-        "ig",
-        "tt",
-        "yt"
+        "ig"
       ],
       "tema": "",
       "combinado": "",
@@ -2415,9 +2413,7 @@
       "status": "produzindo",
       "seguidores": 309,
       "plataformas": [
-        "ig",
-        "tt",
-        "yt"
+        "ig"
       ],
       "tema": "",
       "combinado": "",
@@ -2447,9 +2443,7 @@
       "status": "produzindo",
       "seguidores": 419,
       "plataformas": [
-        "ig",
-        "tt",
-        "yt"
+        "ig"
       ],
       "tema": "",
       "combinado": "",
@@ -4045,5 +4039,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-10-02T13:16:36.435Z"
+  "_updatedAt": "2026-10-02T17:46:39.392Z"
 }
