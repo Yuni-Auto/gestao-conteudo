@@ -2644,6 +2644,14 @@
         "eng": 2941,
         "conteudo": 8,
         "clicks": 22
+      },
+      "Out 26": {
+        "seguidores": 8663,
+        "views": 31237,
+        "alcance": 12915,
+        "eng": 2079,
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "tt": {
@@ -2681,13 +2689,13 @@
         "followers": 980
       },
       "Out 26": {
-        "seguidores": 15,
-        "views": 851,
-        "alcance": 86,
-        "eng": 7,
-        "conteudo": 4,
+        "seguidores": 17,
+        "views": 906,
+        "alcance": 90,
+        "eng": 8,
+        "conteudo": 5,
         "clicks": 0,
-        "followers": 980
+        "followers": 981
       },
       "Mai 26": {
         "seguidores": 26,
@@ -2754,6 +2762,14 @@
         "eng": 48,
         "conteudo": 0,
         "clicks": 0
+      },
+      "Out 26": {
+        "seguidores": 2456,
+        "views": 174,
+        "alcance": 127,
+        "eng": 48,
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "yt": {
@@ -2763,6 +2779,14 @@
         "alcance": 4.5,
         "eng": 50,
         "conteudo": 3,
+        "clicks": 0
+      },
+      "Out 26": {
+        "seguidores": 5,
+        "views": 3600,
+        "alcance": 0,
+        "eng": 51,
+        "conteudo": 4.5,
         "clicks": 0
       }
     }
@@ -4021,5 +4045,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-10-02T11:25:02.698Z"
+  "_updatedAt": "2026-10-02T11:34:54.744Z"
 }
