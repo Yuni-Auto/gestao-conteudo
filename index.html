@@ -866,7 +866,12 @@
   .platdate-row select.platstatus-select { flex: 1 1 130px; min-width: 120px; padding: 6px 9px; font-size: 12.5px; }
 
   /* Horário de postagem por plataforma (configuração global) */
-  .plathora-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .plathora-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .plathora-dias { flex: 0 0 100%; display: flex; gap: 5px; }
+  .plathora-dia { width: 30px; height: 26px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); font-size: 11.5px; font-family: inherit; cursor: pointer; padding: 0; }
+  .plathora-dia:hover { background: var(--bg); }
+  .plathora-dia.on { background: #f0effe; border-color: #d8d3fb; color: #5b50c8; font-weight: 700; }
+  .plathoras-hint { font-size: 11.5px; color: var(--text-3); margin-top: 8px; }
   .plathora-row:last-child { border-bottom: none; }
   .plathora-row .plathora-label { flex: 1; font-size: 13.5px; color: var(--text); display: flex; align-items: center; gap: 7px; }
   .plathora-row input[type="time"] { flex: 0 0 130px; padding: 6px 9px; }
@@ -2412,7 +2417,7 @@
   <div class="modal" style="max-width:440px;">
     <div class="modal-hero">
       <div class="modal-title-text">🕐 Horários de post</div>
-      <div style="font-size:12.5px;color:var(--text-2);margin-top:4px;">Defina o horário de postagem de cada plataforma. Vale para todos os posts da rede e aparece no calendário e no detalhe do post.</div>
+      <div style="font-size:12.5px;color:var(--text-2);margin-top:4px;">Defina o horário e os dias da semana de postagem de cada plataforma. Vale para todos os posts da rede e aparece no calendário e no detalhe do post.</div>
     </div>
     <div class="modal-body" style="padding:12px 22px;">
       <div id="plathoras-list"></div>
@@ -2755,7 +2760,7 @@ function setSyncStatus(state, msg) {
 function collectAllData() {
   return {
     posts, partners, collaborations, lectures, guidelines, analyticsOverrides, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
-    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras,
+    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras, platDias,
     _updatedAt: new Date().toISOString(),
   };
 }
@@ -2824,6 +2829,10 @@ function applyRemoteData(data) {
   if (data.platHoras && typeof data.platHoras === 'object') {
     platHoras = data.platHoras;
     localStorage.setItem(PLAT_HORAS_KEY, JSON.stringify(platHoras));
+  }
+  if (data.platDias && typeof data.platDias === 'object') {
+    platDias = data.platDias;
+    localStorage.setItem(PLAT_DIAS_KEY, JSON.stringify(platDias));
   }
   renderAll();
   if (document.getElementById('view-analytics').style.display !== 'none')  renderAnalytics();
@@ -3351,12 +3360,40 @@ function loadPlatHoras() {
 }
 let platHoras = loadPlatHoras();
 function platHora(plat) { return platHoras[plat] || ''; }
+
+/* Dias da semana de postagem por plataforma: { ig:[1,3,5] } (0=dom … 6=sáb).
+   Sem dias marcados = todos os dias. */
+const PLAT_DIAS_KEY = 'content-manager-plat-dias-v1';
+const DIAS_SEMANA_LABEL = ['D','S','T','Q','Q','S','S'];
+const DIAS_SEMANA_NOME  = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+function loadPlatDias() {
+  try {
+    const o = JSON.parse(localStorage.getItem(PLAT_DIAS_KEY) || '{}');
+    return o && typeof o === 'object' && !Array.isArray(o) ? o : {};
+  } catch (e) { return {}; }
+}
+let platDias = loadPlatDias();
+function platDiasOf(plat) { return Array.isArray(platDias[plat]) ? platDias[plat] : []; }
+// true quando a plataforma posta naquele dia da semana (ou quando não há dias definidos)
+function platDiaOk(plat, date) {
+  const dias = platDiasOf(plat);
+  return !dias.length || dias.includes(date.getDay());
+}
+// Horário da plataforma numa data (YYYY-MM-DD): vazio se não posta naquele dia da semana
+function platHoraOnDate(plat, dStr) {
+  const h = platHora(plat);
+  if (!h || !dStr) return '';
+  return platDiaOk(plat, new Date(dStr + 'T12:00:00')) ? h : '';
+}
 function openPlatHorasModal() {
   document.getElementById('plathoras-list').innerHTML = PLAT_META.map(p => `
     <div class="plathora-row" data-plat="${p.key}">
       <span class="plathora-label">${buildPlatHtml(p.key, p.label, 14)}</span>
       <input class="form-input" type="time" value="${platHora(p.key)}" />
-    </div>`).join('');
+      <div class="plathora-dias">${DIAS_SEMANA_LABEL.map((l, i) =>
+        `<button type="button" class="plathora-dia${platDiasOf(p.key).includes(i) ? ' on' : ''}" data-dia="${i}" title="${DIAS_SEMANA_NOME[i]}" onclick="this.classList.toggle('on')">${l}</button>`
+      ).join('')}</div>
+    </div>`).join('') + `<div class="plathoras-hint">Sem dia marcado = todos os dias. O alerta de "hora de postar" só dispara nos dias marcados.</div>`;
   document.getElementById('plathoras-modal').classList.add('open');
 }
 function closePlatHorasModal() {
@@ -3378,6 +3415,7 @@ function getPostsDueNow() {
     (p.plataformas || []).forEach(plat => {
       const hora = platHora(plat);
       if (!hora) return;
+      if (!platDiaOk(plat, now)) return;
       if (platEffectiveDate(p, plat) !== todayS) return;
       const st = platEffectiveStatus(p, plat);
       if (groupOf(st) !== 'complete' || st === 'publicada') return;
@@ -3445,13 +3483,17 @@ function checkPostTimeAlerts() {
 setInterval(checkPostTimeAlerts, 30 * 1000);
 
 function savePlatHoras() {
-  const out = {};
+  const horas = {}, dias = {};
   document.querySelectorAll('#plathoras-list .plathora-row').forEach(row => {
     const v = row.querySelector('input[type="time"]').value;
-    if (v) out[row.dataset.plat] = v;
+    if (v) horas[row.dataset.plat] = v;
+    const sel = [...row.querySelectorAll('.plathora-dia.on')].map(b => Number(b.dataset.dia));
+    if (sel.length && sel.length < 7) dias[row.dataset.plat] = sel;
   });
-  platHoras = out;
+  platHoras = horas;
+  platDias = dias;
   localStorage.setItem(PLAT_HORAS_KEY, JSON.stringify(platHoras));
+  localStorage.setItem(PLAT_DIAS_KEY, JSON.stringify(platDias));
   scheduleCloudSync();
   closePlatHorasModal();
   renderAll();
@@ -4819,7 +4861,7 @@ function renderPostCard(p, dStr) {
     <div class="week-post-title" title="${escapeHtml(p.titulo)}">${p.titulo}</div>
     <div class="week-post-meta">
       <div class="week-post-icons">
-        ${platsHere.map(x => { const h = platHora(x); return `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}${h?' · '+h:''}">${platIcon(x,10)}</span>${h?`<span class="week-post-hora">${h}</span>`:''}`; }).join('')}
+        ${platsHere.map(x => { const h = platHoraOnDate(x, dStr || platEffectiveDate(p, x)); return `<span class="week-post-plat-icon ${x}" title="${PLATFORM_LABELS[x]||x}${h?' · '+h:''}">${platIcon(x,10)}</span>${h?`<span class="week-post-hora">${h}</span>`:''}`; }).join('')}
       </div>
       <span class="week-post-fmt">${FORMAT_ICON[p.formato]||''} ${p.formato}</span>
     </div>
@@ -5134,7 +5176,7 @@ function openPost(id) {
   document.getElementById('m-format-badge').textContent = `${FORMAT_ICON[p.formato]||''} ${p.formato}`;
   document.getElementById('m-title').textContent        = p.titulo;
   document.getElementById('m-type').textContent         = p.formato;
-  document.getElementById('m-plat').innerHTML           = (p.plataformas || []).map(pl => { const h = platHora(pl); return `<span class="plat-pill ${pl}" style="display:inline-flex;align-items:center;gap:4px;">${PLATFORM_ICONS[pl]||''} ${PLATFORM_LABELS[pl]||pl}${h ? ' · ' + h : ''}</span>`; }).join('');
+  document.getElementById('m-plat').innerHTML           = (p.plataformas || []).map(pl => { const h = platHoraOnDate(pl, platEffectiveDate(p, pl)); return `<span class="plat-pill ${pl}" style="display:inline-flex;align-items:center;gap:4px;">${PLATFORM_ICONS[pl]||''} ${PLATFORM_LABELS[pl]||pl}${h ? ' · ' + h : ''}</span>`; }).join('');
   updateModalDateField(p);
   renderProductionScheduleBlock(p);
   renderDetalheEvento(p);
@@ -5246,7 +5288,7 @@ function copyCurrentPost(e) {
   const plats = (p.plataformas || []).map(pl => PLATFORM_LABELS[pl] || pl).join(', ');
   lines.push(`Formato: ${p.formato || '—'}`);
   if (plats) lines.push(`Plataforma: ${plats}`);
-  const horasTxt = (p.plataformas || []).filter(pl => platHora(pl)).map(pl => `${PLATFORM_LABELS[pl] || pl} ${platHora(pl)}`).join(', ');
+  const horasTxt = (p.plataformas || []).filter(pl => platHoraOnDate(pl, platEffectiveDate(p, pl))).map(pl => `${PLATFORM_LABELS[pl] || pl} ${platHoraOnDate(pl, platEffectiveDate(p, pl))}`).join(', ');
   if (horasTxt) lines.push(`Horário: ${horasTxt}`);
   const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}) : '—';
   lines.push(`Publicação: ${dateStr}`);
