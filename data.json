@@ -1403,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-28",
+      "data": "2026-10-03",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1832,7 +1832,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-30",
+      "data": "2026-10-04",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1872,11 +1872,10 @@
         }
       ],
       "data": "2026-10-02",
-      "status": "editando",
+      "status": "programada",
       "plataformas": [
         "ig",
         "tt",
-        "li",
         "yt"
       ],
       "plataformasDatas": null,
@@ -2344,7 +2343,7 @@
       "plataformas": [
         "ig",
         "tt",
-        "yt"
+        "li"
       ],
       "tema": "",
       "combinado": "",
@@ -2381,12 +2380,10 @@
       "nome": "Hebert Esteves",
       "perfil": "heebertesteves",
       "contato": "",
-      "status": "combinada",
+      "status": "produzindo",
       "seguidores": 399,
       "plataformas": [
-        "ig",
-        "tt",
-        "yt"
+        "ig"
       ],
       "tema": "",
       "combinado": "",
@@ -2413,12 +2410,10 @@
       "nome": "Danilo Régis",
       "perfil": "daniloregis.arq",
       "contato": "",
-      "status": "combinada",
+      "status": "produzindo",
       "seguidores": 309,
       "plataformas": [
-        "ig",
-        "tt",
-        "yt"
+        "ig"
       ],
       "tema": "",
       "combinado": "",
@@ -2448,9 +2443,7 @@
       "status": "produzindo",
       "seguidores": 419,
       "plataformas": [
-        "ig",
-        "tt",
-        "yt"
+        "ig"
       ],
       "tema": "",
       "combinado": "",
@@ -2645,6 +2638,14 @@
         "eng": 2941,
         "conteudo": 8,
         "clicks": 22
+      },
+      "Out 26": {
+        "seguidores": 8663,
+        "views": 31237,
+        "alcance": 12915,
+        "eng": 2079,
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "tt": {
@@ -2682,13 +2683,13 @@
         "followers": 980
       },
       "Out 26": {
-        "seguidores": 15,
-        "views": 851,
-        "alcance": 86,
-        "eng": 7,
-        "conteudo": 4,
+        "seguidores": 17,
+        "views": 906,
+        "alcance": 90,
+        "eng": 8,
+        "conteudo": 5,
         "clicks": 0,
-        "followers": 980
+        "followers": 981
       },
       "Mai 26": {
         "seguidores": 26,
@@ -2755,6 +2756,14 @@
         "eng": 48,
         "conteudo": 0,
         "clicks": 0
+      },
+      "Out 26": {
+        "seguidores": 2456,
+        "views": 174,
+        "alcance": 127,
+        "eng": 48,
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "yt": {
@@ -2764,6 +2773,14 @@
         "alcance": 4.5,
         "eng": 50,
         "conteudo": 3,
+        "clicks": 0
+      },
+      "Out 26": {
+        "seguidores": 5,
+        "views": 3600,
+        "alcance": 0,
+        "eng": 51,
+        "conteudo": 4.5,
         "clicks": 0
       }
     }
@@ -4022,5 +4039,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-09-27T16:47:47.737Z"
+  "_updatedAt": "2026-10-02T17:46:39.392Z"
 }
