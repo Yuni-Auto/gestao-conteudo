@@ -1403,7 +1403,7 @@
           "feito": true
         }
       ],
-      "data": "2026-09-29",
+      "data": "2026-10-03",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1832,7 +1832,7 @@
           "cena": ""
         }
       ],
-      "data": "2026-09-30",
+      "data": "2026-10-04",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1876,7 +1876,6 @@
       "plataformas": [
         "ig",
         "tt",
-        "li",
         "yt"
       ],
       "plataformasDatas": null,
@@ -4022,5 +4021,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-10-01T02:54:59.283Z"
+  "_updatedAt": "2026-10-02T11:25:02.698Z"
 }
