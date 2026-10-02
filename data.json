@@ -2380,7 +2380,7 @@
       "nome": "Hebert Esteves",
       "perfil": "heebertesteves",
       "contato": "",
-      "status": "combinada",
+      "status": "produzindo",
       "seguidores": 399,
       "plataformas": [
         "ig",
@@ -2412,7 +2412,7 @@
       "nome": "Danilo Régis",
       "perfil": "daniloregis.arq",
       "contato": "",
-      "status": "combinada",
+      "status": "produzindo",
       "seguidores": 309,
       "plataformas": [
         "ig",
@@ -2444,7 +2444,7 @@
       "nome": "Samira Bittar",
       "perfil": "olhosespanhois",
       "contato": "",
-      "status": "combinada",
+      "status": "produzindo",
       "seguidores": 419,
       "plataformas": [
         "ig",
@@ -4045,5 +4045,5 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-10-02T11:34:54.744Z"
+  "_updatedAt": "2026-10-02T13:16:36.435Z"
 }
