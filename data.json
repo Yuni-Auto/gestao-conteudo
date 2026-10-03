@@ -2008,14 +2008,22 @@
         }
       ],
       "data": "2026-10-16",
-      "status": "editando",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-10-16",
+        "tt": "2026-10-16",
+        "yt": "2026-10-16"
+      },
+      "plataformasStatus": {
+        "ig": "programada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
       "formato": "Reels",
       "inspiracoes": [
         {
@@ -4051,5 +4059,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-03T14:02:32.185Z"
+  "_updatedAt": "2026-10-03T14:20:06.079Z"
 }
