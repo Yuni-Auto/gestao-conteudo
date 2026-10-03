@@ -546,24 +546,25 @@
     },
     {
       "id": 31,
-      "titulo": "[carrossel] Quando gastei para ter um setup nomadi",
+      "titulo": "[reels] Quando gastei para ter um setup nomadi",
       "desc": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
-      "carouselLegenda": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
-      "slides": [
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "",
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
           "feito": false
         }
       ],
-      "scenes": [],
       "data": "2026-10-06",
-      "status": "design",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -1849,7 +1850,8 @@
         }
       ],
       "requiredTag": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": 1
     },
     {
       "id": 84,
@@ -1878,8 +1880,16 @@
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-10-02",
+        "tt": "2026-10-03",
+        "yt": "2026-10-03"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "programada",
+        "yt": "programada"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
@@ -1986,7 +1996,7 @@
     {
       "id": 88,
       "titulo": "[reels] acho chique",
-      "desc": "",
+      "desc": "Diva, não é “meio chiq”. É muito chique você correr atrás dos seus sonhos.",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -4039,5 +4049,7 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-10-02T18:18:01.723Z"
+  "platHoras": {},
+  "platDias": {},
+  "_updatedAt": "2026-10-03T14:02:32.185Z"
 }
