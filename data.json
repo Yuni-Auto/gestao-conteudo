@@ -1226,12 +1226,13 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "roteiro",
+      "data": "2026-10-03",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -1242,10 +1243,16 @@
         {
           "creator": "Livia Marins",
           "link": "https://www.instagram.com/p/DTd1dQZjgyL/?igsh=aG1qdDk3bGJmOHc2"
+        },
+        {
+          "creator": "Livia Marins",
+          "link": "https://www.instagram.com/reel/DUUMf9zDh3w/?stkn=ZGJtaWZqYWY4dm95"
         }
       ],
       "requiredTag": "slot2",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 58,
@@ -4071,5 +4078,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-04T00:08:51.366Z"
+  "_updatedAt": "2026-10-04T00:11:17.218Z"
 }
