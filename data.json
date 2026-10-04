@@ -1056,14 +1056,14 @@
       ],
       "requiredTag": "slot4",
       "plataformasDatas": {
-        "ig": "2026-10-03",
-        "tt": "2026-10-03",
-        "yt": "2026-10-03"
+        "ig": "2026-10-08",
+        "tt": "2026-10-08",
+        "yt": "2026-10-08"
       },
       "plataformasStatus": {
-        "ig": "pronto",
-        "tt": "pronto",
-        "yt": "pronto"
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "parceiroId": null
     },
@@ -1416,7 +1416,7 @@
           "feito": true
         }
       ],
-      "data": "2026-10-03",
+      "data": "2026-10-04",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -4071,5 +4071,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-04T00:00:07.105Z"
+  "_updatedAt": "2026-10-04T00:08:51.366Z"
 }
