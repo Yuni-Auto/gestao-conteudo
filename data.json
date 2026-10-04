@@ -1036,14 +1036,16 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Cena descontraída comendo e/ou bebendo "
+          "cena": "Cena descontraída comendo e/ou bebendo ",
+          "feito": false
         }
       ],
-      "data": "",
-      "status": "gravando",
+      "data": "2026-10-03",
+      "status": "pronto",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1053,7 +1055,17 @@
         }
       ],
       "requiredTag": "slot4",
-      "plataformasDatas": null
+      "plataformasDatas": {
+        "ig": "2026-10-03",
+        "tt": "2026-10-03",
+        "yt": "2026-10-03"
+      },
+      "plataformasStatus": {
+        "ig": "pronto",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
+      "parceiroId": null
     },
     {
       "id": 51,
@@ -1881,14 +1893,14 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-02",
+        "ig": "2026-10-03",
         "tt": "2026-10-03",
         "yt": "2026-10-03"
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "programada",
-        "yt": "programada"
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "formato": "Reels",
       "inspiracoes": [],
@@ -2031,7 +2043,7 @@
           "link": "https://www.instagram.com/reel/DdfiKpbAAJC/?stkn=OTg3czJwZjg3eW41"
         }
       ],
-      "requiredTag": null,
+      "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
     },
@@ -4059,5 +4071,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-03T14:20:06.079Z"
+  "_updatedAt": "2026-10-04T00:00:07.105Z"
 }
