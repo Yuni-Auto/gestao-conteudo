@@ -2663,6 +2663,31 @@
       "bairro": "Vila Carmosina",
       "cidade": "São Paulo",
       "uf": "SP"
+    },
+    {
+      "id": 6,
+      "tema": "{Pensar no tema}",
+      "evento": "",
+      "temaEvento": "JSConf Brasil",
+      "status": "ideia",
+      "data": "2026-11-28",
+      "hora": "",
+      "formato": "Presencial",
+      "local": "São Caetano do Sul - SP",
+      "duracao": 0,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "https://jsconf.com.br/",
+      "linkSlides": "",
+      "notas": "",
+      "cep": "09521-160",
+      "rua": "Rua Santo Antônio",
+      "numero": "50",
+      "complemento": "Universidade Municipal de São Caetano do Sul - Campus Centro",
+      "bairro": "Centro",
+      "cidade": "São Caetano do Sul",
+      "uf": "SP",
+      "avaliacao": 0
     }
   ],
   "guidelines": [
@@ -4115,5 +4140,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-05T01:40:27.815Z"
+  "_updatedAt": "2026-10-05T01:47:14.447Z"
 }
