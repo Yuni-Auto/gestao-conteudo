@@ -2241,7 +2241,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-04",
+      "data": "2026-10-05",
       "status": "publicada",
       "plataformas": [
         "ig",
@@ -2249,14 +2249,14 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-04",
+        "ig": "2026-10-02",
         "tt": "2026-10-05",
         "yt": "2026-10-05"
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "publicada",
-        "yt": "publicada"
+        "tt": "pronto",
+        "yt": "pronto"
       },
       "formato": "Reels",
       "inspiracoes": [],
@@ -4140,5 +4140,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-05T10:42:59.719Z"
+  "_updatedAt": "2026-10-05T10:44:45.517Z"
 }
