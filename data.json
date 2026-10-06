@@ -2264,6 +2264,34 @@
       "requiredTag": "slot13",
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 96,
+      "titulo": "[carroussel] Programa de estágio",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-06",
+      "status": "design",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot3",
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -4182,5 +4210,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-06T11:43:08.082Z"
+  "_updatedAt": "2026-10-06T17:52:58.029Z"
 }
