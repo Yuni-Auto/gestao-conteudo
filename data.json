@@ -558,7 +558,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-06",
+      "data": "2026-10-10",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1061,9 +1061,9 @@
         "yt": "2026-10-08"
       },
       "plataformasStatus": {
-        "ig": "publicada",
-        "tt": "publicada",
-        "yt": "publicada"
+        "ig": "programada",
+        "tt": "pronto",
+        "yt": "pronto"
       },
       "parceiroId": null
     },
@@ -1423,7 +1423,7 @@
           "feito": true
         }
       ],
-      "data": "2026-10-05",
+      "data": "2026-10-06",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1842,18 +1842,19 @@
     {
       "id": 83,
       "titulo": "[Reels] Mimos que recebi sendo palestrante no TDC 2026",
-      "desc": "Alguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
+      "desc": "Roteiro: tudo que ganhei no TDC 2026.\n\nLegenda:\n\nAlguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
       "data": "2026-10-05",
-      "status": "gravando",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -2074,8 +2075,8 @@
           "feito": false
         }
       ],
-      "data": "2026-10-05",
-      "status": "gravando",
+      "data": "2026-10-06",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
@@ -2255,8 +2256,8 @@
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto",
-        "yt": "pronto"
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "formato": "Reels",
       "inspiracoes": [],
@@ -4149,5 +4150,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-05T17:28:13.591Z"
+  "_updatedAt": "2026-10-06T11:03:55.970Z"
 }
