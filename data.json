@@ -2381,7 +2381,7 @@
       "nome": "Laura Rodrigues",
       "perfil": "laurarodrigues.dev",
       "contato": "",
-      "status": "combinada",
+      "status": "publicada",
       "seguidores": 3348,
       "plataformas": [
         "ig",
@@ -2413,7 +2413,7 @@
       "nome": "Gabriel Nogueira",
       "perfil": "gsnogueira.meta",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 129,
       "plataformas": [
         "ig",
@@ -2455,7 +2455,7 @@
       "nome": "Hebert Esteves",
       "perfil": "heebertesteves",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 399,
       "plataformas": [
         "ig"
@@ -2485,7 +2485,7 @@
       "nome": "Danilo Régis",
       "perfil": "daniloregis.arq",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 309,
       "plataformas": [
         "ig"
@@ -2515,7 +2515,7 @@
       "nome": "Samira Bittar",
       "perfil": "olhosespanhois",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 419,
       "plataformas": [
         "ig"
@@ -2539,6 +2539,38 @@
       "lectureIds": [],
       "tipo": "collab",
       "data": "2026-10-02"
+    },
+    {
+      "id": 6,
+      "nome": "Rubi Rails",
+      "perfil": "railsgirls.sp",
+      "contato": "Daniela",
+      "status": "produzindo",
+      "seguidores": 4003,
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-06",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 89
+        }
+      ],
+      "postIds": [
+        89
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-06"
     }
   ],
   "lectures": [
@@ -4150,5 +4182,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-06T11:03:55.970Z"
+  "_updatedAt": "2026-10-06T11:14:21.466Z"
 }
