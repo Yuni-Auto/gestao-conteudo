@@ -1231,7 +1231,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-03",
+      "data": "2026-10-22",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1586,7 +1586,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-08",
+      "data": "2026-10-12",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -2149,7 +2149,7 @@
     },
     {
       "id": 91,
-      "titulo": "Vocabulário da programação",
+      "titulo": "[Reels] Vocabulário da programação",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -2242,7 +2242,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-05",
+      "data": "2026-10-04",
       "status": "publicada",
       "plataformas": [
         "ig",
@@ -2250,7 +2250,7 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-02",
+        "ig": "2026-10-04",
         "tt": "2026-10-05",
         "yt": "2026-10-05"
       },
@@ -4182,5 +4182,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-06T11:16:27.365Z"
+  "_updatedAt": "2026-10-06T11:39:29.714Z"
 }
