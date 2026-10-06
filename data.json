@@ -558,7 +558,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-10",
+      "data": "2026-10-28",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1040,7 +1040,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-03",
+      "data": "2026-10-08",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1061,7 +1061,7 @@
         "yt": "2026-10-08"
       },
       "plataformasStatus": {
-        "ig": "programada",
+        "ig": "pronto",
         "tt": "pronto",
         "yt": "pronto"
       },
@@ -1853,7 +1853,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-09",
+      "data": "2026-10-10",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1998,7 +1998,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-10",
+      "data": "2026-10-20",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -2203,7 +2203,7 @@
     },
     {
       "id": 94,
-      "titulo": "Metas que eu estabeleci para mês/ano",
+      "titulo": "[carroussel] Metas que eu estabeleci para mês/ano",
       "desc": "Metas que eu estabeleci para mês/ano",
       "carouselLegenda": "",
       "slides": [],
@@ -4182,5 +4182,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-06T11:39:29.714Z"
+  "_updatedAt": "2026-10-06T11:43:08.082Z"
 }
