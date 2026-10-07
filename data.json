@@ -2605,7 +2605,7 @@
       "nome": "Rubi Rails",
       "perfil": "railsgirls.sp",
       "contato": "Daniela",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 4003,
       "plataformas": [
         "ig",
@@ -4233,5 +4233,5 @@
   },
   "platHoras": {},
   "platDias": {},
-  "_updatedAt": "2026-10-07T20:00:53.893Z"
+  "_updatedAt": "2026-10-07T20:02:58.320Z"
 }
