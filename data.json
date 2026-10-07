@@ -4231,16 +4231,7 @@
     },
     "overrides": []
   },
-  "platHoras": {
-    "ig": "18:00",
-    "tt": "20:00"
-  },
-  "platDias": {
-    "ig": [
-      1,
-      2,
-      3
-    ]
-  },
-  "_updatedAt": "2026-10-07T12:57:21.978Z"
+  "platHoras": {},
+  "platDias": {},
+  "_updatedAt": "2026-10-07T20:00:53.893Z"
 }
