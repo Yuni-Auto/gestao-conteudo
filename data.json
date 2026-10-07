@@ -1423,7 +1423,7 @@
           "feito": true
         }
       ],
-      "data": "2026-10-06",
+      "data": "2026-10-10",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2276,7 +2276,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-06",
+      "data": "2026-10-09",
       "status": "design",
       "plataformas": [
         "ig",
@@ -4208,5 +4208,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-06T21:38:18.346Z"
+  "_updatedAt": "2026-10-07T11:38:15.240Z"
 }
