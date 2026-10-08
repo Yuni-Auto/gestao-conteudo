@@ -1850,7 +1850,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-10",
+      "data": "2026-10-09",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1860,7 +1860,7 @@
       "plataformasDatas": {
         "ig": "2026-10-11",
         "tt": "2026-10-11",
-        "yt": "2026-10-09"
+        "yt": "2026-10-08"
       },
       "plataformasStatus": {
         "ig": "pronto",
@@ -4239,5 +4239,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-08T17:18:46.739Z"
+  "_updatedAt": "2026-10-08T17:20:29.481Z"
 }
