@@ -1044,8 +1044,7 @@
       "status": "pronto",
       "plataformas": [
         "ig",
-        "tt",
-        "yt"
+        "tt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1057,13 +1056,11 @@
       "requiredTag": "slot4",
       "plataformasDatas": {
         "ig": "2026-10-08",
-        "tt": "2026-10-07",
-        "yt": "2026-10-07"
+        "tt": "2026-10-07"
       },
       "plataformasStatus": {
         "ig": "pronto",
-        "tt": "pronto",
-        "yt": "pronto"
+        "tt": "pronto"
       },
       "parceiroId": null
     },
@@ -1423,7 +1420,7 @@
           "feito": true
         }
       ],
-      "data": "2026-10-10",
+      "data": "2026-10-18",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1664,7 +1661,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-26",
+      "data": "2026-10-15",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1861,8 +1858,8 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-10",
-        "tt": "2026-10-10",
+        "ig": "2026-10-11",
+        "tt": "2026-10-11",
         "yt": "2026-10-09"
       },
       "plataformasStatus": {
@@ -2312,7 +2309,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-07",
+      "data": "2026-10-11",
       "status": "ideia",
       "plataformas": [
         "li"
@@ -4242,5 +4239,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-08T17:10:56.425Z"
+  "_updatedAt": "2026-10-08T17:18:46.739Z"
 }
