@@ -2312,7 +2312,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-08",
+      "data": "2026-10-07",
       "status": "ideia",
       "plataformas": [
         "li"
@@ -2605,7 +2605,7 @@
       "nome": "Rubi Rails",
       "perfil": "railsgirls.sp",
       "contato": "Daniela",
-      "status": "publicada",
+      "status": "produzindo",
       "seguidores": 4003,
       "plataformas": [
         "ig",
@@ -2832,11 +2832,11 @@
         "clicks": 22
       },
       "Out 26": {
-        "seguidores": 8663,
-        "views": 31237,
-        "alcance": 12915,
-        "eng": 2079,
-        "conteudo": 0,
+        "seguidores": 8637,
+        "views": 35363,
+        "alcance": 145545,
+        "eng": 2288,
+        "conteudo": 8,
         "clicks": 0
       }
     },
@@ -2881,7 +2881,7 @@
         "eng": 8,
         "conteudo": 5,
         "clicks": 0,
-        "followers": 981
+        "followers": 984
       },
       "Mai 26": {
         "seguidores": 26,
@@ -2968,7 +2968,7 @@
         "clicks": 0
       },
       "Out 26": {
-        "seguidores": 5,
+        "seguidores": 10,
         "views": 3600,
         "alcance": 0,
         "eng": 51,
@@ -4231,7 +4231,16 @@
     },
     "overrides": []
   },
-  "platHoras": {},
-  "platDias": {},
-  "_updatedAt": "2026-10-08T13:11:13.950Z"
+  "platHoras": {
+    "ig": "18:00",
+    "tt": "20:00"
+  },
+  "platDias": {
+    "ig": [
+      1,
+      2,
+      3
+    ]
+  },
+  "_updatedAt": "2026-10-08T17:06:54.577Z"
 }
