@@ -375,7 +375,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-12",
+      "data": "2026-10-13",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -2163,7 +2163,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-14",
+      "data": "2026-10-15",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -4239,5 +4239,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-09T21:29:18.653Z"
+  "_updatedAt": "2026-10-09T21:29:50.134Z"
 }
