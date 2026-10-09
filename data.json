@@ -1041,7 +1041,7 @@
         }
       ],
       "data": "2026-10-07",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -4239,5 +4239,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-09T18:06:13.811Z"
+  "_updatedAt": "2026-10-09T18:12:45.860Z"
 }
