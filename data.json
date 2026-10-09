@@ -1059,8 +1059,8 @@
         "tt": "2026-10-07"
       },
       "plataformasStatus": {
-        "ig": "pronto",
-        "tt": "pronto"
+        "ig": "publicada",
+        "tt": "publicada"
       },
       "parceiroId": null
     },
@@ -4239,5 +4239,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-09T00:06:42.902Z"
+  "_updatedAt": "2026-10-09T11:50:01.796Z"
 }
