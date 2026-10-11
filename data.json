@@ -1854,20 +1854,20 @@
         }
       ],
       "data": "2026-10-09",
-      "status": "pronto",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-11",
-        "tt": "2026-10-11",
-        "yt": "2026-10-08"
+        "ig": "2026-10-08",
+        "tt": "2026-10-07",
+        "yt": "2026-10-09"
       },
       "plataformasStatus": {
-        "ig": "pronto",
-        "tt": "pronto",
+        "ig": "editando",
+        "tt": "editando",
         "yt": "publicada"
       },
       "formato": "Reels",
@@ -2312,7 +2312,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-11",
+      "data": "2026-10-12",
       "status": "ideia",
       "plataformas": [
         "li"
@@ -2322,6 +2322,67 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": "slot1",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 98,
+      "titulo": "[carroussel] Te indicando pessoas negros",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-12",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://vt.tiktok.com/ZSb3bEHvr/"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 99,
+      "titulo": "[carroussel] O que você faz ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-11",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null,
       "parceiroId": null,
       "eventoId": null
     }
@@ -4242,5 +4303,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-11T16:05:28.125Z"
+  "_updatedAt": "2026-10-11T23:53:52.774Z"
 }
