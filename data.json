@@ -1044,7 +1044,8 @@
       "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1056,11 +1057,13 @@
       "requiredTag": "slot4",
       "plataformasDatas": {
         "ig": "2026-10-08",
-        "tt": "2026-10-07"
+        "tt": "2026-10-07",
+        "yt": "2026-10-11"
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "publicada"
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "parceiroId": null
     },
@@ -4239,5 +4242,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-09T21:29:50.134Z"
+  "_updatedAt": "2026-10-11T03:19:16.202Z"
 }
