@@ -375,7 +375,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-13",
+      "data": "2026-10-25",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -558,7 +558,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-28",
+      "data": "2026-10-29",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1653,30 +1653,6 @@
       "eventoId": 1
     },
     {
-      "id": 74,
-      "titulo": "[carrossel] Dump do AI CONF'ROLL",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-10-15",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "li"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": null
-    },
-    {
       "id": 75,
       "titulo": "[carrossel] Dump do OpenAI DevDay Exchange",
       "desc": "",
@@ -2035,23 +2011,15 @@
           "feito": false
         }
       ],
-      "data": "2026-10-16",
-      "status": "pronto",
+      "data": "2026-10-15",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": {
-        "ig": "2026-10-16",
-        "tt": "2026-10-16",
-        "yt": "2026-10-16"
-      },
-      "plataformasStatus": {
-        "ig": "programada",
-        "tt": "pronto",
-        "yt": "pronto"
-      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [
         {
@@ -2166,7 +2134,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-15",
+      "data": "2026-10-13",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2193,7 +2161,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-30",
+      "data": "2026-10-31",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2221,7 +2189,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-28",
+      "data": "2026-10-29",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2339,8 +2307,8 @@
           "feito": false
         }
       ],
-      "data": "2026-10-12",
-      "status": "pesquisar",
+      "data": "2026-10-27",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
@@ -4303,5 +4271,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T14:41:15.596Z"
+  "_updatedAt": "2026-10-12T14:44:16.395Z"
 }
