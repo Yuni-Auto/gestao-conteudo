@@ -464,15 +464,27 @@
   .gauge-label { font-size: 12px; color: var(--text-3); }
   .gauge-trend { font-size: 12px; font-weight: 600; color: #2dbe6c; }
 
-  /* Monthly overview mini-table */
-  .mo-table-wrap { overflow-x: auto; }
-  .mo-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  .mo-table th { font-size: 10.5px; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: right; background: var(--bg); white-space: nowrap; }
+  /* Monthly overview grouped into distinct year sections */
+  .mo-table-wrap { display: grid; gap: 24px; }
+  .mo-year-section { overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+  .mo-year-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; background: linear-gradient(90deg, rgba(91,80,200,.08), var(--surface) 42%); color: var(--text); cursor: pointer; list-style: none; }
+  .mo-year-header::-webkit-details-marker { display: none; }
+  .mo-year-header:focus-visible { outline: 2px solid #5b50c8; outline-offset: -2px; }
+  .mo-year-section[open] > .mo-year-header { border-bottom: 1px solid var(--border); }
+  .mo-year-header::after { content: ''; width: 8px; height: 8px; margin-left: 2px; border-right: 2px solid var(--text-3); border-bottom: 2px solid var(--text-3); transform: rotate(45deg) translateY(-2px); transition: transform .18s ease; }
+  .mo-year-section[open] > .mo-year-header::after { transform: rotate(225deg) translate(-2px, -1px); }
+  .mo-year-title { display: flex; align-items: center; gap: 9px; color: var(--text); font-size: 13px; font-weight: 700; }
+  .mo-year-title::before { content: ''; width: 4px; height: 18px; border-radius: 4px; background: #5b50c8; }
+  .mo-year-count { padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text-3); font-size: 10.5px; font-weight: 600; white-space: nowrap; }
+  .mo-empty { padding: 28px 16px; border: 1px dashed var(--border); border-radius: 10px; color: var(--text-3); font-size: 13px; text-align: center; }
+  .mo-table-scroll { overflow-x: auto; }
+  .mo-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 12.5px; }
+  .mo-table th { font-size: 10.5px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.045em; padding: 9px 12px; border-bottom: 1px solid var(--border); text-align: right; background: var(--bg); white-space: nowrap; }
   .mo-table th:first-child { text-align: left; }
-  .mo-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); text-align: right; color: var(--text-2); }
+  .mo-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: right; color: var(--text-2); white-space: nowrap; }
   .mo-table td:first-child { text-align: left; font-weight: 600; color: var(--text); }
   .mo-table tbody tr:last-child td { border-bottom: none; }
-  .mo-table tbody tr:hover { background: #fafafa; }
+  .mo-table tbody tr:hover { background: var(--bg); }
   .mo-table .mo-best { color: #2dbe6c; font-weight: 700; }
   .mo-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-size: 10.5px; font-weight: 600; }
   .mo-badge.completo { background: #e4f7ee; color: #1a6b40; }
@@ -1663,7 +1675,7 @@
             <div class="an-plat-badge" id="an-mo-plat-badge"></div>
           </div>
           <div class="mo-table-wrap">
-            <table class="mo-table" id="an-mo-table"></table>
+            <div id="an-mo-table"></div>
           </div>
         </div>
       </div>
@@ -8467,24 +8479,43 @@ function renderAnalytics() {
   const moEl = document.getElementById('an-mo-table');
   const maxViews = Math.max(...data.map(d=>d.views));
   const followerHeader = analyticsPlat === 'tt' ? `<th>${metricLabels.followers}</th>` : '';
-  moEl.innerHTML = `
-    <thead><tr>
-      <th>Mês</th><th>Status</th>${followerHeader}<th>${metricLabels.seguidores}</th><th>${metricLabels.views}</th><th>${metricLabels.alcance}</th><th>${metricLabels.eng}</th><th>${metricLabels.conteudo}</th><th>${metricLabels.clicks}</th>
-    </tr></thead>
-    <tbody>
-      ${data.map(d => `<tr>
-        <td>${d.month}</td>
-        <td><span class="mo-badge ${d.status}">${d.status==='completo' ? '✓ Completo' : d.status==='progresso' ? '⏳ Em progresso' : '🕓 Pendente'}</span></td>
-        ${analyticsPlat === 'tt' ? `<td>${fmtNum(d.followers ?? 0)}</td>` : ''}
-        <td>${fmtNum(d.seguidores)}</td>
-        <td class="${d.views===maxViews?'mo-best':''}">${fmtNum(d.views)}</td>
-        <td>${fmtNum(d.alcance)}</td>
-        <td>${fmtNum(d.eng)}</td>
-        <td>${d.conteudo}</td>
-        <td>${d.clicks || '—'}</td>
-      </tr>`).join('')}
-    </tbody>
-  `;
+  const metricFields = analyticsPlat === 'tt'
+    ? ['followers', 'seguidores', 'views', 'alcance', 'eng', 'conteudo', 'clicks']
+    : ['seguidores', 'views', 'alcance', 'eng', 'conteudo', 'clicks'];
+  const dataByYear = data.reduce((groups, row) => {
+    if (!metricFields.some(field => Number(row[field]) > 0)) return groups;
+    const year = analyticsMonthToDate(row.month).getFullYear();
+    if (!groups.has(year)) groups.set(year, []);
+    groups.get(year).push(row);
+    return groups;
+  }, new Map());
+  const latestYear = Array.from(dataByYear.keys()).at(-1);
+  moEl.innerHTML = dataByYear.size ? Array.from(dataByYear, ([year, rows]) => `
+    <details class="mo-year-section"${year === latestYear ? ' open' : ''}>
+      <summary class="mo-year-header">
+        <div class="mo-year-title">${year}</div>
+        <span class="mo-year-count">${rows.length} ${rows.length === 1 ? 'mês' : 'meses'}</span>
+      </summary>
+      <div class="mo-table-scroll">
+        <table class="mo-table">
+          <thead><tr>
+            <th>Mês</th><th>Status</th>${followerHeader}<th>${metricLabels.seguidores}</th><th>${metricLabels.views}</th><th>${metricLabels.alcance}</th><th>${metricLabels.eng}</th><th>${metricLabels.conteudo}</th><th>${metricLabels.clicks}</th>
+          </tr></thead>
+          <tbody>${rows.map(d => `<tr>
+            <td>${d.month}</td>
+            <td><span class="mo-badge ${d.status}">${d.status==='completo' ? '✓ Completo' : d.status==='progresso' ? '⏳ Em progresso' : '🕓 Pendente'}</span></td>
+            ${analyticsPlat === 'tt' ? `<td>${fmtNum(d.followers ?? 0)}</td>` : ''}
+            <td>${fmtNum(d.seguidores)}</td>
+            <td class="${d.views===maxViews?'mo-best':''}">${fmtNum(d.views)}</td>
+            <td>${fmtNum(d.alcance)}</td>
+            <td>${fmtNum(d.eng)}</td>
+            <td>${d.conteudo}</td>
+            <td>${d.clicks || '—'}</td>
+          </tr>`).join('')}</tbody>
+        </table>
+      </div>
+    </details>
+  `).join('') : '<div class="mo-empty">Ainda não há dados registrados para esta plataforma no período selecionado.</div>';
 }
 
 function renderLineChart(id, data, key, color) {
