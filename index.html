@@ -380,6 +380,21 @@
   .analytics-kpi-row.has-tiktok-followers { grid-template-columns: repeat(2, 1fr); }
   @media (min-width: 900px) { .analytics-kpi-row.has-tiktok-followers { grid-template-columns: repeat(7, 1fr); } }
 
+  .analytics-goals-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .analytics-goals-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 18px; padding: 16px 18px; }
+  .analytics-goal { min-width: 0; }
+  .analytics-goal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 7px; font-size: 12px; }
+  .analytics-goal-label { color: var(--text-2); }
+  .analytics-goal-period { flex-shrink: 0; padding: 2px 7px; border-radius: 999px; background: var(--bg); color: var(--text-3); font-size: 10px; font-weight: 600; }
+  .analytics-goal-values { color: var(--text); font-weight: 600; white-space: nowrap; }
+  .analytics-goal-track { height: 7px; border-radius: 999px; background: var(--bg); overflow: hidden; }
+  .analytics-goal-fill { height: 100%; border-radius: inherit; background: #5b50c8; transition: width .25s ease; }
+  .analytics-goal-status { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; color: var(--text-3); font-size: 11px; }
+  .analytics-goals-empty { grid-column: 1 / -1; padding: 8px 0; color: var(--text-3); font-size: 12.5px; }
+  .analytics-goal-editor { display: flex; gap: 8px; }
+  .analytics-goal-editor input { min-width: 0; }
+  .analytics-goal-period-select { flex: 0 0 112px; }
+
   .an-plat-tabs { display: flex; gap: 4px; background: var(--bg); border-radius: 8px; padding: 3px; }
   .an-plat-tab { font-size: 12px; font-weight: 500; padding: 5px 10px; border-radius: 6px; border: none; background: transparent; color: var(--text-2); cursor: pointer; font-family: inherit; transition: all .12s; white-space: nowrap; }
   .an-plat-tab:hover { color: var(--text); }
@@ -1606,6 +1621,7 @@
       <div class="analytics-topbar">
         <div class="analytics-topbar-title">Analytics</div>
         <div style="display:flex; align-items:center; gap:10px;" id="analytics-topbar-actions">
+          <button class="btn" onclick="openAnalyticsGoalsModal()">🎯 Metas</button>
           <button class="btn btn-primary" onclick="openAnalyticsDataModal()">+ Adicionar dados</button>
           <div class="analytics-period-tabs">
             <button class="analytics-period-tab" data-period="3" onclick="setAnalyticsPeriod(this)">3 meses</button>
@@ -1619,6 +1635,17 @@
       <div class="analytics-body">
         <!-- KPI cards -->
         <div class="analytics-kpi-row" id="an-kpis"></div>
+
+        <!-- Goals for the selected platform -->
+        <div class="analytics-goals-card">
+          <div class="analytics-card-header">
+            <div>
+              <div class="analytics-card-title">Metas</div>
+            </div>
+            <div class="an-plat-badge" id="an-goals-plat-badge"></div>
+          </div>
+          <div class="analytics-goals-list" id="an-goals-list"></div>
+        </div>
 
         <!-- Chart + Platform breakdown -->
         <div class="analytics-row-2">
@@ -2409,7 +2436,7 @@
 
 <!-- Strategy History Modal -->
 <div class="modal-overlay" id="strategy-history-modal" onclick="handleOverlayClick(event,'strategy-history-modal')">
-  <div class="modal" style="max-width:560px;">
+  <div class="modal" style="max-width:680px;">
     <div class="modal-hero">
       <div class="modal-title-text">Histórico de estratégias anteriores</div>
     </div>
@@ -2718,6 +2745,32 @@
   </div>
 </div>
 
+<!-- Analytics goals modal -->
+<div class="modal-overlay" id="an-goals-modal" onclick="handleOverlayClick(event,'an-goals-modal')">
+  <div class="modal" style="max-width:560px;">
+    <div class="modal-hero">
+      <div class="modal-title-text">Metas por plataforma</div>
+    </div>
+    <div class="modal-body" style="padding:20px 22px;">
+      <div class="form-group" style="margin-bottom:14px;">
+        <label class="form-label" for="an-goals-plat">Rede social</label>
+        <select class="form-input" id="an-goals-plat" onchange="populateAnalyticsGoalsForm()">
+          <option value="ig">📸 Instagram</option>
+          <option value="tt">🎵 TikTok</option>
+          <option value="li">💼 LinkedIn</option>
+          <option value="yt">▶️ YouTube</option>
+        </select>
+      </div>
+      <div class="an-data-grid" id="an-goals-fields"></div>
+      <p class="an-data-hint">Escolha um período para cada indicador. Metas mensais acompanham o mês atual; metas anuais acompanham o total do ano. Para seguidores ou inscritos, a meta anual é o total desejado e a mensal é o crescimento no mês.</p>
+    </div>
+    <div class="new-modal-footer-actions">
+      <button class="btn" onclick="closeAnalyticsGoalsModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveAnalyticsGoals()">Salvar metas</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ─── GitHub Cloud Sync ─────────────────────────────────────────────────────
    Dados ficam salvos em um arquivo JSON dentro do repositório do GitHub.
@@ -2771,7 +2824,7 @@ function setSyncStatus(state, msg) {
 /* Reúne todos os datasets num único objeto pra salvar em um arquivo só */
 function collectAllData() {
   return {
-    posts, partners, collaborations, lectures, guidelines, analyticsOverrides, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
+    posts, partners, collaborations, lectures, guidelines, analyticsOverrides, analyticsGoals, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
     requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras, platDias,
     _updatedAt: new Date().toISOString(),
   };
@@ -2806,6 +2859,10 @@ function applyRemoteData(data) {
   if (data.analyticsOverrides && typeof data.analyticsOverrides === 'object') {
     analyticsOverrides = data.analyticsOverrides;
     localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(analyticsOverrides));
+  }
+  if (data.analyticsGoals && typeof data.analyticsGoals === 'object') {
+    analyticsGoals = data.analyticsGoals;
+    localStorage.setItem(ANALYTICS_GOALS_KEY, JSON.stringify(analyticsGoals));
   }
   if (Array.isArray(data.brainstormNotes)) {
     brainstormNotes = data.brainstormNotes;
@@ -2893,7 +2950,8 @@ async function pullFromGitHub(silent) {
     // que só existem neste aparelho (ex: nunca sincronizados ainda).
     const hasLocalData = (posts && posts.length) || (partners && partners.length) || (collaborations && collaborations.length) || (lectures && lectures.length) ||
       (guidelines && guidelines.length) || (brainstormNotes && brainstormNotes.length) ||
-      (analyticsOverrides && Object.keys(analyticsOverrides).length);
+      (analyticsOverrides && Object.keys(analyticsOverrides).length) ||
+      (analyticsGoals && Object.keys(analyticsGoals).length);
     const localTs  = getLocalTimestamp();
     const remoteTs = data._updatedAt;
     const remoteIsNewer = remoteTs && localTs && new Date(remoteTs) > new Date(localTs);
@@ -8111,9 +8169,16 @@ window.addEventListener('resize', () => {
 let analyticsPlat = 'ig';
 
 const ANALYTICS_STORAGE_KEY = 'content-manager-analytics-v1';
+const ANALYTICS_GOALS_KEY = 'content-manager-analytics-goals-v1';
 function loadAnalyticsOverrides() {
   try {
     const saved = localStorage.getItem(ANALYTICS_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : {};
+  } catch (e) { return {}; }
+}
+function loadAnalyticsGoals() {
+  try {
+    const saved = localStorage.getItem(ANALYTICS_GOALS_KEY);
     return saved ? JSON.parse(saved) : {};
   } catch (e) { return {}; }
 }
@@ -8122,6 +8187,7 @@ function saveAnalyticsOverrides() {
   scheduleCloudSync();
 }
 let analyticsOverrides = loadAnalyticsOverrides(); // { ig: { 'Jun 26': {...} }, tt: {...}, li: {...} }
+let analyticsGoals = loadAnalyticsGoals();
 
 let analyticsPeriod = 6;
 
@@ -8213,6 +8279,178 @@ function openAnalyticsDataModal() {
 
 function closeAnalyticsDataModal() {
   document.getElementById('an-data-modal').classList.remove('open');
+}
+
+function analyticsGoalFields(plat) {
+  return plat === 'tt'
+    ? ['followers', 'seguidores', 'views', 'alcance', 'eng', 'conteudo', 'clicks']
+    : ['seguidores', 'views', 'alcance', 'eng', 'conteudo', 'clicks'];
+}
+
+function openAnalyticsGoalsModal() {
+  document.getElementById('an-goals-plat').value = analyticsPlat;
+  populateAnalyticsGoalsForm();
+  document.getElementById('an-goals-modal').classList.add('open');
+}
+
+function closeAnalyticsGoalsModal() {
+  document.getElementById('an-goals-modal').classList.remove('open');
+}
+
+function populateAnalyticsGoalsForm() {
+  const plat = document.getElementById('an-goals-plat').value;
+  const labels = ANALYTICS_FIELD_LABELS[plat] || ANALYTICS_FIELD_LABELS.default;
+  const goals = getAnalyticsGoalsForYear(plat, new Date().getFullYear());
+  document.getElementById('an-goals-fields').innerHTML = analyticsGoalFields(plat).map(field => {
+    const label = (labels[field] || field).replace(/^[^\p{L}\p{N}]+/u, '');
+    const goal = normalizeAnalyticsGoal(goals[field]);
+    return `<div class="form-group">
+      <label class="form-label" for="an-goal-${field}">${label}</label>
+      <div class="analytics-goal-editor">
+        <input class="form-input" type="number" id="an-goal-${field}" min="0" step="any" placeholder="Sem meta" value="${goal.target || ''}" />
+        <select class="form-input analytics-goal-period-select" id="an-goal-period-${field}" aria-label="Período da meta de ${label}">
+          <option value="monthly"${goal.period === 'monthly' ? ' selected' : ''}>Mensal</option>
+          <option value="annual"${goal.period === 'annual' ? ' selected' : ''}>Anual</option>
+        </select>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function saveAnalyticsGoals() {
+  const plat = document.getElementById('an-goals-plat').value;
+  const year = new Date().getFullYear();
+  const goals = {};
+  for (const field of analyticsGoalFields(plat)) {
+    const input = document.getElementById(`an-goal-${field}`);
+    const value = input.value.trim();
+    if (!value) continue;
+    const goal = Number(value);
+    if (!Number.isFinite(goal) || goal <= 0) {
+      input.focus();
+      alert('As metas devem ser números maiores que zero. Deixe em branco para remover uma meta.');
+      return;
+    }
+    goals[field] = {
+      target: goal,
+      period: document.getElementById(`an-goal-period-${field}`).value === 'monthly' ? 'monthly' : 'annual',
+    };
+  }
+
+  const existing = analyticsGoals[plat] || {};
+  const isLegacyFlat = Object.values(existing).some(value =>
+    typeof value !== 'object' || value === null || Object.prototype.hasOwnProperty.call(value, 'target')
+  );
+  const goalsByYear = isLegacyFlat ? { [year]: getAnalyticsGoalsForYear(plat, year) } : { ...existing };
+  if (Object.keys(goals).length) goalsByYear[year] = goals;
+  else delete goalsByYear[year];
+  if (Object.keys(goalsByYear).length) analyticsGoals[plat] = goalsByYear;
+  else delete analyticsGoals[plat];
+  localStorage.setItem(ANALYTICS_GOALS_KEY, JSON.stringify(analyticsGoals));
+  scheduleCloudSync();
+  closeAnalyticsGoalsModal();
+  renderAnalytics();
+}
+
+function getAnalyticsGoalsForYear(plat, year) {
+  const stored = analyticsGoals[plat] || {};
+  const isLegacyFlat = Object.values(stored).some(value =>
+    typeof value !== 'object' || value === null || Object.prototype.hasOwnProperty.call(value, 'target')
+  );
+  const goals = isLegacyFlat
+    ? year === new Date().getFullYear() ? stored : {}
+    : stored[year] || {};
+  return Object.fromEntries(Object.entries(goals).map(([field, goal]) => [field, normalizeAnalyticsGoal(goal)]));
+}
+
+function normalizeAnalyticsGoal(goal) {
+  if (goal && typeof goal === 'object') {
+    return {
+      target: Number(goal.target) || 0,
+      period: goal.period === 'monthly' ? 'monthly' : 'annual',
+    };
+  }
+  return { target: Number(goal) || 0, period: 'annual' };
+}
+
+function getAnalyticsYearData(plat, year) {
+  const base = MONTHLY_DATA_BY_PLAT[plat] || MONTHLY_DATA_IG;
+  const overrides = analyticsOverrides[plat] || {};
+  return base
+    .filter(row => analyticsMonthToDate(row.month).getFullYear() === year && (!isFutureAnalyticsMonth(row.month) || overrides[row.month]))
+    .map(row => {
+      const override = overrides[row.month] || {};
+      const merged = { ...row, ...override, status: computeAnalyticsStatus(row.month) };
+      if (override.conteudo === undefined && monthHasTrackedPosts(plat, row.month)) {
+        merged.conteudo = postsPublishedCountForMonth(plat, row.month);
+      }
+      return merged;
+    });
+}
+
+function renderAnalyticsGoals(labels) {
+  const badge = document.getElementById('an-goals-plat-badge');
+  const list = document.getElementById('an-goals-list');
+  const year = new Date().getFullYear();
+  const currentDate = new Date();
+  const monthLabel = `${MONTH_NAMES[currentDate.getMonth()][0].toUpperCase()}${MONTH_NAMES[currentDate.getMonth()].slice(1)} ${String(year).slice(-2)}`;
+  const platMeta = PLAT_META.find(p => p.key === analyticsPlat) || { label: analyticsPlat };
+  badge.innerHTML = buildPlatHtml(analyticsPlat, platMeta.label, 13);
+
+  const goals = getAnalyticsGoalsForYear(analyticsPlat, year);
+  const configuredFields = analyticsGoalFields(analyticsPlat)
+    .filter(field => Number.isFinite(goals[field]?.target) && goals[field].target > 0);
+  if (!configuredFields.length) {
+    list.innerHTML = '<div class="analytics-goals-empty">Nenhuma meta definida para esta plataforma. Use “Metas” para configurar seus objetivos.</div>';
+    return;
+  }
+
+  const yearData = getAnalyticsYearData(analyticsPlat, year);
+  const latest = yearData[yearData.length - 1] || {};
+  const monthData = yearData.find(row => {
+    const date = analyticsMonthToDate(row.month);
+    return date.getMonth() === currentDate.getMonth();
+  });
+  const previousDate = new Date(year, currentDate.getMonth() - 1, 1);
+  const previousYearData = previousDate.getFullYear() === year ? yearData : getAnalyticsYearData(analyticsPlat, previousDate.getFullYear());
+  const previousMonth = previousYearData.find(row => {
+    const date = analyticsMonthToDate(row.month);
+    return date.getFullYear() === previousDate.getFullYear() && date.getMonth() === previousDate.getMonth();
+  });
+  list.innerHTML = configuredFields.map(field => {
+    const { target: goal, period } = goals[field];
+    const isFollowerCount = field === 'seguidores' || field === 'followers';
+    const monthlyValue = Number(monthData?.[field]) || 0;
+    const monthlyActual = isFollowerCount
+      ? previousMonth ? monthlyValue - (Number(previousMonth[field]) || 0) : 0
+      : monthlyValue;
+    const actual = period === 'monthly'
+      ? monthlyActual
+      : isFollowerCount
+        ? Number(latest[field]) || 0
+        : yearData.reduce((total, row) => total + (Number(row[field]) || 0), 0);
+    const progress = actual / goal;
+    const percent = Math.round(progress * 100);
+    const remaining = Math.max(goal - actual, 0);
+    const label = (labels[field] || field).replace(/^[^\p{L}\p{N}]+/u, '');
+    return `<div class="analytics-goal">
+      <div class="analytics-goal-top">
+        <span class="analytics-goal-label">${label}</span>
+        <span class="analytics-goal-period">${period === 'monthly' ? 'Mensal' : 'Anual'}</span>
+      </div>
+      <div class="analytics-goal-top">
+        <span class="analytics-goal-values">${fmtNum(actual)} / ${fmtNum(goal)}</span>
+        <span class="analytics-goal-status">${period === 'monthly' ? monthLabel : year}</span>
+      </div>
+      <div class="analytics-goal-track" role="progressbar" aria-label="${label}" aria-valuemin="0" aria-valuemax="${goal}" aria-valuenow="${Math.max(0, Math.min(actual, goal))}" aria-valuetext="${fmtNum(actual)} de ${fmtNum(goal)}">
+        <div class="analytics-goal-fill" style="width:${Math.max(0, Math.min(percent, 100))}%"></div>
+      </div>
+      <div class="analytics-goal-status">
+        <span>${percent}% da meta</span>
+        <span>· ${remaining > 0 ? `Faltam ${fmtNum(remaining)}` : 'Meta atingida'}</span>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 const ANALYTICS_FIELD_LABELS = {
@@ -8330,6 +8568,7 @@ function renderAnalytics() {
   const data = getAnalyticsData();
   if (!data.length) return;
   const metricLabels = ANALYTICS_FIELD_LABELS[analyticsPlat] || ANALYTICS_FIELD_LABELS.default;
+  renderAnalyticsGoals(metricLabels);
   const metricDisplayLabels = Object.fromEntries(
     Object.entries(metricLabels).map(([field, label]) => [field, label.replace(/^[^\p{L}\p{N}]+/u, '')])
   );
