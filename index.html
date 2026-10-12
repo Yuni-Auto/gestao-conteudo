@@ -8402,12 +8402,12 @@ function renderAnalytics() {
   const igEl = document.getElementById('an-ig-stats');
   const last  = data[data.length - 1];
   const prev  = data.length > 1 ? data[data.length - 2] : null;
-  const periodStart = data[0];
   const monthSubEl = document.getElementById('an-plat-month-sub');
   if (monthSubEl) monthSubEl.textContent = `métricas de ${last.month}`;
-  function igDelta(curr, ref, inverse, showZero = false) {
+  function igDelta(curr, ref, inverse, showZero = false, showUnavailable = false) {
     if (ref === undefined || ref === null || ref === 0) {
-      return showZero ? '<span class="ig-stat-delta neutral">0%</span>' : '';
+      if (showZero) return '<span class="ig-stat-delta neutral">0%</span>';
+      return showUnavailable ? '<span class="ig-stat-delta neutral">—</span>' : '';
     }
     const pct = Math.round(((curr - ref) / ref) * 100);
     const up = inverse ? pct < 0 : pct > 0;
@@ -8418,12 +8418,12 @@ function renderAnalytics() {
 
   igEl.className = 'ig-stats-card';
     const igRows = [
-      { field:'seguidores', color:'#e8445a', val: last.seguidores,  ref: analyticsPlat === 'yt' ? periodStart.seguidores : prev?.seguidores },
-      { field:'views',      color:'#9b70e8', val: last.views,       ref: analyticsPlat === 'yt' ? periodStart.views : prev?.views },
-      { field:'alcance',    color:'#5b50c8', val: last.alcance,     ref: analyticsPlat === 'yt' ? periodStart.alcance : prev?.alcance },
-      { field:'eng',        color:'#f5a623', val: last.eng,         ref: analyticsPlat === 'yt' ? periodStart.eng : prev?.eng },
-      { field:'conteudo',   color:'#44b89a', val: last.conteudo,    ref: analyticsPlat === 'yt' ? periodStart.conteudo : prev?.conteudo },
-      { field:'clicks',     color:'#0a66c2', val: last.clicks ?? 0, ref: analyticsPlat === 'yt' ? periodStart.clicks ?? 0 : prev?.clicks ?? 0 },
+      { field:'seguidores', color:'#e8445a', val: last.seguidores,  ref: analyticsPlat === 'yt' ? data.find(d => d.seguidores > 0)?.seguidores : prev?.seguidores },
+      { field:'views',      color:'#9b70e8', val: last.views,       ref: analyticsPlat === 'yt' ? data.find(d => d.views > 0)?.views : prev?.views },
+      { field:'alcance',    color:'#5b50c8', val: last.alcance,     ref: analyticsPlat === 'yt' ? data.find(d => d.alcance > 0)?.alcance : prev?.alcance },
+      { field:'eng',        color:'#f5a623', val: last.eng,         ref: analyticsPlat === 'yt' ? data.find(d => d.eng > 0)?.eng : prev?.eng },
+      { field:'conteudo',   color:'#44b89a', val: last.conteudo,    ref: analyticsPlat === 'yt' ? data.find(d => d.conteudo > 0)?.conteudo : prev?.conteudo },
+      { field:'clicks',     color:'#0a66c2', val: last.clicks ?? 0, ref: analyticsPlat === 'yt' ? data.find(d => d.clicks > 0)?.clicks : prev?.clicks ?? 0 },
     ];
     if (analyticsPlat === 'tt') {
       igRows.unshift({ field:'followers', color:'#44b89a', val:last.followers ?? 0, ref:prev?.followers ?? 0 });
@@ -8436,7 +8436,7 @@ function renderAnalytics() {
         </div>
         <div class="ig-stat-right">
           <div class="ig-stat-val">${fmtNum(r.val ?? 0)}</div>
-          ${igDelta(r.val ?? 0, r.ref, false, analyticsPlat === 'li' || analyticsPlat === 'yt')}
+          ${igDelta(r.val ?? 0, r.ref, false, analyticsPlat === 'li', analyticsPlat === 'yt')}
         </div>
       </div>`).join('');
 
