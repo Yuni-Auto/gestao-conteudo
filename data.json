@@ -1077,19 +1077,22 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Trabalhar na frente do PC é facil"
+          "cena": "Trabalhar na frente do PC é facil",
+          "feito": false
         },
         {
           "inicio": 6,
           "fim": 10,
-          "cena": "Cortes de memes com expressão de desespero, nervoso, triste…"
+          "cena": "Cortes de memes com expressão de desespero, nervoso, triste…",
+          "feito": false
         }
       ],
-      "data": "",
-      "status": "gravando",
+      "data": "2026-10-12",
+      "status": "editando",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1099,7 +1102,9 @@
         }
       ],
       "requiredTag": "slot12",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 52,
@@ -1817,7 +1822,7 @@
     },
     {
       "id": 83,
-      "titulo": "[Reels] Mimos que recebi sendo palestrante no TDC 2026",
+      "titulo": "[reels] Mimos que recebi sendo palestrante no TDC 2026",
       "desc": "Roteiro: tudo que ganhei no TDC 2026.\n\nLegenda:\n\nAlguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
       "carouselLegenda": "",
       "slides": [],
@@ -1825,7 +1830,7 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "",
+          "cena": "Pensar na gravação do audio, que ficou baixa.",
           "feito": false
         }
       ],
@@ -1838,7 +1843,7 @@
       ],
       "plataformasDatas": {
         "ig": "2026-10-08",
-        "tt": "2026-10-07",
+        "tt": "2026-10-08",
         "yt": "2026-10-09"
       },
       "plataformasStatus": {
@@ -1949,7 +1954,7 @@
         }
       ],
       "data": "2026-10-18",
-      "status": "roteiro",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -4271,5 +4276,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T14:46:29.611Z"
+  "_updatedAt": "2026-10-12T14:50:01.779Z"
 }
