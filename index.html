@@ -8385,7 +8385,7 @@ function getAnalyticsYearData(plat, year) {
     .map(row => {
       const override = overrides[row.month] || {};
       const merged = { ...row, ...override, status: computeAnalyticsStatus(row.month) };
-      if (override.conteudo === undefined && monthHasTrackedPosts(plat, row.month)) {
+      if (plat !== 'tt' && override.conteudo === undefined && monthHasTrackedPosts(plat, row.month)) {
         merged.conteudo = postsPublishedCountForMonth(plat, row.month);
       }
       return merged;
@@ -8423,11 +8423,9 @@ function renderAnalyticsGoals(labels) {
   });
   list.innerHTML = configuredFields.map(field => {
     const { target: goal, period } = goals[field];
-    const isFollowerCount = field === 'seguidores' || field === 'followers';
+    const isFollowerCount = field === 'followers' || (field === 'seguidores' && analyticsPlat !== 'tt');
     const monthlyValue = Number(monthData?.[field]) || 0;
-    const monthlyActual = isFollowerCount
-      ? previousMonth ? monthlyValue - (Number(previousMonth[field]) || 0) : 0
-      : monthlyValue;
+    const monthlyActual = monthlyValue;
     const actual = period === 'monthly'
       ? monthlyActual
       : isFollowerCount
