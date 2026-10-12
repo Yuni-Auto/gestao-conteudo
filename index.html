@@ -326,16 +326,29 @@
   .filter-chip { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); transition: all 0.1s; }
   .filter-chip:hover { background: var(--bg); }
   .filter-chip.active { background: #5b50c8; color: #fff; border-color: #5b50c8; }
-  .post-table { width: 100%; border-collapse: collapse; }
-  .post-table th { text-align: left; font-size: 11px; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; padding: 9px 15px; border-bottom: 1px solid var(--border); background: var(--bg); }
-  .post-table td { padding: 12px 15px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-  .post-table tr:last-child td { border-bottom: none; }
-  .post-table tbody tr { cursor: pointer; transition: background 0.1s; }
   .dup-btn { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 7px; font-size: 14px; cursor: pointer; color: var(--text-3); transition: all .12s; line-height: 1; }
   .dup-btn:hover { background: #f0effe; border-color: #d8d3fb; color: #5b50c8; }
-  .post-table tbody tr:hover { background: #fafafa; }
   .post-title-cell { font-size: 13.5px; font-weight: 500; }
   .post-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+  .post-tag-groups { display: grid; gap: 24px; }
+  .post-tag-section { overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+  .post-tag-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; background: linear-gradient(90deg, rgba(91,80,200,.08), var(--surface) 42%); color: var(--text); cursor: pointer; list-style: none; }
+  .post-tag-header::-webkit-details-marker { display: none; }
+  .post-tag-header:focus-visible { outline: 2px solid #5b50c8; outline-offset: -2px; }
+  .post-tag-section[open] > .post-tag-header { border-bottom: 1px solid var(--border); }
+  .post-tag-header::after { content: ''; width: 8px; height: 8px; margin-left: 2px; border-right: 2px solid var(--text-3); border-bottom: 2px solid var(--text-3); transform: rotate(45deg) translateY(-2px); transition: transform .18s ease; }
+  .post-tag-section[open] > .post-tag-header::after { transform: rotate(225deg) translate(-2px, -1px); }
+  .post-tag-title { display: flex; align-items: center; gap: 9px; color: var(--text); font-size: 13px; font-weight: 700; }
+  .post-tag-title::before { content: ''; width: 4px; height: 18px; border-radius: 4px; background: #5b50c8; }
+  .post-tag-count { padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text-3); font-size: 10.5px; font-weight: 600; white-space: nowrap; }
+  .post-tag-table-scroll { overflow-x: auto; }
+  .post-tag-table { width: 100%; min-width: 680px; border-collapse: collapse; }
+  .post-tag-table th { text-align: left; font-size: 11px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.045em; padding: 9px 15px; border-bottom: 1px solid var(--border); background: var(--bg); white-space: nowrap; }
+  .post-tag-table td { padding: 12px 15px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .post-tag-table tbody tr:last-child td { border-bottom: none; }
+  .post-tag-table tbody tr { cursor: pointer; transition: background 0.1s; }
+  .post-tag-table tbody tr:hover { background: var(--bg); }
+  .post-tag-empty { padding: 26px; color: var(--text-3); font-size: 13px; text-align: center; }
   .plat-pill { display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; border-radius: 999px; font-size: 11px; font-weight: 600; margin-right: 3px; }
   .plat-pill.ig { background: #fde8ef; color: #b5223a; }
   .plat-pill.tt { background: #e8e8e8; color: #222; }
@@ -751,6 +764,7 @@
   .strat-item-row .strat-item-num { flex: 0 0 20px; font-size: 11px; font-weight: 700; color: var(--text-3); text-align: center; }
   .strat-item-row .strat-item-title { flex: 1; min-width: 0; }
   .strat-item-row .strat-item-formato { flex: 0 0 140px; }
+  .strat-item-row .strat-item-copy { flex-shrink: 0; }
   .strat-item-row .strat-item-del { flex-shrink: 0; }
 
   /* Production time modal */
@@ -1220,8 +1234,6 @@
     /* Home: duas colunas viram uma; o kanban rola na horizontal dentro do próprio card */
     .home-two-col { grid-template-columns: 1fr !important; }
     .home-two-col > * { min-width: 0; }
-    #post-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    #post-table-wrap .post-table { min-width: 560px; }
   }
 
   @media (max-width: 600px) {
@@ -1606,20 +1618,7 @@
           </div>
         </div>
         <div id="post-table-wrap">
-          <table class="post-table">
-            <thead>
-              <tr>
-                <th>Título</th>
-                <th>Plataforma</th>
-                <th>Formato</th>
-                <th>Status</th>
-                <th>Publicação</th>
-                <th>Dias</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="post-tbody"></tbody>
-          </table>
+          <div id="post-tbody"></div>
         </div>
       </div>
     </div>
@@ -4274,6 +4273,7 @@ function renderStrategyItemsList() {
       <select class="form-input strat-item-formato" onchange="updateStrategyItemField(${i},'formato',this.value)">
         ${['Carousel','Reels','Foto','Story','Live','Shorts','Thread','Pin'].map(f => `<option value="${f}" ${item.formato===f?'selected':''}>${f}</option>`).join('')}
       </select>
+      <button type="button" class="guideline-del strat-item-copy" title="Duplicar estratégia" aria-label="Duplicar estratégia ${escapeHtml(item.title || '')}" onclick="duplicateStrategyItemRow(${i})">⧉</button>
       <button type="button" class="guideline-del strat-item-del" title="Remover item" onclick="removeStrategyItemRow(${i})">✕</button>
     </div>
   `).join('');
@@ -4286,6 +4286,13 @@ function updateStrategyItemField(i, field, value) {
 
 function addStrategyItemRow() {
   modalStrategyItems.push({ key: newStrategyKey(), title: '', formato: 'Carousel', tag: 'post' });
+  renderStrategyItemsList();
+}
+
+function duplicateStrategyItemRow(i) {
+  const item = modalStrategyItems[i];
+  if (!item) return;
+  modalStrategyItems.splice(i + 1, 0, { ...item, key: newStrategyKey() });
   renderStrategyItemsList();
 }
 
@@ -5139,10 +5146,10 @@ function renderList() {
 
   const tbody = document.getElementById('post-tbody');
   if (!filtered.length) {
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:26px;color:var(--text-3);font-size:13px;">Nenhum conteúdo aqui ainda.</td></tr>';
+    tbody.innerHTML = '<div class="post-tag-empty">Nenhum conteúdo aqui ainda.</div>';
     return;
   }
-  tbody.innerHTML = filtered.map(p => {
+  const renderPostRow = p => {
     const dateStr = p.data ? new Date(p.data+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
     const dateVaries = p.plataformasDatas && Object.keys(p.plataformasDatas).length ? ' <span title="Datas diferentes por plataforma">🗓️≠</span>' : '';
     const statusVaries = p.plataformasStatus && Object.keys(p.plataformasStatus).length
@@ -5164,7 +5171,35 @@ function renderList() {
         <button class="dup-btn" onclick="duplicatePost(${p.id})" title="Duplicar post">⧉</button>
       </td>
     </tr>`;
-  }).join('');
+  };
+  const postsByTag = new Map();
+  filtered.forEach(p => {
+    const strategyTag = p.requiredTag
+      ? getRequiredPostsForMonth(postMonthKey(p)).find(item => item.key === p.requiredTag)
+      : null;
+    const label = strategyTag?.title || (p.requiredTag ? `Tag indisponível (${p.requiredTag})` : 'Sem tag');
+    if (!postsByTag.has(label)) postsByTag.set(label, []);
+    postsByTag.get(label).push(p);
+  });
+  const latestPost = filtered[filtered.length - 1];
+  const latestTagItem = latestPost.requiredTag
+    ? getRequiredPostsForMonth(postMonthKey(latestPost)).find(item => item.key === latestPost.requiredTag)
+    : null;
+  const latestTagLabel = latestTagItem?.title || (latestPost.requiredTag ? `Tag indisponível (${latestPost.requiredTag})` : 'Sem tag');
+  tbody.innerHTML = `<div class="post-tag-groups">${Array.from(postsByTag, ([label, taggedPosts]) => `
+    <details class="post-tag-section"${label === latestTagLabel ? ' open' : ''}>
+      <summary class="post-tag-header">
+        <span class="post-tag-title">${escapeHtml(label)}</span>
+        <span class="post-tag-count">${taggedPosts.length} ${taggedPosts.length === 1 ? 'conteúdo' : 'conteúdos'}</span>
+      </summary>
+      <div class="post-tag-table-scroll">
+        <table class="post-tag-table">
+          <thead><tr><th>Título</th><th>Plataforma</th><th>Formato</th><th>Status</th><th>Publicação</th><th>Dias</th><th></th></tr></thead>
+          <tbody>${taggedPosts.map(renderPostRow).join('')}</tbody>
+        </table>
+      </div>
+    </details>
+  `).join('')}</div>`;
 }
 
 function toggleContentTable() {
@@ -5666,9 +5701,19 @@ function populateReqTagSelect(selected) {
   const usedKeys = new Set(
     posts.filter(p => p.requiredTag && p.id !== editingPostId).map(p => p.requiredTag)
   );
-  sel.innerHTML = '<option value="">Nenhuma</option>' + REQUIRED_POSTS.map(item =>
-    `<option value="${item.key}">${usedKeys.has(item.key) ? '✓ ' : ''}${escapeHtml(item.title)}</option>`
-  ).join('');
+  const titleCounts = new Map();
+  REQUIRED_POSTS.forEach(item => {
+    const normalizedTitle = item.title.trim().toLocaleLowerCase();
+    titleCounts.set(normalizedTitle, (titleCounts.get(normalizedTitle) || 0) + 1);
+  });
+  const titleIndexes = new Map();
+  sel.innerHTML = '<option value="">Nenhuma</option>' + REQUIRED_POSTS.map(item => {
+    const normalizedTitle = item.title.trim().toLocaleLowerCase();
+    const duplicateIndex = (titleIndexes.get(normalizedTitle) || 0) + 1;
+    titleIndexes.set(normalizedTitle, duplicateIndex);
+    const title = titleCounts.get(normalizedTitle) > 1 ? `${item.title} (${duplicateIndex})` : item.title;
+    return `<option value="${item.key}">${usedKeys.has(item.key) ? '✓ ' : ''}${escapeHtml(title)}</option>`;
+  }).join('');
   sel.value = selected || '';
 }
 
