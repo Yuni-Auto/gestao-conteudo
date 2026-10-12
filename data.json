@@ -2866,12 +2866,12 @@
         "clicks": 22
       },
       "Out 26": {
-        "seguidores": 8668,
-        "views": 49762,
-        "alcance": 23549,
-        "eng": 3735,
-        "conteudo": 9,
-        "clicks": 12
+        "seguidores": 8665,
+        "views": 126623,
+        "alcance": 72223,
+        "eng": 10442,
+        "conteudo": 10,
+        "clicks": 10
       }
     },
     "tt": {
@@ -4276,5 +4276,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T14:50:01.779Z"
+  "_updatedAt": "2026-10-12T14:53:00.195Z"
 }
