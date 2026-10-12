@@ -2984,11 +2984,11 @@
         "clicks": 0
       },
       "Out 26": {
-        "seguidores": 2456,
-        "views": 174,
-        "alcance": 127,
-        "eng": 48,
-        "conteudo": 0,
+        "seguidores": 2466,
+        "views": 163,
+        "alcance": 163,
+        "eng": 30,
+        "conteudo": 1,
         "clicks": 0
       }
     },
@@ -3003,10 +3003,10 @@
       },
       "Out 26": {
         "seguidores": 10,
-        "views": 3600,
-        "alcance": 0,
-        "eng": 51,
-        "conteudo": 4.5,
+        "views": 5100,
+        "alcance": 6.7,
+        "eng": 65,
+        "conteudo": 5,
         "clicks": 0
       }
     }
@@ -4276,5 +4276,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T14:59:47.479Z"
+  "_updatedAt": "2026-10-12T15:03:15.561Z"
 }
