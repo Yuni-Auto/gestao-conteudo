@@ -3045,11 +3045,19 @@
     },
     {
       "id": 9,
-      "text": "Na entrevista: Poderia me explixar inner-source e dar um exemplo",
+      "text": "Na entrevista: Poderia me explicar inner-source e dar um exemplo",
       "x": 982.96484375,
       "y": 500.640625,
       "color": "purple",
       "rot": 2.9
+    },
+    {
+      "id": 10,
+      "text": "Comparativo do Angular 16 com Angular 21",
+      "x": 141.5625,
+      "y": 326.296875,
+      "color": "yellow",
+      "rot": 2.3
     }
   ],
   "inspirations": [
@@ -4251,5 +4259,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T15:07:45.092Z"
+  "_updatedAt": "2026-10-12T15:23:37.113Z"
 }
