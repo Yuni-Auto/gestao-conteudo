@@ -381,6 +381,11 @@
   @media (min-width: 900px) { .analytics-kpi-row.has-tiktok-followers { grid-template-columns: repeat(7, 1fr); } }
 
   .analytics-goals-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .analytics-goals-summary { cursor: pointer; list-style: none; user-select: none; }
+  .analytics-goals-summary::-webkit-details-marker { display: none; }
+  .analytics-goals-chevron { display: inline-block; transition: transform .15s; color: var(--muted, #888); }
+  .analytics-goals-card:not([open]) .analytics-goals-chevron { transform: rotate(-90deg); }
+  .analytics-goals-card:not([open]) .analytics-goals-summary { border-bottom: 0; }
   .analytics-goals-list { display: grid; grid-template-columns: 1fr; gap: 12px 18px; padding: 16px 18px; }
   @media (min-width: 900px) { .analytics-goals-list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .analytics-goal { min-width: 0; }
@@ -1641,15 +1646,16 @@
         <div class="analytics-kpi-row" id="an-kpis"></div>
 
         <!-- Goals for the selected platform -->
-        <div class="analytics-goals-card">
-          <div class="analytics-card-header">
-            <div>
+        <details class="analytics-goals-card" id="an-goals-accordion" open>
+          <summary class="analytics-card-header analytics-goals-summary">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="analytics-goals-chevron">▾</span>
               <div class="analytics-card-title">Metas</div>
             </div>
             <div class="an-plat-badge" id="an-goals-plat-badge"></div>
-          </div>
+          </summary>
           <div class="analytics-goals-list" id="an-goals-list"></div>
-        </div>
+        </details>
 
         <!-- Chart + Platform breakdown -->
         <div class="analytics-row-2">
@@ -9496,11 +9502,14 @@ function renderHome() {
     socialWrap.innerHTML = PLAT_META.map(p => {
       const stats = getSeguidoresStats(p.key);
       const up = stats.delta >= 0;
+      const goalField = p.key === 'tt' ? 'followers' : 'seguidores';
+      const goalTarget = getAnalyticsGoalsForYear(p.key, new Date().getFullYear())[goalField]?.target;
+      const goalPct = Number.isFinite(goalTarget) && goalTarget > 0 ? Math.round(stats.value / goalTarget * 100) : null;
       return `
         <div class="akpi" onclick="setMainNav(document.querySelector('.nav-item-v2[data-view=\\'analytics\\']'))" style="cursor:pointer;">
           <div class="akpi-label">${platIcon(p.key, 11)} ${p.labelShort}</div>
           <div class="akpi-value">${fmtNum(stats.value)}</div>
-          <div class="akpi-delta ${up?'up':'down'}">${up?'↑':'↓'} ${fmtNum(Math.abs(stats.delta))} no período</div>
+          <div class="akpi-delta ${up?'up':'down'}">${up?'↑':'↓'} ${fmtNum(Math.abs(stats.delta))} no período${goalPct !== null ? ` <span style="color:var(--muted,#888);">(${goalPct}% da meta)</span>` : ''}</div>
         </div>`;
     }).join('');
   }
