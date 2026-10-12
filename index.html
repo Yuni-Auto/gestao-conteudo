@@ -381,7 +381,8 @@
   @media (min-width: 900px) { .analytics-kpi-row.has-tiktok-followers { grid-template-columns: repeat(7, 1fr); } }
 
   .analytics-goals-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .analytics-goals-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 18px; padding: 16px 18px; }
+  .analytics-goals-list { display: grid; grid-template-columns: 1fr; gap: 12px 18px; padding: 16px 18px; }
+  @media (min-width: 900px) { .analytics-goals-list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .analytics-goal { min-width: 0; }
   .analytics-goal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 7px; font-size: 12px; }
   .analytics-goal-label { color: var(--text-2); }
@@ -402,6 +403,9 @@
 
   .an-data-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
   .an-data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  #an-goals-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 1000px) { #an-goals-fields { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { #an-goals-fields { grid-template-columns: 1fr; } }
   .an-data-hint { font-size: 12px; color: var(--text-3); margin-top: 12px; }
   .akpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 16px; position: relative; overflow: hidden; }
   .akpi-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
@@ -2747,7 +2751,7 @@
 
 <!-- Analytics goals modal -->
 <div class="modal-overlay" id="an-goals-modal" onclick="handleOverlayClick(event,'an-goals-modal')">
-  <div class="modal" style="max-width:560px;">
+  <div class="modal" style="max-width:960px;">
     <div class="modal-hero">
       <div class="modal-title-text">Metas por plataforma</div>
     </div>
