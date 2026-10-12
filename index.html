@@ -8345,6 +8345,13 @@ function renderAnalytics() {
   const kpiEl = document.getElementById('an-kpis');
   kpiEl.classList.toggle('has-tiktok-followers', analyticsPlat === 'tt');
   kpiEl.innerHTML = `
+    ${analyticsPlat === 'tt' ? `
+    <div class="akpi">
+      <div class="akpi-label">${metricLabels.followers}</div>
+      <div class="akpi-value">${fmtNum(lastFollowers)}</div>
+      <div class="akpi-delta ${followersDelta >= 0 ? 'up' : 'down'}">${followersDelta >= 0 ? '↑' : '↓'} ${Math.abs(followersDelta)} no mês</div>
+      <div class="akpi-bar" style="background:#44b89a;opacity:.22;"></div>
+    </div>` : ''}
     <div class="akpi">
       <div class="akpi-label">${metricLabels.seguidores}</div>
       <div class="akpi-value">${fmtNum(lastSeg)}</div>
@@ -8381,13 +8388,6 @@ function renderAnalytics() {
       <div class="akpi-delta up">↑ total no período</div>
       <div class="akpi-bar" style="background:#0a66c2;opacity:.22;"></div>
     </div>
-    ${analyticsPlat === 'tt' ? `
-    <div class="akpi">
-      <div class="akpi-label">${metricLabels.followers}</div>
-      <div class="akpi-value">${fmtNum(lastFollowers)}</div>
-      <div class="akpi-delta ${followersDelta >= 0 ? 'up' : 'down'}">${followersDelta >= 0 ? '↑' : '↓'} ${Math.abs(followersDelta)} no mês</div>
-      <div class="akpi-bar" style="background:#44b89a;opacity:.22;"></div>
-    </div>` : ''}
   `;
 
   document.getElementById('an-chart-title').textContent = `${metricLabels.views} por mês`;
