@@ -2986,6 +2986,36 @@
       }
     }
   },
+  "analyticsGoals": {
+    "ig": {
+      "2026": {
+        "seguidores": {
+          "target": 10000,
+          "period": "annual"
+        },
+        "views": {
+          "target": 150000,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 75000,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 11000,
+          "period": "monthly"
+        },
+        "conteudo": {
+          "target": 12,
+          "period": "monthly"
+        },
+        "clicks": {
+          "target": 12,
+          "period": "monthly"
+        }
+      }
+    }
+  },
   "brainstormNotes": [
     {
       "id": 2,
@@ -4259,5 +4289,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T15:23:37.113Z"
+  "_updatedAt": "2026-10-12T15:47:11.419Z"
 }
