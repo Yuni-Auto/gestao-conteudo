@@ -375,7 +375,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-12",
+      "data": "2026-10-25",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -546,24 +546,25 @@
     },
     {
       "id": 31,
-      "titulo": "[carrossel] Quando gastei para ter um setup nomadi",
+      "titulo": "[reels] Quando gastei para ter um setup nomadi",
       "desc": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
-      "carouselLegenda": "Itens: \n\n* Notebook: da empresa**\n* Fone de ouvido (Headset Gamer Redragon Zeus X, H510-RGB): R$200 \n* Monitor Portátil Arzopa A1 Gamut 15.6 Fhd 1080p 60hz): R$ 523,87\n* Mouse Sem Fio Logitech Lift Vertical com Design Ergonômico: R$ 300",
-      "slides": [
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "",
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
           "feito": false
         }
       ],
-      "scenes": [],
-      "data": "2026-10-06",
-      "status": "design",
+      "data": "2026-10-29",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -1035,14 +1036,16 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Cena descontraída comendo e/ou bebendo "
+          "cena": "Cena descontraída comendo e/ou bebendo ",
+          "feito": false
         }
       ],
-      "data": "",
-      "status": "gravando",
+      "data": "2026-10-07",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1052,7 +1055,17 @@
         }
       ],
       "requiredTag": "slot4",
-      "plataformasDatas": null
+      "plataformasDatas": {
+        "ig": "2026-10-08",
+        "tt": "2026-10-07",
+        "yt": "2026-10-11"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
+      },
+      "parceiroId": null
     },
     {
       "id": 51,
@@ -1064,19 +1077,22 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Trabalhar na frente do PC é facil"
+          "cena": "Trabalhar na frente do PC é facil",
+          "feito": false
         },
         {
           "inicio": 6,
           "fim": 10,
-          "cena": "Cortes de memes com expressão de desespero, nervoso, triste…"
+          "cena": "Cortes de memes com expressão de desespero, nervoso, triste…",
+          "feito": false
         }
       ],
-      "data": "",
-      "status": "gravando",
+      "data": "2026-10-12",
+      "status": "editando",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [
@@ -1086,7 +1102,9 @@
         }
       ],
       "requiredTag": "slot12",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 52,
@@ -1213,12 +1231,13 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "roteiro",
+      "data": "2026-10-22",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -1229,10 +1248,16 @@
         {
           "creator": "Livia Marins",
           "link": "https://www.instagram.com/p/DTd1dQZjgyL/?igsh=aG1qdDk3bGJmOHc2"
+        },
+        {
+          "creator": "Livia Marins",
+          "link": "https://www.instagram.com/reel/DUUMf9zDh3w/?stkn=ZGJtaWZqYWY4dm95"
         }
       ],
       "requiredTag": "slot2",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "parceiroId": null
     },
     {
       "id": 58,
@@ -1403,7 +1428,7 @@
           "feito": true
         }
       ],
-      "data": "2026-10-03",
+      "data": "2026-10-18",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1566,7 +1591,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-08",
+      "data": "2026-10-19",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1631,30 +1656,6 @@
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1
-    },
-    {
-      "id": 74,
-      "titulo": "[carrossel] Dump do AI CONF'ROLL",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": ""
-        }
-      ],
-      "scenes": [],
-      "data": "2026-10-26",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "li"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTag": null
     },
     {
       "id": 75,
@@ -1821,26 +1822,35 @@
     },
     {
       "id": 83,
-      "titulo": "[Reels] Mimos que recebi sendo palestrante no TDC 2026",
-      "desc": "Alguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
+      "titulo": "[reels] Mimos que recebi sendo palestrante no TDC 2026",
+      "desc": "Roteiro: tudo que ganhei no TDC 2026.\n\nLegenda:\n\nAlguns mimos que recebi do TDC 2025 ✨🦄\n\nO evento The Dev Conf ocorreu em dia 23 ao dia 25/09 contando com inúmeras palestras e workshops sobre tecnologia e inovação.\n\nNão fiquei de fora e fui aproveitar!\n\n#tdc #tech #programação #rotina",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "Pensar na gravação do audio, que ficou baixa.",
+          "feito": false
         }
       ],
-      "data": "2026-10-04",
-      "status": "gravando",
+      "data": "2026-10-09",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-10-08",
+        "tt": "2026-10-08",
+        "yt": "2026-10-09"
+      },
+      "plataformasStatus": {
+        "ig": "editando",
+        "tt": "editando",
+        "yt": "publicada"
+      },
       "formato": "Reels",
       "inspiracoes": [
         {
@@ -1849,7 +1859,8 @@
         }
       ],
       "requiredTag": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "eventoId": 1
     },
     {
       "id": 84,
@@ -1872,14 +1883,22 @@
         }
       ],
       "data": "2026-10-02",
-      "status": "programada",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-10-02",
+        "tt": "2026-10-03",
+        "yt": "2026-10-03"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTag": null,
@@ -1935,7 +1954,7 @@
         }
       ],
       "data": "2026-10-18",
-      "status": "roteiro",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1968,7 +1987,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-10",
+      "data": "2026-10-20",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1986,7 +2005,7 @@
     {
       "id": 88,
       "titulo": "[reels] acho chique",
-      "desc": "",
+      "desc": "Diva, não é “meio chiq”. É muito chique você correr atrás dos seus sonhos.",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -1997,7 +2016,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-16",
+      "data": "2026-10-15",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2013,7 +2032,7 @@
           "link": "https://www.instagram.com/reel/DdfiKpbAAJC/?stkn=OTg3czJwZjg3eW41"
         }
       ],
-      "requiredTag": null,
+      "requiredTag": "slot4",
       "parceiroId": null,
       "eventoId": null
     },
@@ -2037,12 +2056,10 @@
           "feito": false
         }
       ],
-      "data": "2026-10-04",
-      "status": "gravando",
+      "data": "2026-10-06",
+      "status": "publicada",
       "plataformas": [
-        "ig",
-        "tt",
-        "li"
+        "ig"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -2111,7 +2128,7 @@
     },
     {
       "id": 91,
-      "titulo": "Vocabulário da programação",
+      "titulo": "[Reels] Vocabulário da programação",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -2122,7 +2139,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-14",
+      "data": "2026-10-13",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2149,7 +2166,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-30",
+      "data": "2026-10-31",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2165,7 +2182,7 @@
     },
     {
       "id": 94,
-      "titulo": "Metas que eu estabeleci para mês/ano",
+      "titulo": "[carroussel] Metas que eu estabeleci para mês/ano",
       "desc": "Metas que eu estabeleci para mês/ano",
       "carouselLegenda": "",
       "slides": [],
@@ -2177,7 +2194,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-28",
+      "data": "2026-10-29",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2189,6 +2206,158 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "parceiroId": null
+    },
+    {
+      "id": 95,
+      "titulo": "[reels] Vblog da Corrida Pink Run",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-04",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-10-04",
+        "tt": "2026-10-05",
+        "yt": "2026-10-05"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
+      },
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot13",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 96,
+      "titulo": "[carroussel] Programa de estágio",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-09",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot3",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 97,
+      "titulo": "[carrousel] Palestrante no TDC",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-12",
+      "status": "ideia",
+      "plataformas": [
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": "slot1",
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 98,
+      "titulo": "[carroussel] Te indicando pessoas negros",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-27",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "li",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://vt.tiktok.com/ZSb3bEHvr/"
+        }
+      ],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 99,
+      "titulo": "[carroussel] O que você faz ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-10-11",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
     }
   ],
   "partners": [
@@ -2306,7 +2475,7 @@
       "nome": "Laura Rodrigues",
       "perfil": "laurarodrigues.dev",
       "contato": "",
-      "status": "combinada",
+      "status": "publicada",
       "seguidores": 3348,
       "plataformas": [
         "ig",
@@ -2338,7 +2507,7 @@
       "nome": "Gabriel Nogueira",
       "perfil": "gsnogueira.meta",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 129,
       "plataformas": [
         "ig",
@@ -2380,7 +2549,7 @@
       "nome": "Hebert Esteves",
       "perfil": "heebertesteves",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 399,
       "plataformas": [
         "ig"
@@ -2410,7 +2579,7 @@
       "nome": "Danilo Régis",
       "perfil": "daniloregis.arq",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 309,
       "plataformas": [
         "ig"
@@ -2440,7 +2609,7 @@
       "nome": "Samira Bittar",
       "perfil": "olhosespanhois",
       "contato": "",
-      "status": "produzindo",
+      "status": "publicada",
       "seguidores": 419,
       "plataformas": [
         "ig"
@@ -2464,6 +2633,38 @@
       "lectureIds": [],
       "tipo": "collab",
       "data": "2026-10-02"
+    },
+    {
+      "id": 6,
+      "nome": "Rubi Rails",
+      "perfil": "railsgirls.sp",
+      "contato": "Daniela",
+      "status": "publicada",
+      "seguidores": 4003,
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "2026-10-06",
+          "status": "produzindo",
+          "contentType": "post",
+          "contentId": 89
+        }
+      ],
+      "postIds": [
+        89
+      ],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": "2026-10-06"
     }
   ],
   "lectures": [
@@ -2589,6 +2790,31 @@
       "bairro": "Vila Carmosina",
       "cidade": "São Paulo",
       "uf": "SP"
+    },
+    {
+      "id": 6,
+      "tema": "{Pensar no tema}",
+      "evento": "",
+      "temaEvento": "JSConf Brasil",
+      "status": "ideia",
+      "data": "2026-11-28",
+      "hora": "",
+      "formato": "Presencial",
+      "local": "São Caetano do Sul - SP",
+      "duracao": 0,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "https://jsconf.com.br/",
+      "linkSlides": "",
+      "notas": "",
+      "cep": "09521-160",
+      "rua": "Rua Santo Antônio",
+      "numero": "50",
+      "complemento": "Universidade Municipal de São Caetano do Sul - Campus Centro",
+      "bairro": "Centro",
+      "cidade": "São Caetano do Sul",
+      "uf": "SP",
+      "avaliacao": 0
     }
   ],
   "guidelines": [
@@ -2640,12 +2866,12 @@
         "clicks": 22
       },
       "Out 26": {
-        "seguidores": 8663,
-        "views": 31237,
-        "alcance": 12915,
-        "eng": 2079,
-        "conteudo": 0,
-        "clicks": 0
+        "seguidores": 8665,
+        "views": 126623,
+        "alcance": 72223,
+        "eng": 10442,
+        "conteudo": 10,
+        "clicks": 10
       }
     },
     "tt": {
@@ -2683,13 +2909,13 @@
         "followers": 980
       },
       "Out 26": {
-        "seguidores": 17,
-        "views": 906,
-        "alcance": 90,
-        "eng": 8,
+        "seguidores": 19,
+        "views": 972,
+        "alcance": 76,
+        "eng": 7,
         "conteudo": 5,
         "clicks": 0,
-        "followers": 981
+        "followers": 985
       },
       "Mai 26": {
         "seguidores": 26,
@@ -2758,11 +2984,11 @@
         "clicks": 0
       },
       "Out 26": {
-        "seguidores": 2456,
-        "views": 174,
-        "alcance": 127,
-        "eng": 48,
-        "conteudo": 0,
+        "seguidores": 2466,
+        "views": 163,
+        "alcance": 163,
+        "eng": 30,
+        "conteudo": 1,
         "clicks": 0
       }
     },
@@ -2776,11 +3002,11 @@
         "clicks": 0
       },
       "Out 26": {
-        "seguidores": 5,
-        "views": 3600,
-        "alcance": 0,
-        "eng": 51,
-        "conteudo": 4.5,
+        "seguidores": 10,
+        "views": 5100,
+        "alcance": 6.7,
+        "eng": 65,
+        "conteudo": 5,
         "clicks": 0
       }
     }
@@ -4039,5 +4265,16 @@
     },
     "overrides": []
   },
-  "_updatedAt": "2026-10-02T18:18:01.723Z"
+  "platHoras": {
+    "ig": "18:00",
+    "tt": "20:00"
+  },
+  "platDias": {
+    "ig": [
+      1,
+      2,
+      3
+    ]
+  },
+  "_updatedAt": "2026-10-12T15:03:15.561Z"
 }
