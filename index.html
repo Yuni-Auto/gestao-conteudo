@@ -753,6 +753,13 @@
   .p-chip.sel-li  { background: #e8f0fb; border-color: #aecbef; color: #0a66c2; }
   .p-chip.sel-yt  { background: #fde8e8; border-color: #f9b8b8; color: #c00; }
   .p-chip.sel-fmt { background: #f0effe; border-color: #d0c9fb; color: #5b50c8; }
+  .req-tag-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+  .req-tag-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text-2); font: inherit; font-size: 12px; cursor: pointer; transition: all .12s; }
+  .req-tag-chip:hover { border-color: #c9c4ea; background: var(--bg); color: var(--text); }
+  .req-tag-chip[aria-pressed="true"] { border-color: #5b50c8; background: #f0effe; color: #5146b5; font-weight: 600; }
+  .req-tag-chip .req-tag-check { width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid currentColor; border-radius: 50%; font-size: 9px; line-height: 1; }
+  .req-tag-chip[aria-pressed="true"] .req-tag-check { color: white; border-color: #5b50c8; background: #5b50c8; }
+  .req-tag-chip-none { color: var(--text-3); }
 
   /* Searchable post dropdown */
   .linked-post-row { display: flex; gap: 6px; margin-bottom: 6px; align-items: center; }
@@ -2585,10 +2592,8 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label">Tag de estratégia (opcional)</label>
-        <select class="form-input" id="n-reqtag" onchange="toggleEventoWrap()">
-          <option value="">Nenhuma</option>
-        </select>
+        <label class="form-label">Tags de estratégia (opcional)</label>
+        <div class="req-tag-chips" id="n-reqtags-chips" role="group" aria-label="Tags de estratégia"></div>
       </div>
 
       <!-- carousel / foto: range + slide cards -->
@@ -3707,7 +3712,8 @@ function saveProductionTimes() {
    quando o título do item bate (case-insensitive), senão cai no padrão do
    formato do post. */
 function getProductionDaysConfig(post) {
-  const reqItem = REQUIRED_POSTS.find(it => it.key === post.requiredTag);
+  const postTags = getPostRequiredTags(post);
+  const reqItem = getRequiredPostsForMonth(postMonthKey(post)).find(it => postTags.includes(it.key));
   if (reqItem && reqItem.title) {
     const norm = reqItem.title.trim().toLowerCase();
     const ovr = (productionTimes.overrides || []).find(o => (o.title || '').trim().toLowerCase() === norm);
@@ -4153,10 +4159,15 @@ function platPills(plats) {
 
 function groupOf(key) { return (getStatusMeta(key)||{}).group||'todo'; }
 
+function getPostRequiredTags(post) {
+  const tags = Array.isArray(post.requiredTags) ? post.requiredTags : post.requiredTag ? [post.requiredTag] : [];
+  return [...new Set(tags.filter(tag => typeof tag === 'string' && tag))];
+}
+
 /* ─── Monthly required checklist ───────────────────────────────────────── */
 function getRequiredPost(key) {
   const selectedMonth = monthKey(strategyMonth);
-  return posts.find(p => p.requiredTag === key && postMonthKey(p) === selectedMonth);
+  return posts.find(p => getPostRequiredTags(p).includes(key) && postMonthKey(p) === selectedMonth);
 }
 
 function strategyDefaultDate() {
@@ -4209,7 +4220,7 @@ function openRequiredPost(index) {
     openPost(existing.id);
     return;
   }
-  openNewModal({ titulo: item.title, formato: item.formato, data: strategyDefaultDate(), requiredTag: item.key });
+  openNewModal({ titulo: item.title, formato: item.formato, data: strategyDefaultDate(), requiredTags: [item.key] });
 }
 
 /* ─── Strategy items management modal ──────────────────────────────────── */
@@ -5173,21 +5184,25 @@ function renderList() {
     </tr>`;
   };
   const postsByTag = new Map();
+  const tagLabelsForPost = post => {
+    const tagKeys = getPostRequiredTags(post);
+    if (!tagKeys.length) return ['Sem tag'];
+    const monthItems = getRequiredPostsForMonth(postMonthKey(post));
+    return [...new Set(tagKeys.map(key => {
+      const item = monthItems.find(candidate => candidate.key === key);
+      return item?.title || `Tag indisponível (${key})`;
+    }))];
+  };
   filtered.forEach(p => {
-    const strategyTag = p.requiredTag
-      ? getRequiredPostsForMonth(postMonthKey(p)).find(item => item.key === p.requiredTag)
-      : null;
-    const label = strategyTag?.title || (p.requiredTag ? `Tag indisponível (${p.requiredTag})` : 'Sem tag');
-    if (!postsByTag.has(label)) postsByTag.set(label, []);
-    postsByTag.get(label).push(p);
+    tagLabelsForPost(p).forEach(label => {
+      if (!postsByTag.has(label)) postsByTag.set(label, []);
+      postsByTag.get(label).push(p);
+    });
   });
   const latestPost = filtered[filtered.length - 1];
-  const latestTagItem = latestPost.requiredTag
-    ? getRequiredPostsForMonth(postMonthKey(latestPost)).find(item => item.key === latestPost.requiredTag)
-    : null;
-  const latestTagLabel = latestTagItem?.title || (latestPost.requiredTag ? `Tag indisponível (${latestPost.requiredTag})` : 'Sem tag');
+  const latestTagLabels = new Set(tagLabelsForPost(latestPost));
   tbody.innerHTML = `<div class="post-tag-groups">${Array.from(postsByTag, ([label, taggedPosts]) => `
-    <details class="post-tag-section"${label === latestTagLabel ? ' open' : ''}>
+    <details class="post-tag-section"${latestTagLabels.has(label) ? ' open' : ''}>
       <summary class="post-tag-header">
         <span class="post-tag-title">${escapeHtml(label)}</span>
         <span class="post-tag-count">${taggedPosts.length} ${taggedPosts.length === 1 ? 'conteúdo' : 'conteúdos'}</span>
@@ -5359,11 +5374,12 @@ function openPost(id) {
     document.getElementById('m-insp-row').style.display = 'none';
   }
 
-  const reqItem = REQUIRED_POSTS.find(it => it.key === p.requiredTag);
-  if (reqItem) {
+  const reqItems = getRequiredPostsForMonth(postMonthKey(p))
+    .filter(item => getPostRequiredTags(p).includes(item.key));
+  if (reqItems.length) {
     document.getElementById('m-reqtag-row').style.display = 'flex';
     document.getElementById('m-reqtag').innerHTML =
-      `<span class="strategy-tag ${reqItem.tag}">obrigatório do mês</span> <span style="color:var(--text-2);font-size:13px;">${escapeHtml(reqItem.title)}</span>`;
+      reqItems.map(item => `<span class="strategy-tag ${item.tag}">obrigatório do mês</span> <span style="color:var(--text-2);font-size:13px;">${escapeHtml(item.title)}</span>`).join('<span style="margin:0 5px;color:var(--text-3);">·</span>');
   } else {
     document.getElementById('m-reqtag-row').style.display = 'none';
   }
@@ -5695,26 +5711,55 @@ function toggleInspWrap() {
   toggleEventoWrap();
 }
 
-function populateReqTagSelect(selected) {
-  const sel = document.getElementById('n-reqtag');
-  if (!sel) return;
-  const usedKeys = new Set(
-    posts.filter(p => p.requiredTag && p.id !== editingPostId).map(p => p.requiredTag)
-  );
+function renderRequiredTagChips(selected = []) {
+  const wrap = document.getElementById('n-reqtags-chips');
+  if (!wrap) return;
+  const selectedKeys = new Set(selected);
   const titleCounts = new Map();
   REQUIRED_POSTS.forEach(item => {
     const normalizedTitle = item.title.trim().toLocaleLowerCase();
     titleCounts.set(normalizedTitle, (titleCounts.get(normalizedTitle) || 0) + 1);
   });
   const titleIndexes = new Map();
-  sel.innerHTML = '<option value="">Nenhuma</option>' + REQUIRED_POSTS.map(item => {
+  const chips = REQUIRED_POSTS.map(item => {
     const normalizedTitle = item.title.trim().toLocaleLowerCase();
     const duplicateIndex = (titleIndexes.get(normalizedTitle) || 0) + 1;
     titleIndexes.set(normalizedTitle, duplicateIndex);
     const title = titleCounts.get(normalizedTitle) > 1 ? `${item.title} (${duplicateIndex})` : item.title;
-    return `<option value="${item.key}">${usedKeys.has(item.key) ? '✓ ' : ''}${escapeHtml(title)}</option>`;
-  }).join('');
-  sel.value = selected || '';
+    const pressed = selectedKeys.has(item.key);
+    return `<button type="button" class="req-tag-chip" data-required-tag="${escapeHtml(item.key)}" aria-pressed="${pressed}" onclick="toggleRequiredTagChip(this)"><span class="req-tag-check">${pressed ? '✓' : ''}</span>${escapeHtml(title)}</button>`;
+  });
+  const unknownChips = [...selectedKeys].filter(key => !REQUIRED_POSTS.some(item => item.key === key)).map(key =>
+    `<button type="button" class="req-tag-chip" data-required-tag="${escapeHtml(key)}" aria-pressed="true" onclick="toggleRequiredTagChip(this)"><span class="req-tag-check">✓</span>${escapeHtml(`Tag indisponível (${key})`)}</button>`
+  );
+  wrap.innerHTML = `<button type="button" class="req-tag-chip req-tag-chip-none" aria-pressed="${selectedKeys.size === 0}" onclick="clearRequiredTagChips(this)"><span class="req-tag-check">${selectedKeys.size === 0 ? '✓' : ''}</span>Nenhuma</button>${chips.join('')}${unknownChips.join('')}`;
+}
+
+function getSelectedRequiredTags() {
+  return [...document.querySelectorAll('#n-reqtags-chips .req-tag-chip[aria-pressed="true"][data-required-tag]')]
+    .map(chip => chip.dataset.requiredTag);
+}
+
+function toggleRequiredTagChip(chip) {
+  const selected = chip.getAttribute('aria-pressed') !== 'true';
+  chip.setAttribute('aria-pressed', String(selected));
+  chip.querySelector('.req-tag-check').textContent = selected ? '✓' : '';
+  const noneChip = document.querySelector('#n-reqtags-chips .req-tag-chip-none');
+  if (noneChip) {
+    noneChip.setAttribute('aria-pressed', String(getSelectedRequiredTags().length === 0));
+    noneChip.querySelector('.req-tag-check').textContent = getSelectedRequiredTags().length === 0 ? '✓' : '';
+  }
+  toggleEventoWrap();
+}
+
+function clearRequiredTagChips(chip) {
+  document.querySelectorAll('#n-reqtags-chips .req-tag-chip[data-required-tag]').forEach(tagChip => {
+    tagChip.setAttribute('aria-pressed', 'false');
+    tagChip.querySelector('.req-tag-check').textContent = '';
+  });
+  chip.setAttribute('aria-pressed', 'true');
+  chip.querySelector('.req-tag-check').textContent = '✓';
+  toggleEventoWrap();
 }
 
 /* Popula um <select> com a lista de parceiros cadastrados (usado no modal de
@@ -5733,7 +5778,7 @@ function openNewModal(prefill = {}) {
   editingPostId = prefill.id || null;
   newEventoId = prefill.eventoId || null;
   document.getElementById('n-titulo').value  = prefill.titulo || '';
-  populateReqTagSelect(prefill.requiredTag || '');
+  renderRequiredTagChips(getPostRequiredTags(prefill));
   populatePartnerSelect('n-parceiro', prefill.parceiroId || '');
 
   // unified desc: for carousel/foto use carouselLegenda, otherwise desc
@@ -5842,7 +5887,7 @@ function saveNewPost() {
     creator: row.querySelector('.n-insp-creator').value.trim(),
     link:    row.querySelector('.n-insp-input').value.trim(),
   })).filter(x => x.creator || x.link);
-  const requiredTag = document.getElementById('n-reqtag').value || null;
+  const requiredTags = getSelectedRequiredTags();
   const parceiroSel = document.getElementById('n-parceiro');
   const parceiroId = parceiroSel && parceiroSel.value ? Number(parceiroSel.value) : null;
   const eventoSel = document.getElementById('n-evento');
@@ -5872,7 +5917,8 @@ function saveNewPost() {
       // que o status tenha sido alterado na mesma edição. Isso evita perder um link recém
       // adicionado quando o usuário também muda o status antes de salvar.
       post.inspiracoes     = formInsp;
-      post.requiredTag     = requiredTag;
+      post.requiredTags    = requiredTags;
+      delete post.requiredTag;
       post.parceiroId      = parceiroId;
       // fora de gravando/design o campo fica oculto: mantém o vínculo que já existia
       if (eventoVisivel) post.eventoId = eventoId;
@@ -5895,7 +5941,7 @@ function saveNewPost() {
       plataformasStatus,
       formato:         fmtN,
       inspiracoes:     formInsp,
-      requiredTag,
+      requiredTags,
       parceiroId,
       eventoId,
     });
@@ -5960,7 +6006,7 @@ function toggleEventoWrap() {
     data:        document.getElementById('n-data').value,
     formato:     document.getElementById('n-formato').value,
     status:      statusSel.value,
-    requiredTag: document.getElementById('n-reqtag').value || null,
+    requiredTags: getSelectedRequiredTags(),
   };
   document.getElementById('n-evento').innerHTML = eventoOptionsHtml(draft, newEventoId);
 }
@@ -8979,7 +9025,7 @@ function openAgendaStrategyItem(i) {
   if (!entry) return;
   if (entry.linkedPost) { openPost(entry.linkedPost.id); return; }
   const def = (todayStr() >= agendaWeekStartStr && todayStr() <= agendaWeekEndStr) ? todayStr() : agendaWeekStartStr;
-  openNewModal({ titulo: entry.item.title, formato: entry.item.formato, data: def, requiredTag: entry.item.key });
+  openNewModal({ titulo: entry.item.title, formato: entry.item.formato, data: def, requiredTags: [entry.item.key] });
 }
 
 function shortDateWithDay(dateStr) {
@@ -9269,7 +9315,7 @@ function convertNoteToIdea(id, btnEl) {
     plataformas: ['ig'],
     formato: 'Reels',
     inspiracoes: [],
-    requiredTag: null,
+    requiredTags: [],
   });
   savePosts();
 
@@ -9454,17 +9500,16 @@ function renderHome() {
     : [];
 
   const scheduledTagged = weekPosts
-    .filter(p => p.requiredTag)
-    .map(p => {
+    .flatMap(p => getPostRequiredTags(p).map(requiredTag => {
       const pmk = postMonthKey(p);
       const reqList = getRequiredPostsForMonth(pmk);
-      const item = reqList.find(it => it.key === p.requiredTag) || { key: p.requiredTag, title: p.titulo, formato: p.formato };
+      const item = reqList.find(it => it.key === requiredTag) || { key: requiredTag, title: p.titulo, formato: p.formato };
       return { item, linkedPost: p };
-    });
+    }));
   const scheduledKeys = new Set(scheduledTagged.map(x => x.item.key));
 
   const notYetCreated = assignedItems
-    .filter(item => !scheduledKeys.has(item.key) && !posts.find(p => p.requiredTag === item.key && postMonthKey(p) === weekMonthKey))
+    .filter(item => !scheduledKeys.has(item.key) && !posts.find(p => getPostRequiredTags(p).includes(item.key) && postMonthKey(p) === weekMonthKey))
     .map(item => ({ item, linkedPost: null }));
 
   agendaWeekStrategyItems = [...scheduledTagged, ...notYetCreated];
