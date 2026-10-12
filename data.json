@@ -2986,6 +2986,112 @@
       }
     }
   },
+  "analyticsGoals": {
+    "ig": {
+      "2026": {
+        "seguidores": {
+          "target": 10000,
+          "period": "annual"
+        },
+        "views": {
+          "target": 150000,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 75000,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 11000,
+          "period": "monthly"
+        },
+        "conteudo": {
+          "target": 12,
+          "period": "monthly"
+        },
+        "clicks": {
+          "target": 12,
+          "period": "monthly"
+        }
+      }
+    },
+    "tt": {
+      "2026": {
+        "followers": {
+          "target": 1000,
+          "period": "annual"
+        },
+        "seguidores": {
+          "target": 25,
+          "period": "monthly"
+        },
+        "views": {
+          "target": 1000,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 100,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 10,
+          "period": "monthly"
+        },
+        "conteudo": {
+          "target": 6,
+          "period": "monthly"
+        }
+      }
+    },
+    "li": {
+      "2026": {
+        "seguidores": {
+          "target": 2600,
+          "period": "monthly"
+        },
+        "views": {
+          "target": 170,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 170,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 35,
+          "period": "monthly"
+        },
+        "conteudo": {
+          "target": 3,
+          "period": "monthly"
+        }
+      }
+    },
+    "yt": {
+      "2026": {
+        "seguidores": {
+          "target": 12,
+          "period": "monthly"
+        },
+        "views": {
+          "target": 5500,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 7,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 100,
+          "period": "annual"
+        },
+        "conteudo": {
+          "target": 12,
+          "period": "monthly"
+        }
+      }
+    }
+  },
   "brainstormNotes": [
     {
       "id": 2,
@@ -4259,5 +4365,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T15:23:37.113Z"
+  "_updatedAt": "2026-10-12T15:50:12.426Z"
 }
