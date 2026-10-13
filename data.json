@@ -1101,10 +1101,20 @@
           "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
         }
       ],
-      "requiredTag": "slot12",
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "parceiroId": null
+      "plataformasDatas": {
+        "ig": "2026-10-13",
+        "tt": "2026-10-13",
+        "yt": "2026-10-13"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "editando",
+        "yt": "editando"
+      },
+      "parceiroId": null,
+      "requiredTags": [
+        "slot12"
+      ]
     },
     {
       "id": 52,
@@ -4260,5 +4270,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-13T18:58:05.119Z"
+  "_updatedAt": "2026-10-13T22:11:05.554Z"
 }
