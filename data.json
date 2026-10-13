@@ -1088,7 +1088,7 @@
         }
       ],
       "data": "2026-10-13",
-      "status": "editando",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -1101,16 +1101,8 @@
           "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
         }
       ],
-      "plataformasDatas": {
-        "ig": "2026-10-13",
-        "tt": "2026-10-13",
-        "yt": "2026-10-13"
-      },
-      "plataformasStatus": {
-        "ig": "publicada",
-        "tt": "editando",
-        "yt": "editando"
-      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
       "parceiroId": null,
       "requiredTags": [
         "slot12"
@@ -4270,5 +4262,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-13T22:11:05.554Z"
+  "_updatedAt": "2026-10-13T22:30:49.634Z"
 }
