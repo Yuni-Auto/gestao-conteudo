@@ -355,6 +355,29 @@
       "requiredTag": null
     },
     {
+      "id": 22,
+      "titulo": "[reels] Quando esperar clareou... Clareou!",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": ""
+        }
+      ],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTag": "slot4"
+    },
+    {
       "id": 23,
       "titulo": "[reels] Review do meu fone da Red Dragon de 6 meses",
       "desc": "",
@@ -497,14 +520,12 @@
         {
           "inicio": 0,
           "fim": 3,
-          "cena": "Pega um cupcake com uma vela e soprar-la",
-          "feito": false
+          "cena": "Pega um cupcake com uma vela e soprar-la"
         },
         {
           "inicio": 4,
           "fim": 6,
-          "cena": "Olhar feliz e agradecer",
-          "feito": false
+          "cena": "Olhar feliz e agradecer"
         }
       ],
       "data": "2027-01-19",
@@ -516,10 +537,7 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "requiredTags": [],
-      "parceiroId": null
+      "requiredTag": "slot15"
     },
     {
       "id": 30,
@@ -1099,10 +1117,13 @@
           "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
         }
       ],
-      "requiredTag": "slot12",
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot4",
+        "slot12"
+      ]
     },
     {
       "id": 52,
@@ -1766,6 +1787,38 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null
+    },
+    {
+      "id": 81,
+      "titulo": "[reels] Trend do Osmarzinho",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/reel/DdM3vzApYZp/?stkn=bWQydWFuYm00Mmpy"
+        }
+      ],
+      "requiredTag": "slot4",
+      "parceiroId": null
     },
     {
       "id": 82,
@@ -2989,22 +3042,6 @@
       "y": 326.296875,
       "color": "yellow",
       "rot": 2.3
-    },
-    {
-      "id": 11,
-      "text": "História de tecnologia como o canal de residente evil",
-      "x": 928.00390625,
-      "y": 63.40625,
-      "color": "pink",
-      "rot": 2
-    },
-    {
-      "id": 12,
-      "text": "Vídeos como das frutas, porém usando elementos de TI, como: nokia antigo vs iphone 18+",
-      "x": 1139.63671875,
-      "y": 211.2578125,
-      "color": "white",
-      "rot": 1.8
     }
   ],
   "inspirations": [
@@ -4717,5 +4754,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-14T11:44:16.365Z"
+  "_updatedAt": "2026-10-14T11:46:18.147Z"
 }
