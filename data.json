@@ -1087,8 +1087,8 @@
           "feito": false
         }
       ],
-      "data": "2026-10-12",
-      "status": "editando",
+      "data": "2026-10-13",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -1101,10 +1101,12 @@
           "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
         }
       ],
-      "requiredTag": "slot12",
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot12"
+      ]
     },
     {
       "id": 52,
@@ -2285,7 +2287,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-12",
+      "data": "2026-10-13",
       "status": "ideia",
       "plataformas": [
         "li"
@@ -2986,112 +2988,7 @@
       }
     }
   },
-  "analyticsGoals": {
-    "ig": {
-      "2026": {
-        "seguidores": {
-          "target": 10000,
-          "period": "annual"
-        },
-        "views": {
-          "target": 150000,
-          "period": "monthly"
-        },
-        "alcance": {
-          "target": 75000,
-          "period": "monthly"
-        },
-        "eng": {
-          "target": 11000,
-          "period": "monthly"
-        },
-        "conteudo": {
-          "target": 12,
-          "period": "monthly"
-        },
-        "clicks": {
-          "target": 12,
-          "period": "monthly"
-        }
-      }
-    },
-    "tt": {
-      "2026": {
-        "followers": {
-          "target": 1000,
-          "period": "annual"
-        },
-        "seguidores": {
-          "target": 25,
-          "period": "monthly"
-        },
-        "views": {
-          "target": 1000,
-          "period": "monthly"
-        },
-        "alcance": {
-          "target": 100,
-          "period": "monthly"
-        },
-        "eng": {
-          "target": 10,
-          "period": "monthly"
-        },
-        "conteudo": {
-          "target": 6,
-          "period": "monthly"
-        }
-      }
-    },
-    "li": {
-      "2026": {
-        "seguidores": {
-          "target": 2600,
-          "period": "monthly"
-        },
-        "views": {
-          "target": 170,
-          "period": "monthly"
-        },
-        "alcance": {
-          "target": 170,
-          "period": "monthly"
-        },
-        "eng": {
-          "target": 35,
-          "period": "monthly"
-        },
-        "conteudo": {
-          "target": 3,
-          "period": "monthly"
-        }
-      }
-    },
-    "yt": {
-      "2026": {
-        "seguidores": {
-          "target": 12,
-          "period": "monthly"
-        },
-        "views": {
-          "target": 5500,
-          "period": "monthly"
-        },
-        "alcance": {
-          "target": 7,
-          "period": "monthly"
-        },
-        "eng": {
-          "target": 100,
-          "period": "annual"
-        },
-        "conteudo": {
-          "target": 12,
-          "period": "monthly"
-        }
-      }
-    }
-  },
+  "analyticsGoals": {},
   "brainstormNotes": [
     {
       "id": 2,
@@ -3164,6 +3061,22 @@
       "y": 326.296875,
       "color": "yellow",
       "rot": 2.3
+    },
+    {
+      "id": 11,
+      "text": "História da tecnologia (como canal de residente evil)",
+      "x": 78,
+      "y": 68,
+      "color": "pink",
+      "rot": -1.2
+    },
+    {
+      "id": 12,
+      "text": "História como das frutas, porém com elementos do mundo tech, como: celular Nokia e iPhone ",
+      "x": 106,
+      "y": 96,
+      "color": "white",
+      "rot": -0.4
     }
   ],
   "inspirations": [
@@ -4365,5 +4278,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-12T16:28:43.544Z"
+  "_updatedAt": "2026-10-13T22:54:41.124Z"
 }
