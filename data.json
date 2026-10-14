@@ -355,29 +355,6 @@
       "requiredTag": null
     },
     {
-      "id": 22,
-      "titulo": "[reels] Quando esperar clareou... Clareou!",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot4"
-    },
-    {
       "id": 23,
       "titulo": "[reels] Review do meu fone da Red Dragon de 6 meses",
       "desc": "",
@@ -520,12 +497,14 @@
         {
           "inicio": 0,
           "fim": 3,
-          "cena": "Pega um cupcake com uma vela e soprar-la"
+          "cena": "Pega um cupcake com uma vela e soprar-la",
+          "feito": false
         },
         {
           "inicio": 4,
           "fim": 6,
-          "cena": "Olhar feliz e agradecer"
+          "cena": "Olhar feliz e agradecer",
+          "feito": false
         }
       ],
       "data": "2027-01-19",
@@ -537,7 +516,10 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot15"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [],
+      "parceiroId": null
     },
     {
       "id": 30,
@@ -1784,38 +1766,6 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null
-    },
-    {
-      "id": 81,
-      "titulo": "[reels] Trend do Osmarzinho",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "",
-          "feito": false
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Reels",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://www.instagram.com/reel/DdM3vzApYZp/?stkn=bWQydWFuYm00Mmpy"
-        }
-      ],
-      "requiredTag": "slot4",
-      "parceiroId": null
     },
     {
       "id": 82,
@@ -4751,5 +4701,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-14T11:35:47.949Z"
+  "_updatedAt": "2026-10-14T11:38:41.629Z"
 }
