@@ -3426,112 +3426,402 @@
         "title": "Dump do mês",
         "formato": "Carousel",
         "tag": "post",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot2",
         "title": "Um problema = uma solução",
         "formato": "Carousel",
         "tag": "post",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot3",
         "title": "Programa de estágio",
         "formato": "Carousel",
         "tag": "post",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot4",
         "title": "Trends",
         "formato": "Reels",
         "tag": "reel",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot5",
         "title": "3 projetos para iniciantes",
         "formato": "Carousel",
         "tag": "post",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot6",
         "title": "Um dia comigo no home office/evento",
         "formato": "Reels",
         "tag": "reel",
-        "fixed": false
-      },
-      {
-        "key": "slot7",
-        "title": "Vídeos grátis que eu pagaria caro para ver",
-        "formato": "Carousel",
-        "tag": "post",
-        "fixed": false
-      },
-      {
-        "key": "slot8",
-        "title": "Conteúdo para te deixar inteligente",
-        "formato": "Carousel",
-        "tag": "post",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot9",
         "title": "Vocabulário da programação",
         "formato": "Carousel",
         "tag": "post",
-        "fixed": false
-      },
-      {
-        "key": "slot10",
-        "title": "Se você usa VS Code e não usa extensões...",
-        "formato": "Carousel",
-        "tag": "post",
-        "fixed": false
-      },
-      {
-        "key": "slot11",
-        "title": "Calendário de eventos do mês",
-        "formato": "Carousel",
-        "tag": "post",
-        "fixed": false
-      },
-      {
-        "key": "slot12",
-        "title": "Verdades duras sobre programação",
-        "formato": "Carousel",
-        "tag": "post",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot13",
         "title": "Minha rotina sendo engenheira de software",
         "formato": "Reels",
         "tag": "reel",
-        "fixed": false
+        "fixed": true
       },
       {
         "key": "slot14",
         "title": "Achadinhos de setup",
         "formato": "Carousel",
         "tag": "post",
-        "fixed": false
-      },
-      {
-        "key": "slot15",
-        "title": "Coisas legais que aprendi ou fiz no último mês",
-        "formato": "Carousel",
-        "tag": "post",
-        "fixed": false
+        "fixed": true
       }
     ]
   },
-  "fixedRequiredPosts": [],
-  "annualRequiredPostsByYear": {},
-  "fixedAnnualRequiredPosts": [],
+  "fixedRequiredPosts": [
+    {
+      "key": "slot1",
+      "title": "Dump do mês",
+      "formato": "Carousel",
+      "tag": "post",
+      "fixed": true
+    },
+    {
+      "key": "slot2",
+      "title": "Um problema = uma solução",
+      "formato": "Carousel",
+      "tag": "post",
+      "fixed": true
+    },
+    {
+      "key": "slot3",
+      "title": "Programa de estágio",
+      "formato": "Carousel",
+      "tag": "post",
+      "fixed": true
+    },
+    {
+      "key": "slot4",
+      "title": "Trends",
+      "formato": "Reels",
+      "tag": "reel",
+      "fixed": true
+    },
+    {
+      "key": "slot5",
+      "title": "3 projetos para iniciantes",
+      "formato": "Carousel",
+      "tag": "post",
+      "fixed": true
+    },
+    {
+      "key": "slot6",
+      "title": "Um dia comigo no home office/evento",
+      "formato": "Reels",
+      "tag": "reel",
+      "fixed": true
+    },
+    {
+      "key": "slot9",
+      "title": "Vocabulário da programação",
+      "formato": "Carousel",
+      "tag": "post",
+      "fixed": true
+    },
+    {
+      "key": "slot13",
+      "title": "Minha rotina sendo engenheira de software",
+      "formato": "Reels",
+      "tag": "reel",
+      "fixed": true
+    },
+    {
+      "key": "slot14",
+      "title": "Achadinhos de setup",
+      "formato": "Carousel",
+      "tag": "post",
+      "fixed": true
+    }
+  ],
+  "annualRequiredPostsByYear": {
+    "2026": [
+      {
+        "key": "custommv80og6qb54p",
+        "title": "Dia Internacional das Mulheres e Meninas na Ciência",
+        "formato": "Reels",
+        "tag": "reel",
+        "annualMonthDay": "02-11",
+        "fixed": true
+      },
+      {
+        "key": "custommv80rdiu31z9",
+        "title": "Dia do programador",
+        "formato": "Carousel",
+        "tag": "post",
+        "annualMonthDay": "09-13",
+        "fixed": true
+      }
+    ]
+  },
+  "fixedAnnualRequiredPosts": [
+    {
+      "key": "custommv80og6qb54p",
+      "title": "Dia Internacional das Mulheres e Meninas na Ciência",
+      "formato": "Reels",
+      "tag": "reel",
+      "annualMonthDay": "02-11",
+      "fixed": true
+    },
+    {
+      "key": "custommv80rdiu31z9",
+      "title": "Dia do programador",
+      "formato": "Carousel",
+      "tag": "post",
+      "annualMonthDay": "09-13",
+      "fixed": true
+    }
+  ],
+  "requiredPostRecurrence": {
+    "keys": [
+      "slot1",
+      "slot2",
+      "slot3",
+      "slot4",
+      "slot5",
+      "slot6",
+      "slot9",
+      "slot13",
+      "slot14"
+    ],
+    "effectiveFrom": "2026-11"
+  },
   "requiredPostsHistory": [
+    {
+      "date": "2026-10-14T11:22:02.107Z",
+      "type": "annual",
+      "yearKey": "2026",
+      "items": [
+        {
+          "key": "custommv80og6qb54p",
+          "title": "[reels] Dia Internacional das Mulheres e Meninas na Ciência",
+          "formato": "Reels",
+          "tag": "reel",
+          "annualMonthDay": "02-11",
+          "fixed": true
+        },
+        {
+          "key": "custommv80rdiu31z9",
+          "title": "[carroussel] Dia do programador",
+          "formato": "Carousel",
+          "tag": "post",
+          "annualMonthDay": "09-13",
+          "fixed": false
+        }
+      ]
+    },
+    {
+      "date": "2026-10-14T11:21:28.974Z",
+      "type": "annual",
+      "yearKey": "2026",
+      "items": [
+        {
+          "key": "custommv80og6qb54p",
+          "title": "[reels] Dia Internacional das Mulheres e Meninas na Ciência",
+          "formato": "Reels",
+          "tag": "reel",
+          "annualMonthDay": "02-11",
+          "fixed": true
+        }
+      ]
+    },
+    {
+      "date": "2026-10-14T11:20:07.691Z",
+      "monthKey": "2026-10",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office/evento",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        }
+      ]
+    },
+    {
+      "date": "2026-10-14T10:54:30.685Z",
+      "monthKey": "2026-10",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office/evento",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        }
+      ]
+    },
     {
       "date": "2026-10-14T10:38:45.510Z",
       "monthKey": "2026-10",
@@ -4461,5 +4751,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-14T10:51:44.604Z"
+  "_updatedAt": "2026-10-14T11:35:47.949Z"
 }
