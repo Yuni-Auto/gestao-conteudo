@@ -2989,6 +2989,22 @@
       "y": 326.296875,
       "color": "yellow",
       "rot": 2.3
+    },
+    {
+      "id": 11,
+      "text": "História de tecnologia como o canal de residente evil",
+      "x": 928.00390625,
+      "y": 63.40625,
+      "color": "pink",
+      "rot": 2
+    },
+    {
+      "id": 12,
+      "text": "Vídeos como das frutas, porém usando elementos de TI, como: nokia antigo vs iphone 18+",
+      "x": 1139.63671875,
+      "y": 211.2578125,
+      "color": "white",
+      "rot": 1.8
     }
   ],
   "inspirations": [
@@ -4701,5 +4717,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-14T11:38:41.629Z"
+  "_updatedAt": "2026-10-14T11:44:16.365Z"
 }
