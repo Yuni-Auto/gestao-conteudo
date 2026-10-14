@@ -331,6 +331,10 @@
   .post-title-cell { font-size: 13.5px; font-weight: 500; }
   .post-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
   .post-tag-groups { display: grid; gap: 24px; }
+  .tag-filter-bar { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; margin-bottom: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+  .tag-filter-label { flex: none; padding-top: 7px; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-3); }
+  .tag-filter-bar .req-tag-chips { margin-top: 0; }
+  @media (max-width: 600px) { .tag-filter-bar { flex-direction: column; gap: 6px; } .tag-filter-label { padding-top: 0; } }
   .post-tag-section { overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
   .post-tag-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; background: linear-gradient(90deg, rgba(91,80,200,.08), var(--surface) 42%); color: var(--text); cursor: pointer; list-style: none; }
   .post-tag-header::-webkit-details-marker { display: none; }
@@ -767,12 +771,33 @@
   .linked-post-row .linked-post-post-select { flex: 1; min-width: 0; }
   .linked-post-row .guideline-del { flex-shrink: 0; }
 
-  .strat-item-row { display: flex; gap: 6px; margin-bottom: 6px; align-items: center; }
-  .strat-item-row .strat-item-num { flex: 0 0 20px; font-size: 11px; font-weight: 700; color: var(--text-3); text-align: center; }
-  .strat-item-row .strat-item-title { flex: 1; min-width: 0; }
-  .strat-item-row .strat-item-formato { flex: 0 0 140px; }
-  .strat-item-row .strat-item-copy { flex-shrink: 0; }
-  .strat-item-row .strat-item-del { flex-shrink: 0; }
+  .strat-item-row { display: flex; flex-direction: column; gap: 9px; padding: 12px; margin-bottom: 9px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: border-color .15s, box-shadow .15s; }
+  .strat-item-row:focus-within { border-color: #c9c2f3; box-shadow: 0 0 0 3px rgba(91,80,200,.07); }
+  .strat-item-top, .strat-item-bottom { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .strat-item-top .strat-item-num { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 25px; width: 25px; height: 25px; border-radius: 8px; background: #f0effe; color: #5b50c8; font-size: 11px; font-weight: 700; }
+  .strat-item-top .strat-item-title { flex: 1; min-width: 0; font-size: 13px; font-weight: 550; }
+  .strat-item-bottom .strat-item-formato { flex: 1; min-width: 0; max-width: 220px; }
+  .strat-item-fixed { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-2); font-size: 11.5px; cursor: pointer; white-space: nowrap; }
+  .strat-item-fixed:has(input:checked) { color: #5146b5; background: #f0effe; border-color: #d6d0fa; }
+  .strat-item-fixed input { accent-color: #5b50c8; margin: 0; }
+  .strat-item-row .strat-item-copy, .strat-item-row .strat-item-del { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 8px; }
+  #strategy-modal .modal { width: calc(100% - 32px); max-width: 700px; }
+  #strategy-modal .modal-hero { padding: 22px 24px 16px; background: linear-gradient(135deg, #f8f7ff, var(--surface) 72%); }
+  #strategy-modal .modal-title-text { font-size: 20px; letter-spacing: -.02em; }
+  #strategy-modal .modal-body { padding: 18px 24px; }
+  #strategy-modal-month { display: inline-flex; margin-top: 8px !important; padding: 5px 9px; border: 1px solid #e6e2f7; border-radius: 999px; background: #fff; color: #655c9e !important; font-size: 11.5px !important; }
+  #strategy-modal-description { padding: 10px 12px; margin-bottom: 12px !important; border: 1px solid #eeeaf9; border-radius: 9px; background: #faf9ff; line-height: 1.5; }
+  #strategy-items-list { max-height: min(54vh, 520px); overflow-y: auto; padding: 2px 3px 2px 0; }
+  #strategy-modal .new-modal-footer { box-shadow: 0 -5px 16px rgba(25,20,55,.04); }
+  #strategy-modal .new-modal-footer-actions { padding: 12px 24px 16px; }
+  @media (max-width: 680px) {
+    #strategy-modal .modal { width: 100%; max-width: none; max-height: 90dvh; border-radius: 18px 18px 0 0; }
+    #strategy-modal .modal-hero { padding: 18px 18px 14px; }
+    #strategy-modal .modal-title-text { font-size: 18px; }
+    #strategy-modal .modal-body { padding: 14px 16px; }
+    #strategy-modal .new-modal-footer-actions { padding: 10px 16px 14px; }
+    .strat-item-bottom .strat-item-formato { max-width: none; }
+  }
 
   /* Production time modal */
   .prod-formato-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
@@ -975,9 +1000,21 @@
   .m-scene-body { padding: 9px 12px; font-size: 13.5px; color: var(--text-2); line-height: 1.65; white-space: pre-wrap; }
 
   /* Monthly strategy */
-  .strategy-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .strategy-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .strategy-title { font-size: 13px; font-weight: 600; }
+  .strategy-section { background: var(--surface); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; box-shadow: 0 3px 12px rgba(26,24,46,.035); }
+  .strategy-header { padding: 16px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: linear-gradient(120deg, #fbfaff, var(--surface) 65%); }
+  .strategy-title { font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+  .strategy-subsection { border-top: 1px solid var(--border); }
+  .strategy-body.collapsed { display: none; }
+  .strategy-subsection-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; background: linear-gradient(90deg, #faf9ff, var(--surface)); }
+  .strategy-subsection-title { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; color: var(--text-2); }
+  .strategy-subsection-title::before { content: '↗'; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 7px; background: #f0effe; color: #5b50c8; }
+  .strategy-subsection-progress { font-size: 11px; color: var(--text-2); white-space: nowrap; padding: 4px 9px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+  .strategy-modal-tabs { display: flex; gap: 5px; margin-bottom: 14px; padding: 4px; border: 1px solid #eeecf5; border-radius: 12px; background: #f6f5f9; }
+  .strategy-modal-tab { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 9px 12px; border: 1px solid transparent; border-radius: 9px; background: transparent; color: var(--text-2); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .15s; }
+  .strategy-modal-tab::before { display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; border-radius: 6px; background: rgba(91,80,200,.08); color: #5b50c8; font-size: 11px; }
+  #strategy-tab-monthly::before { content: 'M'; }
+  #strategy-tab-annual::before { content: 'A'; }
+  .strategy-modal-tab.active { border-color: #e5e1f5; background: var(--surface); color: #5146b5; box-shadow: 0 2px 5px rgba(34,25,90,.07); }
   .strategy-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .strategy-month { display: flex; align-items: center; gap: 6px; }
   .strategy-month-btn { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; color: var(--text-2); }
@@ -985,13 +1022,12 @@
   .strategy-month-label { min-width: 86px; text-align: center; font-size: 12px; font-weight: 600; color: var(--text-2); }
   .strategy-count { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
   .strategy-count span { padding: 3px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); }
-  .strategy-checklist { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .strategy-checklist { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; padding: 12px; }
   .strategy-checklist.collapsed { display: none; }
-  .strategy-check { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: none; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: none; cursor: pointer; text-align: left; font-family: inherit; color: var(--text); min-height: 58px; transition: background 0.1s; }
-  .strategy-check:hover { background: #fafafa; }
-  .strategy-check:nth-child(3n) { border-right: none; }
-  .strategy-check:nth-last-child(-n+3) { border-bottom: none; }
-  .strategy-box { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--border); color: transparent; background: var(--surface); font-size: 13px; flex-shrink: 0; }
+  .strategy-check { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border: 1px solid var(--border); border-radius: 11px; background: var(--surface); cursor: pointer; text-align: left; font-family: inherit; color: var(--text); min-height: 64px; transition: transform .14s, border-color .14s, background .14s, box-shadow .14s; }
+  .strategy-check:hover { transform: translateY(-1px); border-color: #d5d0f1; box-shadow: 0 4px 12px rgba(40,32,100,.06); }
+  .strategy-check.done { background: linear-gradient(120deg, #fbfaff, var(--surface)); border-color: #e5e1f4; }
+  .strategy-box { display: inline-flex; align-items: center; justify-content: center; width: 23px; height: 23px; border-radius: 8px; border: 1px solid var(--border); color: transparent; background: var(--surface); font-size: 13px; flex-shrink: 0; transition: all .14s; }
   .strategy-check.done .strategy-box { background: #5b50c8; border-color: #5b50c8; color: #fff; }
   .strategy-check.done .strategy-check-title { text-decoration: line-through; color: var(--text-3); }
   .strategy-check-main { min-width: 0; }
@@ -1008,14 +1044,11 @@
   .strategy-check .status-dot { width: 6px; height: 6px; }
 
   @media (max-width: 980px) {
-    .strategy-checklist { grid-template-columns: repeat(2, 1fr); }
-    .strategy-check:nth-child(3n) { border-right: 1px solid var(--border); }
-    .strategy-check:nth-child(2n) { border-right: none; }
-    .strategy-check:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+    .strategy-checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 680px) {
-    .strategy-checklist { grid-template-columns: 1fr; }
-    .strategy-check, .strategy-check:nth-child(2n), .strategy-check:nth-child(3n) { border-right: none; }
+    .strategy-checklist { grid-template-columns: 1fr; gap: 7px; padding: 10px; }
+    .strategy-check { min-height: 58px; padding: 10px 11px; }
     .strategy-check-title { white-space: normal; }
   }
 
@@ -1580,7 +1613,16 @@
               <div class="strategy-count"><span id="strategy-progress">0/15 criados</span></div>
             </div>
           </div>
-          <div class="strategy-checklist" id="strategy-checklist"></div>
+          <div class="strategy-body" id="strategy-body">
+            <div class="strategy-checklist" id="strategy-checklist"></div>
+            <div class="strategy-subsection">
+              <div class="strategy-subsection-head">
+                <span class="strategy-subsection-title">Estratégia anual · <span id="strategy-year-label"></span></span>
+                <span class="strategy-subsection-progress" id="annual-strategy-progress"></span>
+              </div>
+              <div class="strategy-checklist" id="annual-strategy-checklist"></div>
+            </div>
+          </div>
         </div>
 
         <div class="week-section">
@@ -2430,16 +2472,17 @@
 <div class="modal-overlay" id="strategy-modal" onclick="handleOverlayClick(event,'strategy-modal')">
   <div class="modal" style="max-width:640px;">
     <div class="modal-hero">
-      <div class="modal-title-text">Gerenciar itens da estratégia mensal</div>
+      <div class="modal-title-text">Gerenciar estratégia de conteúdo</div>
       <div id="strategy-modal-month" style="font-size:12.5px;color:var(--text-2);margin-top:2px;"></div>
     </div>
     <div class="modal-body" style="padding:20px 22px;">
-      <div class="form-group" style="margin-bottom:14px;">
-        <label class="form-label" style="margin-bottom:2px;">Itens obrigatórios</label>
-        <div style="font-size:12px;color:var(--text-2);">Edite título e formato, ou remova/adicione itens. As mudanças valem só para o mês mostrado acima.</div>
+      <div class="strategy-modal-tabs" role="tablist" aria-label="Periodicidade da estratégia">
+        <button type="button" class="strategy-modal-tab active" id="strategy-tab-monthly" role="tab" aria-selected="true" onclick="setStrategyModalType('monthly')">Mensal</button>
+        <button type="button" class="strategy-modal-tab" id="strategy-tab-annual" role="tab" aria-selected="false" onclick="setStrategyModalType('annual')">Anual</button>
       </div>
+      <div id="strategy-modal-description" style="font-size:12px;color:var(--text-2);margin-bottom:12px;"></div>
       <div id="strategy-items-list"></div>
-      <button type="button" class="btn" style="margin-top:4px;" onclick="addStrategyItemRow()">+ Adicionar item</button>
+      <button type="button" class="btn" style="margin-top:8px;" onclick="addStrategyItemRow()">+ Adicionar item</button>
     </div>
     <div class="new-modal-footer">
       <div class="new-modal-footer-actions">
@@ -2839,7 +2882,8 @@ function setSyncStatus(state, msg) {
 function collectAllData() {
   return {
     posts, partners, collaborations, lectures, guidelines, analyticsOverrides, analyticsGoals, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
-    requiredPostsByMonth, requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras, platDias,
+    requiredPostsByMonth, fixedRequiredPosts, annualRequiredPostsByYear, fixedAnnualRequiredPosts,
+    requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras, platDias,
     _updatedAt: new Date().toISOString(),
   };
 }
@@ -2891,6 +2935,19 @@ function applyRemoteData(data) {
   if (Array.isArray(data.inspTipos) && data.inspTipos.length) {
     INSP_TIPOS = data.inspTipos;
     localStorage.setItem(INSP_TIPOS_KEY, JSON.stringify(INSP_TIPOS));
+  }
+  if (Array.isArray(data.fixedRequiredPosts)) {
+    fixedRequiredPosts = data.fixedRequiredPosts.filter(item => item && item.key);
+    localStorage.setItem(FIXED_REQUIRED_POSTS_KEY, JSON.stringify(fixedRequiredPosts));
+  }
+  if (Array.isArray(data.fixedAnnualRequiredPosts)) {
+    fixedAnnualRequiredPosts = data.fixedAnnualRequiredPosts.filter(item => item && item.key);
+    localStorage.setItem(FIXED_ANNUAL_REQUIRED_POSTS_KEY, JSON.stringify(fixedAnnualRequiredPosts));
+  }
+  if (data.annualRequiredPostsByYear && typeof data.annualRequiredPostsByYear === 'object' && !Array.isArray(data.annualRequiredPostsByYear)) {
+    annualRequiredPostsByYear = data.annualRequiredPostsByYear;
+    localStorage.setItem(ANNUAL_REQUIRED_POSTS_KEY, JSON.stringify(annualRequiredPostsByYear));
+    recomputeAnnualRequiredPosts();
   }
   if (data.requiredPostsByMonth && typeof data.requiredPostsByMonth === 'object' && !Array.isArray(data.requiredPostsByMonth)) {
     requiredPostsByMonth = data.requiredPostsByMonth;
@@ -3316,6 +3373,9 @@ const MONTH_NAMES  = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out
 const STORAGE_KEY  = 'content-manager-posts-v2';
 const REQUIRED_POSTS_KEY = 'content-manager-required-posts-v2';
 const REQUIRED_POSTS_KEY_LEGACY = 'content-manager-required-posts-v1';
+const FIXED_REQUIRED_POSTS_KEY = 'content-manager-required-posts-fixed-v1';
+const ANNUAL_REQUIRED_POSTS_KEY = 'content-manager-required-posts-annual-v1';
+const FIXED_ANNUAL_REQUIRED_POSTS_KEY = 'content-manager-required-posts-annual-fixed-v1';
 const defaultRequiredPosts = [
   { key:'slot1',  title:'Dump do mês', formato:'Carousel', tag:'post' },
   { key:'slot2',  title:'Um problema = uma solução', formato:'Carousel', tag:'post' },
@@ -3359,12 +3419,92 @@ function saveRequiredPostsStore() {
 }
 let requiredPostsByMonth = loadRequiredPostsStore();
 
+function loadFixedRequiredPosts() {
+  try {
+    const saved = localStorage.getItem(FIXED_REQUIRED_POSTS_KEY);
+    const parsed = saved ? JSON.parse(saved) : [];
+    return Array.isArray(parsed) ? parsed.filter(item => item && item.key) : [];
+  } catch (e) {
+    return [];
+  }
+}
+function saveFixedRequiredPosts(items) {
+  fixedRequiredPosts = items;
+  localStorage.setItem(FIXED_REQUIRED_POSTS_KEY, JSON.stringify(fixedRequiredPosts));
+  scheduleCloudSync();
+}
+let fixedRequiredPosts = loadFixedRequiredPosts();
+
+function loadAnnualRequiredPostsStore() {
+  try {
+    const saved = localStorage.getItem(ANNUAL_REQUIRED_POSTS_KEY);
+    const parsed = saved ? JSON.parse(saved) : {};
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch (e) {
+    return {};
+  }
+}
+function saveAnnualRequiredPostsStore() {
+  localStorage.setItem(ANNUAL_REQUIRED_POSTS_KEY, JSON.stringify(annualRequiredPostsByYear));
+  scheduleCloudSync();
+}
+let annualRequiredPostsByYear = loadAnnualRequiredPostsStore();
+
+function loadFixedAnnualRequiredPosts() {
+  try {
+    const saved = localStorage.getItem(FIXED_ANNUAL_REQUIRED_POSTS_KEY);
+    const parsed = saved ? JSON.parse(saved) : [];
+    return Array.isArray(parsed) ? parsed.filter(item => item && item.key) : [];
+  } catch (e) {
+    return [];
+  }
+}
+function saveFixedAnnualRequiredPosts(items) {
+  fixedAnnualRequiredPosts = items;
+  localStorage.setItem(FIXED_ANNUAL_REQUIRED_POSTS_KEY, JSON.stringify(fixedAnnualRequiredPosts));
+  scheduleCloudSync();
+}
+let fixedAnnualRequiredPosts = loadFixedAnnualRequiredPosts();
+
 function isMonthCustomized(mKey) {
   return Array.isArray(requiredPostsByMonth[mKey]) && requiredPostsByMonth[mKey].length > 0;
 }
 function getRequiredPostsForMonth(mKey) {
   const list = requiredPostsByMonth[mKey];
-  return (Array.isArray(list) && list.length) ? list.map(x => ({ ...x })) : defaultRequiredPosts.map(x => ({ ...x }));
+  const items = (Array.isArray(list) && list.length) ? list.map(x => ({ ...x })) : defaultRequiredPosts.map(x => ({ ...x }));
+  const itemIndexes = new Map(items.map((item, index) => [item.key, index]));
+  fixedRequiredPosts.forEach(fixedItem => {
+    const index = itemIndexes.get(fixedItem.key);
+    if (index === undefined) {
+      itemIndexes.set(fixedItem.key, items.length);
+      items.push({ ...fixedItem });
+    } else {
+      items[index] = { ...items[index], ...fixedItem };
+    }
+  });
+  const fixedKeys = new Set(fixedRequiredPosts.map(item => item.key));
+  return items.map(item => ({ ...item, fixed: fixedKeys.has(item.key) }));
+}
+function getRequiredPostsForYear(year) {
+  const yearKey = String(year);
+  const savedItems = annualRequiredPostsByYear[yearKey];
+  const items = Array.isArray(savedItems) ? savedItems.map(item => ({ ...item })) : [];
+  const itemIndexes = new Map(items.map((item, index) => [item.key, index]));
+  fixedAnnualRequiredPosts.forEach(fixedItem => {
+    const index = itemIndexes.get(fixedItem.key);
+    if (index === undefined) {
+      itemIndexes.set(fixedItem.key, items.length);
+      items.push({ ...fixedItem });
+    } else {
+      items[index] = { ...items[index], ...fixedItem };
+    }
+  });
+  const fixedKeys = new Set(fixedAnnualRequiredPosts.map(item => item.key));
+  return items.map(item => ({ ...item, fixed: fixedKeys.has(item.key) }));
+}
+function saveRequiredPostsForYear(year, items) {
+  annualRequiredPostsByYear[String(year)] = items;
+  saveAnnualRequiredPostsStore();
 }
 function saveRequiredPostsForMonth(mKey, items) {
   requiredPostsByMonth[mKey] = items;
@@ -3388,13 +3528,18 @@ function saveStrategyHistory(history) {
   localStorage.setItem(STRATEGY_HISTORY_KEY, JSON.stringify(history));
   scheduleCloudSync();
 }
-function pushStrategyHistorySnapshot(mKey, items) {
+function pushStrategyHistorySnapshot(mKey, items, type = 'monthly') {
   if (!items || !items.length) return;
   const history = loadStrategyHistory();
-  history.unshift({ date: new Date().toISOString(), monthKey: mKey, items: items.map(x => ({ ...x })) });
+  history.unshift({
+    date: new Date().toISOString(),
+    ...(type === 'annual' ? { type, yearKey: String(mKey) } : { monthKey: mKey }),
+    items: items.map(x => ({ ...x })),
+  });
   saveStrategyHistory(history.slice(0, 30));
 }
 let REQUIRED_POSTS = [];
+let ANNUAL_REQUIRED_POSTS = [];
 
 function getStatusMeta(key) { return ALL_STATUS.find(s => s.key === key) || ALL_STATUS[0]; }
 
@@ -4049,6 +4194,7 @@ const defaultPosts = [
 let posts = loadPosts();
 let nextId = posts.length ? Math.max(...posts.map(p => Number(p.id) || 0)) + 1 : 1;
 let activeFilter    = 'todos';
+const activeTagFilters = new Set();
 let activePlatFilter = null;
 let activeFormatoFilter = null;
 let currentView      = 'calendario';
@@ -4062,6 +4208,10 @@ let lectureCalView     = 'semana';
 let strategyMonth = new Date(today().getFullYear(), today().getMonth(), 1);
 function recomputeRequiredPosts() {
   REQUIRED_POSTS = getRequiredPostsForMonth(monthKey(strategyMonth));
+  recomputeAnnualRequiredPosts();
+}
+function recomputeAnnualRequiredPosts() {
+  ANNUAL_REQUIRED_POSTS = getRequiredPostsForYear(strategyMonth.getFullYear());
 }
 recomputeRequiredPosts();
 let currentPostId = null;
@@ -4170,6 +4320,11 @@ function getRequiredPost(key) {
   return posts.find(p => getPostRequiredTags(p).includes(key) && postMonthKey(p) === selectedMonth);
 }
 
+function getAnnualRequiredPost(key) {
+  const selectedYear = String(strategyMonth.getFullYear());
+  return posts.find(p => getPostRequiredTags(p).includes(key) && p.data && p.data.slice(0, 4) === selectedYear);
+}
+
 function strategyDefaultDate() {
   const now = today();
   const selectedMonth = monthKey(strategyMonth);
@@ -4187,14 +4342,14 @@ function renderStrategyChecklist() {
   const wrap = document.getElementById('strategy-checklist');
   if (!wrap) return;
   const done = REQUIRED_POSTS.filter(item => getRequiredPost(item.key)).length;
+  const annualWrap = document.getElementById('annual-strategy-checklist');
+  const annualDone = ANNUAL_REQUIRED_POSTS.filter(item => getAnnualRequiredPost(item.key)).length;
   document.getElementById('strategy-month-label').textContent = `${MONTH_NAMES[strategyMonth.getMonth()]} ${strategyMonth.getFullYear()}`;
   document.getElementById('strategy-progress').textContent = `${done}/${REQUIRED_POSTS.length} criados`;
   document.getElementById('strategy-title').textContent = `Estratégia mensal dos ${REQUIRED_POSTS.length} posts obrigatórios`;
-  if (!REQUIRED_POSTS.length) {
-    wrap.innerHTML = `<div style="padding:20px;color:var(--text-2);font-size:13px;">Nenhum item cadastrado. Clique em "Gerenciar itens" para adicionar.</div>`;
-    return;
-  }
-  wrap.innerHTML = REQUIRED_POSTS.map((item, index) => {
+  document.getElementById('strategy-year-label').textContent = strategyMonth.getFullYear();
+  document.getElementById('annual-strategy-progress').textContent = `${annualDone}/${ANNUAL_REQUIRED_POSTS.length} criados`;
+  wrap.innerHTML = REQUIRED_POSTS.length ? REQUIRED_POSTS.map((item, index) => {
     const existing = getRequiredPost(item.key);
     const isDone = Boolean(existing);
     const status = existing ? statusPill(existing.status) : '';
@@ -4209,7 +4364,23 @@ function renderStrategyChecklist() {
         </span>
       </span>
     </button>`;
-  }).join('');
+  }).join('') : `<div style="grid-column:1/-1;padding:20px;color:var(--text-2);font-size:13px;">Nenhum item mensal cadastrado. Clique em "Gerenciar itens" para adicionar.</div>`;
+  annualWrap.innerHTML = ANNUAL_REQUIRED_POSTS.length ? ANNUAL_REQUIRED_POSTS.map((item, index) => {
+    const existing = getAnnualRequiredPost(item.key);
+    const isDone = Boolean(existing);
+    const status = existing ? statusPill(existing.status) : '';
+    return `<button type="button" class="strategy-check${isDone ? ' done' : ''}" onclick="openAnnualRequiredPost(${index})" title="${isDone ? 'Abrir' : 'Criar'} post anual: ${escapeHtml(item.title)}">
+      <span class="strategy-box">✓</span>
+      <span class="strategy-check-main">
+        <span class="strategy-check-title">${escapeHtml(item.title)}</span>
+        <span class="strategy-check-sub">
+          <span class="strategy-num">${index + 1}</span>
+          <span class="strategy-tag ${item.tag}">${escapeHtml(tagLabelForFormato(item.formato))}</span>
+          ${status}
+        </span>
+      </span>
+    </button>`;
+  }).join('') : `<div style="grid-column:1/-1;padding:18px;color:var(--text-2);font-size:13px;">Nenhum item anual cadastrado. Clique em "Gerenciar itens" para adicionar.</div>`;
 }
 
 function openRequiredPost(index) {
@@ -4223,8 +4394,25 @@ function openRequiredPost(index) {
   openNewModal({ titulo: item.title, formato: item.formato, data: strategyDefaultDate(), requiredTags: [item.key] });
 }
 
+function openAnnualRequiredPost(index) {
+  const item = ANNUAL_REQUIRED_POSTS[index];
+  if (!item) return;
+  const existing = getAnnualRequiredPost(item.key);
+  if (existing) {
+    openPost(existing.id);
+    return;
+  }
+  const now = today();
+  const annualDate = now.getFullYear() === strategyMonth.getFullYear()
+    ? now
+    : new Date(strategyMonth.getFullYear(), 0, 1);
+  openNewModal({ titulo: item.title, formato: item.formato, data: isoDate(annualDate), requiredTags: [item.key] });
+}
+
 /* ─── Strategy items management modal ──────────────────────────────────── */
 let modalStrategyItems = [];
+let modalAnnualStrategyItems = [];
+let modalStrategyType = 'monthly';
 
 function toggleStrategyMenu(ev, menuId) {
   ev.stopPropagation();
@@ -4257,58 +4445,95 @@ let modalStrategyMonthKey = null;
 function openStrategyModal() {
   modalStrategyMonthKey = monthKey(strategyMonth);
   modalStrategyItems = REQUIRED_POSTS.map(x => ({ ...x }));
+  modalAnnualStrategyItems = ANNUAL_REQUIRED_POSTS.map(x => ({ ...x }));
+  modalStrategyType = 'monthly';
+  setStrategyModalType('monthly');
   renderStrategyItemsList();
   const customized = isMonthCustomized(modalStrategyMonthKey);
   document.getElementById('strategy-modal-month').textContent =
-    `${monthLabelFromKey(modalStrategyMonthKey)} — ${customized ? 'lista personalizada deste mês' : 'usando a lista padrão (ainda não personalizada)'}`;
+    `Mensal: ${monthLabelFromKey(modalStrategyMonthKey)} · Anual: ${strategyMonth.getFullYear()}`;
+  document.getElementById('strategy-modal-description').textContent =
+    `A lista mensal ${customized ? 'é personalizada para este mês' : 'usa o padrão até ser personalizada'}. Itens fixos se repetem ${modalStrategyType === 'annual' ? 'em todos os anos' : 'em todos os meses'}.`;
   document.getElementById('strategy-modal').classList.add('open');
+}
+
+function setStrategyModalType(type) {
+  modalStrategyType = type === 'annual' ? 'annual' : 'monthly';
+  const monthlyTab = document.getElementById('strategy-tab-monthly');
+  const annualTab = document.getElementById('strategy-tab-annual');
+  monthlyTab.classList.toggle('active', modalStrategyType === 'monthly');
+  monthlyTab.setAttribute('aria-selected', String(modalStrategyType === 'monthly'));
+  annualTab.classList.toggle('active', modalStrategyType === 'annual');
+  annualTab.setAttribute('aria-selected', String(modalStrategyType === 'annual'));
+  const customized = isMonthCustomized(modalStrategyMonthKey || monthKey(strategyMonth));
+  document.getElementById('strategy-modal-description').textContent = modalStrategyType === 'monthly'
+    ? `Itens válidos para ${monthLabelFromKey(modalStrategyMonthKey || monthKey(strategyMonth))}. Marque “Fixo mensal” para repetir o item em todos os meses.`
+    : `Itens válidos para ${strategyMonth.getFullYear()}. Marque “Fixo anual” para repetir o item em todos os anos.`;
+  if (modalStrategyType === 'monthly' && !customized) {
+    document.getElementById('strategy-modal-description').textContent += ' Esta lista ainda usa os itens padrão.';
+  }
+  renderStrategyItemsList();
 }
 
 function closeStrategyModal() {
   document.getElementById('strategy-modal').classList.remove('open');
   modalStrategyItems = [];
+  modalAnnualStrategyItems = [];
   modalStrategyMonthKey = null;
 }
 
 function renderStrategyItemsList() {
   const wrap = document.getElementById('strategy-items-list');
   if (!wrap) return;
-  if (!modalStrategyItems.length) {
+  const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
+  if (!items.length) {
     wrap.innerHTML = `<div style="padding:10px 2px;color:var(--text-2);font-size:12.5px;">Nenhum item. Clique em "+ Adicionar item".</div>`;
     return;
   }
-  wrap.innerHTML = modalStrategyItems.map((item, i) => `
+  wrap.innerHTML = items.map((item, i) => `
     <div class="strat-item-row">
-      <span class="strat-item-num">${i + 1}</span>
-      <input class="form-input strat-item-title" placeholder="Título do post" value="${escapeHtml(item.title)}" oninput="updateStrategyItemField(${i},'title',this.value)" />
-      <select class="form-input strat-item-formato" onchange="updateStrategyItemField(${i},'formato',this.value)">
-        ${['Carousel','Reels','Foto','Story','Live','Shorts','Thread','Pin'].map(f => `<option value="${f}" ${item.formato===f?'selected':''}>${f}</option>`).join('')}
-      </select>
-      <button type="button" class="guideline-del strat-item-copy" title="Duplicar estratégia" aria-label="Duplicar estratégia ${escapeHtml(item.title || '')}" onclick="duplicateStrategyItemRow(${i})">⧉</button>
-      <button type="button" class="guideline-del strat-item-del" title="Remover item" onclick="removeStrategyItemRow(${i})">✕</button>
+      <div class="strat-item-top">
+        <span class="strat-item-num">${String(i + 1).padStart(2, '0')}</span>
+        <input class="form-input strat-item-title" placeholder="Nome da estratégia ou do post" value="${escapeHtml(item.title)}" oninput="updateStrategyItemField(${i},'title',this.value)" aria-label="Título do item ${i + 1}" />
+        <button type="button" class="guideline-del strat-item-copy" title="Duplicar estratégia" aria-label="Duplicar estratégia ${escapeHtml(item.title || '')}" onclick="duplicateStrategyItemRow(${i})">⧉</button>
+        <button type="button" class="guideline-del strat-item-del" title="Remover item" aria-label="Remover estratégia ${escapeHtml(item.title || '')}" onclick="removeStrategyItemRow(${i})">✕</button>
+      </div>
+      <div class="strat-item-bottom">
+        <select class="form-input strat-item-formato" aria-label="Formato do item ${i + 1}" onchange="updateStrategyItemField(${i},'formato',this.value)">
+          ${['Carousel','Reels','Foto','Story','Live','Shorts','Thread','Pin'].map(f => `<option value="${f}" ${item.formato===f?'selected':''}>${f}</option>`).join('')}
+        </select>
+        <label class="strat-item-fixed" title="Incluir automaticamente em ${modalStrategyType === 'annual' ? 'todos os anos' : 'todos os meses'}">
+          <input type="checkbox" ${item.fixed ? 'checked' : ''} onchange="updateStrategyItemField(${i},'fixed',this.checked)" />
+          Repetir ${modalStrategyType === 'annual' ? 'todo ano' : 'todo mês'}
+        </label>
+      </div>
     </div>
   `).join('');
 }
 
 function updateStrategyItemField(i, field, value) {
-  if (!modalStrategyItems[i]) return;
-  modalStrategyItems[i][field] = value;
+  const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
+  if (!items[i]) return;
+  items[i][field] = value;
 }
 
 function addStrategyItemRow() {
-  modalStrategyItems.push({ key: newStrategyKey(), title: '', formato: 'Carousel', tag: 'post' });
+  const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
+  items.push({ key: newStrategyKey(), title: '', formato: 'Carousel', tag: 'post' });
   renderStrategyItemsList();
 }
 
 function duplicateStrategyItemRow(i) {
-  const item = modalStrategyItems[i];
+  const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
+  const item = items[i];
   if (!item) return;
-  modalStrategyItems.splice(i + 1, 0, { ...item, key: newStrategyKey() });
+  items.splice(i + 1, 0, { ...item, key: newStrategyKey(), fixed: false });
   renderStrategyItemsList();
 }
 
 function removeStrategyItemRow(i) {
-  modalStrategyItems.splice(i, 1);
+  const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
+  items.splice(i, 1);
   renderStrategyItemsList();
 }
 
@@ -4316,17 +4541,35 @@ function saveStrategyItems() {
   const cleaned = modalStrategyItems
     .map(item => ({ ...item, title: (item.title || '').trim(), tag: tagClassForFormato(item.formato) }))
     .filter(item => item.title);
-  if (!cleaned.length && modalStrategyItems.length) {
+  const cleanedAnnual = modalAnnualStrategyItems
+    .map(item => ({ ...item, title: (item.title || '').trim(), tag: tagClassForFormato(item.formato) }))
+    .filter(item => item.title);
+  if (cleaned.length !== modalStrategyItems.length || cleanedAnnual.length !== modalAnnualStrategyItems.length) {
     alert('Preencha ao menos um título ou remova os itens vazios.');
     return;
   }
   const mKey = modalStrategyMonthKey || monthKey(strategyMonth);
+  const year = strategyMonth.getFullYear();
   const previous = getRequiredPostsForMonth(mKey);
-  const changed = JSON.stringify(previous.map(x => ({ title: x.title, formato: x.formato })))
-    !== JSON.stringify(cleaned.map(x => ({ title: x.title, formato: x.formato })));
+  const previousAnnual = getRequiredPostsForYear(year);
+  const nextFixedItems = cleaned.filter(item => item.fixed);
+  const nextFixedAnnualItems = cleanedAnnual.filter(item => item.fixed);
+  const signature = items => items.map(({ key, title, formato, fixed }) => ({ key, title, formato, fixed: Boolean(fixed) }));
+  const changed = JSON.stringify(signature(previous)) !== JSON.stringify(signature(cleaned))
+    || JSON.stringify(signature(fixedRequiredPosts)) !== JSON.stringify(signature(nextFixedItems));
+  const annualChanged = JSON.stringify(signature(previousAnnual)) !== JSON.stringify(signature(cleanedAnnual))
+    || JSON.stringify(signature(fixedAnnualRequiredPosts)) !== JSON.stringify(signature(nextFixedAnnualItems));
   if (changed) pushStrategyHistorySnapshot(mKey, previous);
-  saveRequiredPostsForMonth(mKey, cleaned);
-  if (mKey === monthKey(strategyMonth)) REQUIRED_POSTS = cleaned;
+  if (annualChanged) pushStrategyHistorySnapshot(String(year), previousAnnual, 'annual');
+  if (changed) {
+    saveFixedRequiredPosts(nextFixedItems);
+    saveRequiredPostsForMonth(mKey, cleaned);
+  }
+  if (annualChanged) {
+    saveFixedAnnualRequiredPosts(nextFixedAnnualItems);
+    saveRequiredPostsForYear(year, cleanedAnnual);
+  }
+  if (mKey === monthKey(strategyMonth) || year === strategyMonth.getFullYear()) recomputeRequiredPosts();
   closeStrategyModal();
   renderStrategyChecklist();
 }
@@ -4351,8 +4594,10 @@ function renderStrategyHistoryList() {
   wrap.innerHTML = history.map((snap, i) => {
     const dt = new Date(snap.date);
     const when = dt.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit', year:'numeric' }) + ' às ' + dt.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
-    const monthLabel = snap.monthKey ? monthLabelFromKey(snap.monthKey) : null;
-    const label = (monthLabel ? `${monthLabel} · ` : '') + when;
+    const periodLabel = snap.type === 'annual'
+      ? `Anual · ${snap.yearKey || ''}`
+      : (snap.monthKey ? `Mensal · ${monthLabelFromKey(snap.monthKey)}` : '');
+    const label = (periodLabel ? `${periodLabel} · ` : '') + when;
     const items = snap.items.map((it, n) => `<div style="font-size:12.5px;padding:3px 0;color:var(--text-1);">${n + 1}. ${escapeHtml(it.title)} <span style="color:var(--text-3);">— ${escapeHtml(it.formato || '')}</span></div>`).join('');
     return `
       <div style="border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;">
@@ -4370,13 +4615,27 @@ function restoreStrategyHistory(i) {
   const history = loadStrategyHistory();
   const snap = history[i];
   if (!snap) return;
+  const isAnnual = snap.type === 'annual';
   const mKey = snap.monthKey || monthKey(strategyMonth);
-  if (!confirm(`Restaurar essa versão para ${monthLabelFromKey(mKey)}? Você ainda pode revisar antes de clicar em Salvar.`)) return;
-  modalStrategyMonthKey = mKey;
-  modalStrategyItems = snap.items.map(x => ({ ...x }));
+  const year = Number(snap.yearKey || strategyMonth.getFullYear());
+  const periodLabel = isAnnual ? `estratégia anual de ${year}` : `estratégia mensal de ${monthLabelFromKey(mKey)}`;
+  if (!confirm(`Restaurar essa versão para a ${periodLabel}? Você ainda pode revisar antes de clicar em Salvar.`)) return;
+  if (isAnnual) {
+    strategyMonth = new Date(year, 0, 1);
+    modalStrategyMonthKey = monthKey(strategyMonth);
+    recomputeRequiredPosts();
+    modalAnnualStrategyItems = snap.items.map(x => ({ ...x }));
+    modalStrategyItems = REQUIRED_POSTS.map(x => ({ ...x }));
+  } else {
+    modalStrategyMonthKey = mKey;
+    modalStrategyItems = snap.items.map(x => ({ ...x }));
+    modalAnnualStrategyItems = ANNUAL_REQUIRED_POSTS.map(x => ({ ...x }));
+  }
+  modalStrategyType = isAnnual ? 'annual' : 'monthly';
+  setStrategyModalType(modalStrategyType);
   renderStrategyItemsList();
   document.getElementById('strategy-modal-month').textContent =
-    `${monthLabelFromKey(mKey)} — restaurando versão do histórico (clique em Salvar para confirmar)`;
+    `${isAnnual ? `Ano ${year}` : monthLabelFromKey(mKey)} — restaurando versão do histórico (clique em Salvar para confirmar)`;
   document.getElementById('strategy-modal').classList.add('open');
   closeStrategyHistoryModal();
 }
@@ -5201,7 +5460,19 @@ function renderList() {
   });
   const latestPost = filtered[filtered.length - 1];
   const latestTagLabels = new Set(tagLabelsForPost(latestPost));
-  tbody.innerHTML = `<div class="post-tag-groups">${Array.from(postsByTag, ([label, taggedPosts]) => `
+  const allTagLabels = [...postsByTag.keys()];
+  [...activeTagFilters].forEach(l => { if (!postsByTag.has(l)) activeTagFilters.delete(l); });
+  const hasTagFilter = activeTagFilters.size > 0;
+  const visibleGroups = Array.from(postsByTag).filter(([label]) => !hasTagFilter || activeTagFilters.has(label));
+  const tagFilterBar = `<div class="tag-filter-bar">
+    <span class="tag-filter-label">Filtrar por tag</span>
+    <div class="req-tag-chips">
+      <button type="button" class="req-tag-chip" aria-pressed="${!hasTagFilter}" onclick="clearTagFilters()">Todas</button>
+      ${allTagLabels.map((label, i) => `<button type="button" class="req-tag-chip" aria-pressed="${activeTagFilters.has(label)}" data-tag-index="${i}" onclick="toggleTagFilter(${i})"><span class="req-tag-check">${activeTagFilters.has(label) ? '✓' : ''}</span>${escapeHtml(label)} <span style="opacity:.6">${postsByTag.get(label).length}</span></button>`).join('')}
+    </div>
+  </div>`;
+  window.__tagFilterLabels = allTagLabels;
+  tbody.innerHTML = tagFilterBar + `<div class="post-tag-groups">${visibleGroups.map(([label, taggedPosts]) => `
     <details class="post-tag-section"${latestTagLabels.has(label) ? ' open' : ''}>
       <summary class="post-tag-header">
         <span class="post-tag-title">${escapeHtml(label)}</span>
@@ -5217,6 +5488,18 @@ function renderList() {
   `).join('')}</div>`;
 }
 
+function toggleTagFilter(i) {
+  const label = (window.__tagFilterLabels || [])[i];
+  if (label === undefined) return;
+  if (activeTagFilters.has(label)) activeTagFilters.delete(label); else activeTagFilters.add(label);
+  renderList();
+}
+
+function clearTagFilters() {
+  activeTagFilters.clear();
+  renderList();
+}
+
 function toggleContentTable() {
   const wrap = document.getElementById('post-table-wrap');
   const btn = document.getElementById('list-collapse-btn');
@@ -5227,7 +5510,7 @@ function toggleContentTable() {
 }
 
 function toggleStrategySection() {
-  const wrap = document.getElementById('strategy-checklist');
+  const wrap = document.getElementById('strategy-body');
   const btn = document.getElementById('strategy-collapse-btn');
   const collapsed = wrap.classList.toggle('collapsed');
   btn.classList.toggle('collapsed', collapsed);
@@ -5715,21 +5998,26 @@ function renderRequiredTagChips(selected = []) {
   const wrap = document.getElementById('n-reqtags-chips');
   if (!wrap) return;
   const selectedKeys = new Set(selected);
+  const availableItems = [
+    ...REQUIRED_POSTS.map(item => ({ ...item, strategyPeriod: 'monthly' })),
+    ...ANNUAL_REQUIRED_POSTS.map(item => ({ ...item, strategyPeriod: 'annual' })),
+  ];
   const titleCounts = new Map();
-  REQUIRED_POSTS.forEach(item => {
+  availableItems.forEach(item => {
     const normalizedTitle = item.title.trim().toLocaleLowerCase();
     titleCounts.set(normalizedTitle, (titleCounts.get(normalizedTitle) || 0) + 1);
   });
   const titleIndexes = new Map();
-  const chips = REQUIRED_POSTS.map(item => {
+  const chips = availableItems.map(item => {
     const normalizedTitle = item.title.trim().toLocaleLowerCase();
     const duplicateIndex = (titleIndexes.get(normalizedTitle) || 0) + 1;
     titleIndexes.set(normalizedTitle, duplicateIndex);
-    const title = titleCounts.get(normalizedTitle) > 1 ? `${item.title} (${duplicateIndex})` : item.title;
+    const title = `${item.title}${item.strategyPeriod === 'annual' ? ' · Anual' : ''}${titleCounts.get(normalizedTitle) > 1 ? ` (${duplicateIndex})` : ''}`;
     const pressed = selectedKeys.has(item.key);
     return `<button type="button" class="req-tag-chip" data-required-tag="${escapeHtml(item.key)}" aria-pressed="${pressed}" onclick="toggleRequiredTagChip(this)"><span class="req-tag-check">${pressed ? '✓' : ''}</span>${escapeHtml(title)}</button>`;
   });
-  const unknownChips = [...selectedKeys].filter(key => !REQUIRED_POSTS.some(item => item.key === key)).map(key =>
+  const knownKeys = new Set(availableItems.map(item => item.key));
+  const unknownChips = [...selectedKeys].filter(key => !knownKeys.has(key)).map(key =>
     `<button type="button" class="req-tag-chip" data-required-tag="${escapeHtml(key)}" aria-pressed="true" onclick="toggleRequiredTagChip(this)"><span class="req-tag-check">✓</span>${escapeHtml(`Tag indisponível (${key})`)}</button>`
   );
   wrap.innerHTML = `<button type="button" class="req-tag-chip req-tag-chip-none" aria-pressed="${selectedKeys.size === 0}" onclick="clearRequiredTagChips(this)"><span class="req-tag-check">${selectedKeys.size === 0 ? '✓' : ''}</span>Nenhuma</button>${chips.join('')}${unknownChips.join('')}`;
@@ -9820,7 +10108,7 @@ if (localStorage.getItem('content-manager-table-collapsed') === '1') {
 }
 
 if (localStorage.getItem('content-manager-strategy-collapsed') === '1') {
-  document.getElementById('strategy-checklist').classList.add('collapsed');
+  document.getElementById('strategy-body').classList.add('collapsed');
   document.getElementById('strategy-collapse-btn').classList.add('collapsed');
 }
 
