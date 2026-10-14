@@ -81,7 +81,23 @@
         "ig"
       ],
       "formato": "Reels",
-      "inspiracoes": []
+      "inspiracoes": [],
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot6"
+      ],
+      "parceiroId": null
     },
     {
       "id": 11,
@@ -1088,7 +1104,7 @@
         }
       ],
       "data": "2026-10-13",
-      "status": "publicada",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1101,12 +1117,10 @@
           "link": "https://www.instagram.com/reel/DbJCjuYR7cR/?igsh=MWtnczV0Y2xkbjczdg=="
         }
       ],
+      "requiredTag": "slot12",
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null,
-      "requiredTags": [
-        "slot12"
-      ]
+      "parceiroId": null
     },
     {
       "id": 52,
@@ -1667,7 +1681,8 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
@@ -1681,7 +1696,10 @@
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTags": [
+        "slot6"
+      ],
+      "parceiroId": null
     },
     {
       "id": 76,
@@ -1693,7 +1711,8 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
       "data": "2026-11-06",
@@ -1707,7 +1726,10 @@
       "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTags": [
+        "slot6"
+      ],
+      "parceiroId": null
     },
     {
       "id": 78,
@@ -1719,7 +1741,8 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
       "data": "2026-10-17",
@@ -1733,7 +1756,10 @@
       "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null
     },
     {
       "id": 79,
@@ -2076,54 +2102,6 @@
           "link": "https://www.instagram.com/p/DcRp_TDpJAF/"
         }
       ],
-      "requiredTag": null,
-      "parceiroId": null,
-      "eventoId": null
-    },
-    {
-      "id": 90,
-      "titulo": "[carrossel] Dump do MVP Conference",
-      "desc": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
-      "carouselLegenda": "Dumpzinho da minha primeira vez como palestrante do TDC 2026 💜\n\n#dev #programação #tech #tecnologia #dump",
-      "slides": [
-        {
-          "titulo": "Foto com uma pessoal ou lugar",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "Foto da credencial",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "Vídeo apresentando ou falando",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "Foto de comida",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "Foto do evento",
-          "texto": "",
-          "feito": false
-        }
-      ],
-      "scenes": [],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt",
-        "li"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Carousel",
-      "inspiracoes": [],
       "requiredTag": null,
       "parceiroId": null,
       "eventoId": null
@@ -3061,22 +3039,6 @@
       "y": 326.296875,
       "color": "yellow",
       "rot": 2.3
-    },
-    {
-      "id": 11,
-      "text": "História da tecnologia (como canal de residente evil)",
-      "x": 78,
-      "y": 68,
-      "color": "pink",
-      "rot": -1.2
-    },
-    {
-      "id": 12,
-      "text": "História como das frutas, porém com elementos do mundo tech, como: celular Nokia e iPhone ",
-      "x": 106,
-      "y": 96,
-      "color": "white",
-      "rot": -0.4
     }
   ],
   "inspirations": [
@@ -3457,9 +3419,230 @@
         "formato": "Carousel",
         "tag": "post"
       }
+    ],
+    "2026-10": [
+      {
+        "key": "slot1",
+        "title": "Dump do mês",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot2",
+        "title": "Um problema = uma solução",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot3",
+        "title": "Programa de estágio",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot4",
+        "title": "Trends",
+        "formato": "Reels",
+        "tag": "reel",
+        "fixed": false
+      },
+      {
+        "key": "slot5",
+        "title": "3 projetos para iniciantes",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot6",
+        "title": "Um dia comigo no home office/evento",
+        "formato": "Reels",
+        "tag": "reel",
+        "fixed": false
+      },
+      {
+        "key": "slot7",
+        "title": "Vídeos grátis que eu pagaria caro para ver",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot8",
+        "title": "Conteúdo para te deixar inteligente",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot9",
+        "title": "Vocabulário da programação",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot10",
+        "title": "Se você usa VS Code e não usa extensões...",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot11",
+        "title": "Calendário de eventos do mês",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot12",
+        "title": "Verdades duras sobre programação",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot13",
+        "title": "Minha rotina sendo engenheira de software",
+        "formato": "Reels",
+        "tag": "reel",
+        "fixed": false
+      },
+      {
+        "key": "slot14",
+        "title": "Achadinhos de setup",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      },
+      {
+        "key": "slot15",
+        "title": "Coisas legais que aprendi ou fiz no último mês",
+        "formato": "Carousel",
+        "tag": "post",
+        "fixed": false
+      }
     ]
   },
+  "fixedRequiredPosts": [],
+  "annualRequiredPostsByYear": {},
+  "fixedAnnualRequiredPosts": [],
   "requiredPostsHistory": [
+    {
+      "date": "2026-10-14T10:38:45.510Z",
+      "monthKey": "2026-10",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot10",
+          "title": "Se você usa VS Code e não usa extensões...",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": false
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": false
+        }
+      ]
+    },
     {
       "date": "2026-09-11T01:45:38.414Z",
       "monthKey": "2026-09",
@@ -4278,5 +4461,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-13T22:54:41.124Z"
+  "_updatedAt": "2026-10-14T10:51:44.604Z"
 }
