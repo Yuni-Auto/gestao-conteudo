@@ -777,6 +777,8 @@
   .strat-item-top .strat-item-num { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 25px; width: 25px; height: 25px; border-radius: 8px; background: #f0effe; color: #5b50c8; font-size: 11px; font-weight: 700; }
   .strat-item-top .strat-item-title { flex: 1; min-width: 0; font-size: 13px; font-weight: 550; }
   .strat-item-bottom .strat-item-formato { flex: 1; min-width: 0; max-width: 220px; }
+  .strat-item-date-label { display: inline-flex; align-items: center; gap: 6px; color: var(--text-2); font-size: 11.5px; white-space: nowrap; }
+  .strat-item-date { width: 145px; padding: 6px 8px; }
   .strat-item-fixed { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-2); font-size: 11.5px; cursor: pointer; white-space: nowrap; }
   .strat-item-fixed:has(input:checked) { color: #5146b5; background: #f0effe; border-color: #d6d0fa; }
   .strat-item-fixed input { accent-color: #5b50c8; margin: 0; }
@@ -1001,11 +1003,11 @@
 
   /* Monthly strategy */
   .strategy-section { background: var(--surface); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; box-shadow: 0 3px 12px rgba(26,24,46,.035); }
-  .strategy-header { padding: 16px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: linear-gradient(120deg, #fbfaff, var(--surface) 65%); }
+  .strategy-header { padding: 16px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: var(--surface); }
   .strategy-title { font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
   .strategy-subsection { border-top: 1px solid var(--border); }
   .strategy-body.collapsed { display: none; }
-  .strategy-subsection-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; background: linear-gradient(90deg, #faf9ff, var(--surface)); }
+  .strategy-subsection-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; background: var(--surface); }
   .strategy-subsection-title { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; color: var(--text-2); }
   .strategy-subsection-title::before { content: '↗'; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 7px; background: #f0effe; color: #5b50c8; }
   .strategy-subsection-progress { font-size: 11px; color: var(--text-2); white-space: nowrap; padding: 4px 9px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
@@ -1595,12 +1597,14 @@
           <div class="strategy-header">
             <div class="list-title-row" onclick="toggleStrategySection()">
               <button type="button" class="list-collapse-btn" id="strategy-collapse-btn">▾</button>
-              <div class="strategy-title" id="strategy-title">Estratégia mensal dos 15 posts obrigatórios</div>
+              <div class="strategy-title" id="strategy-title">Estratégia do canal 
+                <small>(Quadros fixos)</small>
+              </div>
             </div>
             <div class="strategy-controls" onclick="event.stopPropagation()">
               <div class="strategy-month">
                 <div class="strat-menu">
-                  <button class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="toggleStrategyMenu(event,'strat-menu-list-gestao')">🗝️ Estratégia ▾</button>
+                  <button class="btn" style="padding:6px 12px;font-size:12px;margin-right:6px;" onclick="toggleStrategyMenu(event,'strat-menu-list-gestao')">🗝️ Configurações ▾</button>
                   <div class="strat-menu-list" id="strat-menu-list-gestao">
                     <button type="button" onclick="closeStrategyMenu(); openStrategyModal();">⚙️ Gerenciar itens</button>
                     <button type="button" onclick="closeStrategyMenu(); openStrategyHistoryModal();">🕘 Histórico</button>
@@ -2883,6 +2887,7 @@ function collectAllData() {
   return {
     posts, partners, collaborations, lectures, guidelines, analyticsOverrides, analyticsGoals, brainstormNotes, inspirations, inspTipos: INSP_TIPOS,
     requiredPostsByMonth, fixedRequiredPosts, annualRequiredPostsByYear, fixedAnnualRequiredPosts,
+    requiredPostRecurrence,
     requiredPostsHistory: loadStrategyHistory(), productionTimes, platHoras, platDias,
     _updatedAt: new Date().toISOString(),
   };
@@ -2939,6 +2944,13 @@ function applyRemoteData(data) {
   if (Array.isArray(data.fixedRequiredPosts)) {
     fixedRequiredPosts = data.fixedRequiredPosts.filter(item => item && item.key);
     localStorage.setItem(FIXED_REQUIRED_POSTS_KEY, JSON.stringify(fixedRequiredPosts));
+  }
+  if (data.requiredPostRecurrence && typeof data.requiredPostRecurrence === 'object' && Array.isArray(data.requiredPostRecurrence.keys)) {
+    requiredPostRecurrence = {
+      keys: data.requiredPostRecurrence.keys.filter(key => typeof key === 'string'),
+      effectiveFrom: typeof data.requiredPostRecurrence.effectiveFrom === 'string' ? data.requiredPostRecurrence.effectiveFrom : null,
+    };
+    localStorage.setItem(REQUIRED_POST_RECURRENCE_KEY, JSON.stringify(requiredPostRecurrence));
   }
   if (Array.isArray(data.fixedAnnualRequiredPosts)) {
     fixedAnnualRequiredPosts = data.fixedAnnualRequiredPosts.filter(item => item && item.key);
@@ -3374,6 +3386,7 @@ const STORAGE_KEY  = 'content-manager-posts-v2';
 const REQUIRED_POSTS_KEY = 'content-manager-required-posts-v2';
 const REQUIRED_POSTS_KEY_LEGACY = 'content-manager-required-posts-v1';
 const FIXED_REQUIRED_POSTS_KEY = 'content-manager-required-posts-fixed-v1';
+const REQUIRED_POST_RECURRENCE_KEY = 'content-manager-required-post-recurrence-v1';
 const ANNUAL_REQUIRED_POSTS_KEY = 'content-manager-required-posts-annual-v1';
 const FIXED_ANNUAL_REQUIRED_POSTS_KEY = 'content-manager-required-posts-annual-fixed-v1';
 const defaultRequiredPosts = [
@@ -3435,6 +3448,25 @@ function saveFixedRequiredPosts(items) {
 }
 let fixedRequiredPosts = loadFixedRequiredPosts();
 
+function loadRequiredPostRecurrence() {
+  try {
+    const saved = localStorage.getItem(REQUIRED_POST_RECURRENCE_KEY);
+    const parsed = saved ? JSON.parse(saved) : null;
+    if (parsed && Array.isArray(parsed.keys)) {
+      return {
+        keys: parsed.keys.filter(key => typeof key === 'string'),
+        effectiveFrom: typeof parsed.effectiveFrom === 'string' ? parsed.effectiveFrom : null,
+      };
+    }
+  } catch (e) {}
+  return { keys: defaultRequiredPosts.map(item => item.key), effectiveFrom: null };
+}
+function saveRequiredPostRecurrence() {
+  localStorage.setItem(REQUIRED_POST_RECURRENCE_KEY, JSON.stringify(requiredPostRecurrence));
+  scheduleCloudSync();
+}
+let requiredPostRecurrence = loadRequiredPostRecurrence();
+
 function loadAnnualRequiredPostsStore() {
   try {
     const saved = localStorage.getItem(ANNUAL_REQUIRED_POSTS_KEY);
@@ -3467,11 +3499,18 @@ function saveFixedAnnualRequiredPosts(items) {
 let fixedAnnualRequiredPosts = loadFixedAnnualRequiredPosts();
 
 function isMonthCustomized(mKey) {
-  return Array.isArray(requiredPostsByMonth[mKey]) && requiredPostsByMonth[mKey].length > 0;
+  return Array.isArray(requiredPostsByMonth[mKey]);
 }
 function getRequiredPostsForMonth(mKey) {
   const list = requiredPostsByMonth[mKey];
-  const items = (Array.isArray(list) && list.length) ? list.map(x => ({ ...x })) : defaultRequiredPosts.map(x => ({ ...x }));
+  const useSavedList = Array.isArray(list);
+  const recurrenceApplies = requiredPostRecurrence.effectiveFrom && mKey >= requiredPostRecurrence.effectiveFrom;
+  const recurringKeys = new Set(requiredPostRecurrence.keys);
+  const items = useSavedList
+    ? list.map(x => ({ ...x }))
+    : defaultRequiredPosts
+        .filter(item => !recurrenceApplies || recurringKeys.has(item.key))
+        .map(x => ({ ...x }));
   const itemIndexes = new Map(items.map((item, index) => [item.key, index]));
   fixedRequiredPosts.forEach(fixedItem => {
     const index = itemIndexes.get(fixedItem.key);
@@ -4325,6 +4364,25 @@ function getAnnualRequiredPost(key) {
   return posts.find(p => getPostRequiredTags(p).includes(key) && p.data && p.data.slice(0, 4) === selectedYear);
 }
 
+function annualStrategyDate(item, year) {
+  const [month, day] = annualStrategyMonthDay(item).split('-').map(Number);
+  const lastDay = new Date(year, month, 0).getDate();
+  return isoDate(new Date(year, month - 1, Math.min(day, lastDay)));
+}
+
+function annualStrategyMonthDay(item) {
+  const match = /^(\d{2})-(\d{2})$/.exec(item.annualMonthDay || '');
+  const month = match ? Number(match[1]) : 1;
+  const day = match ? Number(match[2]) : 1;
+  if (month < 1 || month > 12 || day < 1 || day > new Date(2000, month, 0).getDate()) return '01-01';
+  return `${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+function annualStrategyDateLabel(item) {
+  const date = annualStrategyDate(item, 2000);
+  return new Date(`${date}T12:00:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+}
+
 function strategyDefaultDate() {
   const now = today();
   const selectedMonth = monthKey(strategyMonth);
@@ -4346,7 +4404,7 @@ function renderStrategyChecklist() {
   const annualDone = ANNUAL_REQUIRED_POSTS.filter(item => getAnnualRequiredPost(item.key)).length;
   document.getElementById('strategy-month-label').textContent = `${MONTH_NAMES[strategyMonth.getMonth()]} ${strategyMonth.getFullYear()}`;
   document.getElementById('strategy-progress').textContent = `${done}/${REQUIRED_POSTS.length} criados`;
-  document.getElementById('strategy-title').textContent = `Estratégia mensal dos ${REQUIRED_POSTS.length} posts obrigatórios`;
+  document.getElementById('strategy-title').textContent = 'Estratégia do canal (Quadros fixos)';
   document.getElementById('strategy-year-label').textContent = strategyMonth.getFullYear();
   document.getElementById('annual-strategy-progress').textContent = `${annualDone}/${ANNUAL_REQUIRED_POSTS.length} criados`;
   wrap.innerHTML = REQUIRED_POSTS.length ? REQUIRED_POSTS.map((item, index) => {
@@ -4376,6 +4434,7 @@ function renderStrategyChecklist() {
         <span class="strategy-check-sub">
           <span class="strategy-num">${index + 1}</span>
           <span class="strategy-tag ${item.tag}">${escapeHtml(tagLabelForFormato(item.formato))}</span>
+          <span class="strategy-num">· ${escapeHtml(annualStrategyDateLabel(item))}</span>
           ${status}
         </span>
       </span>
@@ -4402,11 +4461,12 @@ function openAnnualRequiredPost(index) {
     openPost(existing.id);
     return;
   }
-  const now = today();
-  const annualDate = now.getFullYear() === strategyMonth.getFullYear()
-    ? now
-    : new Date(strategyMonth.getFullYear(), 0, 1);
-  openNewModal({ titulo: item.title, formato: item.formato, data: isoDate(annualDate), requiredTags: [item.key] });
+  openNewModal({
+    titulo: item.title,
+    formato: item.formato,
+    data: annualStrategyDate(item, strategyMonth.getFullYear()),
+    requiredTags: [item.key],
+  });
 }
 
 /* ─── Strategy items management modal ──────────────────────────────────── */
@@ -4444,7 +4504,11 @@ let modalStrategyMonthKey = null;
 
 function openStrategyModal() {
   modalStrategyMonthKey = monthKey(strategyMonth);
-  modalStrategyItems = REQUIRED_POSTS.map(x => ({ ...x }));
+  const recurringMonthlyKeys = new Set([
+    ...requiredPostRecurrence.keys,
+    ...fixedRequiredPosts.map(item => item.key),
+  ]);
+  modalStrategyItems = REQUIRED_POSTS.map(x => ({ ...x, fixed: recurringMonthlyKeys.has(x.key) }));
   modalAnnualStrategyItems = ANNUAL_REQUIRED_POSTS.map(x => ({ ...x }));
   modalStrategyType = 'monthly';
   setStrategyModalType('monthly');
@@ -4468,7 +4532,7 @@ function setStrategyModalType(type) {
   const customized = isMonthCustomized(modalStrategyMonthKey || monthKey(strategyMonth));
   document.getElementById('strategy-modal-description').textContent = modalStrategyType === 'monthly'
     ? `Itens válidos para ${monthLabelFromKey(modalStrategyMonthKey || monthKey(strategyMonth))}. Marque “Fixo mensal” para repetir o item em todos os meses.`
-    : `Itens válidos para ${strategyMonth.getFullYear()}. Marque “Fixo anual” para repetir o item em todos os anos.`;
+    : `Itens válidos para ${strategyMonth.getFullYear()}. Defina a data de cada estratégia; ela se repete nessa data todos os anos. Marque “Fixo anual” para manter o item nos próximos anos.`;
   if (modalStrategyType === 'monthly' && !customized) {
     document.getElementById('strategy-modal-description').textContent += ' Esta lista ainda usa os itens padrão.';
   }
@@ -4502,6 +4566,12 @@ function renderStrategyItemsList() {
         <select class="form-input strat-item-formato" aria-label="Formato do item ${i + 1}" onchange="updateStrategyItemField(${i},'formato',this.value)">
           ${['Carousel','Reels','Foto','Story','Live','Shorts','Thread','Pin'].map(f => `<option value="${f}" ${item.formato===f?'selected':''}>${f}</option>`).join('')}
         </select>
+        ${modalStrategyType === 'annual' ? `
+          <label class="strat-item-date-label">
+            Aplicar em
+            <input class="form-input strat-item-date" type="date" value="2000-${annualStrategyMonthDay(item)}" aria-label="Data anual do item ${i + 1}" onchange="updateStrategyItemField(${i},'annualMonthDay',this.value.slice(5))" />
+          </label>
+        ` : ''}
         <label class="strat-item-fixed" title="Incluir automaticamente em ${modalStrategyType === 'annual' ? 'todos os anos' : 'todos os meses'}">
           <input type="checkbox" ${item.fixed ? 'checked' : ''} onchange="updateStrategyItemField(${i},'fixed',this.checked)" />
           Repetir ${modalStrategyType === 'annual' ? 'todo ano' : 'todo mês'}
@@ -4514,12 +4584,12 @@ function renderStrategyItemsList() {
 function updateStrategyItemField(i, field, value) {
   const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
   if (!items[i]) return;
-  items[i][field] = value;
+  items[i][field] = field === 'annualMonthDay' && !/^\d{2}-\d{2}$/.test(value) ? '01-01' : value;
 }
 
 function addStrategyItemRow() {
   const items = modalStrategyType === 'annual' ? modalAnnualStrategyItems : modalStrategyItems;
-  items.push({ key: newStrategyKey(), title: '', formato: 'Carousel', tag: 'post' });
+  items.push({ key: newStrategyKey(), title: '', formato: 'Carousel', tag: 'post', ...(modalStrategyType === 'annual' ? { annualMonthDay: '01-01' } : {}) });
   renderStrategyItemsList();
 }
 
@@ -4554,7 +4624,7 @@ function saveStrategyItems() {
   const previousAnnual = getRequiredPostsForYear(year);
   const nextFixedItems = cleaned.filter(item => item.fixed);
   const nextFixedAnnualItems = cleanedAnnual.filter(item => item.fixed);
-  const signature = items => items.map(({ key, title, formato, fixed }) => ({ key, title, formato, fixed: Boolean(fixed) }));
+  const signature = items => items.map(({ key, title, formato, fixed, annualMonthDay }) => ({ key, title, formato, fixed: Boolean(fixed), annualMonthDay: annualMonthDay || '01-01' }));
   const changed = JSON.stringify(signature(previous)) !== JSON.stringify(signature(cleaned))
     || JSON.stringify(signature(fixedRequiredPosts)) !== JSON.stringify(signature(nextFixedItems));
   const annualChanged = JSON.stringify(signature(previousAnnual)) !== JSON.stringify(signature(cleanedAnnual))
@@ -4564,6 +4634,11 @@ function saveStrategyItems() {
   if (changed) {
     saveFixedRequiredPosts(nextFixedItems);
     saveRequiredPostsForMonth(mKey, cleaned);
+    requiredPostRecurrence = {
+      keys: cleaned.filter(item => item.fixed).map(item => item.key),
+      effectiveFrom: monthKey(new Date(strategyMonth.getFullYear(), strategyMonth.getMonth() + 1, 1)),
+    };
+    saveRequiredPostRecurrence();
   }
   if (annualChanged) {
     saveFixedAnnualRequiredPosts(nextFixedAnnualItems);
