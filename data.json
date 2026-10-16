@@ -2054,8 +2054,16 @@
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-10-15",
+        "tt": "2026-10-15",
+        "yt": "2026-10-15"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "editando",
+        "yt": "editando"
+      },
       "formato": "Reels",
       "inspiracoes": [
         {
@@ -2063,9 +2071,11 @@
           "link": "https://www.instagram.com/reel/DdfiKpbAAJC/?stkn=OTg3czJwZjg3eW41"
         }
       ],
-      "requiredTag": "slot4",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": [
+        "slot4"
+      ]
     },
     {
       "id": 89,
@@ -4754,5 +4764,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-15T12:07:42.714Z"
+  "_updatedAt": "2026-10-16T03:00:38.566Z"
 }
