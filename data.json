@@ -977,10 +977,11 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
-      "data": "",
+      "data": "2026-11-12",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -988,8 +989,10 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [],
+      "parceiroId": null
     },
     {
       "id": 48,
@@ -4803,5 +4806,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-10-17T22:10:49.182Z"
+  "_updatedAt": "2026-10-17T22:11:57.013Z"
 }
