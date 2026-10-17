@@ -1263,7 +1263,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-22",
+      "data": "2026-11-04",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1576,7 +1576,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-20",
+      "data": "2026-11-10",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1586,9 +1586,11 @@
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot5",
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot5"
+      ]
     },
     {
       "id": 72,
@@ -1994,7 +1996,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-18",
+      "data": "2026-11-02",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2058,7 +2060,7 @@
         }
       ],
       "data": "2026-10-15",
-      "status": "editando",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -2071,8 +2073,8 @@
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "editando",
-        "yt": "editando"
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "formato": "Reels",
       "inspiracoes": [
@@ -2143,23 +2145,15 @@
           "feito": false
         }
       ],
-      "data": "2026-10-17",
+      "data": "2026-10-18",
       "status": "editando",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": {
-        "ig": "2026-10-17",
-        "tt": "2026-10-18",
-        "yt": "2026-10-18"
-      },
-      "plataformasStatus": {
-        "ig": "editando",
-        "tt": "editando",
-        "yt": "editando"
-      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [],
       "parceiroId": null,
@@ -2209,7 +2203,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-29",
+      "data": "2026-11-08",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2217,10 +2211,10 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": []
     },
     {
       "id": 95,
@@ -4807,5 +4801,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-10-17T16:38:39.807Z"
+  "_updatedAt": "2026-10-17T22:06:50.485Z"
 }
