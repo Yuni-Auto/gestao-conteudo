@@ -322,7 +322,10 @@
   .list-collapse-btn { width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 11px; transition: transform 0.15s; }
   .list-collapse-btn:hover { background: var(--bg); }
   .list-collapse-btn.collapsed { transform: rotate(-90deg); }
-  .filter-row { display: flex; gap: 5px; flex-wrap: wrap; }
+  .filter-row { display: flex; gap: 5px; flex-wrap: nowrap; align-items: center; }
+  .filter-row .filter-chip { white-space: nowrap; flex-shrink: 0; }
+  .post-search-input { padding: 4px 10px; margin-left: 6px; font-size: 12px; border: 1px solid var(--border, #ddd); border-radius: 999px; background: var(--surface, #fff); color: inherit; width: 200px; min-width: 0; flex-shrink: 1; outline: none; }
+  .post-search-input:focus { border-color: var(--accent, #7c5cff); }
   .filter-chip { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--text-2); transition: all 0.1s; }
   .filter-chip:hover { background: var(--bg); }
   .filter-chip.active { background: #5b50c8; color: #fff; border-color: #5b50c8; }
@@ -1668,6 +1671,7 @@
             <button class="filter-chip" onclick="setFilter('todo',this)">To-do</button>
             <button class="filter-chip" onclick="setFilter('progress',this)">In progress</button>
             <button class="filter-chip" onclick="setFilter('complete',this)">Complete</button>
+            <input type="search" id="post-search-input" class="post-search-input" placeholder="🔍 Buscar conteúdo…" autocomplete="off" oninput="setPostSearch(this.value)">
           </div>
         </div>
         <div id="post-table-wrap">
@@ -5471,8 +5475,17 @@ function goToToday() {
 }
 
 /* ─── List ──────────────────────────────────────────────────────────────── */
+let activePostSearch = '';
+function normSearch(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+function setPostSearch(v) { activePostSearch = normSearch(v).trim(); renderList(); }
+function postMatchesSearch(p) {
+  if (!activePostSearch) return true;
+  const hay = normSearch([p.titulo, p.desc, p.formato, (p.plataformas || []).map(pl => PLATFORM_LABELS[pl] || pl).join(' '), getStatusMeta(p.status).label].join(' '));
+  return activePostSearch.split(/\s+/).every(t => hay.includes(t));
+}
 function renderList() {
   const filtered = posts.filter(p => {
+    if (!postMatchesSearch(p)) return false;
     if (activePlatFilter && !p.plataformas.includes(activePlatFilter)) return false;
     if (activeFormatoFilter && p.formato !== activeFormatoFilter) return false;
     if (currentView === 'ideias') return p.status === 'ideia';
@@ -5548,7 +5561,7 @@ function renderList() {
   </div>`;
   window.__tagFilterLabels = allTagLabels;
   tbody.innerHTML = tagFilterBar + `<div class="post-tag-groups">${visibleGroups.map(([label, taggedPosts]) => `
-    <details class="post-tag-section"${latestTagLabels.has(label) ? ' open' : ''}>
+    <details class="post-tag-section"${(activePostSearch || latestTagLabels.has(label)) ? ' open' : ''}>
       <summary class="post-tag-header">
         <span class="post-tag-title">${escapeHtml(label)}</span>
         <span class="post-tag-count">${taggedPosts.length} ${taggedPosts.length === 1 ? 'conteúdo' : 'conteúdos'}</span>
