@@ -755,17 +755,25 @@
         {
           "inicio": 0,
           "fim": 5,
-          "cena": "Eu sentada a frente do computador.\n\nTexto 1: Entrevistador: \"Poderia me explicar Promisse e Observable?\"\n\nTexto 2: Veja na legenda"
+          "cena": "Eu sentada a frente do computador.\n\nTexto 1: Entrevistador: \"Poderia me explicar Promisse e Observable?\"\n\nTexto 2: Veja na legenda",
+          "feito": false
         }
       ],
       "data": "2026-07-27",
       "status": "publicada",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt",
+        "yt"
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot9"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot9"
+      ],
+      "parceiroId": null
     },
     {
       "id": 41,
@@ -2123,30 +2131,34 @@
     },
     {
       "id": 91,
-      "titulo": "[Reels] Vocabulário da programação",
-      "desc": "",
+      "titulo": "[Reels] Entrevistador: \"Poderia me explicar Event Loop?\"",
+      "desc": "💡 **Na entrevista: você sabe o que é Event Loop?**\n\nImagine que você está em uma cafeteria. ☕\n\nO atendente recebe seu pedido e, enquanto o café está sendo preparado, continua atendendo outras pessoas.\n\nQuando o café fica pronto, ele entrega o pedido. ☕️\n\nNo JavaScript acontece algo parecido!\n\nO **Event Loop** ajuda o JavaScript a lidar com tarefas assíncronas sem ficar parado esperando todas terminarem.\n\nPor exemplo:\n* Buscar dados de uma API 🌐\n* Aguardar uma Promise ⏳\n* Executar um `setTimeout` ⏰\n\nMas como isso funciona?\n\n✅ **Call Stack:** onde o JavaScript executa as funções.\n\n✅ **Web APIs:** recursos do ambiente, como timers e operações de rede, que podem cuidar de determinadas tarefas fora da Call Stack.\n\n✅ **Event Loop:** verifica quando a Call Stack está livre e permite que tarefas enfileiradas sejam executadas, respeitando as prioridades das filas.\n\n🚀 **Dica para entrevistas:** lembre-se de que o Event Loop coordena a execução de tarefas assíncronas. E atenção: as callbacks de Promises (*microtasks*) têm prioridade sobre as callbacks de `setTimeout` (*tasks* ou *macrotasks*) quando ambas estão aguardando execução.\n\n#tech #tecnologia #programação #javascript #dev",
       "carouselLegenda": "",
-      "slides": [
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "",
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
           "feito": false
         }
       ],
-      "scenes": [],
       "data": "2026-10-17",
-      "status": "ideia",
+      "status": "editando",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot9",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": [
+        "slot9"
+      ]
     },
     {
       "id": 92,
@@ -4766,5 +4778,5 @@
       3
     ]
   },
-  "_updatedAt": "2026-10-17T15:58:01.742Z"
+  "_updatedAt": "2026-10-17T16:15:58.158Z"
 }
