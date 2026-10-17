@@ -671,10 +671,12 @@
           "link": "https://www.instagram.com/p/DavGzhXlc3d/?igsh=MWU1ZzNjcjN4ZDgzZw=="
         }
       ],
-      "requiredTag": "slot14",
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot14"
+      ]
     },
     {
       "id": 37,
@@ -1886,8 +1888,8 @@
       ],
       "plataformasDatas": {
         "ig": "2026-10-08",
-        "tt": "2026-10-08",
-        "yt": "2026-10-09"
+        "tt": "2026-10-18",
+        "yt": "2026-10-18"
       },
       "plataformasStatus": {
         "ig": "editando",
@@ -1901,9 +1903,9 @@
           "link": "https://www.instagram.com/p/Dcqu1PlIZF6/"
         }
       ],
-      "requiredTag": null,
       "parceiroId": null,
-      "eventoId": 1
+      "eventoId": 1,
+      "requiredTags": []
     },
     {
       "id": 84,
@@ -4801,5 +4803,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-10-17T22:06:50.485Z"
+  "_updatedAt": "2026-10-17T22:10:49.182Z"
 }
