@@ -3074,6 +3074,22 @@
       "y": 326.296875,
       "color": "yellow",
       "rot": 2.3
+    },
+    {
+      "id": 11,
+      "text": "História da tecnologia como o canal residente evil",
+      "x": 940.828125,
+      "y": 71.83984375,
+      "color": "white",
+      "rot": 0.9
+    },
+    {
+      "id": 12,
+      "text": "História de frutas usando elementos de tech, como: celular nokia e iphone 18 ",
+      "x": 1173.828125,
+      "y": 271.05859375,
+      "color": "gray",
+      "rot": -0.8
     }
   ],
   "inspirations": [
@@ -4791,5 +4807,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-10-17T16:34:05.092Z"
+  "_updatedAt": "2026-10-17T16:38:39.807Z"
 }
