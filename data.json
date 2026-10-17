@@ -2300,7 +2300,7 @@
       ],
       "scenes": [],
       "data": "2026-10-17",
-      "status": "ideia",
+      "status": "design",
       "plataformas": [
         "li"
       ],
@@ -2310,7 +2310,7 @@
       "inspiracoes": [],
       "requiredTag": "slot1",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": 1
     },
     {
       "id": 98,
@@ -4806,5 +4806,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-10-17T22:11:57.013Z"
+  "_updatedAt": "2026-10-17T22:26:07.175Z"
 }
