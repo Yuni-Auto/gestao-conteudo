@@ -657,7 +657,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-22",
+      "data": "",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1460,7 +1460,7 @@
           "feito": true
         }
       ],
-      "data": "2026-10-18",
+      "data": "",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1470,10 +1470,12 @@
       "plataformasDatas": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot13",
       "plataformasStatus": null,
       "parceiroId": null,
-      "eventoId": 1
+      "eventoId": 1,
+      "requiredTags": [
+        "slot13"
+      ]
     },
     {
       "id": 68,
@@ -1544,19 +1546,29 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-24",
+      "data": "2026-10-27",
       "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
         "li"
       ],
-      "plataformasDatas": null,
+      "plataformasDatas": {
+        "ig": "2026-10-27",
+        "tt": "2026-10-27",
+        "li": "2026-10-27"
+      },
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot15",
-      "plataformasStatus": null,
-      "parceiroId": null
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto",
+        "li": "pronto"
+      },
+      "parceiroId": null,
+      "requiredTags": [
+        "slot15"
+      ]
     },
     {
       "id": 71,
@@ -1625,7 +1637,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-23",
+      "data": "",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1634,9 +1646,11 @@
       "plataformasDatas": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot6",
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot6"
+      ]
     },
     {
       "id": 73,
@@ -1882,7 +1896,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-09",
+      "data": "",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2035,7 +2049,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-20",
+      "data": "",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -2046,9 +2060,11 @@
       "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot4",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": [
+        "slot4"
+      ]
     },
     {
       "id": 88,
@@ -2150,7 +2166,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-18",
+      "data": "",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2299,7 +2315,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-18",
+      "data": "",
       "status": "design",
       "plataformas": [
         "li"
@@ -4714,5 +4730,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-10-29T12:55:16.398Z"
+  "_updatedAt": "2026-10-29T13:33:51.386Z"
 }
