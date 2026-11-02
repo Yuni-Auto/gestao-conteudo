@@ -2864,8 +2864,8 @@
     },
     {
       "id": 103,
-      "titulo": "[reels] Gêneos da comunidade",
-      "desc": "",
+      "titulo": "[reels]  Histórias de grandes gênios",
+      "desc": "Steve Jobs e a Criação de Apple",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -5806,5 +5806,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:52:23.204Z"
+  "_updatedAt": "2026-11-02T16:02:15.315Z"
 }
