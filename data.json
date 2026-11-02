@@ -4258,6 +4258,13 @@
         "formato": "Carousel",
         "tag": "post",
         "fixed": true
+      },
+      {
+        "key": "custommvzfmp7wggt8",
+        "title": "Divulgações",
+        "formato": "Reels",
+        "tag": "reel",
+        "fixed": true
       }
     ]
   },
@@ -4359,6 +4366,13 @@
       "formato": "Carousel",
       "tag": "post",
       "fixed": true
+    },
+    {
+      "key": "custommvzfmp7wggt8",
+      "title": "Divulgações",
+      "formato": "Reels",
+      "tag": "reel",
+      "fixed": true
     }
   ],
   "annualRequiredPostsByYear": {},
@@ -4378,11 +4392,116 @@
       "slot12",
       "slot13",
       "slot14",
-      "slot15"
+      "slot15",
+      "custommvzfmp7wggt8"
     ],
     "effectiveFrom": "2026-12"
   },
   "requiredPostsHistory": [
+    {
+      "date": "2026-11-02T15:47:47.594Z",
+      "monthKey": "2026-11",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": true
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": true
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": true
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        }
+      ]
+    },
     {
       "date": "2026-11-02T01:17:07.611Z",
       "monthKey": "2026-11",
@@ -5646,5 +5765,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:46:25.146Z"
+  "_updatedAt": "2026-11-02T15:47:53.895Z"
 }
