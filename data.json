@@ -1171,10 +1171,9 @@
           "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
         }
       ],
-      "requiredTag": "slot4",
       "plataformasDatas": {
-        "ig": "2026-10-08",
-        "tt": "2026-10-07",
+        "ig": "2026-09-26",
+        "tt": "2026-09-26",
         "yt": "2026-10-11"
       },
       "plataformasStatus": {
@@ -1183,7 +1182,7 @@
         "yt": "publicada"
       },
       "parceiroId": null,
-      "dificuldade": 1,
+      "dificuldade": "1",
       "analyticsByPlatform": {
         "ig": {
           "views": 121815,
@@ -1194,7 +1193,10 @@
           "sends": 852,
           "saves": 507
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ]
     },
     {
       "id": 51,
@@ -1919,7 +1921,6 @@
       },
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1,
       "analyticsByPlatform": {
@@ -1932,7 +1933,9 @@
           "sends": 1,
           "saves": 5
         }
-      }
+      },
+      "requiredTags": [],
+      "dificuldade": "2"
     },
     {
       "id": 75,
@@ -5525,5 +5528,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:33:27.187Z"
+  "_updatedAt": "2026-11-02T15:34:37.267Z"
 }
