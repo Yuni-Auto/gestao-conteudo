@@ -887,53 +887,33 @@
     {
       "id": 44,
       "titulo": "[carousel] E você, quantos planos têm?",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Conteúdo gerado ao IA",
+      "carouselLegenda": "Conteúdo gerado ao IA",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Viajando",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Comendo",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Trabalhando",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
+          "titulo": "Palestrando",
           "texto": "",
           "feito": false
         }
       ],
       "scenes": [],
       "data": "2026-12-02",
-      "status": "afazer",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt"
@@ -2082,7 +2062,7 @@
         }
       ],
       "data": "2026-11-28",
-      "status": "afazer",
+      "status": "pesquisar",
       "plataformas": [
         "ig",
         "tt",
@@ -5239,5 +5219,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T01:49:32.490Z"
+  "_updatedAt": "2026-11-02T01:55:38.021Z"
 }
