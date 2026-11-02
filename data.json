@@ -306,7 +306,19 @@
         }
       ],
       "scenes": [],
-      "requiredTag": "slot15"
+      "requiredTag": "slot15",
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1445,
+          "reach": 667,
+          "followers": 0,
+          "comments": 1,
+          "reposts": 4,
+          "sends": 0,
+          "saves": 17
+        }
+      }
     },
     {
       "id": 20,
@@ -856,7 +868,19 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3"
+      "requiredTag": "slot3",
+      "dificuldade": 4,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 6591,
+          "reach": 3394,
+          "followers": 12,
+          "comments": 47,
+          "reposts": 8,
+          "sends": 273,
+          "saves": 235
+        }
+      }
     },
     {
       "id": 43,
@@ -5454,5 +5478,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:27:57.328Z"
+  "_updatedAt": "2026-11-02T15:29:51.325Z"
 }
