@@ -574,7 +574,7 @@
           "feito": false
         }
       ],
-      "data": "2026-10-29",
+      "data": "",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -591,11 +591,11 @@
           "link": "https://vt.tiktok.com/ZSbeH7R7b/"
         }
       ],
-      "requiredTag": null,
       "plataformasDatas": null,
       "plataformasStatus": null,
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": []
     },
     {
       "id": 32,
@@ -1546,7 +1546,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-27",
+      "data": "",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -4868,5 +4868,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:54:10.684Z"
+  "_updatedAt": "2026-11-02T00:55:39.267Z"
 }
