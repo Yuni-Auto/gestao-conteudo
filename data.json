@@ -2900,6 +2900,145 @@
           "saves": 6
         }
       }
+    },
+    {
+      "id": 104,
+      "titulo": "[carrousel] Um problema = uma solução",
+      "desc": "O que usei na criação do meu app",
+      "carouselLegenda": "O que usei na criação do meu app",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-04-27",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot2"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 633,
+          "reach": 276,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 2,
+          "sends": 4,
+          "saves": 15
+        }
+      }
+    },
+    {
+      "id": 105,
+      "titulo": "[carrousel] Metas para vida",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-04-20",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [],
+      "parceiroId": null,
+      "dificuldade": "2",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1036,
+          "reach": 426,
+          "followers": 1,
+          "comments": 2,
+          "reposts": 3,
+          "sends": 1,
+          "saves": 9
+        }
+      }
+    },
+    {
+      "id": 106,
+      "titulo": "[reels] Um dia comigo como voluntária no Git Hub",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-04-12",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3334,
+          "reach": 2313,
+          "followers": 3,
+          "comments": 7,
+          "reposts": 5,
+          "sends": 2,
+          "saves": 12
+        }
+      }
     }
   ],
   "partners": [
@@ -5806,5 +5945,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:02:15.315Z"
+  "_updatedAt": "2026-11-02T16:10:42.228Z"
 }
