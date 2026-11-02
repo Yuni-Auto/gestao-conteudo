@@ -3336,6 +3336,36 @@
       "lectureIds": [],
       "tipo": "collab",
       "data": "2026-10-06"
+    },
+    {
+      "id": 7,
+      "nome": "WomarksCode",
+      "perfil": "womakersgram",
+      "contato": "Marilia",
+      "status": "ideia",
+      "seguidores": 36500,
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "",
+          "status": "ideia",
+          "contentType": "",
+          "contentId": null
+        }
+      ],
+      "postIds": [],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": ""
     }
   ],
   "lectures": [
@@ -5935,5 +5965,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:12:39.445Z"
+  "_updatedAt": "2026-11-02T16:15:47.028Z"
 }
