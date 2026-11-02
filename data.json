@@ -3061,6 +3061,46 @@
       "parceiroId": null,
       "dificuldade": "4",
       "eventoId": null
+    },
+    {
+      "id": 108,
+      "titulo": "[carrousel] Falei que sou meio nerd e que gosto de coisas esquisitas",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-02",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -5997,5 +6037,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:16:47.460Z"
+  "_updatedAt": "2026-11-02T16:29:26.293Z"
 }
