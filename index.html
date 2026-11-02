@@ -6033,7 +6033,7 @@ function renderPostRankingInto(gridId) {
   const medals = ['🥇', '🥈', '🥉'];
   const stat = (label, v) => `<div class="post-rank-stat"><b>${fmt(v)}</b><span>${label}</span></div>`;
   grid.innerHTML = ranked.map(({ p, t }, i) => `
-    <div class="post-rank-card${p.quadroPotencial ? ' potential' : ''}${p.id === currentPostId ? ' current' : ''}" onclick="openPost('${escapeHtml(String(p.id))}');setDetailModalTab('analytics')">
+    <div class="post-rank-card${p.quadroPotencial ? ' potential' : ''}${p.id === currentPostId ? ' current' : ''}" onclick="openPostForEdit('${escapeHtml(String(p.id))}')">
       <div class="post-rank-head">
         <span class="post-rank-pos${i < 3 ? ' top' : ''}">${i < 3 ? medals[i] : i + 1}</span>
         <div class="post-rank-info">
@@ -6051,6 +6051,11 @@ function renderPostRankingInto(gridId) {
       </div>
       ${p.quadroPotencial ? '<span class="post-rank-badge">⭐ Potencial quadro do canal</span>' : ''}
     </div>`).join('');
+}
+
+function openPostForEdit(id) {
+  const post = posts.find(item => String(item.id) === String(id));
+  if (post) openNewModal(post);
 }
 
 function togglePostQuadroPotencial(event, id) {
