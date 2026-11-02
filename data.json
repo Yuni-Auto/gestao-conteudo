@@ -2015,7 +2015,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-02",
+      "data": "2026-11-14",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2388,6 +2388,51 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null,
+      "parceiroId": null,
+      "eventoId": null
+    },
+    {
+      "id": 100,
+      "titulo": "Dump do mês",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-02",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot1"
+      ],
       "parceiroId": null,
       "eventoId": null
     }
@@ -4868,5 +4913,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:55:39.267Z"
+  "_updatedAt": "2026-11-02T00:58:41.201Z"
 }
