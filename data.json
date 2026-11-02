@@ -2225,7 +2225,18 @@
       ],
       "requiredTag": null,
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1342,
+          "reach": 783,
+          "followers": 3,
+          "comments": 19,
+          "reposts": 5,
+          "sends": 10,
+          "saves": 18
+        }
+      }
     },
     {
       "id": 91,
@@ -2363,7 +2374,7 @@
     },
     {
       "id": 96,
-      "titulo": "[carroussel] Programa de estágio",
+      "titulo": "[carroussel] Programa de estágio Outubro",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -2385,9 +2396,23 @@
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": [
+        "slot3"
+      ],
+      "dificuldade": "",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 5436,
+          "reach": 2933,
+          "followers": 18,
+          "comments": 62,
+          "reposts": 9,
+          "sends": 218,
+          "saves": 160
+        }
+      }
     },
     {
       "id": 97,
@@ -2517,6 +2542,47 @@
       ],
       "parceiroId": null,
       "eventoId": null
+    },
+    {
+      "id": 102,
+      "titulo": "[reels] trabalhar na TI,compensa ?",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-11",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 100418,
+          "reach": 74335,
+          "followers": 976,
+          "comments": 139,
+          "reposts": 111,
+          "sends": 1200,
+          "saves": 980
+        }
+      }
     }
   ],
   "partners": [
@@ -5304,5 +5370,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:07:57.002Z"
+  "_updatedAt": "2026-11-02T15:13:18.182Z"
 }
