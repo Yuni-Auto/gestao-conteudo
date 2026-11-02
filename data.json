@@ -3094,7 +3094,12 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://vt.tiktok.com/ZSp1Co1L9/"
+        }
+      ],
       "requiredTags": [
         "slot4"
       ],
@@ -6037,5 +6042,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:29:26.293Z"
+  "_updatedAt": "2026-11-02T16:31:15.980Z"
 }
