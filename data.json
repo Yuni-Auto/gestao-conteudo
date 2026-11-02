@@ -2971,6 +2971,15 @@
         "eng": 55,
         "conteudo": 25,
         "clicks": 0
+      },
+      "Nov 26": {
+        "seguidores": 2,
+        "views": 0,
+        "alcance": 3,
+        "eng": 0,
+        "conteudo": 1,
+        "clicks": 0,
+        "followers": 983
       }
     },
     "li": {
@@ -3005,6 +3014,14 @@
         "eng": 30,
         "conteudo": 1,
         "clicks": 0
+      },
+      "Nov 26": {
+        "seguidores": 2500,
+        "views": 143,
+        "alcance": 27,
+        "eng": 30,
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "yt": {
@@ -3022,6 +3039,14 @@
         "alcance": 6.7,
         "eng": 65,
         "conteudo": 5,
+        "clicks": 0
+      },
+      "Nov 26": {
+        "seguidores": 11,
+        "views": 4400,
+        "alcance": 5.5,
+        "eng": 86,
+        "conteudo": 3,
         "clicks": 0
       }
     }
@@ -4738,5 +4763,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:35:14.577Z"
+  "_updatedAt": "2026-11-02T00:42:53.867Z"
 }
