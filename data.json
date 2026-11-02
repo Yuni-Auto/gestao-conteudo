@@ -1792,7 +1792,18 @@
       "inspiracoes": [],
       "requiredTag": null,
       "parceiroId": null,
-      "eventoId": 1
+      "eventoId": 1,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1324,
+          "reach": 498,
+          "followers": 1,
+          "comments": 4,
+          "reposts": 6,
+          "sends": 1,
+          "saves": 5
+        }
+      }
     },
     {
       "id": 75,
@@ -2022,7 +2033,18 @@
       "inspiracoes": [],
       "requiredTag": null,
       "parceiroId": null,
-      "eventoId": 1
+      "eventoId": 1,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1852,
+          "reach": 1277,
+          "followers": 1,
+          "comments": 4,
+          "reposts": 10,
+          "sends": 3,
+          "saves": 7
+        }
+      }
     },
     {
       "id": 85,
@@ -5370,5 +5392,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:13:18.182Z"
+  "_updatedAt": "2026-11-02T15:19:23.227Z"
 }
