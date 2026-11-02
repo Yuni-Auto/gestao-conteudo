@@ -375,9 +375,6 @@
   .post-analytics-field .form-input { min-height: 40px; background: var(--surface); }
   .post-analytics-footer { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 12px; }
   .post-analytics-feedback { margin-right: auto; color: var(--text-3); font-size: 11.5px; }
-  .post-analytics-ranking { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--border); }
-  .post-analytics-ranking-title { font-size: 16px; margin: 0 0 4px; }
-  .post-analytics-ranking-sub { color: var(--text-3); font-size: 12px; margin-bottom: 12px; }
   .post-ranking-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; align-items: start; }
   .post-rank-card { border: 1px solid var(--border); border-radius: 14px; background: #fff; padding: 14px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: transform .15s, box-shadow .15s; }
   .post-rank-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(60,50,120,.12); }
@@ -390,13 +387,28 @@
   .post-rank-title { font-size: 13.5px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .post-rank-plats { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
   .post-rank-plats span { font-size: 10.5px; padding: 1px 7px; border-radius: 999px; background: var(--bg); color: var(--text-3); border: 1px solid var(--border); text-transform: capitalize; }
+  .dif-steps { display: flex; gap: 4px; }
+  .dif-step { width: 26px; height: 24px; border-radius: 6px; padding: 0; border: 1px solid var(--border); background: #fff; font-weight: 700; font-size: 11.5px; color: var(--text-3); cursor: pointer; }
+  .dif-step.on.dif-l1 { background: #e6f7ec; border-color: #9bd8b2; color: #1d7a3e; }
+  .dif-step.on.dif-l2 { background: #eef7dc; border-color: #c6dd8c; color: #4d6b0c; }
+  .dif-step.on.dif-l3 { background: #fff6dc; border-color: #f0dc9a; color: #8a6200; }
+  .dif-step.on.dif-l4 { background: #ffeadb; border-color: #f4bf99; color: #a14a0b; }
+  .dif-step.on.dif-l5 { background: #fde8ea; border-color: #f0a8b2; color: #b3263a; }
+  .dif-step.sel { box-shadow: 0 0 0 2px rgba(91,79,196,.25); }
+  .dif-caption { font-size: 10.5px; color: var(--text-3); margin-top: 4px; }
+  .dif-caption a { margin-left: 6px; color: var(--accent, #5b4fc4); }
+  .post-rank-plats span.dif-chip.dif-l1 { background: #e6f7ec; color: #1d7a3e; border-color: #b9e6c9; }
+  .post-rank-plats span.dif-chip.dif-l2 { background: #eef7dc; color: #4d6b0c; border-color: #d3e5a6; }
+  .post-rank-plats span.dif-chip.dif-l3 { background: #fff6dc; color: #8a6200; border-color: #f0dc9a; }
+  .post-rank-plats span.dif-chip.dif-l4 { background: #ffeadb; color: #a14a0b; border-color: #f4bf99; }
+  .post-rank-plats span.dif-chip.dif-l5 { background: #fde8ea; color: #b3263a; border-color: #f5c1c8; }
   .post-rank-star { flex: none; border: 0; background: none; font-size: 20px; cursor: pointer; line-height: 1; padding: 2px; color: var(--text-3); }
   .post-rank-star.on { color: #e0a800; }
   .post-rank-hero-num { font-size: 24px; font-weight: 800; line-height: 1; }
   .post-rank-hero-num small { font-size: 11px; font-weight: 500; color: var(--text-3); }
   .post-rank-bar { height: 6px; border-radius: 999px; background: var(--bg); margin-top: 8px; overflow: hidden; }
   .post-rank-bar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b7fe8, #5b4fc4); }
-  .post-rank-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding-top: 10px; border-top: 1px dashed var(--border); }
+  .post-rank-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 4px; padding-top: 10px; border-top: 1px dashed var(--border); }
   .post-rank-stat { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
   .post-rank-stat b { font-size: 13px; }
   .post-rank-stat span { font-size: 10px; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -1821,7 +1833,7 @@
         <div class="analytics-card">
           <div class="analytics-card-header">
             <div class="analytics-card-title">🏆 Ranking dos melhores posts</div>
-            <div class="analytics-card-sub">Por engajamento · ⭐ marca potenciais quadros do canal</div>
+            <div class="analytics-card-sub">Por engajamento (comentários + reposts + envios + salvos) · ⭐ marca potenciais quadros do canal</div>
           </div>
           <div class="post-ranking-grid" id="an-post-ranking-grid" style="padding:14px 16px;"></div>
         </div>
@@ -2115,6 +2127,12 @@
         <div class="meta-label">📅 Publicação</div>
         <div class="meta-value" id="m-date">—</div>
       </div>
+      <div class="meta-row full">
+        <div class="meta-label">🎚️ Dificuldade</div>
+        <div class="meta-value">
+          <div class="dif-picker" id="m-dificuldade-picker"></div>
+        </div>
+      </div>
       <div class="meta-row full" id="m-partners-row" style="display:none;">
         <div class="meta-label">🤝 Parcerias vinculadas</div>
         <div class="meta-value" id="m-partners"></div>
@@ -2174,20 +2192,24 @@
           <input class="form-input" id="m-analytics-views" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
         </div>
         <div class="post-analytics-field">
-          <label class="form-label" for="m-analytics-reach">Alcance</label>
+          <label class="form-label" for="m-analytics-reach">Visualizadores (alcance)</label>
           <input class="form-input" id="m-analytics-reach" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
         </div>
         <div class="post-analytics-field">
-          <label class="form-label" for="m-analytics-likes">Curtidas</label>
-          <input class="form-input" id="m-analytics-likes" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+          <label class="form-label" for="m-analytics-followers">Seguidores</label>
+          <input class="form-input" id="m-analytics-followers" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
         </div>
         <div class="post-analytics-field">
           <label class="form-label" for="m-analytics-comments">Comentários</label>
           <input class="form-input" id="m-analytics-comments" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
         </div>
         <div class="post-analytics-field">
-          <label class="form-label" for="m-analytics-shares">Compartilhamentos</label>
-          <input class="form-input" id="m-analytics-shares" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+          <label class="form-label" for="m-analytics-reposts">Reposts</label>
+          <input class="form-input" id="m-analytics-reposts" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-sends">Envios</label>
+          <input class="form-input" id="m-analytics-sends" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
         </div>
         <div class="post-analytics-field">
           <label class="form-label" for="m-analytics-saves">Salvos</label>
@@ -2197,11 +2219,6 @@
       <div class="post-analytics-footer">
         <span class="post-analytics-feedback" id="m-analytics-feedback" aria-live="polite"></span>
       </div>
-    </section>
-    <section class="post-analytics-ranking">
-      <h3 class="post-analytics-ranking-title">🏆 Ranking dos melhores posts</h3>
-      <div class="post-analytics-ranking-sub">Ordenado por engajamento (curtidas + comentários + compartilhamentos + salvos). Marque ⭐ os posts com potencial de virar quadro do canal.</div>
-      <div class="post-ranking-grid" id="m-ranking-grid"></div>
     </section>
     </div>
     </div>
@@ -2820,6 +2837,13 @@
               <option value="Pin">📌 Pin</option>
             </select>
           </div>
+        </div>
+
+        <!-- Status | Plataformas -->
+        <div class="form-group">
+          <label class="form-label">Nível de dificuldade</label>
+          <input type="hidden" id="n-dificuldade" value="" />
+          <div class="dif-picker" id="n-dificuldade-picker"></div>
         </div>
 
         <!-- Status | Plataformas -->
@@ -5898,7 +5922,7 @@ function openPost(id) {
   document.getElementById('detail-modal').classList.add('open');
 }
 
-const POST_ANALYTICS_FIELDS = ['views', 'reach', 'comments', 'likes', 'shares', 'saves'];
+const POST_ANALYTICS_FIELDS = ['views', 'reach', 'followers', 'comments', 'reposts', 'sends', 'saves'];
 
 function setDetailModalTab(tab) {
   const isAnalytics = tab === 'analytics';
@@ -5913,17 +5937,42 @@ function setDetailModalTab(tab) {
   document.querySelector('#detail-modal .detail-tab-panels').scrollTop = 0;
 }
 
+const DIF_LEVELS = [
+  { n: 1, label: 'Muito fácil' }, { n: 2, label: 'Fácil' }, { n: 3, label: 'Médio' },
+  { n: 4, label: 'Difícil' }, { n: 5, label: 'Muito difícil' },
+];
+const DIF_LEGACY = { facil: 1, medio: 3, dificil: 5 };
+function difLevel(v) {
+  if (DIF_LEGACY[v]) return DIF_LEGACY[v];
+  const n = Number(v);
+  return n >= 1 && n <= 5 ? n : 0;
+}
+function renderDifPicker(containerId, level, onPick) {
+  const box = document.getElementById(containerId);
+  if (!box) return;
+  const draw = lv => {
+    const cur = DIF_LEVELS.find(l => l.n === lv);
+    box.innerHTML = `<div class="dif-steps">${DIF_LEVELS.map(l =>
+      `<button type="button" class="dif-step dif-l${l.n}${l.n <= lv ? ' on' : ''}${l.n === lv ? ' sel' : ''}" title="${l.label}" aria-label="Nível ${l.n}: ${l.label}" data-n="${l.n}">${l.n}</button>`).join('')}</div>
+      <div class="dif-caption">${cur ? `Nível ${cur.n} · ${cur.label}` : 'Toque num nível · 1 mais fácil, 5 mais difícil'}${cur ? ' <a href="#" class="dif-clear">limpar</a>' : ''}</div>`;
+    box.querySelectorAll('.dif-step').forEach(b => b.onclick = e => { e.stopPropagation(); const n = Number(b.dataset.n); const next = n === lv ? 0 : n; draw(next); onPick(next || ''); });
+    const clr = box.querySelector('.dif-clear');
+    if (clr) clr.onclick = e => { e.preventDefault(); e.stopPropagation(); draw(0); onPick(''); };
+  };
+  draw(level || 0);
+}
+
 function postMetricsTotals(post) {
-  const t = { views: 0, reach: 0, comments: 0, likes: 0, shares: 0, saves: 0 };
+  const t = { views: 0, reach: 0, followers: 0, comments: 0, reposts: 0, sends: 0, saves: 0 };
   Object.values(post.analyticsByPlatform || {}).forEach(m => {
     POST_ANALYTICS_FIELDS.forEach(f => { t[f] += Number(m && m[f]) || 0; });
   });
-  t.engagement = t.likes + t.comments + t.shares + t.saves;
+  t.engagement = t.comments + t.reposts + t.sends + t.saves;
   return t;
 }
 
 function renderPostRanking() {
-  ['m-ranking-grid', 'an-post-ranking-grid'].forEach(renderPostRankingInto);
+  ['an-post-ranking-grid'].forEach(renderPostRankingInto);
 }
 
 function renderPostRankingInto(gridId) {
@@ -5948,7 +5997,7 @@ function renderPostRankingInto(gridId) {
         <span class="post-rank-pos${i < 3 ? ' top' : ''}">${i < 3 ? medals[i] : i + 1}</span>
         <div class="post-rank-info">
           <div class="post-rank-title">${escapeHtml(p.titulo || 'Sem título')}</div>
-          <div class="post-rank-plats">${(Object.keys(p.analyticsByPlatform || {})).map(k => `<span>${escapeHtml(PLATFORM_LABELS[k] || k)}</span>`).join('')}</div>
+          <div class="post-rank-plats">${difLevel(p.dificuldade) ? `<span class="dif-chip dif-l${difLevel(p.dificuldade)}">🎚️ Nível ${difLevel(p.dificuldade)}/5</span>` : ''}${(Object.keys(p.analyticsByPlatform || {})).map(k => `<span>${escapeHtml(PLATFORM_LABELS[k] || k)}</span>`).join('')}</div>
         </div>
         <button type="button" class="post-rank-star${p.quadroPotencial ? ' on' : ''}" title="Marcar como potencial quadro do canal" onclick="togglePostQuadroPotencial(event,'${escapeHtml(String(p.id))}')">${p.quadroPotencial ? '⭐' : '☆'}</button>
       </div>
@@ -5957,7 +6006,7 @@ function renderPostRankingInto(gridId) {
         <div class="post-rank-bar"><i style="width:${Math.max(4, Math.round(t.engagement / maxEng * 100))}%"></i></div>
       </div>
       <div class="post-rank-stats">
-        ${stat('views', t.views)}${stat('curtidas', t.likes)}${stat('coment.', t.comments)}${stat('compart.', t.shares)}${stat('salvos', t.saves)}
+        ${stat('views', t.views)}${stat('visualiz.', t.reach)}${stat('seguid.', t.followers)}${stat('coment.', t.comments)}${stat('reposts', t.reposts)}${stat('envios', t.sends)}${stat('salvos', t.saves)}
       </div>
       ${p.quadroPotencial ? '<span class="post-rank-badge">⭐ Potencial quadro do canal</span>' : ''}
     </div>`).join('');
@@ -6412,6 +6461,8 @@ function openNewModal(prefill = {}) {
 
   document.getElementById('n-data').value    = prefill.data || todayStr();
   document.getElementById('n-formato').value = prefill.formato || 'Reels';
+  document.getElementById('n-dificuldade').value = difLevel(prefill.dificuldade) || '';
+  renderDifPicker('n-dificuldade-picker', difLevel(prefill.dificuldade), v => { document.getElementById('n-dificuldade').value = v || ''; });
   document.getElementById('n-status').value  = prefill.status || 'ideia';
   updateNewStatus(prefill.status || 'ideia');
   PLAT_META.forEach((p, i) => {
@@ -6543,6 +6594,7 @@ function saveNewPost() {
       post.requiredTags    = requiredTags;
       delete post.requiredTag;
       post.parceiroId      = parceiroId;
+      post.dificuldade     = document.getElementById('n-dificuldade').value;
       // fora de gravando/design o campo fica oculto: mantém o vínculo que já existia
       if (eventoVisivel) post.eventoId = eventoId;
     }
@@ -6566,6 +6618,7 @@ function saveNewPost() {
       inspiracoes:     formInsp,
       requiredTags,
       parceiroId,
+      dificuldade:     document.getElementById('n-dificuldade').value,
       eventoId,
     });
   }
@@ -6637,6 +6690,7 @@ function onNewEventoChange(v) { newEventoId = v ? Number(v) : null; }
 
 /* — Campo no card (modal de detalhe) — */
 function renderDetalheEvento(p) {
+  renderDifPicker('m-dificuldade-picker', difLevel(p.dificuldade), onDetailDificuldadeChange);
   const row = document.getElementById('m-evento-row');
   if (!row) return;
   if (!statusUsaEvento(p.status)) { row.style.display = 'none'; return; }
@@ -6649,6 +6703,14 @@ function refreshDetalheEventoLink(p) {
   document.getElementById('m-evento-link').innerHTML = ev
     ? `<span class="partner-link-chip" onclick="openEventoProducao(${ev.id})" title="Ver tudo que vai ser produzido neste evento">🎬 Ver o que produzir no evento</span>`
     : '';
+}
+function onDetailDificuldadeChange(value) {
+  const p = posts.find(x => x.id === currentPostId);
+  if (!p) return;
+  p.dificuldade = value || '';
+  savePosts();
+  renderGestaoKanban();
+  renderPostRanking();
 }
 function onDetailEventoChange(value) {
   const p = posts.find(x => x.id === currentPostId);
