@@ -10,7 +10,19 @@
         "ig"
       ],
       "formato": "Carousel",
-      "inspiracoes": []
+      "inspiracoes": [],
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1419,
+          "reach": 63,
+          "followers": 0,
+          "comments": 3,
+          "reposts": 3,
+          "sends": 0,
+          "saves": 4
+        }
+      }
     },
     {
       "id": 5,
@@ -127,7 +139,19 @@
         }
       ],
       "scenes": [],
-      "requiredTag": "slot8"
+      "requiredTag": "slot8",
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1340,
+          "reach": 89,
+          "followers": 0,
+          "comments": 3,
+          "reposts": 6,
+          "sends": 8,
+          "saves": 45
+        }
+      }
     },
     {
       "id": 12,
@@ -356,7 +380,19 @@
           "cena": "Cena deu comendo ou comida"
         }
       ],
-      "requiredTag": null
+      "requiredTag": null,
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3297,
+          "reach": 313,
+          "followers": 0,
+          "comments": 4,
+          "reposts": 6,
+          "sends": 7,
+          "saves": 23
+        }
+      }
     },
     {
       "id": 21,
@@ -5555,5 +5591,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:39:50.559Z"
+  "_updatedAt": "2026-11-02T15:42:06.369Z"
 }
