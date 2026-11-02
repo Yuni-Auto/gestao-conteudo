@@ -11,7 +11,7 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "dificuldade": 2,
+      "dificuldade": "2",
       "analyticsByPlatform": {
         "ig": {
           "views": 1419,
@@ -22,7 +22,27 @@
           "sends": 0,
           "saves": 4
         }
-      }
+      },
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot1"
+      ],
+      "parceiroId": null
     },
     {
       "id": 5,
@@ -362,26 +382,29 @@
         {
           "inicio": 0,
           "fim": 10,
-          "cena": "Cena de paisagem"
+          "cena": "Cena de paisagem",
+          "feito": false
         },
         {
           "inicio": 11,
           "fim": 12,
-          "cena": "Cena deu turistando"
+          "cena": "Cena deu turistando",
+          "feito": false
         },
         {
           "inicio": 13,
           "fim": 15,
-          "cena": "Cena de paisagem"
+          "cena": "Cena de paisagem",
+          "feito": false
         },
         {
           "inicio": 16,
           "fim": 18,
-          "cena": "Cena deu comendo ou comida"
+          "cena": "Cena deu comendo ou comida",
+          "feito": false
         }
       ],
-      "requiredTag": null,
-      "dificuldade": 3,
+      "dificuldade": "3",
       "analyticsByPlatform": {
         "ig": {
           "views": 3297,
@@ -392,7 +415,13 @@
           "sends": 7,
           "saves": 23
         }
-      }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null
     },
     {
       "id": 21,
@@ -584,12 +613,14 @@
         {
           "inicio": 0,
           "fim": 2,
-          "cena": "Não era um bug em produção"
+          "cena": "Não era um bug em produção",
+          "feito": false
         },
         {
           "inicio": 3,
           "fim": 6,
-          "cena": "A minha honesta reação"
+          "cena": "A minha honesta reação",
+          "feito": false
         }
       ],
       "data": "2026-06-26",
@@ -599,8 +630,7 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
-      "dificuldade": 2,
+      "dificuldade": "2",
       "analyticsByPlatform": {
         "ig": {
           "views": 3518,
@@ -611,7 +641,13 @@
           "sends": 8,
           "saves": 7
         }
-      }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null
     },
     {
       "id": 29,
@@ -889,52 +925,62 @@
         {
           "inicio": 0,
           "fim": 3,
-          "cena": "Andando pela rua"
+          "cena": "Andando pela rua",
+          "feito": false
         },
         {
           "inicio": 4,
           "fim": 5,
-          "cena": "Mostrando o caminho até lá"
+          "cena": "Mostrando o caminho até lá",
+          "feito": false
         },
         {
           "inicio": 6,
           "fim": 7,
-          "cena": "Me arrumando durante o caminho"
+          "cena": "Me arrumando durante o caminho",
+          "feito": false
         },
         {
           "inicio": 8,
           "fim": 10,
-          "cena": "Mostrando o caminho até lá"
+          "cena": "Mostrando o caminho até lá",
+          "feito": false
         },
         {
           "inicio": 11,
           "fim": 13,
-          "cena": "Mostrando transporte do evento"
+          "cena": "Mostrando transporte do evento",
+          "feito": false
         },
         {
           "inicio": 14,
           "fim": 16,
-          "cena": "Andando pelo evento"
+          "cena": "Andando pelo evento",
+          "feito": false
         },
         {
           "inicio": 17,
           "fim": 20,
-          "cena": "Mostrando ativações"
+          "cena": "Mostrando ativações",
+          "feito": false
         },
         {
           "inicio": 21,
           "fim": 24,
-          "cena": "Mostrando a parte de comida do evento"
+          "cena": "Mostrando a parte de comida do evento",
+          "feito": false
         },
         {
           "inicio": 25,
           "fim": 27,
-          "cena": "Me mostrando comendo algo"
+          "cena": "Me mostrando comendo algo",
+          "feito": false
         },
         {
           "inicio": 28,
           "fim": 30,
-          "cena": "Mostrando mais do evento e ativações "
+          "cena": "Mostrando mais do evento e ativações ",
+          "feito": false
         }
       ],
       "data": "2026-07-05",
@@ -945,7 +991,6 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
       "analyticsByPlatform": {
         "ig": {
           "views": 2405,
@@ -956,7 +1001,14 @@
           "sends": 2,
           "saves": 12
         }
-      }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": ""
     },
     {
       "id": 42,
@@ -1299,8 +1351,7 @@
       "plataformasStatus": null,
       "parceiroId": null,
       "requiredTags": [
-        "slot4",
-        "slot12"
+        "slot4"
       ],
       "analyticsByPlatform": {
         "ig": {
@@ -1997,7 +2048,9 @@
           "saves": 5
         }
       },
-      "requiredTags": [],
+      "requiredTags": [
+        "slot1"
+      ],
       "dificuldade": "2"
     },
     {
@@ -2720,10 +2773,9 @@
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": null,
-      "dificuldade": 2,
+      "dificuldade": "2",
       "analyticsByPlatform": {
         "ig": {
           "views": 1748,
@@ -2734,7 +2786,10 @@
           "sends": 0,
           "saves": 8
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ]
     },
     {
       "id": 101,
@@ -5591,5 +5646,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:42:06.369Z"
+  "_updatedAt": "2026-11-02T15:46:25.146Z"
 }
