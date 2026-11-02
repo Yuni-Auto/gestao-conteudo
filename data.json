@@ -2861,6 +2861,45 @@
           "saves": 980
         }
       }
+    },
+    {
+      "id": 103,
+      "titulo": "[reels] Gêneos da comunidade",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-22",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [],
+      "parceiroId": null,
+      "dificuldade": "5",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2595,
+          "reach": 1959,
+          "followers": 3,
+          "comments": 2,
+          "reposts": 5,
+          "sends": 1,
+          "saves": 6
+        }
+      }
     }
   ],
   "partners": [
@@ -5767,5 +5806,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:49:19.342Z"
+  "_updatedAt": "2026-11-02T15:52:23.204Z"
 }
