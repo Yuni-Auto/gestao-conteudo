@@ -2078,9 +2078,9 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-02",
-        "tt": "2026-10-03",
-        "yt": "2026-10-03"
+        "ig": "2026-09-07",
+        "tt": "2026-09-09",
+        "yt": "2026-09-15"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -2089,7 +2089,6 @@
       },
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1,
       "analyticsByPlatform": {
@@ -2102,7 +2101,11 @@
           "sends": 3,
           "saves": 7
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ],
+      "dificuldade": "4"
     },
     {
       "id": 85,
@@ -5451,5 +5454,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:27:00.047Z"
+  "_updatedAt": "2026-11-02T15:27:57.328Z"
 }
