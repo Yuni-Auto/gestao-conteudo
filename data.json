@@ -754,7 +754,19 @@
       "requiredTags": [
         "slot9"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3578,
+          "reach": 2413,
+          "followers": 1,
+          "comments": 2,
+          "reposts": 4,
+          "sends": 2,
+          "saves": 21
+        }
+      }
     },
     {
       "id": 41,
@@ -1444,6 +1456,17 @@
         "ig": "publicada",
         "tt": "publicada",
         "yt": "publicada"
+      },
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 7080,
+          "reach": 4581,
+          "followers": 30,
+          "comments": 25,
+          "reposts": 11,
+          "sends": 14,
+          "saves": 37
+        }
       }
     },
     {
@@ -1478,7 +1501,8 @@
       "plataformasStatus": {
         "ig": "publicada",
         "tt": "publicada"
-      }
+      },
+      "dificuldade": 2
     },
     {
       "id": 67,
@@ -5417,5 +5441,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:21:11.456Z"
+  "_updatedAt": "2026-11-02T15:25:31.098Z"
 }
