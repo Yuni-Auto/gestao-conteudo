@@ -1141,7 +1141,18 @@
       "requiredTags": [
         "slot4",
         "slot12"
-      ]
+      ],
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 38299,
+          "reach": 2322,
+          "followers": 1,
+          "comments": 7,
+          "reposts": 21,
+          "sends": 17,
+          "saves": 22
+        }
+      }
     },
     {
       "id": 52,
@@ -1364,7 +1375,19 @@
         "tt": "publicada",
         "yt": "publicada"
       },
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3578,
+          "reach": 2413,
+          "followers": 1,
+          "comments": 2,
+          "reposts": 4,
+          "sends": 2,
+          "saves": 21
+        }
+      }
     },
     {
       "id": 65,
@@ -1580,7 +1603,19 @@
       "parceiroId": null,
       "requiredTags": [
         "slot15"
-      ]
+      ],
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1058,
+          "reach": 461,
+          "followers": 1,
+          "comments": 1,
+          "reposts": 5,
+          "sends": 1,
+          "saves": 8
+        }
+      }
     },
     {
       "id": 71,
@@ -2124,7 +2159,19 @@
       "eventoId": null,
       "requiredTags": [
         "slot4"
-      ]
+      ],
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2081,
+          "reach": 1646,
+          "followers": 1,
+          "comments": 1,
+          "reposts": 7,
+          "sends": 0,
+          "saves": 3
+        }
+      }
     },
     {
       "id": 89,
@@ -5233,5 +5280,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T02:56:05.372Z"
+  "_updatedAt": "2026-11-02T15:05:29.504Z"
 }
