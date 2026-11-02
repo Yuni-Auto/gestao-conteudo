@@ -131,7 +131,7 @@
     },
     {
       "id": 12,
-      "titulo": "[carousel] Dump do mês",
+      "titulo": "[carrousel] Dump do mês",
       "desc": "Dump do mês de férias ✨\n\n#tech #rotina #dump #tecnologia",
       "data": "2026-06-29",
       "status": "publicada",
@@ -145,31 +145,42 @@
       "slides": [
         {
           "titulo": "Self do emojis",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Lugar onde passei",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Vídeo dançando ou treinando",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Foto estudando",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Momento em família ou com pets",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Foto com comidas",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "requiredTag": "slot1"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot1"
+      ],
+      "parceiroId": null
     },
     {
       "id": 13,
@@ -353,29 +364,6 @@
         }
       ],
       "requiredTag": null
-    },
-    {
-      "id": 22,
-      "titulo": "[reels] Quando esperar clareou... Clareou!",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": ""
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "formato": "Reels",
-      "inspiracoes": [],
-      "requiredTag": "slot4"
     },
     {
       "id": 23,
@@ -657,7 +645,7 @@
           "feito": false
         }
       ],
-      "data": "",
+      "data": "2026-11-18",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -711,10 +699,11 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
-      "data": "",
+      "data": "2026-12-03",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -722,7 +711,12 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot8"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot8"
+      ],
+      "parceiroId": null
     },
     {
       "id": 39,
@@ -869,32 +863,41 @@
     },
     {
       "id": 43,
-      "titulo": "[carousel] Calendário de eventos do mês",
+      "titulo": "[carousel] Eventos tech anuais que amo ir",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-11-27",
       "status": "publicada",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt"
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot11"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot11"
+      ],
+      "parceiroId": null
     },
     {
       "id": 44,
@@ -981,7 +984,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-12",
+      "data": "2026-11-10",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1034,11 +1037,12 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-12-01",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1052,8 +1056,12 @@
           "link": "https://www.instagram.com/p/DN6dMjJkXti/?igsh=MTNwcGptOHRuampmcw=="
         }
       ],
-      "requiredTag": "slot5",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot5"
+      ],
+      "parceiroId": null
     },
     {
       "id": 50,
@@ -1268,7 +1276,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-04",
+      "data": "2026-11-16",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1299,12 +1307,13 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "roteiro",
+      "data": "2026-11-23",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -1316,8 +1325,12 @@
           "link": "https://www.instagram.com/p/DW9J67XEcXV/?igsh=MnozcGhoeDhjdDV2"
         }
       ],
-      "requiredTag": "slot7",
-      "plataformasDatas": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot7"
+      ],
+      "parceiroId": null
     },
     {
       "id": 62,
@@ -1546,7 +1559,7 @@
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-11-01",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -1555,8 +1568,8 @@
       ],
       "plataformasDatas": {
         "ig": "2026-10-27",
-        "tt": "2026-10-29",
-        "li": "2026-10-29"
+        "tt": "2026-11-02",
+        "li": "2026-11-02"
       },
       "formato": "Carousel",
       "inspiracoes": [],
@@ -1593,7 +1606,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-10",
+      "data": "2026-11-20",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1637,7 +1650,7 @@
         }
       ],
       "scenes": [],
-      "data": "",
+      "data": "2026-11-12",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1820,38 +1833,6 @@
       "parceiroId": null
     },
     {
-      "id": 81,
-      "titulo": "[reels] Trend do Osmarzinho",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
-        {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "",
-          "feito": false
-        }
-      ],
-      "data": "",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Reels",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://www.instagram.com/reel/DdM3vzApYZp/?stkn=bWQydWFuYm00Mmpy"
-        }
-      ],
-      "requiredTag": "slot4",
-      "parceiroId": null
-    },
-    {
       "id": 82,
       "titulo": "[post] Palestrante no TDC",
       "desc": "🚀 Agora é oficial: vou palestrar no TDC São Paulo! 💜\n\nVou falar sobre um tema que surgiu a partir de um desafio real de modernização que vivenciei nos últimos meses e que me levou a estudar diferentes possibilidades para conduzir uma migração de AngularJS para Angular 21.\n\nAngularJS para Angular 21: acelerando migrações com GitHub Copilot.\n\nDurante esse processo, uma das coisas que mais chamou minha atenção foi perceber que o Copilot pode ir muito além da geração de código.\n\nO Copilot acelerou o processo porque não foi utilizado apenas para gerar código. Ele também ajudou a entender o legado, estruturar a análise, planejar a migração, implementar, testar e validar.\n\nÉ justamente essa abordagem que vou mostrar no TDC: como usar IA como parte de um processo estruturado de migração, e não apenas como uma ferramenta para gerar código. Contexto, estratégia, colaboração e validação são fundamentais para conduzir uma migração com qualidade.\n\nE tem mais: vou levar uma demo prática mostrando um pouco desse processo do AngularJS ao Angular 21+. 👀🤖",
@@ -1896,7 +1877,7 @@
           "feito": false
         }
       ],
-      "data": "",
+      "data": "2026-11-01",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -1904,8 +1885,8 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-08",
-        "tt": "2026-10-18",
+        "ig": "2026-11-25",
+        "tt": "2026-11-25",
         "yt": "2026-10-18"
       },
       "plataformasStatus": {
@@ -2166,7 +2147,7 @@
           "feito": false
         }
       ],
-      "data": "",
+      "data": "2026-11-04",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2185,9 +2166,9 @@
     },
     {
       "id": 92,
-      "titulo": "Dump do mês",
-      "desc": "",
-      "carouselLegenda": "",
+      "titulo": "[carrousel] Dump do mês",
+      "desc": "Dump do Outubro ✨ #tech #rotina #dump #tecnologia\n",
+      "carouselLegenda": "Dump do Outubro ✨ #tech #rotina #dump #tecnologia\n",
       "slides": [
         {
           "titulo": "",
@@ -2196,7 +2177,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-10-31",
+      "data": "2026-11-02",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2206,9 +2187,11 @@
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot1",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": [
+        "slot1"
+      ]
     },
     {
       "id": 94,
@@ -2388,51 +2371,6 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTag": null,
-      "parceiroId": null,
-      "eventoId": null
-    },
-    {
-      "id": 100,
-      "titulo": "Dump do mês",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        }
-      ],
-      "scenes": [],
-      "data": "2026-11-02",
-      "status": "ideia",
-      "plataformas": [
-        "ig",
-        "tt",
-        "yt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Carousel",
-      "inspiracoes": [],
-      "requiredTags": [
-        "slot1"
-      ],
       "parceiroId": null,
       "eventoId": null
     }
@@ -4913,5 +4851,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:58:41.201Z"
+  "_updatedAt": "2026-11-02T01:15:38.743Z"
 }
