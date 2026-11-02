@@ -445,7 +445,19 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 8959,
+          "reach": 384,
+          "followers": 7,
+          "comments": 10,
+          "reposts": 5,
+          "sends": 6,
+          "saves": 34
+        }
+      }
     },
     {
       "id": 25,
@@ -524,7 +536,19 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3518,
+          "reach": 375,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 6,
+          "sends": 8,
+          "saves": 7
+        }
+      }
     },
     {
       "id": 29,
@@ -5501,5 +5525,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:31:37.422Z"
+  "_updatedAt": "2026-11-02T15:33:27.187Z"
 }
