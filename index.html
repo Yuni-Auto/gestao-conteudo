@@ -408,6 +408,12 @@
   .post-rank-filter { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--text-2); }
   .post-rank-filter small { font-weight: 500; color: var(--text-3); margin-left: 4px; }
   .post-rank-filter.on { background: #efecff; border-color: #b9b0f5; color: #4a3fb0; }
+  .post-rank-filter.group { margin-left: auto; }
+  .post-rank-group-posts { display: flex; flex-direction: column; gap: 2px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .post-rank-group-posts a { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--text-2); text-decoration: none; padding: 3px 6px; border-radius: 6px; }
+  .post-rank-group-posts a:hover { background: var(--bg); }
+  .post-rank-group-posts a span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .post-rank-group-posts a b { flex: none; }
   .post-rank-star { flex: none; border: 0; background: none; font-size: 20px; cursor: pointer; line-height: 1; padding: 2px; color: var(--text-3); }
   .post-rank-star.on { color: #e0a800; }
   .post-rank-hero-num { font-size: 24px; font-weight: 800; line-height: 1; }
@@ -5991,6 +5997,12 @@ function renderPostRanking() {
 }
 
 let postRankingFormat = '';
+let postRankingGroup = false;
+
+function setPostRankingGroup(on) {
+  postRankingGroup = on;
+  renderPostRanking();
+}
 
 function setPostRankingFormat(fmt) {
   postRankingFormat = fmt;
@@ -6008,11 +6020,51 @@ function renderPostRankingFilters() {
     return list.length ? Math.round(list.reduce((a, p) => a + postMetricsTotals(p).engagement, 0) / list.length) : 0;
   };
   const best = formats.reduce((b, f) => (b === null || avg(f) > avg(b) ? f : b), null);
+  const groupBtn = `<button type="button" class="post-rank-filter group${postRankingGroup ? ' on' : ''}" onclick="setPostRankingGroup(${!postRankingGroup})" title="Une posts da mesma estratégia num só card">📌 Agrupar por estratégia</button>`;
   box.innerHTML = [`<button type="button" class="post-rank-filter${postRankingFormat ? '' : ' on'}" onclick="setPostRankingFormat('')">Todos</button>`]
     .concat(formats.map(f => {
       const n = withMetrics.filter(p => p.formato === f).length;
       return `<button type="button" class="post-rank-filter${postRankingFormat === f ? ' on' : ''}" onclick="setPostRankingFormat('${escapeHtml(f)}')" title="Média de ${avg(f).toLocaleString('pt-BR')} engajamentos por post">${escapeHtml(f)} <small>${n} · média ${avg(f).toLocaleString('pt-BR')}</small>${f === best && formats.length > 1 ? ' 🏆' : ''}</button>`;
-    })).join('');
+    })).concat(groupBtn).join('');
+}
+
+function renderPostRankingGroups(grid, entries) {
+  const fmt = n => n.toLocaleString('pt-BR');
+  const groups = new Map();
+  entries.forEach(e => {
+    const titles = postStrategyTitles(e.p);
+    (titles.length ? titles : ['']).forEach(title => {
+      if (!groups.has(title)) groups.set(title, []);
+      groups.get(title).push(e);
+    });
+  });
+  const list = [...groups.entries()].map(([title, items]) => {
+    const sum = { views: 0, reach: 0, followers: 0, comments: 0, reposts: 0, sends: 0, saves: 0, engagement: 0 };
+    items.forEach(({ t }) => Object.keys(sum).forEach(k => { sum[k] += t[k]; }));
+    items.sort((a, b) => b.t.engagement - a.t.engagement);
+    return { title, items, sum, avg: Math.round(sum.engagement / items.length) };
+  }).sort((a, b) => b.avg - a.avg || b.sum.engagement - a.sum.engagement).slice(0, 10);
+  const maxAvg = Math.max(...list.map(g => g.avg), 1);
+  const medals = ['🥇', '🥈', '🥉'];
+  const stat = (label, v) => `<div class="post-rank-stat"><b>${fmt(v)}</b><span>${label}</span></div>`;
+  grid.innerHTML = list.map((g, i) => `
+    <div class="post-rank-card">
+      <div class="post-rank-head">
+        <span class="post-rank-pos${i < 3 ? ' top' : ''}">${i < 3 ? medals[i] : i + 1}</span>
+        <div class="post-rank-info">
+          <div class="post-rank-title">${g.title ? '📌 ' + escapeHtml(g.title) : 'Sem estratégia'}</div>
+          <div class="post-rank-plats" style="text-transform:none"><span style="text-transform:none">${g.items.length} ${g.items.length === 1 ? 'post' : 'posts'}</span><span style="text-transform:none">${fmt(g.sum.engagement)} engaj. no total</span></div>
+        </div>
+      </div>
+      <div class="post-rank-hero">
+        <div class="post-rank-hero-num">${fmt(g.avg)} <small>engajamentos por post</small></div>
+        <div class="post-rank-bar"><i style="width:${Math.max(4, Math.round(g.avg / maxAvg * 100))}%"></i></div>
+      </div>
+      <div class="post-rank-stats">
+        ${stat('views', g.sum.views)}${stat('visualiz.', g.sum.reach)}${stat('seguid.', g.sum.followers)}${stat('coment.', g.sum.comments)}${stat('reposts', g.sum.reposts)}${stat('envios', g.sum.sends)}${stat('salvos', g.sum.saves)}
+      </div>
+      <div class="post-rank-group-posts">${g.items.map(({ p, t }) => `<a href="#" onclick="event.preventDefault();openPostForEdit('${escapeHtml(String(p.id))}')"><span>${escapeHtml(p.titulo || 'Sem título')}</span><b>${fmt(t.engagement)}</b></a>`).join('')}</div>
+    </div>`).join('');
 }
 
 function renderPostRankingInto(gridId) {
@@ -6023,12 +6075,13 @@ function renderPostRankingInto(gridId) {
     .map(p => ({ p, t: postMetricsTotals(p) }))
     .filter(x => x.t.engagement > 0 || x.t.views > 0)
     .filter(x => !postRankingFormat || x.p.formato === postRankingFormat)
-    .sort((a, b) => b.t.engagement - a.t.engagement || b.t.views - a.t.views)
-    .slice(0, 10);
+    .sort((a, b) => b.t.engagement - a.t.engagement || b.t.views - a.t.views);
   if (!ranked.length) {
     grid.innerHTML = '<div class="post-ranking-empty">Salve métricas em alguns posts para ver o ranking.</div>';
     return;
   }
+  if (postRankingGroup) { renderPostRankingGroups(grid, ranked); return; }
+  ranked.length = Math.min(ranked.length, 10);
   const maxEng = Math.max(...ranked.map(x => x.t.engagement), 1);
   const medals = ['🥇', '🥈', '🥉'];
   const stat = (label, v) => `<div class="post-rank-stat"><b>${fmt(v)}</b><span>${label}</span></div>`;
