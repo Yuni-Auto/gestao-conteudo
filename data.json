@@ -3107,6 +3107,34 @@
           "period": "monthly"
         }
       }
+    },
+    "li": {
+      "2026": {
+        "seguidores": {
+          "target": 3000,
+          "period": "annual"
+        },
+        "views": {
+          "target": 150,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 35,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 50,
+          "period": "monthly"
+        },
+        "conteudo": {
+          "target": 2,
+          "period": "monthly"
+        },
+        "clicks": {
+          "target": 1,
+          "period": "monthly"
+        }
+      }
     }
   },
   "brainstormNotes": [
@@ -4820,5 +4848,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:51:38.800Z"
+  "_updatedAt": "2026-11-02T00:52:53.601Z"
 }
