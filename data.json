@@ -186,7 +186,7 @@
       "id": 13,
       "titulo": "[carousel] Stacks que uso no meu dia a dia",
       "desc": "",
-      "data": "",
+      "data": "2026-11-12",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -198,11 +198,15 @@
       "slides": [
         {
           "titulo": "",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
-      "requiredTag": null
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [],
+      "parceiroId": null
     },
     {
       "id": 14,
@@ -658,7 +662,7 @@
         }
       ],
       "data": "2026-12-04",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -902,7 +906,7 @@
       ],
       "scenes": [],
       "data": "2026-12-02",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -1280,7 +1284,7 @@
       ],
       "scenes": [],
       "data": "2026-11-22",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -1617,8 +1621,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-12",
-      "status": "ideia",
+      "data": "2026-11-04",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -2114,7 +2118,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-04",
+      "data": "2026-11-06",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2145,7 +2149,7 @@
       ],
       "scenes": [],
       "data": "2026-11-02",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -2365,7 +2369,7 @@
       ],
       "scenes": [],
       "data": "2026-11-30",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig"
       ],
@@ -5165,5 +5169,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T01:27:36.153Z"
+  "_updatedAt": "2026-11-02T01:33:40.851Z"
 }
