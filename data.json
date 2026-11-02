@@ -1099,7 +1099,19 @@
         "tt": "publicada",
         "yt": "publicada"
       },
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 1,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 121815,
+          "reach": 73405,
+          "followers": 63,
+          "comments": 152,
+          "reposts": 587,
+          "sends": 852,
+          "saves": 507
+        }
+      }
     },
     {
       "id": 51,
@@ -2464,7 +2476,19 @@
       "inspiracoes": [],
       "requiredTag": null,
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1748,
+          "reach": 719,
+          "followers": 9,
+          "comments": 8,
+          "reposts": 4,
+          "sends": 0,
+          "saves": 8
+        }
+      }
     },
     {
       "id": 101,
@@ -5280,5 +5304,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:05:29.504Z"
+  "_updatedAt": "2026-11-02T15:07:57.002Z"
 }
