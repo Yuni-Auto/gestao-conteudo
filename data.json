@@ -2885,8 +2885,8 @@
         "views": 142806,
         "alcance": 81848,
         "eng": 12431,
-        "conteudo": 10,
-        "clicks": 7
+        "conteudo": 0,
+        "clicks": 0
       }
     },
     "tt": {
@@ -3051,7 +3051,36 @@
       }
     }
   },
-  "analyticsGoals": {},
+  "analyticsGoals": {
+    "ig": {
+      "2026": {
+        "seguidores": {
+          "target": 10000,
+          "period": "annual"
+        },
+        "views": {
+          "target": 150000,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 100000,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 15000,
+          "period": "monthly"
+        },
+        "conteudo": {
+          "target": 13,
+          "period": "monthly"
+        },
+        "clicks": {
+          "target": 10,
+          "period": "monthly"
+        }
+      }
+    }
+  },
   "brainstormNotes": [
     {
       "id": 2,
@@ -4763,5 +4792,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:42:53.867Z"
+  "_updatedAt": "2026-11-02T00:50:15.835Z"
 }
