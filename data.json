@@ -3072,20 +3072,10 @@
           "titulo": "",
           "texto": "",
           "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-11-02",
+      "data": "2026-11-04",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3098,41 +3088,6 @@
         {
           "creator": "",
           "link": "https://vt.tiktok.com/ZSp1Co1L9/"
-        }
-      ],
-      "requiredTags": [
-        "slot4"
-      ],
-      "parceiroId": null,
-      "dificuldade": "3",
-      "eventoId": null
-    },
-    {
-      "id": 109,
-      "titulo": "[carrousel] O que “ganhei” após entrar na faculdade",
-      "desc": "",
-      "carouselLegenda": "",
-      "slides": [
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        }
-      ],
-      "scenes": [],
-      "data": "2026-11-02",
-      "status": "pesquisar",
-      "plataformas": [
-        "ig",
-        "tt"
-      ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
-      "formato": "Carousel",
-      "inspiracoes": [
-        {
-          "creator": "",
-          "link": "https://vt.tiktok.com/ZSp1XgHxG/"
         }
       ],
       "requiredTags": [
@@ -6077,5 +6032,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:34:11.310Z"
+  "_updatedAt": "2026-11-02T16:42:42.226Z"
 }
