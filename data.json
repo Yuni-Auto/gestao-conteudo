@@ -2823,7 +2823,7 @@
     },
     {
       "id": 102,
-      "titulo": "[reels] trabalhar na TI, compensa ?",
+      "titulo": "[reels] Trabalhar na TI, compensa ?",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -2907,16 +2907,6 @@
       "desc": "O que usei na criação do meu app",
       "carouselLegenda": "O que usei na criação do meu app",
       "slides": [
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
-        {
-          "titulo": "",
-          "texto": "",
-          "feito": false
-        },
         {
           "titulo": "",
           "texto": "",
@@ -5945,5 +5935,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:10:42.228Z"
+  "_updatedAt": "2026-11-02T16:12:39.445Z"
 }
