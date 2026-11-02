@@ -185,16 +185,16 @@
     {
       "id": 13,
       "titulo": "[carousel] Stacks que uso no meu dia a dia",
-      "desc": "",
+      "desc": "Stacks que uso:\n\n* Angular 21+\n* Sass\n* CI/CD\n* Typescript",
       "data": "2026-11-12",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "carouselLegenda": "",
+      "carouselLegenda": "Stacks que uso:\n\n* Angular 21+\n* Sass\n* CI/CD\n* Typescript",
       "slides": [
         {
           "titulo": "",
@@ -2241,7 +2241,7 @@
     {
       "id": 94,
       "titulo": "[carroussel] Metas que eu estabeleci para mês/ano",
-      "desc": "Metas que eu estabeleci para mês/ano",
+      "desc": "* Ter uma reserva de emergência\n* Estar mais ativa na comunidade\n* Palestrar em um grande evento\n* Viajar para um grande evento",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
@@ -2253,7 +2253,7 @@
         }
       ],
       "data": "2026-11-08",
-      "status": "ideia",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -5233,5 +5233,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T02:14:59.913Z"
+  "_updatedAt": "2026-11-02T02:24:54.670Z"
 }
