@@ -490,21 +490,24 @@
     },
     {
       "id": 26,
-      "titulo": "[carousel] programa de estágio junho",
+      "titulo": "[carousel] Programa de estágio Junho",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
           "titulo": "Programa de estágio na Vivo",
-          "texto": "Link: https://lnkd.in/dkv-ziRj\n\nInscrições de 22/06 até 24/07\nÁreas: Tecnologia \nModalidade: híbrido\nVR/VA, Plano de sáude/médico"
+          "texto": "Link: https://lnkd.in/dkv-ziRj\n\nInscrições de 22/06 até 24/07\nÁreas: Tecnologia \nModalidade: híbrido\nVR/VA, Plano de sáude/médico",
+          "feito": false
         },
         {
           "titulo": "Programa de estágio na Hotmart",
-          "texto": "https://troopers.hotmart.com/programa-de-estagio-2026#Escolhasuaarea-PC\n\nInscrições: até 03/07\nÁreas: Tecnologia e Negócios\nModalidade: híbrido\nCartão Flash, Plano de sáude, Wellhub e Totalpass"
+          "texto": "https://troopers.hotmart.com/programa-de-estagio-2026#Escolhasuaarea-PC\n\nInscrições: até 03/07\nÁreas: Tecnologia e Negócios\nModalidade: híbrido\nCartão Flash, Plano de sáude, Wellhub e Totalpass",
+          "feito": false
         },
         {
           "titulo": "Programa de estágio na Elo",
-          "texto": "https://www.elo.com.br/carreiras/programa-de-estagio/\n\nInscrições até 05/07\nÁreas: Tecnologia, negócios e Gestão de pessoas\nModalidade: híbrido\nVR, VT, Plano de sáude/odonto, Wellhub"
+          "texto": "https://www.elo.com.br/carreiras/programa-de-estagio/\n\nInscrições até 05/07\nÁreas: Tecnologia, negócios e Gestão de pessoas\nModalidade: híbrido\nVR, VT, Plano de sáude/odonto, Wellhub",
+          "feito": false
         }
       ],
       "scenes": [],
@@ -516,7 +519,24 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot3"
+      ],
+      "parceiroId": null,
+      "dificuldade": "4",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 23570,
+          "reach": 3847,
+          "followers": 299,
+          "comments": 533,
+          "reposts": 24,
+          "sends": 1700,
+          "saves": 1600
+        }
+      }
     },
     {
       "id": 27,
@@ -5535,5 +5555,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:36:25.615Z"
+  "_updatedAt": "2026-11-02T15:39:50.559Z"
 }
