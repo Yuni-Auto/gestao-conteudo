@@ -306,7 +306,19 @@
         }
       ],
       "scenes": [],
-      "requiredTag": "slot15"
+      "requiredTag": "slot15",
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1445,
+          "reach": 667,
+          "followers": 0,
+          "comments": 1,
+          "reposts": 4,
+          "sends": 0,
+          "saves": 17
+        }
+      }
     },
     {
       "id": 20,
@@ -417,11 +429,13 @@
       "slides": [
         {
           "titulo": "Copa de 2022",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Copa de 2026",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
@@ -433,7 +447,24 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null
+      "dificuldade": "2",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 8959,
+          "reach": 384,
+          "followers": 7,
+          "comments": 10,
+          "reposts": 5,
+          "sends": 6,
+          "saves": 34
+        }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null
     },
     {
       "id": 25,
@@ -512,7 +543,19 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3518,
+          "reach": 375,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 6,
+          "sends": 8,
+          "saves": 7
+        }
+      }
     },
     {
       "id": 29,
@@ -672,7 +715,19 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot4"
+      "requiredTag": "slot4",
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1414,
+          "reach": 831,
+          "followers": 0,
+          "comments": 2,
+          "reposts": 6,
+          "sends": 0,
+          "saves": 5
+        }
+      }
     },
     {
       "id": 38,
@@ -754,7 +809,19 @@
       "requiredTags": [
         "slot9"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 2,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3578,
+          "reach": 2413,
+          "followers": 1,
+          "comments": 2,
+          "reposts": 4,
+          "sends": 2,
+          "saves": 21
+        }
+      }
     },
     {
       "id": 41,
@@ -822,7 +889,18 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2405,
+          "reach": 1965,
+          "followers": 2,
+          "comments": 3,
+          "reposts": 5,
+          "sends": 2,
+          "saves": 12
+        }
+      }
     },
     {
       "id": 42,
@@ -844,7 +922,19 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3"
+      "requiredTag": "slot3",
+      "dificuldade": 4,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 6591,
+          "reach": 3394,
+          "followers": 12,
+          "comments": 47,
+          "reposts": 8,
+          "sends": 273,
+          "saves": 235
+        }
+      }
     },
     {
       "id": 43,
@@ -1088,10 +1178,9 @@
           "link": "https://www.instagram.com/reel/DaTAUstPShP/?igsh=a2E0YnhqYnZ3YjNr"
         }
       ],
-      "requiredTag": "slot4",
       "plataformasDatas": {
-        "ig": "2026-10-08",
-        "tt": "2026-10-07",
+        "ig": "2026-09-26",
+        "tt": "2026-09-26",
         "yt": "2026-10-11"
       },
       "plataformasStatus": {
@@ -1100,7 +1189,7 @@
         "yt": "publicada"
       },
       "parceiroId": null,
-      "dificuldade": 1,
+      "dificuldade": "1",
       "analyticsByPlatform": {
         "ig": {
           "views": 121815,
@@ -1111,7 +1200,10 @@
           "sends": 852,
           "saves": 507
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ]
     },
     {
       "id": 51,
@@ -1164,7 +1256,8 @@
           "sends": 17,
           "saves": 22
         }
-      }
+      },
+      "dificuldade": "2"
     },
     {
       "id": 52,
@@ -1194,7 +1287,6 @@
           "link": "https://www.instagram.com/reel/DbHehlXOEFY/?igsh=OXJmY2tlaWFydmk4"
         }
       ],
-      "requiredTag": "slot4",
       "plataformasDatas": {
         "ig": "2026-09-22",
         "tt": "2026-09-22",
@@ -1216,7 +1308,11 @@
           "sends": 11,
           "saves": 14
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ],
+      "dificuldade": "3"
     },
     {
       "id": 53,
@@ -1422,7 +1518,8 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": ""
+          "cena": "",
+          "feito": false
         }
       ],
       "data": "2026-08-13",
@@ -1434,7 +1531,6 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
       "plataformasDatas": {
         "ig": "2026-08-13",
         "tt": "2026-09-11",
@@ -1444,7 +1540,23 @@
         "ig": "publicada",
         "tt": "publicada",
         "yt": "publicada"
-      }
+      },
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 7080,
+          "reach": 4581,
+          "followers": 30,
+          "comments": 25,
+          "reposts": 11,
+          "sends": 14,
+          "saves": 37
+        }
+      },
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3"
     },
     {
       "id": 66,
@@ -1478,7 +1590,8 @@
       "plataformasStatus": {
         "ig": "publicada",
         "tt": "publicada"
-      }
+      },
+      "dificuldade": 2
     },
     {
       "id": 67,
@@ -1815,7 +1928,6 @@
       },
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1,
       "analyticsByPlatform": {
@@ -1828,7 +1940,9 @@
           "sends": 1,
           "saves": 5
         }
-      }
+      },
+      "requiredTags": [],
+      "dificuldade": "2"
     },
     {
       "id": 75,
@@ -2045,9 +2159,9 @@
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-10-02",
-        "tt": "2026-10-03",
-        "yt": "2026-10-03"
+        "ig": "2026-09-07",
+        "tt": "2026-09-09",
+        "yt": "2026-09-15"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -2056,7 +2170,6 @@
       },
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": 1,
       "analyticsByPlatform": {
@@ -2069,7 +2182,11 @@
           "sends": 3,
           "saves": 7
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ],
+      "dificuldade": "4"
     },
     {
       "id": 85,
@@ -2270,7 +2387,6 @@
           "link": "https://www.instagram.com/p/DcRp_TDpJAF/"
         }
       ],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": null,
       "analyticsByPlatform": {
@@ -2283,7 +2399,9 @@
           "sends": 10,
           "saves": 18
         }
-      }
+      },
+      "requiredTags": [],
+      "dificuldade": "4"
     },
     {
       "id": 91,
@@ -2448,7 +2566,7 @@
       "requiredTags": [
         "slot3"
       ],
-      "dificuldade": "",
+      "dificuldade": "4",
       "analyticsByPlatform": {
         "ig": {
           "views": 5436,
@@ -2592,7 +2710,7 @@
     },
     {
       "id": 102,
-      "titulo": "[reels] trabalhar na TI,compensa ?",
+      "titulo": "[reels] trabalhar na TI, compensa ?",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -5417,5 +5535,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:21:11.456Z"
+  "_updatedAt": "2026-11-02T15:36:25.615Z"
 }
