@@ -356,6 +356,61 @@
   .post-tag-table tbody tr { cursor: pointer; transition: background 0.1s; }
   .post-tag-table tbody tr:hover { background: var(--bg); }
   .post-tag-empty { padding: 26px; color: var(--text-3); font-size: 13px; text-align: center; }
+  .post-analytics { padding: 16px 18px; border-top: 1px solid var(--border); background: var(--bg); }
+  .detail-modal-tabs { display: flex; gap: 6px; padding: 8px 22px 0; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  .detail-modal-tab { padding: 8px 12px; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--text-2); font: inherit; font-size: 13px; cursor: pointer; }
+  .detail-modal-tab:hover { color: var(--text); }
+  .detail-modal-tab.active { color: #5b50c8; border-bottom-color: #5b50c8; font-weight: 600; }
+  .detail-tab-panels { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+  .detail-tab-panel { display: none; }
+  .detail-tab-panel.active { display: block; }
+  .post-analytics-header { display: flex; flex-direction: column; align-items: stretch; gap: 14px; margin-bottom: 18px; }
+  .post-analytics-title { font-size: 16px; font-weight: 650; }
+  .post-analytics-platform-wrap { max-width: 360px; }
+  .post-analytics-platform-wrap .form-label { margin-bottom: 6px; }
+  .post-analytics-platform { width: 100%; }
+  .post-analytics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .post-analytics-field { min-width: 0; padding: 11px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
+  .post-analytics-field .form-label { margin-bottom: 7px; }
+  .post-analytics-field .form-input { min-height: 40px; background: var(--surface); }
+  .post-analytics-footer { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 12px; }
+  .post-analytics-feedback { margin-right: auto; color: var(--text-3); font-size: 11.5px; }
+  .post-analytics-ranking { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .post-analytics-ranking-title { font-size: 16px; margin: 0 0 4px; }
+  .post-analytics-ranking-sub { color: var(--text-3); font-size: 12px; margin-bottom: 12px; }
+  .post-ranking-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; align-items: start; }
+  .post-rank-card { border: 1px solid var(--border); border-radius: 14px; background: #fff; padding: 14px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .post-rank-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(60,50,120,.12); }
+  .post-rank-card.current { border-color: var(--accent, #5b4fc4); box-shadow: 0 0 0 2px rgba(91,79,196,.15); }
+  .post-rank-card.potential { background: linear-gradient(180deg, #fffaea, #fff); border-color: #f0c64a; }
+  .post-rank-head { display: flex; align-items: flex-start; gap: 10px; }
+  .post-rank-pos { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--text-3); }
+  .post-rank-pos.top { background: none; font-size: 24px; }
+  .post-rank-info { flex: 1; min-width: 0; }
+  .post-rank-title { font-size: 13.5px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .post-rank-plats { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .post-rank-plats span { font-size: 10.5px; padding: 1px 7px; border-radius: 999px; background: var(--bg); color: var(--text-3); border: 1px solid var(--border); text-transform: capitalize; }
+  .post-rank-star { flex: none; border: 0; background: none; font-size: 20px; cursor: pointer; line-height: 1; padding: 2px; color: var(--text-3); }
+  .post-rank-star.on { color: #e0a800; }
+  .post-rank-hero-num { font-size: 24px; font-weight: 800; line-height: 1; }
+  .post-rank-hero-num small { font-size: 11px; font-weight: 500; color: var(--text-3); }
+  .post-rank-bar { height: 6px; border-radius: 999px; background: var(--bg); margin-top: 8px; overflow: hidden; }
+  .post-rank-bar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b7fe8, #5b4fc4); }
+  .post-rank-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding-top: 10px; border-top: 1px dashed var(--border); }
+  .post-rank-stat { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .post-rank-stat b { font-size: 13px; }
+  .post-rank-stat span { font-size: 10px; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .post-rank-badge { align-self: flex-start; font-size: 11px; font-weight: 600; background: #fdecaa; color: #5a4300; border-radius: 999px; padding: 2px 10px; }
+  .post-ranking-empty { color: var(--text-3); font-size: 12.5px; grid-column: 1 / -1; }
+  .post-analytics { border-top: 0; background: var(--surface); padding: 20px 22px 24px; }
+  @media (max-width: 600px) {
+    .post-analytics { padding: 14px; }
+    .post-analytics-header { gap: 12px; margin-bottom: 14px; }
+    .post-analytics-field { padding: 9px; }
+  }
+  @media (max-width: 380px) {
+    .post-analytics-grid { grid-template-columns: 1fr; }
+  }
   .plat-pill { display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; border-radius: 999px; font-size: 11px; font-weight: 600; margin-right: 3px; }
   .plat-pill.ig { background: #fde8ef; color: #b5223a; }
   .plat-pill.tt { background: #e8e8e8; color: #222; }
@@ -1255,7 +1310,8 @@
     /* Modais longos (detalhe do post e novo/editar): a tela inteira rola junto e
        só os botões ficam fixos embaixo — antes os campos fixos "espremiam" o conteúdo */
     #detail-modal .modal, #new-modal .modal { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
-    #detail-modal .modal > *, #new-modal .modal > * { flex-shrink: 0; }
+    #detail-modal .modal > *:not(.detail-tab-panels), #new-modal .modal > * { flex-shrink: 0; }
+    #detail-modal .detail-tab-panels { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
     #detail-modal .modal-body, #new-modal .modal-body { overflow: visible; flex: none; }
     #detail-modal .modal-footer, #new-modal .new-modal-footer-actions {
       position: sticky; bottom: 0; z-index: 3; background: var(--surface);
@@ -1761,6 +1817,15 @@
           </div>
         </div>
 
+        <!-- Ranking de posts -->
+        <div class="analytics-card">
+          <div class="analytics-card-header">
+            <div class="analytics-card-title">🏆 Ranking dos melhores posts</div>
+            <div class="analytics-card-sub">Por engajamento · ⭐ marca potenciais quadros do canal</div>
+          </div>
+          <div class="post-ranking-grid" id="an-post-ranking-grid" style="padding:14px 16px;"></div>
+        </div>
+
         <!-- Monthly overview table -->
         <div class="analytics-card">
           <div class="analytics-card-header">
@@ -2010,6 +2075,12 @@
       <div class="modal-format-badge" id="m-format-badge">🎞️ Reels</div>
       <div class="modal-title-text" id="m-title" style="padding-right:38px;">—</div>
     </div>
+    <div class="detail-modal-tabs" role="tablist" aria-label="Seções do post">
+      <button type="button" class="detail-modal-tab active" id="m-tab-content" role="tab" aria-selected="true" aria-controls="m-content-panel" onclick="setDetailModalTab('content')">Conteúdo</button>
+      <button type="button" class="detail-modal-tab" id="m-tab-analytics" role="tab" aria-selected="false" aria-controls="m-analytics-panel" onclick="setDetailModalTab('analytics')">Analytics</button>
+    </div>
+    <div class="detail-tab-panels">
+    <div class="detail-tab-panel active" id="m-content-panel" role="tabpanel" aria-labelledby="m-tab-content">
     <div class="modal-meta">
       <div class="meta-row">
         <div class="meta-label">🎨 Formato</div>
@@ -2087,11 +2158,58 @@
       <div class="modal-body-label">Legenda do post</div>
       <div class="modal-desc" id="m-carousel-legenda">—</div>
     </div>
+    </div>
+    <div class="detail-tab-panel" id="m-analytics-panel" role="tabpanel" aria-labelledby="m-tab-analytics">
+    <section class="post-analytics" aria-labelledby="m-analytics-title">
+      <div class="post-analytics-header">
+        <div class="post-analytics-title" id="m-analytics-title">📊 Analytics do post</div>
+        <div class="post-analytics-platform-wrap">
+          <label class="form-label" for="m-analytics-platform">Plataforma das métricas</label>
+          <select class="form-input post-analytics-platform" id="m-analytics-platform" onchange="renderCurrentPostAnalytics()"></select>
+        </div>
+      </div>
+      <div class="post-analytics-grid">
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-views">Visualizações</label>
+          <input class="form-input" id="m-analytics-views" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-reach">Alcance</label>
+          <input class="form-input" id="m-analytics-reach" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-likes">Curtidas</label>
+          <input class="form-input" id="m-analytics-likes" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-comments">Comentários</label>
+          <input class="form-input" id="m-analytics-comments" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-shares">Compartilhamentos</label>
+          <input class="form-input" id="m-analytics-shares" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+        <div class="post-analytics-field">
+          <label class="form-label" for="m-analytics-saves">Salvos</label>
+          <input class="form-input" id="m-analytics-saves" type="number" min="0" step="1" inputmode="numeric" placeholder="0" />
+        </div>
+      </div>
+      <div class="post-analytics-footer">
+        <span class="post-analytics-feedback" id="m-analytics-feedback" aria-live="polite"></span>
+      </div>
+    </section>
+    <section class="post-analytics-ranking">
+      <h3 class="post-analytics-ranking-title">🏆 Ranking dos melhores posts</h3>
+      <div class="post-analytics-ranking-sub">Ordenado por engajamento (curtidas + comentários + compartilhamentos + salvos). Marque ⭐ os posts com potencial de virar quadro do canal.</div>
+      <div class="post-ranking-grid" id="m-ranking-grid"></div>
+    </section>
+    </div>
+    </div>
     <div class="modal-footer">
       <div style="font-size:11px;color:var(--text-3);">clique no status para alterar</div>
       <div class="modal-actions">
         <button type="button" class="btn" style="color:#e8445a;border-color:#fcd0d7;" onclick="deleteCurrentPost(event)">Excluir</button>
-        <button class="btn" onclick="editCurrentPost()">Editar</button><button class="btn" onclick="closeDetailModal()">Fechar</button>
+        <button class="btn" id="m-edit-btn" onclick="editCurrentPost()">Editar</button><button type="button" class="btn" id="m-save-metrics-btn" style="display:none;" onclick="saveCurrentPostAnalytics(event)">Salvar métricas</button><button class="btn" onclick="closeDetailModal()">Fechar</button>
       </div>
     </div>
   </div>
@@ -5674,6 +5792,8 @@ function openPost(id) {
   if (!p) return;
   currentPostId = id;
 
+  setDetailModalTab('content');
+  populateCurrentPostAnalytics(p);
   document.getElementById('m-format-badge').textContent = `${FORMAT_ICON[p.formato]||''} ${p.formato}`;
   document.getElementById('m-title').textContent        = p.titulo;
   document.getElementById('m-type').textContent         = p.formato;
@@ -5776,6 +5896,133 @@ function openPost(id) {
   refreshTriggerBtn(p);
   buildStatusDropdown(p.formato, p.status);
   document.getElementById('detail-modal').classList.add('open');
+}
+
+const POST_ANALYTICS_FIELDS = ['views', 'reach', 'comments', 'likes', 'shares', 'saves'];
+
+function setDetailModalTab(tab) {
+  const isAnalytics = tab === 'analytics';
+  document.getElementById('m-tab-content').classList.toggle('active', !isAnalytics);
+  document.getElementById('m-tab-content').setAttribute('aria-selected', String(!isAnalytics));
+  document.getElementById('m-tab-analytics').classList.toggle('active', isAnalytics);
+  document.getElementById('m-tab-analytics').setAttribute('aria-selected', String(isAnalytics));
+  document.getElementById('m-content-panel').classList.toggle('active', !isAnalytics);
+  document.getElementById('m-analytics-panel').classList.toggle('active', isAnalytics);
+  document.getElementById('m-edit-btn').style.display = isAnalytics ? 'none' : '';
+  document.getElementById('m-save-metrics-btn').style.display = isAnalytics ? '' : 'none';
+  document.querySelector('#detail-modal .detail-tab-panels').scrollTop = 0;
+}
+
+function postMetricsTotals(post) {
+  const t = { views: 0, reach: 0, comments: 0, likes: 0, shares: 0, saves: 0 };
+  Object.values(post.analyticsByPlatform || {}).forEach(m => {
+    POST_ANALYTICS_FIELDS.forEach(f => { t[f] += Number(m && m[f]) || 0; });
+  });
+  t.engagement = t.likes + t.comments + t.shares + t.saves;
+  return t;
+}
+
+function renderPostRanking() {
+  ['m-ranking-grid', 'an-post-ranking-grid'].forEach(renderPostRankingInto);
+}
+
+function renderPostRankingInto(gridId) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+  const fmt = n => n.toLocaleString('pt-BR');
+  const ranked = posts
+    .map(p => ({ p, t: postMetricsTotals(p) }))
+    .filter(x => x.t.engagement > 0 || x.t.views > 0)
+    .sort((a, b) => b.t.engagement - a.t.engagement || b.t.views - a.t.views)
+    .slice(0, 12);
+  if (!ranked.length) {
+    grid.innerHTML = '<div class="post-ranking-empty">Salve métricas em alguns posts para ver o ranking.</div>';
+    return;
+  }
+  const maxEng = Math.max(...ranked.map(x => x.t.engagement), 1);
+  const medals = ['🥇', '🥈', '🥉'];
+  const stat = (label, v) => `<div class="post-rank-stat"><b>${fmt(v)}</b><span>${label}</span></div>`;
+  grid.innerHTML = ranked.map(({ p, t }, i) => `
+    <div class="post-rank-card${p.quadroPotencial ? ' potential' : ''}${p.id === currentPostId ? ' current' : ''}" onclick="openPost('${escapeHtml(String(p.id))}');setDetailModalTab('analytics')">
+      <div class="post-rank-head">
+        <span class="post-rank-pos${i < 3 ? ' top' : ''}">${i < 3 ? medals[i] : i + 1}</span>
+        <div class="post-rank-info">
+          <div class="post-rank-title">${escapeHtml(p.titulo || 'Sem título')}</div>
+          <div class="post-rank-plats">${(Object.keys(p.analyticsByPlatform || {})).map(k => `<span>${escapeHtml(PLATFORM_LABELS[k] || k)}</span>`).join('')}</div>
+        </div>
+        <button type="button" class="post-rank-star${p.quadroPotencial ? ' on' : ''}" title="Marcar como potencial quadro do canal" onclick="togglePostQuadroPotencial(event,'${escapeHtml(String(p.id))}')">${p.quadroPotencial ? '⭐' : '☆'}</button>
+      </div>
+      <div class="post-rank-hero">
+        <div class="post-rank-hero-num">${fmt(t.engagement)} <small>engajamentos</small></div>
+        <div class="post-rank-bar"><i style="width:${Math.max(4, Math.round(t.engagement / maxEng * 100))}%"></i></div>
+      </div>
+      <div class="post-rank-stats">
+        ${stat('views', t.views)}${stat('curtidas', t.likes)}${stat('coment.', t.comments)}${stat('compart.', t.shares)}${stat('salvos', t.saves)}
+      </div>
+      ${p.quadroPotencial ? '<span class="post-rank-badge">⭐ Potencial quadro do canal</span>' : ''}
+    </div>`).join('');
+}
+
+function togglePostQuadroPotencial(event, id) {
+  event.stopPropagation();
+  const post = posts.find(item => String(item.id) === String(id));
+  if (!post) return;
+  post.quadroPotencial = !post.quadroPotencial;
+  savePosts();
+  renderPostRanking();
+}
+
+function populateCurrentPostAnalytics(post) {
+  const platformSelect = document.getElementById('m-analytics-platform');
+  const postPlatforms = post.plataformas || [];
+  const platforms = [...new Set([...postPlatforms, ...PLAT_META.map(p => p.key)])];
+  platformSelect.innerHTML = platforms.map(platform =>
+    `<option value="${escapeHtml(platform)}">${escapeHtml((PLAT_META.find(p => p.key === platform) || {}).label || PLATFORM_LABELS[platform] || platform)}</option>`
+  ).join('');
+  platformSelect.value = postPlatforms[0] || platforms[0];
+  document.getElementById('m-analytics-feedback').textContent = '';
+  renderCurrentPostAnalytics();
+  renderPostRanking();
+}
+
+function renderCurrentPostAnalytics() {
+  const post = posts.find(item => item.id === currentPostId);
+  if (!post) return;
+  const platform = document.getElementById('m-analytics-platform').value;
+  const metrics = (post.analyticsByPlatform || {})[platform] || {};
+  POST_ANALYTICS_FIELDS.forEach(field => {
+    document.getElementById(`m-analytics-${field}`).value = metrics[field] ?? '';
+  });
+  document.getElementById('m-analytics-feedback').textContent = '';
+}
+
+function saveCurrentPostAnalytics(event) {
+  if (event) event.stopPropagation();
+  const post = posts.find(item => item.id === currentPostId);
+  if (!post) return;
+
+  const values = {};
+  for (const field of POST_ANALYTICS_FIELDS) {
+    const input = document.getElementById(`m-analytics-${field}`);
+    const value = input.value.trim() === '' ? 0 : Number(input.value);
+    if (!Number.isInteger(value) || value < 0) {
+      input.focus();
+      alert('Informe números inteiros iguais ou maiores que zero para as métricas.');
+      return;
+    }
+    values[field] = value;
+  }
+
+  const platform = document.getElementById('m-analytics-platform').value;
+  if (!platform) {
+    alert('Este post precisa ter uma plataforma selecionada para salvar as métricas.');
+    return;
+  }
+  if (!post.analyticsByPlatform || typeof post.analyticsByPlatform !== 'object') post.analyticsByPlatform = {};
+  post.analyticsByPlatform[platform] = values;
+  savePosts();
+  document.getElementById('m-analytics-feedback').textContent = 'Métricas salvas.';
+  renderPostRanking();
 }
 
 function copyCurrentPost(e) {
@@ -9054,6 +9301,7 @@ function renderAnalytics() {
     const platMeta = PLAT_META.find(p => p.key === analyticsPlat) || { label: analyticsPlat };
     moBadgeEl.innerHTML = buildPlatHtml(analyticsPlat, platMeta.label, 13);
   }
+  renderPostRanking();
 
   const totalViews   = data.reduce((s,d) => s + d.views, 0);
   const totalAlcance = data.reduce((s,d) => s + d.alcance, 0);
