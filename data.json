@@ -684,7 +684,19 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": "slot4"
+      "requiredTag": "slot4",
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1414,
+          "reach": 831,
+          "followers": 0,
+          "comments": 2,
+          "reposts": 6,
+          "sends": 0,
+          "saves": 5
+        }
+      }
     },
     {
       "id": 38,
@@ -846,7 +858,18 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null
+      "requiredTag": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2405,
+          "reach": 1965,
+          "followers": 2,
+          "comments": 3,
+          "reposts": 5,
+          "sends": 2,
+          "saves": 12
+        }
+      }
     },
     {
       "id": 42,
@@ -5478,5 +5501,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:29:51.325Z"
+  "_updatedAt": "2026-11-02T15:31:37.422Z"
 }
