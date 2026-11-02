@@ -1205,7 +1205,18 @@
         "tt": "publicada",
         "yt": "publicada"
       },
-      "parceiroId": null
+      "parceiroId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 4051,
+          "reach": 2817,
+          "followers": 0,
+          "comments": 8,
+          "reposts": 10,
+          "sends": 11,
+          "saves": 14
+        }
+      }
     },
     {
       "id": 53,
@@ -1526,7 +1537,7 @@
     },
     {
       "id": 68,
-      "titulo": "[carrossel] Programa de estágio",
+      "titulo": "[carrossel] Programa de estágio Setembro",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -1558,12 +1569,26 @@
           "link": "https://www.instagram.com/p/DdH8PllkROd/?img_index=1"
         }
       ],
-      "requiredTag": "slot3",
       "plataformasStatus": {
         "ig": "publicada",
         "tt": "publicada"
       },
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot3"
+      ],
+      "dificuldade": 4,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 4334,
+          "reach": 2131,
+          "followers": 4,
+          "comments": 49,
+          "reposts": 9,
+          "sends": 69,
+          "saves": 112
+        }
+      }
     },
     {
       "id": 70,
@@ -5392,5 +5417,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:19:23.227Z"
+  "_updatedAt": "2026-11-02T15:21:11.456Z"
 }
