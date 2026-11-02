@@ -3029,6 +3029,38 @@
           "saves": 12
         }
       }
+    },
+    {
+      "id": 107,
+      "titulo": "[reels] Um dia comigo como voluntária no Copilot",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-07",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": "4",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -5965,5 +5997,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:15:47.028Z"
+  "_updatedAt": "2026-11-02T16:16:47.460Z"
 }
