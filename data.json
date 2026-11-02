@@ -913,7 +913,7 @@
       ],
       "scenes": [],
       "data": "2026-12-02",
-      "status": "pesquisar",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1036,7 +1036,7 @@
       ],
       "scenes": [],
       "data": "2026-12-07",
-      "status": "pesquisar",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -1680,7 +1680,7 @@
       ],
       "scenes": [],
       "data": "2026-11-06",
-      "status": "ideia",
+      "status": "afazer",
       "plataformas": [
         "ig",
         "tt"
@@ -2066,7 +2066,7 @@
         }
       ],
       "data": "2026-11-28",
-      "status": "pesquisar",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -2206,14 +2206,24 @@
       "carouselLegenda": "Dump do Outubro ✨ #tech #rotina #dump #tecnologia\n",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Cena comigo",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Comida",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Lugar",
           "texto": "",
           "feito": false
         }
       ],
       "scenes": [],
       "data": "2026-11-02",
-      "status": "afazer",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt"
@@ -5223,5 +5233,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T01:59:58.681Z"
+  "_updatedAt": "2026-11-02T02:14:14.280Z"
 }
