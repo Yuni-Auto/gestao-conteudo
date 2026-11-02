@@ -429,11 +429,13 @@
       "slides": [
         {
           "titulo": "Copa de 2022",
-          "texto": ""
+          "texto": "",
+          "feito": false
         },
         {
           "titulo": "Copa de 2026",
-          "texto": ""
+          "texto": "",
+          "feito": false
         }
       ],
       "scenes": [],
@@ -445,8 +447,7 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null,
-      "dificuldade": 2,
+      "dificuldade": "2",
       "analyticsByPlatform": {
         "ig": {
           "views": 8959,
@@ -457,7 +458,13 @@
           "sends": 6,
           "saves": 34
         }
-      }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null
     },
     {
       "id": 25,
@@ -2703,7 +2710,7 @@
     },
     {
       "id": 102,
-      "titulo": "[reels] trabalhar na TI,compensa ?",
+      "titulo": "[reels] trabalhar na TI, compensa ?",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -5528,5 +5535,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:34:37.267Z"
+  "_updatedAt": "2026-11-02T15:36:25.615Z"
 }
