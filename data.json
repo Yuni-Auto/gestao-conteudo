@@ -379,12 +379,24 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "",
+          "cena": "Sentada com o fone na mão",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Cena com o fone na cozinha",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Fone comigo cantando fazendo faxina",
           "feito": false
         }
       ],
-      "data": "",
-      "status": "roteiro",
+      "data": "2026-11-01",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -591,26 +603,40 @@
     },
     {
       "id": 35,
-      "titulo": "[reels] Achadinhos para meu novo setup no meu apto novo",
+      "titulo": "[carrousel] Achadinhos para meu novo setup no meu apto novo",
       "desc": "",
       "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "",
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
           "feito": false
         }
       ],
+      "scenes": [],
       "data": "2026-11-18",
-      "status": "roteiro",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [
         {
           "creator": "Pamela Mendes",
@@ -622,7 +648,8 @@
       "parceiroId": null,
       "requiredTags": [
         "slot14"
-      ]
+      ],
+      "eventoId": null
     },
     {
       "id": 37,
@@ -951,12 +978,24 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "",
+          "cena": "Falando com mouse na mão",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Mexendo no PC",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Diferentes comando com o mouse ",
           "feito": false
         }
       ],
       "data": "2026-11-10",
-      "status": "pesquisar",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -965,8 +1004,11 @@
       "inspiracoes": [],
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "requiredTags": [],
-      "parceiroId": null
+      "requiredTags": [
+        "slot14"
+      ],
+      "parceiroId": null,
+      "eventoId": null
     },
     {
       "id": 48,
@@ -1237,8 +1279,8 @@
     {
       "id": 56,
       "titulo": "[carousel] Um problema = uma solução",
-      "desc": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira\n• Medo de não ser boa o suficiente \n• Fazer faculdade ou não (técnico, curso)",
-      "carouselLegenda": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira\n• Medo de não ser boa o suficiente \n• Fazer faculdade ou não (técnico, curso)",
+      "desc": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira --->\n• Medo de não ser boa o suficiente --->\n• Fazer faculdade ou não (técnico, curso) --->",
+      "carouselLegenda": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira --->\n• Medo de não ser boa o suficiente --->\n• Fazer faculdade ou não (técnico, curso) --->",
       "slides": [
         {
           "titulo": "",
@@ -1265,10 +1307,12 @@
           "link": "https://www.instagram.com/reel/DUUMf9zDh3w/?stkn=ZGJtaWZqYWY4dm95"
         }
       ],
-      "requiredTag": "slot2",
       "plataformasDatas": null,
       "plataformasStatus": null,
-      "parceiroId": null
+      "parceiroId": null,
+      "requiredTags": [
+        "slot2"
+      ]
     },
     {
       "id": 58,
@@ -1445,7 +1489,7 @@
         }
       ],
       "data": "",
-      "status": "editando",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -1578,7 +1622,7 @@
       ],
       "scenes": [],
       "data": "2026-11-20",
-      "status": "pesquisar",
+      "status": "roteiro",
       "plataformas": [
         "ig",
         "tt",
@@ -1600,29 +1644,59 @@
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Lookinho do dia",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Café da manhã",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Música/Notícias da TV",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Setup de trabalho",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Almoçinho",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Café da tarde",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Horário de saída",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Hora de estudo",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Arrumar a casa",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Ir pra academia",
           "texto": "",
           "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-11-04",
-      "status": "afazer",
+      "data": "2026-11-06",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -1849,7 +1923,7 @@
         }
       ],
       "data": "2026-11-24",
-      "status": "editando",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -2118,7 +2192,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-06",
+      "data": "2026-11-04",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -5169,5 +5243,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T01:33:40.851Z"
+  "_updatedAt": "2026-11-02T01:46:43.334Z"
 }
