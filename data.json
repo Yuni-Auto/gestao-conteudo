@@ -3135,6 +3135,26 @@
           "period": "monthly"
         }
       }
+    },
+    "yt": {
+      "2026": {
+        "seguidores": {
+          "target": 15,
+          "period": "annual"
+        },
+        "views": {
+          "target": 5000,
+          "period": "monthly"
+        },
+        "alcance": {
+          "target": 6,
+          "period": "monthly"
+        },
+        "eng": {
+          "target": 100,
+          "period": "monthly"
+        }
+      }
     }
   },
   "brainstormNotes": [
@@ -4848,5 +4868,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T00:52:53.601Z"
+  "_updatedAt": "2026-11-02T00:54:10.684Z"
 }
