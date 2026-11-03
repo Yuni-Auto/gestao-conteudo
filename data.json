@@ -1913,8 +1913,8 @@
     {
       "id": 72,
       "titulo": "[carrossel] Um dia comigo no home office",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Um dia como engenheira de software no meu apto 💜🏠\n\n#rotina #dev #tech #rotina",
+      "carouselLegenda": "Um dia como engenheira de software no meu apto 💜🏠\n\n#rotina #dev #tech #rotina",
       "slides": [
         {
           "titulo": "Lookinho do dia",
@@ -1969,10 +1969,11 @@
       ],
       "scenes": [],
       "data": "2026-11-06",
-      "status": "gravando",
+      "status": "design",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
@@ -1981,7 +1982,9 @@
       "parceiroId": null,
       "requiredTags": [
         "slot6"
-      ]
+      ],
+      "dificuldade": "3",
+      "eventoId": null
     },
     {
       "id": 73,
@@ -2526,7 +2529,7 @@
         }
       ],
       "data": "2026-11-04",
-      "status": "editando",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
@@ -2540,7 +2543,8 @@
       "eventoId": null,
       "requiredTags": [
         "slot9"
-      ]
+      ],
+      "dificuldade": "2"
     },
     {
       "id": 92,
@@ -3030,19 +3034,49 @@
     {
       "id": 107,
       "titulo": "[reels] Um dia comigo como voluntária no Copilot",
-      "desc": "",
+      "desc": "Um dia como voluntária na comunidade @WomakersCode \n\n#tech #evento #fiap #dev #tecnologia",
       "carouselLegenda": "",
       "slides": [],
       "scenes": [
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "",
+          "cena": "Me arrumando",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Pegando transporte",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Chegando no evento",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Filmagem do evento ",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Takes da aula/organização",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Pausa pra comer e/ou beber água",
           "feito": false
         }
       ],
       "data": "2026-11-07",
-      "status": "ideia",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -3062,18 +3096,28 @@
     {
       "id": 108,
       "titulo": "[carrousel] Falei que sou meio nerd e que gosto de coisas esquisitas",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Na verdade, sou dedicada aos estudos 📚💜\n\n#estudos #tech #tecnologia #dev",
+      "carouselLegenda": "Na verdade, sou dedicada aos estudos 📚💜\n\n#estudos #tech #tecnologia #dev",
       "slides": [
         {
-          "titulo": "",
-          "texto": "",
+          "titulo": "Falei que sou meio nerd e que gosto de coisas esquisitas",
+          "texto": "Sentada na frente do PC",
+          "feito": false
+        },
+        {
+          "titulo": "Tipo RPG e jogos de computador?",
+          "texto": "Eu bonita tirando fotos",
+          "feito": false
+        },
+        {
+          "titulo": "Tipo isso kkk",
+          "texto": "Prints do meu currículo",
           "feito": false
         }
       ],
       "scenes": [],
       "data": "2026-11-04",
-      "status": "pesquisar",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -6029,5 +6073,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-03T12:58:23.696Z"
+  "_updatedAt": "2026-11-03T13:56:41.491Z"
 }
