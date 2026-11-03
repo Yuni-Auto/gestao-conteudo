@@ -2583,7 +2583,18 @@
       "requiredTags": [
         "slot1"
       ],
-      "dificuldade": "1"
+      "dificuldade": "1",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 0,
+          "reach": 0,
+          "followers": 1,
+          "comments": 12,
+          "reposts": 0,
+          "sends": 1,
+          "saves": 0
+        }
+      }
     },
     {
       "id": 94,
@@ -6073,5 +6084,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-03T13:56:41.491Z"
+  "_updatedAt": "2026-11-03T13:58:43.457Z"
 }
