@@ -1839,29 +1839,26 @@
       ],
       "scenes": [],
       "data": "2026-11-01",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
       "plataformasDatas": {
         "ig": "2026-10-27",
-        "tt": "2026-11-02",
-        "li": "2026-11-02"
+        "tt": "2026-11-02"
       },
       "formato": "Carousel",
       "inspiracoes": [],
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto",
-        "li": "pronto"
+        "tt": "pronto"
       },
       "parceiroId": null,
       "requiredTags": [
         "slot15"
       ],
-      "dificuldade": 3,
+      "dificuldade": "3",
       "analyticsByPlatform": {
         "ig": {
           "views": 1058,
@@ -2569,10 +2566,9 @@
       ],
       "scenes": [],
       "data": "2026-11-02",
-      "status": "editando",
+      "status": "publicada",
       "plataformas": [
-        "ig",
-        "tt"
+        "ig"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -2582,7 +2578,8 @@
       "eventoId": null,
       "requiredTags": [
         "slot1"
-      ]
+      ],
+      "dificuldade": "1"
     },
     {
       "id": 94,
@@ -6032,5 +6029,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T16:42:42.226Z"
+  "_updatedAt": "2026-11-03T00:30:39.750Z"
 }
