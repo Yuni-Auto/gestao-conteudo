@@ -2529,7 +2529,7 @@
         }
       ],
       "data": "2026-11-04",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -2544,7 +2544,18 @@
       "requiredTags": [
         "slot9"
       ],
-      "dificuldade": "2"
+      "dificuldade": "2",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 695,
+          "reach": 360,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 2,
+          "sends": 1,
+          "saves": 7
+        }
+      }
     },
     {
       "id": 92,
@@ -3127,7 +3138,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-04",
+      "data": "2026-11-05",
       "status": "design",
       "plataformas": [
         "ig",
@@ -6084,5 +6095,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-03T13:59:33.689Z"
+  "_updatedAt": "2026-11-05T11:49:38.498Z"
 }
