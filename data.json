@@ -1968,7 +1968,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-06",
+      "data": "2026-11-09",
       "status": "design",
       "plataformas": [
         "ig",
@@ -2066,7 +2066,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-06",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2079,7 +2079,8 @@
       "requiredTags": [
         "slot6"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": ""
     },
     {
       "id": 76,
@@ -2095,7 +2096,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-06",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2109,7 +2110,8 @@
       "requiredTags": [
         "slot6"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": ""
     },
     {
       "id": 78,
@@ -3098,7 +3100,7 @@
         }
       ],
       "data": "2026-11-07",
-      "status": "gravando",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -3138,7 +3140,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-05",
+      "data": "2026-11-07",
       "status": "design",
       "plataformas": [
         "ig",
@@ -6095,5 +6097,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-07T15:15:27.708Z"
+  "_updatedAt": "2026-11-07T15:16:28.499Z"
 }
