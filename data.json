@@ -2623,7 +2623,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-08",
+      "data": "2026-11-09",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -3057,7 +3057,7 @@
     },
     {
       "id": 107,
-      "titulo": "[reels] Um dia comigo como voluntária no Copilot",
+      "titulo": "[reels] Um dia comigo como host na WomakersCode",
       "desc": "Um dia como voluntária na comunidade @WomakersCode \n\n#tech #evento #fiap #dev #tecnologia",
       "carouselLegenda": "",
       "slides": [],
@@ -3100,21 +3100,29 @@
         }
       ],
       "data": "2026-11-07",
-      "status": "editando",
+      "status": "programada",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-07",
+        "tt": "2026-11-09",
+        "yt": "2026-11-09"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTags": [
         "slot13"
       ],
       "parceiroId": null,
-      "dificuldade": "4",
+      "dificuldade": "3",
       "eventoId": null
     },
     {
@@ -3140,7 +3148,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-07",
+      "data": "2026-11-09",
       "status": "design",
       "plataformas": [
         "ig",
@@ -6097,5 +6105,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-07T15:16:28.499Z"
+  "_updatedAt": "2026-11-09T11:38:21.902Z"
 }
