@@ -1172,7 +1172,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-11",
+      "data": "2026-11-14",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1186,7 +1186,8 @@
         "slot14"
       ],
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": "4"
     },
     {
       "id": 48,
@@ -6121,5 +6122,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-11T11:36:44.571Z"
+  "_updatedAt": "2026-11-11T19:43:19.428Z"
 }
