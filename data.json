@@ -1172,7 +1172,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-10",
+      "data": "2026-11-11",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -2632,7 +2632,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-10",
+      "data": "2026-11-11",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -3166,7 +3166,7 @@
       ],
       "plataformasDatas": {
         "ig": "2026-11-10",
-        "tt": "2026-11-10"
+        "tt": "2026-11-11"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -6121,5 +6121,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-11T08:34:10.335Z"
+  "_updatedAt": "2026-11-11T11:36:44.571Z"
 }
