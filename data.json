@@ -3164,8 +3164,14 @@
         "ig",
         "tt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-10",
+        "tt": "2026-11-10"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto"
+      },
       "formato": "Carousel",
       "inspiracoes": [
         {
@@ -6115,5 +6121,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-10T02:56:06.364Z"
+  "_updatedAt": "2026-11-11T08:34:10.335Z"
 }
