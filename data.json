@@ -3164,7 +3164,7 @@
       ],
       "scenes": [],
       "data": "2026-11-16",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt"
@@ -3175,7 +3175,7 @@
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto"
+        "tt": "publicada"
       },
       "formato": "Carousel",
       "inspiracoes": [
@@ -3189,6 +3189,37 @@
       ],
       "parceiroId": null,
       "dificuldade": "3",
+      "eventoId": null
+    },
+    {
+      "id": 109,
+      "titulo": "[reels] meu filho é muito inteligente, ele faz TI",
+      "desc": "- eu sou a filha\n- só codo brigando com a IA\n- não sei criar uma api (sou front)\n- não sei centralizar div",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-16",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "",
       "eventoId": null
     }
   ],
@@ -6126,5 +6157,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-16T19:05:52.171Z"
+  "_updatedAt": "2026-11-16T20:49:07.843Z"
 }
