@@ -3737,7 +3737,7 @@
       "bairro": "Bela Vista",
       "cidade": "São Paulo",
       "uf": "SP",
-      "avaliacao": 0
+      "avaliacao": 3
     }
   ],
   "guidelines": [
@@ -6212,5 +6212,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-17T11:47:40.549Z"
+  "_updatedAt": "2026-11-17T11:48:33.399Z"
 }
