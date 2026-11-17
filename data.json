@@ -3713,6 +3713,31 @@
       "bairro": "Vila Carmosina",
       "cidade": "São Paulo",
       "uf": "SP"
+    },
+    {
+      "id": 6,
+      "tema": "Apresentadora: IA na prática",
+      "evento": "Womakers Code",
+      "temaEvento": "Larissa",
+      "status": "realizada",
+      "data": "2026-11-07",
+      "hora": "",
+      "formato": "Presencial",
+      "local": "São Paulo - SP",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "https://luma.com/sdyoch4x?utm_id=97758_v0_s00_e0_tv2",
+      "linkSlides": "",
+      "notas": "",
+      "cep": "01310-100",
+      "rua": "Avenida Paulista",
+      "numero": "1106",
+      "complemento": "",
+      "bairro": "Bela Vista",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "avaliacao": 0
     }
   ],
   "guidelines": [
@@ -6187,5 +6212,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-17T11:36:27.970Z"
+  "_updatedAt": "2026-11-17T11:47:40.549Z"
 }
