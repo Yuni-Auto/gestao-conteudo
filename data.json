@@ -3205,11 +3205,41 @@
           "feito": false
         }
       ],
-      "data": "2026-11-16",
+      "data": "2026-11-17",
       "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "",
+      "eventoId": null
+    },
+    {
+      "id": 110,
+      "titulo": "[reels] \"você vive estudando e trabalhando\" 1x0 pro crime",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-16",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -6157,5 +6187,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-16T20:49:07.843Z"
+  "_updatedAt": "2026-11-17T11:36:27.970Z"
 }
