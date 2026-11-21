@@ -3223,13 +3223,22 @@
         }
       ],
       "data": "2026-11-21",
-      "status": "editando",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-21",
+        "tt": "2026-11-28",
+        "yt": "2026-11-28"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTags": [
@@ -6229,5 +6238,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T23:26:31.824Z"
+  "_updatedAt": "2026-11-21T23:27:50.841Z"
 }
