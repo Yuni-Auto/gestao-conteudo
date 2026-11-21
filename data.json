@@ -472,7 +472,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-24",
+      "data": "2026-12-06",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -484,7 +484,9 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "parceiroId": null,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": "",
+      "eventoId": null
     },
     {
       "id": 24,
@@ -1557,7 +1559,7 @@
       ],
       "scenes": [],
       "data": "2026-11-22",
-      "status": "pesquisar",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -6218,5 +6220,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T17:02:01.670Z"
+  "_updatedAt": "2026-11-21T23:21:53.539Z"
 }
