@@ -739,26 +739,31 @@
     {
       "id": 35,
       "titulo": "[carrousel] Achadinhos para meu novo setup no meu apto novo",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Que comprei meu primeiro apto não é mais novidade pra vocês.\no que vocês não sabem é que precisei montar meu setup do zero.\n\nAqui reuni todos os principais itens do meu setup, se você quer o link \"Eu quero\".",
+      "carouselLegenda": "Que comprei meu primeiro apto não é mais novidade pra vocês.\no que vocês não sabem é que precisei montar meu setup do zero.\n\nAqui reuni todos os principais itens do meu setup, se você quer o link \"Eu quero\".",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Mousepad da Logi (30 x 70 cm)",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Suporte para notebook",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Suporte para headphone ",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Organizador de mesa ",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Mouse ergonômico da Logi",
           "texto": "",
           "feito": false
         }
@@ -784,7 +789,8 @@
       "requiredTags": [
         "slot14"
       ],
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": ""
     },
     {
       "id": 37,
@@ -6212,5 +6218,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-17T19:31:34.755Z"
+  "_updatedAt": "2026-11-21T01:59:24.781Z"
 }
