@@ -2407,15 +2407,24 @@
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-19",
+        "tt": "2026-11-22",
+        "yt": "2026-11-22"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "parceiroId": null,
       "eventoId": null,
       "requiredTags": [
         "slot4"
-      ]
+      ],
+      "dificuldade": ""
     },
     {
       "id": 88,
@@ -6220,5 +6229,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T23:21:53.539Z"
+  "_updatedAt": "2026-11-21T23:26:31.824Z"
 }
