@@ -2238,8 +2238,8 @@
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto",
-        "yt": "pronto"
+        "tt": "editando",
+        "yt": "editando"
       },
       "formato": "Reels",
       "inspiracoes": [
@@ -6231,5 +6231,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T23:38:59.696Z"
+  "_updatedAt": "2026-11-21T23:39:23.848Z"
 }
