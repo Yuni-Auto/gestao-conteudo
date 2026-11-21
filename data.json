@@ -769,7 +769,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-18",
+      "data": "2026-12-02",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1902,7 +1902,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-20",
+      "data": "2026-11-22",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -3211,8 +3211,8 @@
           "feito": false
         }
       ],
-      "data": "2026-11-18",
-      "status": "gravando",
+      "data": "2026-11-21",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt"
@@ -3225,7 +3225,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": "",
+      "dificuldade": "1",
       "eventoId": null
     },
     {
@@ -6218,5 +6218,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T01:59:24.781Z"
+  "_updatedAt": "2026-11-21T17:02:01.670Z"
 }
