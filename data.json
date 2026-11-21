@@ -771,7 +771,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-12-02",
+      "data": "2026-12-03",
       "status": "design",
       "plataformas": [
         "ig",
@@ -843,7 +843,7 @@
           "feito": false
         }
       ],
-      "data": "2026-12-04",
+      "data": "2026-12-05",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -1075,7 +1075,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-26",
+      "data": "2026-11-27",
       "status": "publicada",
       "plataformas": [
         "ig",
@@ -1118,7 +1118,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-12-02",
+      "data": "2026-11-29",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1558,7 +1558,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-22",
+      "data": "2026-11-23",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1978,7 +1978,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-26",
+      "data": "2026-11-27",
       "status": "design",
       "plataformas": [
         "ig",
@@ -2224,22 +2224,22 @@
           "feito": false
         }
       ],
-      "data": "2026-11-24",
-      "status": "design",
+      "data": "2026-11-25",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-11-24",
-        "tt": "2026-11-24",
-        "yt": "2026-10-18"
+        "ig": "2026-11-21",
+        "tt": "2026-11-25",
+        "yt": "2026-11-25"
       },
       "plataformasStatus": {
-        "ig": "editando",
-        "tt": "editando",
-        "yt": "publicada"
+        "ig": "publicada",
+        "tt": "pronto",
+        "yt": "pronto"
       },
       "formato": "Reels",
       "inspiracoes": [
@@ -2250,7 +2250,8 @@
       ],
       "parceiroId": null,
       "eventoId": 1,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": ""
     },
     {
       "id": 84,
@@ -2863,7 +2864,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-30",
+      "data": "2026-12-01",
       "status": "pesquisar",
       "plataformas": [
         "ig"
@@ -3223,22 +3224,14 @@
         }
       ],
       "data": "2026-11-21",
-      "status": "publicada",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": {
-        "ig": "2026-11-21",
-        "tt": "2026-11-28",
-        "yt": "2026-11-28"
-      },
-      "plataformasStatus": {
-        "ig": "publicada",
-        "tt": "pronto",
-        "yt": "pronto"
-      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTags": [
@@ -6238,5 +6231,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T23:28:06.757Z"
+  "_updatedAt": "2026-11-21T23:30:45.848Z"
 }
