@@ -101,3 +101,62 @@ test('não permite Em teste para post sem Instagram', () => {
   assert.equal(post.status, 'programada');
   assert.equal(post.plataformasStatus, undefined);
 });
+
+test('arrastar respeita as etapas de cada formato e a restrição do Instagram', () => {
+  const ctx = createContext();
+  vm.runInContext(extract('let draggedGestaoKanbanId = null;', '\nfunction setGestaoKanbanFormato'), ctx);
+  const videoFormats = ['Reels', 'Story', 'Live', 'Shorts'];
+  const designFormats = ['Carousel', 'Foto', 'Pin'];
+  for (const format of [...videoFormats, ...designFormats, 'Thread']) {
+    const post = { formato: format, plataformas: ['ig'] };
+    for (const status of ['roteiro', 'gravando', 'editando']) {
+      assert.equal(ctx.canMovePostToStage(post, status), videoFormats.includes(format), `${format}: ${status}`);
+    }
+    assert.equal(ctx.canMovePostToStage(post, 'design'), designFormats.includes(format), format);
+    for (const status of ['afazer', 'pesquisar', 'legenda', 'pronto', 'programada', 'publicada', 'em_teste']) {
+      assert.equal(ctx.canMovePostToStage(post, status), true, `${format}: ${status}`);
+    }
+    assert.equal(ctx.canMovePostToStage(post, 'inexistente'), false);
+  }
+  assert.equal(ctx.canMovePostToStage({ formato: 'Reels', plataformas: ['tt'] }, 'em_teste'), false);
+});
+
+test('destino incompatível rejeita alteração e mantém os dados; destino válido salva', () => {
+  const ctx = createContext();
+  const notices = [];
+  let saves = 0;
+  let renders = 0;
+  ctx.alert = (message) => notices.push(message);
+  ctx.savePosts = () => { saves++; };
+  ctx.renderAll = () => { renders++; };
+  vm.runInContext(extract('let draggedGestaoKanbanId = null;', '\nfunction setGestaoKanbanFormato'), ctx);
+  const post = { id: 8, formato: 'Carousel', plataformas: ['ig', 'tt'], status: 'design', plataformasStatus: { ig: 'em_teste', tt: 'publicada' } };
+  ctx.posts = [post];
+  const classes = new Set();
+  const target = { classList: {
+    add: (...names) => names.forEach((name) => classes.add(name)),
+    remove: (...names) => names.forEach((name) => classes.delete(name)),
+    toggle: (name, enabled) => enabled ? classes.add(name) : classes.delete(name),
+  } };
+  const ev = { preventDefault() {}, currentTarget: target, dataTransfer: { getData: () => '8', setData() {} }, target: { closest: () => target } };
+  ctx.onGestaoKanbanDragStart(ev, 8);
+  ctx.allowDropGestaoStage(ev, 'gravando');
+  assert.equal(classes.has('drop-invalid'), true);
+  assert.equal(classes.has('drop-target'), false);
+  ctx.onGestaoStageDrop(ev, 'gravando');
+  assert.equal(post.status, 'design');
+  assert.equal(post.plataformasStatus.ig, 'em_teste');
+  assert.equal(post.plataformasStatus.tt, 'publicada');
+  assert.equal(saves, 0);
+  assert.equal(renders, 0);
+  assert.match(notices[0], /Gravando.*Carousel/);
+  assert.equal(classes.has('drop-invalid'), false);
+  ctx.onGestaoKanbanDragStart(ev, 8);
+  ctx.allowDropGestaoStage(ev, 'legenda');
+  assert.equal(classes.has('drop-target'), true);
+  ctx.onGestaoStageDrop(ev, 'legenda');
+  assert.equal(post.status, 'legenda');
+  assert.equal(post.plataformasStatus.tt, 'publicada');
+  assert.equal(saves, 1);
+  assert.equal(renders, 1);
+});

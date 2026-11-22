@@ -173,6 +173,16 @@
   .agenda-section-count { font-size: 11.5px; font-weight: 700; color: var(--text-2); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
   .agenda-section-range { font-size: 11.5px; color: var(--text-3); margin: -6px 0 12px; }
   .agenda-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+  .recording-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  .recording-column { min-width: 0; border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: var(--surface); }
+  .recording-grid { display: flex; flex-direction: column; gap: 10px; }
+  @media (max-width: 760px) { .recording-columns { grid-template-columns: 1fr; } }
+  .recording-card { width: 100%; text-align: left; font-family: inherit; border: 1px solid var(--border); }
+  .recording-card:focus-visible { outline: 2px solid #5b50c8; outline-offset: 2px; }
+  .recording-difficulty { color: #5b50c8; font-size: 12px; font-weight: 700; }
+  .recording-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .recording-header .agenda-section-title { margin: 0; }
+  .recording-week-label { min-width: 180px; text-align: center; font-size: 12px; color: var(--text-2); }
   .agenda-empty { font-size: 12.5px; color: var(--text-3); font-style: italic; padding: 10px 2px; grid-column: 1 / -1; }
   .agenda-item { display: flex; flex-direction: column; gap: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; cursor: pointer; transition: filter 0.1s; }
   .agenda-item:hover { filter: brightness(0.97); }
@@ -194,6 +204,7 @@
   .agenda-kanban { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
   .agenda-kanban-col { flex: 0 0 192px; width: 192px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; display: flex; flex-direction: column; min-height: 90px; transition: background 0.12s; }
   .agenda-kanban-col.drop-target { background: #f1eefb; outline: 2px dashed #5b50c8; outline-offset: -2px; }
+  .agenda-kanban-col.drop-invalid { background: #fff1f1; outline: 2px dashed #d23f48; outline-offset: -2px; }
   .home-kanban.agenda-kanban .agenda-kanban-col { background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
   .agenda-kanban-head { padding: 10px 10px 8px; border-bottom: 1px solid var(--border); }
   .agenda-kanban-group { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3); margin-bottom: 3px; }
@@ -1750,6 +1761,35 @@
             <button type="button" class="kanban-format-chip" data-formato="Pin" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">📌 Pin</button>
           </div>
           <div class="agenda-kanban home-kanban" id="gestao-unified-kanban"></div>
+        </div>
+        <div class="agenda-section" style="margin:16px 0 0;">
+          <div class="recording-header">
+            <div class="agenda-section-title">🎬 Conteúdos para gravar · por dificuldade</div>
+            <div class="week-nav">
+              <button type="button" class="week-nav-btn week-today-btn" onclick="resetRecordingWeek()">Esta semana</button>
+              <button type="button" class="week-nav-btn" aria-label="Semana anterior de gravação" onclick="changeRecordingWeek(-1)">&#8249;</button>
+              <span class="recording-week-label" id="recording-week-label" aria-live="polite"></span>
+              <button type="button" class="week-nav-btn" aria-label="Próxima semana de gravação" onclick="changeRecordingWeek(1)">&#8250;</button>
+            </div>
+          </div>
+          <div class="agenda-section-range" style="margin:0 0 12px;">Período de gravação · do mais fácil ao mais difícil · sem dificuldade definida ao final</div>
+          <div class="recording-columns">
+            <section class="recording-column" aria-labelledby="recording-current-title">
+              <div class="agenda-section-title" id="recording-current-title">Semana selecionada</div>
+              <div class="agenda-section-range">Gravações previstas para esta semana.</div>
+              <div id="recording-grid" class="recording-grid"></div>
+            </section>
+            <section class="recording-column" aria-labelledby="recording-overdue-title">
+              <div class="agenda-section-title" id="recording-overdue-title">Gravações de semanas anteriores</div>
+              <div class="agenda-section-range">Ainda em Gravando, com período anterior à semana selecionada.</div>
+              <div id="recording-overdue-grid" class="recording-grid"></div>
+            </section>
+            <section class="recording-column" aria-labelledby="recording-unscheduled-title">
+              <div class="agenda-section-title" id="recording-unscheduled-title">Sem período de gravação definido</div>
+              <div class="agenda-section-range">Confira a data de publicação e o Tempo de produção para programar estes conteúdos.</div>
+              <div id="recording-unscheduled-grid" class="recording-grid"></div>
+            </section>
+          </div>
         </div>
       </div>
 
@@ -4084,6 +4124,7 @@ function saveProductionTimes() {
   productionTimes = cleaned;
   saveProductionTimesStore();
   closeProductionModal();
+  renderRecordingGrid();
   if (currentPostId !== null && currentPostId !== undefined) {
     const p = posts.find(x => x.id === currentPostId);
     if (p) renderProductionScheduleBlock(p);
@@ -5884,12 +5925,13 @@ function openPost(id) {
     document.getElementById('m-scene-body').style.display   = 'none';
     document.getElementById('m-carousel-body').style.display = '';
     const slides = p.slides || [];
-    document.getElementById('m-slide-count').textContent = slides.length + ' slide' + (slides.length !== 1 ? 's' : '');
+    document.getElementById('m-slide-count').textContent = productionCountText(slides, 'slide');
     document.getElementById('m-slide-list').innerHTML = slides.map((s, i) => `
-      <div class="m-slide-card">
+      <div class="m-slide-card${s.feito ? ' evprod-item-done' : ''}">
         <div class="m-slide-head">
           <div class="slide-num">${i+1}</div>
           <span class="m-slide-head-label">Slide ${i+1}</span>
+          ${evprodCheckHtml(p.id, 'slide', i, s.feito, 'Feito')}
         </div>
         <div class="m-slide-body">
           ${s.titulo ? `<div class="m-slide-title">${escapeHtml(s.titulo)}</div>` : ''}
@@ -5904,13 +5946,14 @@ function openPost(id) {
       document.getElementById('m-desc-body').style.display    = 'none';
       document.getElementById('m-carousel-body').style.display = 'none';
       document.getElementById('m-scene-body').style.display   = '';
-      document.getElementById('m-scene-count').textContent = scenes.length + ' cena' + (scenes.length !== 1 ? 's' : '');
+      document.getElementById('m-scene-count').textContent = productionCountText(scenes, 'cena');
       document.getElementById('m-scene-list').innerHTML = scenes.map((s, i) => `
-        <div class="m-scene-card">
+        <div class="m-scene-card${s.feito ? ' evprod-item-done' : ''}">
           <div class="m-scene-head">
             <div class="scene-num">${i+1}</div>
             <span class="m-scene-time">${s.inicio}s a ${s.fim}s</span>
             <span class="m-scene-head-label">Cena ${i+1}</span>
+            ${evprodCheckHtml(p.id, 'scene', i, s.feito, 'Feita')}
           </div>
           <div class="m-scene-body">${escapeHtml(s.cena || '')}</div>
         </div>`).join('');
@@ -6892,6 +6935,7 @@ function onDetailDificuldadeChange(value) {
   p.dificuldade = value || '';
   savePosts();
   renderGestaoKanban();
+  renderRecordingGrid();
   renderPostRanking();
 }
 function onDetailEventoChange(value) {
@@ -6938,7 +6982,12 @@ function toggleEvprodPost(postId) {
   if (body) body.scrollTop = top;
 }
 function evprodCheckHtml(postId, kind, idx, done, label) {
-  return `<label class="evprod-check" title="Marcar como ${label.toLowerCase()}"><input type="checkbox" ${done ? 'checked' : ''} onchange="toggleEventoItem(${postId},'${kind}',${idx},this.checked)" /> ${label}</label>`;
+  const itemName = kind === 'slide' ? 'slide' : 'cena';
+  return `<label class="evprod-check" title="Marcar como ${label.toLowerCase()}"><input type="checkbox" aria-label="Marcar ${itemName} ${idx + 1} como ${label.toLowerCase()}" ${done ? 'checked' : ''} onchange="toggleEventoItem(${postId},'${kind}',${idx},this.checked)" /> ${label}</label>`;
+}
+function productionCountText(items, label) {
+  const done = items.filter(item => item && item.feito).length;
+  return `${done}/${items.length} ${label}${items.length !== 1 ? 's' : ''}`;
 }
 /* Progresso (feitos / total) das cenas ou slides de um post. */
 function eventoProgress(p) {
@@ -6957,10 +7006,25 @@ function toggleEventoItem(postId, kind, idx, checked) {
   if (!arr || !arr[idx]) return;
   arr[idx].feito = !!checked;
   savePosts();
-  const body = document.getElementById('evprod-body');
-  const top = body.scrollTop;
-  renderEventoProducao();
-  body.scrollTop = top;
+  const detail = document.getElementById('detail-modal');
+  if (detail && detail.classList.contains('open') && currentPostId === postId) {
+    const list = document.getElementById(kind === 'slide' ? 'm-slide-list' : 'm-scene-list');
+    const card = list.children[idx];
+    if (card) {
+      card.classList.toggle('evprod-item-done', !!checked);
+      const input = card.querySelector('input[type="checkbox"]');
+      if (input) input.checked = !!checked;
+    }
+    document.getElementById(kind === 'slide' ? 'm-slide-count' : 'm-scene-count').textContent =
+      productionCountText(arr, kind === 'slide' ? 'slide' : 'cena');
+  }
+  const eventModal = document.getElementById('evprod-modal');
+  if (eventModal && eventModal.classList.contains('open')) {
+    const body = document.getElementById('evprod-body');
+    const top = body.scrollTop;
+    renderEventoProducao();
+    body.scrollTop = top;
+  }
   const pal = document.getElementById('view-palestras');
   if (pal && pal.style.display !== 'none') renderLectures();
 }
@@ -10626,22 +10690,38 @@ function onGestaoKanbanDragStart(ev, id) {
 function onGestaoKanbanDragEnd(ev) {
   const el = ev.target.closest('.week-post');
   if (el) el.classList.remove('dragging');
-  document.querySelectorAll('.agenda-kanban-col.drop-target').forEach(el2 => el2.classList.remove('drop-target'));
+  document.querySelectorAll('.agenda-kanban-col.drop-target, .agenda-kanban-col.drop-invalid').forEach(el2 => el2.classList.remove('drop-target', 'drop-invalid'));
   draggedGestaoKanbanId = null;
 }
-function allowDropGestaoStage(ev) {
+function canMovePostToStage(post, statusKey) {
+  if (statusKey === INSTAGRAM_TEST_STATUS.key) return (post.plataformas || []).includes('ig');
+  return statusesForFormato(post.formato).some(status => status.key === statusKey);
+}
+function allowDropGestaoStage(ev, statusKey) {
+  const post = posts.find(p => p.id === draggedGestaoKanbanId);
+  if (!post) return;
   ev.preventDefault();
-  ev.currentTarget.classList.add('drop-target');
+  const valid = canMovePostToStage(post, statusKey);
+  ev.currentTarget.classList.toggle('drop-target', valid);
+  ev.currentTarget.classList.toggle('drop-invalid', !valid);
 }
 function onGestaoStageDrop(ev, statusKey) {
   ev.preventDefault();
-  ev.currentTarget.classList.remove('drop-target');
+  ev.currentTarget.classList.remove('drop-target', 'drop-invalid');
   let id = draggedGestaoKanbanId;
   try { id = Number(ev.dataTransfer.getData('text/plain')) || id; } catch (e) {}
   draggedGestaoKanbanId = null;
   if (!id) return;
   const p = posts.find(x => x.id === id);
   if (!p || postWorkflowStatus(p) === statusKey) return;
+  if (!canMovePostToStage(p, statusKey)) {
+    if (statusKey === INSTAGRAM_TEST_STATUS.key) {
+      alert('O status Em teste está disponível apenas para posts com Instagram.');
+    } else {
+      alert(`O status ${getStatusMeta(statusKey).label} não está disponível para o formato ${p.formato}.`);
+    }
+    return;
+  }
   if (!setPostWorkflowStatus(p, statusKey)) {
     alert('O status Em teste está disponível apenas para posts com Instagram.');
     return;
@@ -10675,7 +10755,7 @@ function renderGestaoKanban() {
     const stageItems = filtered
       .filter(p => postWorkflowStatus(p) === s.key)
       .sort((a,b) => (a.data||'').localeCompare(b.data||''));
-    return `<div class="agenda-kanban-col" ondragover="allowDropGestaoStage(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onGestaoStageDrop(event,'${s.key}')">
+    return `<div class="agenda-kanban-col" ondragover="allowDropGestaoStage(event,'${s.key}')" ondragleave="this.classList.remove('drop-target','drop-invalid')" ondrop="onGestaoStageDrop(event,'${s.key}')">
       <div class="agenda-kanban-head">
         <div class="agenda-kanban-group">${GROUP_LABELS[s.group]}</div>
         <div class="agenda-kanban-title-row">
@@ -10690,8 +10770,57 @@ function renderGestaoKanban() {
   }).join('');
 }
 
+let recordingWeekOffset = 0;
+function changeRecordingWeek(direction) {
+  recordingWeekOffset += direction;
+  renderRecordingGrid();
+}
+function resetRecordingWeek() {
+  recordingWeekOffset = 0;
+  renderRecordingGrid();
+}
+function recordingCardHtml(p) {
+  const level = difLevel(p.dificuldade);
+  const difficulty = DIF_LEVELS.find(item => item.n === level);
+  const sceneCount = Array.isArray(p.scenes) ? p.scenes.length : 0;
+  return `<button type="button" class="agenda-item recording-card" onclick="openPost(${p.id})">
+    <span class="agenda-item-title">${escapeHtml(p.titulo || 'Sem título')}</span>
+    <span class="recording-difficulty">${difficulty ? `Nível ${level} · ${difficulty.label}` : 'Dificuldade não definida'}</span>
+    <span class="agenda-item-sub">${escapeHtml(p.formato || 'Sem formato')} · ${sceneCount ? `${sceneCount} cena${sceneCount === 1 ? '' : 's'}` : 'Nenhuma cena cadastrada'}</span>
+  </button>`;
+}
+function renderRecordingGrid() {
+  const grid = document.getElementById('recording-grid');
+  if (!grid) return;
+  const start = getWeekStart(recordingWeekOffset);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 6);
+  const startStr = isoDate(start), endStr = isoDate(end);
+  const formatDate = date => date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  document.getElementById('recording-week-label').textContent = `${formatDate(start)} – ${formatDate(end)}`;
+  const scheduled = [], overdue = [], unscheduled = [];
+  posts.filter(p => postWorkflowStatus(p) === 'gravando').forEach(p => {
+    const stage = computeProductionSchedule(p).find(item => item.status.key === 'gravando');
+    if (!stage) unscheduled.push(p);
+    else if (isoDate(stage.end) < startStr) overdue.push(p);
+    else if (isoDate(stage.start) <= endStr) scheduled.push(p);
+  });
+  const sortByDifficulty = (a, b) => {
+    const byDifficulty = (difLevel(a.dificuldade) || 6) - (difLevel(b.dificuldade) || 6);
+    return byDifficulty || (a.data || '9999').localeCompare(b.data || '9999') || (a.titulo || '').localeCompare(b.titulo || '', 'pt-BR');
+  };
+  const cards = items => items.sort(sortByDifficulty).map(recordingCardHtml).join('');
+  grid.innerHTML = scheduled.length ? cards(scheduled) : '<div class="agenda-empty">Nenhum conteúdo com gravação prevista para esta semana.</div>';
+  for (const [gridId, items, emptyMessage] of [
+    ['recording-overdue-grid', overdue, 'Nenhuma gravação de semanas anteriores.'],
+    ['recording-unscheduled-grid', unscheduled, 'Nenhum conteúdo sem período definido.'],
+  ]) {
+    document.getElementById(gridId).innerHTML = items.length ? cards(items) : `<div class="agenda-empty">${emptyMessage}</div>`;
+  }
+}
+
 function renderAll() {
-  renderStats(); renderCalendar(); renderList(); renderStrategyChecklist(); renderGestaoKanban();
+  renderStats(); renderCalendar(); renderList(); renderStrategyChecklist(); renderGestaoKanban(); renderRecordingGrid();
   const homeEl = document.getElementById('view-home');
   if (homeEl && homeEl.style.display !== 'none') renderHome();
   checkPostTimeAlerts();
