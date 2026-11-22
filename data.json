@@ -2232,7 +2232,7 @@
         }
       ],
       "data": "2026-11-25",
-      "status": "ideia",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -2559,7 +2559,7 @@
     },
     {
       "id": 91,
-      "titulo": "[Reels] Entrevistador: \"Poderia me explicar Event Loop?\"",
+      "titulo": "[reels] Entrevistador: \"Poderia me explicar Event Loop?\"",
       "desc": "💡 **Na entrevista: você sabe o que é Event Loop?**\n\nImagine que você está em uma cafeteria. ☕\n\nO atendente recebe seu pedido e, enquanto o café está sendo preparado, continua atendendo outras pessoas.\n\nQuando o café fica pronto, ele entrega o pedido. ☕️\n\nNo JavaScript acontece algo parecido!\n\nO **Event Loop** ajuda o JavaScript a lidar com tarefas assíncronas sem ficar parado esperando todas terminarem.\n\nPor exemplo:\n* Buscar dados de uma API 🌐\n* Aguardar uma Promise ⏳\n* Executar um `setTimeout` ⏰\n\nMas como isso funciona?\n\n✅ **Call Stack:** onde o JavaScript executa as funções.\n\n✅ **Web APIs:** recursos do ambiente, como timers e operações de rede, que podem cuidar de determinadas tarefas fora da Call Stack.\n\n✅ **Event Loop:** verifica quando a Call Stack está livre e permite que tarefas enfileiradas sejam executadas, respeitando as prioridades das filas.\n\n🚀 **Dica para entrevistas:** lembre-se de que o Event Loop coordena a execução de tarefas assíncronas. E atenção: as callbacks de Promises (*microtasks*) têm prioridade sobre as callbacks de `setTimeout` (*tasks* ou *macrotasks*) quando ambas estão aguardando execução.\n\n#tech #tecnologia #programação #javascript #dev",
       "carouselLegenda": "",
       "slides": [],
@@ -2944,7 +2944,7 @@
     },
     {
       "id": 103,
-      "titulo": "[reels]  Histórias de grandes gênios",
+      "titulo": "[reels]  Histórias de grandes gênios - Parte 1",
       "desc": "Steve Jobs e a Criação de Apple",
       "carouselLegenda": "",
       "slides": [],
@@ -6323,5 +6323,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T18:17:55.921Z"
+  "_updatedAt": "2026-11-22T18:23:25.478Z"
 }
