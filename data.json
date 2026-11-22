@@ -3100,37 +3100,37 @@
           "inicio": 0,
           "fim": 0,
           "cena": "Me arrumando",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Pegando transporte",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Chegando no evento",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Filmagem do evento ",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Takes da aula/organização",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 0,
           "fim": 0,
           "cena": "Pausa pra comer e/ou beber água",
-          "feito": false
+          "feito": true
         }
       ],
       "data": "2026-11-07",
@@ -3281,7 +3281,7 @@
         {
           "titulo": "",
           "texto": "",
-          "feito": false
+          "feito": true
         }
       ],
       "scenes": [],
@@ -3768,7 +3768,7 @@
       "tema": "Apresentadora: IA na prática",
       "evento": "Womakers Code",
       "temaEvento": "Larissa",
-      "status": "ensaiando",
+      "status": "realizada",
       "data": "2026-11-07",
       "hora": "",
       "formato": "Presencial",
@@ -6261,5 +6261,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T14:07:51.204Z"
+  "_updatedAt": "2026-11-22T14:08:26.987Z"
 }
