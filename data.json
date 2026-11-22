@@ -3286,7 +3286,7 @@
       ],
       "scenes": [],
       "data": "2026-11-15",
-      "status": "publicada",
+      "status": "design",
       "plataformas": [
         "li"
       ],
@@ -6261,5 +6261,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T14:39:26.129Z"
+  "_updatedAt": "2026-11-22T14:41:41.490Z"
 }
