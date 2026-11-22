@@ -1120,7 +1120,7 @@
       ],
       "scenes": [],
       "data": "2026-11-29",
-      "status": "gravando",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1132,7 +1132,9 @@
       "requiredTags": [
         "slot4"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": "",
+      "eventoId": null
     },
     {
       "id": 45,
@@ -1906,7 +1908,7 @@
       ],
       "scenes": [],
       "data": "2026-11-22",
-      "status": "editando",
+      "status": "legenda",
       "plataformas": [
         "ig",
         "tt",
@@ -6262,5 +6264,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T16:56:54.080Z"
+  "_updatedAt": "2026-11-22T17:09:50.230Z"
 }
