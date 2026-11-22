@@ -1133,7 +1133,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": "",
+      "dificuldade": 3,
       "eventoId": null
     },
     {
@@ -1579,7 +1579,8 @@
       "requiredTags": [
         "slot7"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 3
     },
     {
       "id": 62,
@@ -1766,7 +1767,8 @@
       "eventoId": 1,
       "requiredTags": [
         "slot13"
-      ]
+      ],
+      "dificuldade": 5
     },
     {
       "id": 68,
@@ -2362,7 +2364,7 @@
         }
       ],
       "data": "",
-      "status": "editando",
+      "status": "legenda",
       "plataformas": [
         "ig",
         "tt",
@@ -2382,7 +2384,7 @@
       "requiredTags": [
         "slot4"
       ],
-      "dificuldade": ""
+      "dificuldade": 4
     },
     {
       "id": 87,
@@ -3242,7 +3244,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": "1",
+      "dificuldade": 2,
       "eventoId": null
     },
     {
@@ -6264,5 +6266,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T17:29:11.813Z"
+  "_updatedAt": "2026-11-22T17:31:47.180Z"
 }
