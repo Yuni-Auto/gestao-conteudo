@@ -2399,7 +2399,7 @@
           "inicio": 0,
           "fim": 2,
           "cena": "Sentada trabalhando",
-          "feito": false
+          "feito": true
         },
         {
           "inicio": 3,
@@ -2409,7 +2409,7 @@
         }
       ],
       "data": "2026-11-22",
-      "status": "gravando",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -2421,7 +2421,6 @@
         "yt": "2026-11-22"
       },
       "plataformasStatus": {
-        "ig": "publicada",
         "tt": "pronto",
         "yt": "pronto"
       },
@@ -6323,5 +6322,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T18:23:25.478Z"
+  "_updatedAt": "2026-11-22T21:13:08.785Z"
 }
