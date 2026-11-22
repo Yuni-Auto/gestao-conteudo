@@ -10,7 +10,39 @@
         "ig"
       ],
       "formato": "Carousel",
-      "inspiracoes": []
+      "inspiracoes": [],
+      "dificuldade": "2",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1419,
+          "reach": 63,
+          "followers": 0,
+          "comments": 3,
+          "reposts": 3,
+          "sends": 0,
+          "saves": 4
+        }
+      },
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot1"
+      ],
+      "parceiroId": null
     },
     {
       "id": 5,
@@ -127,7 +159,19 @@
         }
       ],
       "scenes": [],
-      "requiredTag": "slot8"
+      "requiredTag": "slot8",
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1340,
+          "reach": 89,
+          "followers": 0,
+          "comments": 3,
+          "reposts": 6,
+          "sends": 8,
+          "saves": 45
+        }
+      }
     },
     {
       "id": 12,
@@ -187,7 +231,7 @@
       "titulo": "[carousel] Stacks que uso no meu dia a dia",
       "desc": "Stacks que uso:\n\n* Angular 21+\n* Sass\n* CI/CD\n* Typescript",
       "data": "2026-11-12",
-      "status": "gravando",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -206,7 +250,8 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "requiredTags": [],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 3
     },
     {
       "id": 14,
@@ -338,25 +383,46 @@
         {
           "inicio": 0,
           "fim": 10,
-          "cena": "Cena de paisagem"
+          "cena": "Cena de paisagem",
+          "feito": false
         },
         {
           "inicio": 11,
           "fim": 12,
-          "cena": "Cena deu turistando"
+          "cena": "Cena deu turistando",
+          "feito": false
         },
         {
           "inicio": 13,
           "fim": 15,
-          "cena": "Cena de paisagem"
+          "cena": "Cena de paisagem",
+          "feito": false
         },
         {
           "inicio": 16,
           "fim": 18,
-          "cena": "Cena deu comendo ou comida"
+          "cena": "Cena deu comendo ou comida",
+          "feito": false
         }
       ],
-      "requiredTag": null
+      "dificuldade": "3",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3297,
+          "reach": 313,
+          "followers": 0,
+          "comments": 4,
+          "reposts": 6,
+          "sends": 7,
+          "saves": 23
+        }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null
     },
     {
       "id": 21,
@@ -407,7 +473,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-24",
+      "data": "2026-12-06",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -419,7 +485,9 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "parceiroId": null,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": "",
+      "eventoId": null
     },
     {
       "id": 24,
@@ -490,21 +558,24 @@
     },
     {
       "id": 26,
-      "titulo": "[carousel] programa de estágio junho",
+      "titulo": "[carousel] Programa de estágio Junho",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
         {
           "titulo": "Programa de estágio na Vivo",
-          "texto": "Link: https://lnkd.in/dkv-ziRj\n\nInscrições de 22/06 até 24/07\nÁreas: Tecnologia \nModalidade: híbrido\nVR/VA, Plano de sáude/médico"
+          "texto": "Link: https://lnkd.in/dkv-ziRj\n\nInscrições de 22/06 até 24/07\nÁreas: Tecnologia \nModalidade: híbrido\nVR/VA, Plano de sáude/médico",
+          "feito": false
         },
         {
           "titulo": "Programa de estágio na Hotmart",
-          "texto": "https://troopers.hotmart.com/programa-de-estagio-2026#Escolhasuaarea-PC\n\nInscrições: até 03/07\nÁreas: Tecnologia e Negócios\nModalidade: híbrido\nCartão Flash, Plano de sáude, Wellhub e Totalpass"
+          "texto": "https://troopers.hotmart.com/programa-de-estagio-2026#Escolhasuaarea-PC\n\nInscrições: até 03/07\nÁreas: Tecnologia e Negócios\nModalidade: híbrido\nCartão Flash, Plano de sáude, Wellhub e Totalpass",
+          "feito": false
         },
         {
           "titulo": "Programa de estágio na Elo",
-          "texto": "https://www.elo.com.br/carreiras/programa-de-estagio/\n\nInscrições até 05/07\nÁreas: Tecnologia, negócios e Gestão de pessoas\nModalidade: híbrido\nVR, VT, Plano de sáude/odonto, Wellhub"
+          "texto": "https://www.elo.com.br/carreiras/programa-de-estagio/\n\nInscrições até 05/07\nÁreas: Tecnologia, negócios e Gestão de pessoas\nModalidade: híbrido\nVR, VT, Plano de sáude/odonto, Wellhub",
+          "feito": false
         }
       ],
       "scenes": [],
@@ -516,7 +587,24 @@
       ],
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": "slot3"
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot3"
+      ],
+      "parceiroId": null,
+      "dificuldade": "4",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 23570,
+          "reach": 3847,
+          "followers": 299,
+          "comments": 533,
+          "reposts": 24,
+          "sends": 1700,
+          "saves": 1600
+        }
+      }
     },
     {
       "id": 27,
@@ -528,12 +616,14 @@
         {
           "inicio": 0,
           "fim": 2,
-          "cena": "Não era um bug em produção"
+          "cena": "Não era um bug em produção",
+          "feito": false
         },
         {
           "inicio": 3,
           "fim": 6,
-          "cena": "A minha honesta reação"
+          "cena": "A minha honesta reação",
+          "feito": false
         }
       ],
       "data": "2026-06-26",
@@ -543,8 +633,7 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
-      "dificuldade": 2,
+      "dificuldade": "2",
       "analyticsByPlatform": {
         "ig": {
           "views": 3518,
@@ -555,7 +644,13 @@
           "sends": 8,
           "saves": 7
         }
-      }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null
     },
     {
       "id": 29,
@@ -647,32 +742,37 @@
     {
       "id": 35,
       "titulo": "[carrousel] Achadinhos para meu novo setup no meu apto novo",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Que comprei meu primeiro apto não é mais novidade pra vocês.\no que vocês não sabem é que precisei montar meu setup do zero.\n\nAqui reuni todos os principais itens do meu setup, se você quer o link \"Eu quero\".",
+      "carouselLegenda": "Que comprei meu primeiro apto não é mais novidade pra vocês.\no que vocês não sabem é que precisei montar meu setup do zero.\n\nAqui reuni todos os principais itens do meu setup, se você quer o link \"Eu quero\".",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Mousepad da Logi (30 x 70 cm)",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Suporte para notebook",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Suporte para headphone ",
           "texto": "",
           "feito": false
         },
         {
-          "titulo": "",
+          "titulo": "Organizador de mesa ",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Mouse ergonômico da Logi",
           "texto": "",
           "feito": false
         }
       ],
       "scenes": [],
-      "data": "2026-11-18",
+      "data": "2026-12-03",
       "status": "design",
       "plataformas": [
         "ig",
@@ -692,7 +792,8 @@
       "requiredTags": [
         "slot14"
       ],
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": ""
     },
     {
       "id": 37,
@@ -743,7 +844,7 @@
           "feito": false
         }
       ],
-      "data": "2026-12-04",
+      "data": "2026-12-05",
       "status": "afazer",
       "plataformas": [
         "ig",
@@ -833,52 +934,62 @@
         {
           "inicio": 0,
           "fim": 3,
-          "cena": "Andando pela rua"
+          "cena": "Andando pela rua",
+          "feito": false
         },
         {
           "inicio": 4,
           "fim": 5,
-          "cena": "Mostrando o caminho até lá"
+          "cena": "Mostrando o caminho até lá",
+          "feito": false
         },
         {
           "inicio": 6,
           "fim": 7,
-          "cena": "Me arrumando durante o caminho"
+          "cena": "Me arrumando durante o caminho",
+          "feito": false
         },
         {
           "inicio": 8,
           "fim": 10,
-          "cena": "Mostrando o caminho até lá"
+          "cena": "Mostrando o caminho até lá",
+          "feito": false
         },
         {
           "inicio": 11,
           "fim": 13,
-          "cena": "Mostrando transporte do evento"
+          "cena": "Mostrando transporte do evento",
+          "feito": false
         },
         {
           "inicio": 14,
           "fim": 16,
-          "cena": "Andando pelo evento"
+          "cena": "Andando pelo evento",
+          "feito": false
         },
         {
           "inicio": 17,
           "fim": 20,
-          "cena": "Mostrando ativações"
+          "cena": "Mostrando ativações",
+          "feito": false
         },
         {
           "inicio": 21,
           "fim": 24,
-          "cena": "Mostrando a parte de comida do evento"
+          "cena": "Mostrando a parte de comida do evento",
+          "feito": false
         },
         {
           "inicio": 25,
           "fim": 27,
-          "cena": "Me mostrando comendo algo"
+          "cena": "Me mostrando comendo algo",
+          "feito": false
         },
         {
           "inicio": 28,
           "fim": 30,
-          "cena": "Mostrando mais do evento e ativações "
+          "cena": "Mostrando mais do evento e ativações ",
+          "feito": false
         }
       ],
       "data": "2026-07-05",
@@ -889,7 +1000,6 @@
       ],
       "formato": "Reels",
       "inspiracoes": [],
-      "requiredTag": null,
       "analyticsByPlatform": {
         "ig": {
           "views": 2405,
@@ -900,7 +1010,14 @@
           "sends": 2,
           "saves": 12
         }
-      }
+      },
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": ""
     },
     {
       "id": 42,
@@ -959,7 +1076,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-26",
+      "data": "2026-11-27",
       "status": "publicada",
       "plataformas": [
         "ig",
@@ -1002,8 +1119,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-12-02",
-      "status": "gravando",
+      "data": "2026-11-29",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1015,7 +1132,9 @@
       "requiredTags": [
         "slot4"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": "",
+      "eventoId": null
     },
     {
       "id": 45,
@@ -1064,7 +1183,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-10",
+      "data": "",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1078,7 +1197,8 @@
         "slot14"
       ],
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": "4"
     },
     {
       "id": 48,
@@ -1126,7 +1246,7 @@
       ],
       "scenes": [],
       "data": "2026-12-07",
-      "status": "design",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1243,8 +1363,7 @@
       "plataformasStatus": null,
       "parceiroId": null,
       "requiredTags": [
-        "slot4",
-        "slot12"
+        "slot4"
       ],
       "analyticsByPlatform": {
         "ig": {
@@ -1403,7 +1522,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-16",
+      "data": "",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -1426,7 +1545,8 @@
       "parceiroId": null,
       "requiredTags": [
         "slot2"
-      ]
+      ],
+      "dificuldade": ""
     },
     {
       "id": 58,
@@ -1441,8 +1561,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-22",
-      "status": "pesquisar",
+      "data": "2026-11-23",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1732,29 +1852,26 @@
       ],
       "scenes": [],
       "data": "2026-11-01",
-      "status": "pronto",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
       "plataformasDatas": {
         "ig": "2026-10-27",
-        "tt": "2026-11-02",
-        "li": "2026-11-02"
+        "tt": "2026-11-02"
       },
       "formato": "Carousel",
       "inspiracoes": [],
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto",
-        "li": "pronto"
+        "tt": "publicada"
       },
       "parceiroId": null,
       "requiredTags": [
         "slot15"
       ],
-      "dificuldade": 3,
+      "dificuldade": "3",
       "analyticsByPlatform": {
         "ig": {
           "views": 1058,
@@ -1790,8 +1907,8 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-20",
-      "status": "roteiro",
+      "data": "2026-11-22",
+      "status": "legenda",
       "plataformas": [
         "ig",
         "tt",
@@ -1809,8 +1926,8 @@
     {
       "id": 72,
       "titulo": "[carrossel] Um dia comigo no home office",
-      "desc": "",
-      "carouselLegenda": "",
+      "desc": "Um dia como engenheira de software no meu apto 💜🏠\n\n#rotina #dev #tech #rotina",
+      "carouselLegenda": "Um dia como engenheira de software no meu apto 💜🏠\n\n#rotina #dev #tech #rotina",
       "slides": [
         {
           "titulo": "Lookinho do dia",
@@ -1864,11 +1981,12 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-06",
-      "status": "gravando",
+      "data": "2026-11-27",
+      "status": "design",
       "plataformas": [
         "ig",
-        "tt"
+        "tt",
+        "yt"
       ],
       "plataformasDatas": null,
       "formato": "Carousel",
@@ -1877,7 +1995,9 @@
       "parceiroId": null,
       "requiredTags": [
         "slot6"
-      ]
+      ],
+      "dificuldade": "3",
+      "eventoId": null
     },
     {
       "id": 73,
@@ -1941,7 +2061,9 @@
           "saves": 5
         }
       },
-      "requiredTags": [],
+      "requiredTags": [
+        "slot1"
+      ],
       "dificuldade": "2"
     },
     {
@@ -1957,7 +2079,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-06",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -1970,7 +2092,8 @@
       "requiredTags": [
         "slot6"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": ""
     },
     {
       "id": 76,
@@ -1986,7 +2109,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-06",
+      "data": "",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -2000,7 +2123,8 @@
       "requiredTags": [
         "slot6"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": ""
     },
     {
       "id": 78,
@@ -2103,22 +2227,22 @@
           "feito": false
         }
       ],
-      "data": "2026-11-24",
-      "status": "design",
+      "data": "2026-11-25",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
       "plataformasDatas": {
-        "ig": "2026-11-24",
-        "tt": "2026-11-24",
-        "yt": "2026-10-18"
+        "ig": "2026-10-21",
+        "tt": "2026-11-25",
+        "yt": "2026-11-25"
       },
       "plataformasStatus": {
-        "ig": "editando",
+        "ig": "publicada",
         "tt": "editando",
-        "yt": "publicada"
+        "yt": "editando"
       },
       "formato": "Reels",
       "inspiracoes": [
@@ -2129,7 +2253,8 @@
       ],
       "parceiroId": null,
       "eventoId": 1,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": ""
     },
     {
       "id": 84,
@@ -2236,7 +2361,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-14",
+      "data": "",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -2252,9 +2377,12 @@
           "link": "https://www.instagram.com/reel/DdIFS1MsCle/?stkn=MTV4YmMxbHp3cW4zbA=="
         }
       ],
-      "requiredTag": "slot4",
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "requiredTags": [
+        "slot4"
+      ],
+      "dificuldade": ""
     },
     {
       "id": 87,
@@ -2276,22 +2404,31 @@
           "feito": false
         }
       ],
-      "data": "2026-11-28",
+      "data": "2026-11-22",
       "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-19",
+        "tt": "2026-11-22",
+        "yt": "2026-11-22"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "parceiroId": null,
       "eventoId": null,
       "requiredTags": [
         "slot4"
-      ]
+      ],
+      "dificuldade": ""
     },
     {
       "id": 88,
@@ -2400,7 +2537,9 @@
           "saves": 18
         }
       },
-      "requiredTags": [],
+      "requiredTags": [
+        "custommvzfmp7wggt8"
+      ],
       "dificuldade": "4"
     },
     {
@@ -2418,7 +2557,7 @@
         }
       ],
       "data": "2026-11-04",
-      "status": "editando",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -2432,11 +2571,23 @@
       "eventoId": null,
       "requiredTags": [
         "slot9"
-      ]
+      ],
+      "dificuldade": "2",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 695,
+          "reach": 360,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 2,
+          "sends": 1,
+          "saves": 7
+        }
+      }
     },
     {
       "id": 92,
-      "titulo": "[carrousel] Dump do mês",
+      "titulo": "[carrousel] Dump do mês Outubro",
       "desc": "Dump do Outubro ✨ #tech #rotina #dump #tecnologia\n",
       "carouselLegenda": "Dump do Outubro ✨ #tech #rotina #dump #tecnologia\n",
       "slides": [
@@ -2458,10 +2609,9 @@
       ],
       "scenes": [],
       "data": "2026-11-02",
-      "status": "editando",
+      "status": "publicada",
       "plataformas": [
-        "ig",
-        "tt"
+        "ig"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -2471,34 +2621,56 @@
       "eventoId": null,
       "requiredTags": [
         "slot1"
-      ]
+      ],
+      "dificuldade": "1",
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 0,
+          "reach": 0,
+          "followers": 1,
+          "comments": 12,
+          "reposts": 0,
+          "sends": 1,
+          "saves": 0
+        }
+      }
     },
     {
       "id": 94,
       "titulo": "[carroussel] Metas que eu estabeleci para mês/ano",
       "desc": "* Ter uma reserva de emergência\n* Estar mais ativa na comunidade\n* Palestrar em um grande evento\n* Viajar para um grande evento",
-      "carouselLegenda": "",
-      "slides": [],
-      "scenes": [
+      "carouselLegenda": "* Ter uma reserva de emergência\n* Estar mais ativa na comunidade\n* Palestrar em um grande evento\n* Viajar para um grande evento",
+      "slides": [
         {
-          "inicio": 0,
-          "fim": 0,
-          "cena": "",
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
           "feito": false
         }
       ],
-      "data": "2026-11-08",
-      "status": "gravando",
+      "scenes": [],
+      "data": "",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
       ],
-      "formato": "Reels",
+      "formato": "Carousel",
       "inspiracoes": [],
       "plataformasDatas": null,
       "plataformasStatus": null,
       "parceiroId": null,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": ""
     },
     {
       "id": 95,
@@ -2592,8 +2764,8 @@
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "design",
+      "data": "2026-12-03",
+      "status": "publicada",
       "plataformas": [
         "li"
       ],
@@ -2605,7 +2777,8 @@
       "eventoId": 1,
       "requiredTags": [
         "slot1"
-      ]
+      ],
+      "dificuldade": "4"
     },
     {
       "id": 98,
@@ -2664,10 +2837,9 @@
       "plataformasStatus": null,
       "formato": "Carousel",
       "inspiracoes": [],
-      "requiredTag": null,
       "parceiroId": null,
       "eventoId": null,
-      "dificuldade": 2,
+      "dificuldade": "2",
       "analyticsByPlatform": {
         "ig": {
           "views": 1748,
@@ -2678,7 +2850,10 @@
           "sends": 0,
           "saves": 8
         }
-      }
+      },
+      "requiredTags": [
+        "slot4"
+      ]
     },
     {
       "id": 101,
@@ -2693,7 +2868,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-30",
+      "data": "2026-12-01",
       "status": "pesquisar",
       "plataformas": [
         "ig"
@@ -2710,7 +2885,7 @@
     },
     {
       "id": 102,
-      "titulo": "[reels] trabalhar na TI, compensa ?",
+      "titulo": "[reels] Trabalhar na TI, compensa ?",
       "desc": "",
       "carouselLegenda": "",
       "slides": [],
@@ -2748,6 +2923,386 @@
           "saves": 980
         }
       }
+    },
+    {
+      "id": 103,
+      "titulo": "[reels]  Histórias de grandes gênios",
+      "desc": "Steve Jobs e a Criação de Apple",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-10-22",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [],
+      "parceiroId": null,
+      "dificuldade": "5",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2595,
+          "reach": 1959,
+          "followers": 3,
+          "comments": 2,
+          "reposts": 5,
+          "sends": 1,
+          "saves": 6
+        }
+      }
+    },
+    {
+      "id": 104,
+      "titulo": "[carrousel] Um problema = uma solução",
+      "desc": "O que usei na criação do meu app",
+      "carouselLegenda": "O que usei na criação do meu app",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-04-27",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot2"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 633,
+          "reach": 276,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 2,
+          "sends": 4,
+          "saves": 15
+        }
+      }
+    },
+    {
+      "id": 105,
+      "titulo": "[carrousel] Metas para vida",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-04-20",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [],
+      "parceiroId": null,
+      "dificuldade": "2",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1036,
+          "reach": 426,
+          "followers": 1,
+          "comments": 2,
+          "reposts": 3,
+          "sends": 1,
+          "saves": 9
+        }
+      }
+    },
+    {
+      "id": 106,
+      "titulo": "[reels] Um dia comigo como voluntária no Git Hub",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-04-12",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 3334,
+          "reach": 2313,
+          "followers": 3,
+          "comments": 7,
+          "reposts": 5,
+          "sends": 2,
+          "saves": 12
+        }
+      }
+    },
+    {
+      "id": 107,
+      "titulo": "[reels] Um dia comigo como host na WomakersCode",
+      "desc": "Um dia como voluntária na comunidade @WomakersCode \n\n#tech #evento #fiap #dev #tecnologia",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Me arrumando",
+          "feito": true
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Pegando transporte",
+          "feito": true
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Chegando no evento",
+          "feito": true
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Filmagem do evento ",
+          "feito": true
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Takes da aula/organização",
+          "feito": true
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Pausa pra comer e/ou beber água",
+          "feito": true
+        }
+      ],
+      "data": "2026-11-07",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-11-08",
+        "tt": "2026-11-09",
+        "yt": "2026-11-09"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
+      },
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot13"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": 6
+    },
+    {
+      "id": 108,
+      "titulo": "[carrousel] Falei que sou meio nerd e que gosto de coisas esquisitas",
+      "desc": "Na verdade, sou dedicada aos estudos 📚💜\n\n#estudos #tech #tecnologia #dev",
+      "carouselLegenda": "Na verdade, sou dedicada aos estudos 📚💜\n\n#estudos #tech #tecnologia #dev",
+      "slides": [
+        {
+          "titulo": "Falei que sou meio nerd e que gosto de coisas esquisitas",
+          "texto": "Sentada na frente do PC",
+          "feito": false
+        },
+        {
+          "titulo": "Tipo RPG e jogos de computador?",
+          "texto": "Eu bonita tirando fotos",
+          "feito": false
+        },
+        {
+          "titulo": "Tipo isso kkk",
+          "texto": "Prints do meu currículo",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-16",
+      "status": "publicada",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": {
+        "ig": "2026-11-08",
+        "tt": "2026-11-16"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "publicada"
+      },
+      "formato": "Carousel",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://vt.tiktok.com/ZSp1Co1L9/"
+        }
+      ],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null
+    },
+    {
+      "id": 109,
+      "titulo": "[reels] meu filho é muito inteligente, ele faz TI",
+      "desc": "- eu sou a filha\n- só codo brigando com a IA\n- não sei criar uma api (sou front)\n- não sei centralizar div",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-28",
+      "status": "legenda",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "1",
+      "eventoId": null
+    },
+    {
+      "id": 110,
+      "titulo": "[reels] \"você vive estudando e trabalhando\" 1x0 pro crime",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-16",
+      "status": "publicada",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "",
+      "eventoId": null
+    },
+    {
+      "id": 111,
+      "titulo": "[carrousel] Apresentadora (host) no IA na Prática na Fiap",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": true
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-15",
+      "status": "publicada",
+      "plataformas": [
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "parceiroId": null,
+      "eventoId": 6,
+      "requiredTags": [
+        "slot1"
+      ],
+      "dificuldade": "4"
     }
   ],
   "partners": [
@@ -3055,6 +3610,36 @@
       "lectureIds": [],
       "tipo": "collab",
       "data": "2026-10-06"
+    },
+    {
+      "id": 7,
+      "nome": "WomarksCode",
+      "perfil": "womakersgram",
+      "contato": "Marilia",
+      "status": "ideia",
+      "seguidores": 36500,
+      "plataformas": [
+        "ig",
+        "tt",
+        "li"
+      ],
+      "tema": "",
+      "combinado": "",
+      "notas": "",
+      "itens": [
+        {
+          "id": 1,
+          "tipo": "collab",
+          "data": "",
+          "status": "ideia",
+          "contentType": "",
+          "contentId": null
+        }
+      ],
+      "postIds": [],
+      "lectureIds": [],
+      "tipo": "collab",
+      "data": ""
     }
   ],
   "lectures": [
@@ -3180,6 +3765,31 @@
       "bairro": "Vila Carmosina",
       "cidade": "São Paulo",
       "uf": "SP"
+    },
+    {
+      "id": 6,
+      "tema": "Apresentadora: IA na prática",
+      "evento": "Womakers Code",
+      "temaEvento": "Larissa",
+      "status": "realizada",
+      "data": "2026-11-07",
+      "hora": "",
+      "formato": "Presencial",
+      "local": "São Paulo - SP",
+      "duracao": 60,
+      "cache": 0,
+      "contato": "",
+      "linkEvento": "https://luma.com/sdyoch4x?utm_id=97758_v0_s00_e0_tv2",
+      "linkSlides": "",
+      "notas": "",
+      "cep": "01310-100",
+      "rua": "Avenida Paulista",
+      "numero": "1106",
+      "complemento": "",
+      "bairro": "Bela Vista",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "avaliacao": 3
     }
   ],
   "guidelines": [
@@ -4147,6 +4757,13 @@
         "formato": "Carousel",
         "tag": "post",
         "fixed": true
+      },
+      {
+        "key": "custommvzfmp7wggt8",
+        "title": "Divulgações",
+        "formato": "Reels",
+        "tag": "reel",
+        "fixed": true
       }
     ]
   },
@@ -4248,6 +4865,13 @@
       "formato": "Carousel",
       "tag": "post",
       "fixed": true
+    },
+    {
+      "key": "custommvzfmp7wggt8",
+      "title": "Divulgações",
+      "formato": "Reels",
+      "tag": "reel",
+      "fixed": true
     }
   ],
   "annualRequiredPostsByYear": {},
@@ -4267,11 +4891,116 @@
       "slot12",
       "slot13",
       "slot14",
-      "slot15"
+      "slot15",
+      "custommvzfmp7wggt8"
     ],
     "effectiveFrom": "2026-12"
   },
   "requiredPostsHistory": [
+    {
+      "date": "2026-11-02T15:47:47.594Z",
+      "monthKey": "2026-11",
+      "items": [
+        {
+          "key": "slot1",
+          "title": "Dump do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot2",
+          "title": "Um problema = uma solução",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot3",
+          "title": "Programa de estágio",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot4",
+          "title": "Trends",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": true
+        },
+        {
+          "key": "slot5",
+          "title": "3 projetos para iniciantes",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot6",
+          "title": "Um dia comigo no home office",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": true
+        },
+        {
+          "key": "slot7",
+          "title": "Vídeos grátis que eu pagaria caro para ver",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot8",
+          "title": "Conteúdo para te deixar inteligente",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot9",
+          "title": "Vocabulário da programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot11",
+          "title": "Calendário de eventos do mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot12",
+          "title": "Verdades duras sobre programação",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot13",
+          "title": "Minha rotina sendo engenheira de software",
+          "formato": "Reels",
+          "tag": "reel",
+          "fixed": true
+        },
+        {
+          "key": "slot14",
+          "title": "Achadinhos de setup",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        },
+        {
+          "key": "slot15",
+          "title": "Coisas legais que aprendi ou fiz no último mês",
+          "formato": "Carousel",
+          "tag": "post",
+          "fixed": true
+        }
+      ]
+    },
     {
       "date": "2026-11-02T01:17:07.611Z",
       "monthKey": "2026-11",
@@ -5535,5 +6264,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-02T15:36:25.615Z"
+  "_updatedAt": "2026-11-22T17:09:50.230Z"
 }
