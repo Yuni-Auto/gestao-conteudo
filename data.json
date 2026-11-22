@@ -1563,7 +1563,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-23",
+      "data": "2026-11-22",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1576,13 +1576,20 @@
           "link": "https://www.instagram.com/p/DW9J67XEcXV/?igsh=MnozcGhoeDhjdDV2"
         }
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-22",
+        "tt": "2026-11-24"
+      },
+      "plataformasStatus": {
+        "ig": "design",
+        "tt": "design"
+      },
       "requiredTags": [
         "slot7"
       ],
       "parceiroId": null,
-      "dificuldade": 3
+      "dificuldade": "3",
+      "eventoId": null
     },
     {
       "id": 62,
@@ -2242,7 +2249,7 @@
       ],
       "plataformasDatas": {
         "ig": "2026-10-21",
-        "tt": "2026-11-25",
+        "tt": "2026-11-27",
         "yt": "2026-11-25"
       },
       "plataformasStatus": {
@@ -6325,5 +6332,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T21:17:28.784Z"
+  "_updatedAt": "2026-11-22T21:18:06.817Z"
 }
