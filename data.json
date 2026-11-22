@@ -486,7 +486,7 @@
       "plataformasStatus": null,
       "parceiroId": null,
       "requiredTags": [],
-      "dificuldade": "",
+      "dificuldade": 5,
       "eventoId": null
     },
     {
@@ -737,7 +737,8 @@
       "plataformasStatus": null,
       "parceiroId": null,
       "eventoId": null,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": 3
     },
     {
       "id": 35,
@@ -845,7 +846,7 @@
         }
       ],
       "data": "2026-12-05",
-      "status": "afazer",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -1133,7 +1134,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": "",
+      "dificuldade": 3,
       "eventoId": null
     },
     {
@@ -1234,9 +1235,9 @@
     },
     {
       "id": 49,
-      "titulo": "[carousel] 3 projetos para iniciantes",
-      "desc": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos ",
-      "carouselLegenda": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos ",
+      "titulo": "[carousel] 3 projetos para seu portfólio",
+      "desc": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos \n\nAvançado\n• Lorem ipsum\n• Lorem ipsum\n• Lorem ipsum",
+      "carouselLegenda": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos \n\nAvançado\n• Lorem ipsum\n• Lorem ipsum\n• Lorem ipsum",
       "slides": [
         {
           "titulo": "",
@@ -1246,7 +1247,7 @@
       ],
       "scenes": [],
       "data": "2026-12-07",
-      "status": "editando",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
@@ -1268,7 +1269,8 @@
       "requiredTags": [
         "slot5"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": "3"
     },
     {
       "id": 50,
@@ -1513,23 +1515,23 @@
       "id": 56,
       "titulo": "[carousel] Um problema = uma solução",
       "desc": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira --->\n• Medo de não ser boa o suficiente --->\n• Fazer faculdade ou não (técnico, curso) --->",
-      "carouselLegenda": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira --->\n• Medo de não ser boa o suficiente --->\n• Fazer faculdade ou não (técnico, curso) --->",
-      "slides": [
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "",
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
           "feito": false
         }
       ],
-      "scenes": [],
-      "data": "",
-      "status": "pesquisar",
+      "data": "2026-11-22",
+      "status": "roteiro",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [
         {
           "creator": "Livia Marins",
@@ -1579,7 +1581,8 @@
       "requiredTags": [
         "slot7"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 3
     },
     {
       "id": 62,
@@ -1752,7 +1755,7 @@
         }
       ],
       "data": "",
-      "status": "legenda",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1766,7 +1769,8 @@
       "eventoId": 1,
       "requiredTags": [
         "slot13"
-      ]
+      ],
+      "dificuldade": 5
     },
     {
       "id": 68,
@@ -1908,7 +1912,7 @@
       ],
       "scenes": [],
       "data": "2026-11-22",
-      "status": "legenda",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -2228,7 +2232,7 @@
         }
       ],
       "data": "2026-11-25",
-      "status": "ideia",
+      "status": "publicada",
       "plataformas": [
         "ig",
         "tt",
@@ -2362,7 +2366,7 @@
         }
       ],
       "data": "",
-      "status": "editando",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -2382,7 +2386,7 @@
       "requiredTags": [
         "slot4"
       ],
-      "dificuldade": ""
+      "dificuldade": 4
     },
     {
       "id": 87,
@@ -2428,7 +2432,18 @@
       "requiredTags": [
         "slot4"
       ],
-      "dificuldade": ""
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2464,
+          "reach": 1899,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 9,
+          "sends": 8,
+          "saves": 13
+        }
+      }
     },
     {
       "id": 88,
@@ -2544,7 +2559,7 @@
     },
     {
       "id": 91,
-      "titulo": "[Reels] Entrevistador: \"Poderia me explicar Event Loop?\"",
+      "titulo": "[reels] Entrevistador: \"Poderia me explicar Event Loop?\"",
       "desc": "💡 **Na entrevista: você sabe o que é Event Loop?**\n\nImagine que você está em uma cafeteria. ☕\n\nO atendente recebe seu pedido e, enquanto o café está sendo preparado, continua atendendo outras pessoas.\n\nQuando o café fica pronto, ele entrega o pedido. ☕️\n\nNo JavaScript acontece algo parecido!\n\nO **Event Loop** ajuda o JavaScript a lidar com tarefas assíncronas sem ficar parado esperando todas terminarem.\n\nPor exemplo:\n* Buscar dados de uma API 🌐\n* Aguardar uma Promise ⏳\n* Executar um `setTimeout` ⏰\n\nMas como isso funciona?\n\n✅ **Call Stack:** onde o JavaScript executa as funções.\n\n✅ **Web APIs:** recursos do ambiente, como timers e operações de rede, que podem cuidar de determinadas tarefas fora da Call Stack.\n\n✅ **Event Loop:** verifica quando a Call Stack está livre e permite que tarefas enfileiradas sejam executadas, respeitando as prioridades das filas.\n\n🚀 **Dica para entrevistas:** lembre-se de que o Event Loop coordena a execução de tarefas assíncronas. E atenção: as callbacks de Promises (*microtasks*) têm prioridade sobre as callbacks de `setTimeout` (*tasks* ou *macrotasks*) quando ambas estão aguardando execução.\n\n#tech #tecnologia #programação #javascript #dev",
       "carouselLegenda": "",
       "slides": [],
@@ -2857,7 +2872,7 @@
     },
     {
       "id": 101,
-      "titulo": "Programa de estágio Novembro",
+      "titulo": "[carousel] Programa de estágio Novembro",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -2869,9 +2884,11 @@
       ],
       "scenes": [],
       "data": "2026-12-01",
-      "status": "pesquisar",
+      "status": "editando",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -2881,7 +2898,8 @@
         "slot3"
       ],
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": "4"
     },
     {
       "id": 102,
@@ -2926,7 +2944,7 @@
     },
     {
       "id": 103,
-      "titulo": "[reels]  Histórias de grandes gênios",
+      "titulo": "[reels]  Histórias de grandes gênios - Parte 1",
       "desc": "Steve Jobs e a Criação de Apple",
       "carouselLegenda": "",
       "slides": [],
@@ -3228,7 +3246,7 @@
         }
       ],
       "data": "2026-11-28",
-      "status": "legenda",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -3242,7 +3260,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": "1",
+      "dificuldade": 2,
       "eventoId": null
     },
     {
@@ -3273,7 +3291,18 @@
       ],
       "parceiroId": null,
       "dificuldade": "",
-      "eventoId": null
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1911,
+          "reach": 1157,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 6,
+          "sends": 3,
+          "saves": 5
+        }
+      }
     },
     {
       "id": 111,
@@ -3303,6 +3332,36 @@
         "slot1"
       ],
       "dificuldade": "4"
+    },
+    {
+      "id": 112,
+      "titulo": "[carrousel] Eventos tech/geek anuais que amo ir",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "",
+      "status": "design",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot11"
+      ],
+      "parceiroId": null,
+      "dificuldade": "2",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6264,5 +6323,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T17:17:55.024Z"
+  "_updatedAt": "2026-11-22T18:23:25.478Z"
 }
