@@ -1525,7 +1525,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-22",
+      "data": "2026-12-14",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -1911,7 +1911,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-22",
+      "data": "2026-12-11",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1925,7 +1925,9 @@
       "parceiroId": null,
       "requiredTags": [
         "slot5"
-      ]
+      ],
+      "dificuldade": "",
+      "eventoId": null
     },
     {
       "id": 72,
@@ -2421,8 +2423,9 @@
         "yt": "2026-11-22"
       },
       "plataformasStatus": {
-        "tt": "pronto",
-        "yt": "pronto"
+        "ig": "publicada",
+        "tt": "publicada",
+        "yt": "publicada"
       },
       "formato": "Reels",
       "inspiracoes": [],
@@ -2431,7 +2434,7 @@
       "requiredTags": [
         "slot4"
       ],
-      "dificuldade": 3,
+      "dificuldade": "3",
       "analyticsByPlatform": {
         "ig": {
           "views": 2464,
@@ -6322,5 +6325,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T21:13:08.785Z"
+  "_updatedAt": "2026-11-22T21:17:15.084Z"
 }
