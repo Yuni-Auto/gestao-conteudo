@@ -1235,9 +1235,9 @@
     },
     {
       "id": 49,
-      "titulo": "[carousel] 3 projetos para iniciantes",
-      "desc": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos ",
-      "carouselLegenda": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos ",
+      "titulo": "[carousel] 3 projetos para seu portfólio",
+      "desc": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos \n\nAvançado\n• Lorem ipsum\n• Lorem ipsum\n• Lorem ipsum",
+      "carouselLegenda": "Projetos que já foram: ❌\n\nIniciante \n• Clone Instagram \n• Lista de tarefas \n• Formulário de contato \n\nIntermediário \n• Sistema de login \n• E-commerce \n• Plataforma de estudos \n\nAvançado\n• Lorem ipsum\n• Lorem ipsum\n• Lorem ipsum",
       "slides": [
         {
           "titulo": "",
@@ -1247,7 +1247,7 @@
       ],
       "scenes": [],
       "data": "2026-12-07",
-      "status": "editando",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt",
@@ -1269,7 +1269,8 @@
       "requiredTags": [
         "slot5"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": "3"
     },
     {
       "id": 50,
@@ -6300,5 +6301,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T17:54:13.040Z"
+  "_updatedAt": "2026-11-22T18:07:27.388Z"
 }
