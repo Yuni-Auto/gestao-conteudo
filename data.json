@@ -486,7 +486,7 @@
       "plataformasStatus": null,
       "parceiroId": null,
       "requiredTags": [],
-      "dificuldade": "",
+      "dificuldade": 5,
       "eventoId": null
     },
     {
@@ -717,7 +717,7 @@
         }
       ],
       "data": "",
-      "status": "design",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt"
@@ -737,7 +737,8 @@
       "plataformasStatus": null,
       "parceiroId": null,
       "eventoId": null,
-      "requiredTags": []
+      "requiredTags": [],
+      "dificuldade": 3
     },
     {
       "id": 35,
@@ -845,7 +846,7 @@
         }
       ],
       "data": "2026-12-05",
-      "status": "afazer",
+      "status": "ideia",
       "plataformas": [
         "ig",
         "tt"
@@ -1513,23 +1514,23 @@
       "id": 56,
       "titulo": "[carousel] Um problema = uma solução",
       "desc": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira --->\n• Medo de não ser boa o suficiente --->\n• Fazer faculdade ou não (técnico, curso) --->",
-      "carouselLegenda": "Quais problemas que mais ouço ?\n• Idade vs Transição de carreira --->\n• Medo de não ser boa o suficiente --->\n• Fazer faculdade ou não (técnico, curso) --->",
-      "slides": [
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
         {
-          "titulo": "",
-          "texto": "",
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
           "feito": false
         }
       ],
-      "scenes": [],
-      "data": "",
-      "status": "pesquisar",
+      "data": "2026-11-22",
+      "status": "roteiro",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
-      "formato": "Carousel",
+      "formato": "Reels",
       "inspiracoes": [
         {
           "creator": "Livia Marins",
@@ -1753,7 +1754,7 @@
         }
       ],
       "data": "",
-      "status": "legenda",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -2364,7 +2365,7 @@
         }
       ],
       "data": "",
-      "status": "legenda",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -2430,7 +2431,7 @@
       "requiredTags": [
         "slot4"
       ],
-      "dificuldade": ""
+      "dificuldade": 3
     },
     {
       "id": 88,
@@ -3233,7 +3234,7 @@
         }
       ],
       "data": "2026-11-28",
-      "status": "design",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -6299,5 +6300,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T17:45:32.753Z"
+  "_updatedAt": "2026-11-22T17:54:13.040Z"
 }
