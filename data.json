@@ -772,7 +772,7 @@
       ],
       "scenes": [],
       "data": "2026-12-03",
-      "status": "design",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1243,7 +1243,7 @@
       ],
       "scenes": [],
       "data": "2026-12-07",
-      "status": "design",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -1979,7 +1979,7 @@
       ],
       "scenes": [],
       "data": "2026-11-27",
-      "status": "design",
+      "status": "editando",
       "plataformas": [
         "ig",
         "tt",
@@ -2761,8 +2761,8 @@
         }
       ],
       "scenes": [],
-      "data": "",
-      "status": "design",
+      "data": "2026-11-26",
+      "status": "publicada",
       "plataformas": [
         "li"
       ],
@@ -2774,7 +2774,8 @@
       "eventoId": 1,
       "requiredTags": [
         "slot1"
-      ]
+      ],
+      "dificuldade": "4"
     },
     {
       "id": 98,
@@ -3270,6 +3271,35 @@
       "parceiroId": null,
       "dificuldade": "",
       "eventoId": null
+    },
+    {
+      "id": 111,
+      "titulo": "[carrousel] Apresentadora (host) no IA na Prática na Fiap",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-15",
+      "status": "publicada",
+      "plataformas": [
+        "li"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "parceiroId": null,
+      "eventoId": null,
+      "requiredTags": [
+        "slot1"
+      ],
+      "dificuldade": "4"
     }
   ],
   "partners": [
@@ -6231,5 +6261,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-21T23:39:23.848Z"
+  "_updatedAt": "2026-11-22T14:05:27.488Z"
 }
