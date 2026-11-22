@@ -712,11 +712,29 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "",
+          "cena": "Notebook: da empresa",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": " Fone de ouvido ",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Monitor Portátil ",
+          "feito": false
+        },
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Mouse Sem Fio Logitech",
           "feito": false
         }
       ],
-      "data": "",
+      "data": "2026-11-22",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -738,7 +756,7 @@
       "parceiroId": null,
       "eventoId": null,
       "requiredTags": [],
-      "dificuldade": 3
+      "dificuldade": "3"
     },
     {
       "id": 35,
@@ -1077,7 +1095,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-27",
+      "data": "2026-11-28",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1994,7 +2012,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-27",
+      "data": "2026-11-24",
       "status": "design",
       "plataformas": [
         "ig",
@@ -2250,7 +2268,7 @@
       "plataformasDatas": {
         "ig": "2026-10-21",
         "tt": "2026-11-27",
-        "yt": "2026-11-25"
+        "yt": "2026-11-26"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -3250,11 +3268,11 @@
         {
           "inicio": 0,
           "fim": 0,
-          "cena": "",
+          "cena": "Sentada na frente trabalhando",
           "feito": false
         }
       ],
-      "data": "2026-11-28",
+      "data": "2026-11-26",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -3269,7 +3287,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": 2,
+      "dificuldade": "2",
       "eventoId": null
     },
     {
@@ -6332,5 +6350,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T21:18:06.817Z"
+  "_updatedAt": "2026-11-22T21:27:44.776Z"
 }
