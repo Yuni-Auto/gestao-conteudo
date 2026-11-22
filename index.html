@@ -84,11 +84,11 @@
   .subnav-row { display: flex; align-items: center; flex-wrap: wrap; row-gap: 8px; column-gap: 10px; margin: 0; line-height: 1; }
   .subnav-row.subnav-row-top { justify-content: space-between; }
   .subnav-tabs, .subnav-plats, .subnav-formats { display: flex; gap: 6px; flex-wrap: wrap; line-height: 1; }
-  .subnav-tab, .subnav-plat, .subnav-format { font-size: 12.5px; font-weight: 500; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-family: inherit; transition: all 0.12s; white-space: nowrap; line-height: 1.2; }
-  .subnav-tab:hover, .subnav-plat:hover, .subnav-format:hover { background: var(--bg); color: var(--text); }
+  .subnav-tab, .subnav-plat, .subnav-format, .kanban-format-chip { font-size: 12.5px; font-weight: 500; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; font-family: inherit; transition: all 0.12s; white-space: nowrap; line-height: 1.2; }
+  .subnav-tab:hover, .subnav-plat:hover, .subnav-format:hover, .kanban-format-chip:hover { background: var(--bg); color: var(--text); }
   .subnav-tab.active { background: #f0effe; border-color: #d8d3fb; color: #5b50c8; }
   .subnav-plat.active { background: #fdeaf1; border-color: #f6c9dc; color: #c2185b; }
-  .subnav-format.active { background: #fef3e0; border-color: #f5d9a8; color: #a06800; }
+  .subnav-format.active, .kanban-format-chip.active { background: #fef3e0; border-color: #f5d9a8; color: #a06800; }
 
   /* Main */
   .main { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
@@ -169,6 +169,7 @@
   .agenda-section { margin: 8px 26px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
   .agenda-section-title { font-size: 13px; font-weight: 700; margin: 0 0 12px; color: var(--text-1); }
   .agenda-section-title-row { display: flex; align-items: center; justify-content: space-between; }
+  .agenda-kanban-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; font-size: 12px; color: var(--text-2); }
   .agenda-section-count { font-size: 11.5px; font-weight: 700; color: var(--text-2); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
   .agenda-section-range { font-size: 11.5px; color: var(--text-3); margin: -6px 0 12px; }
   .agenda-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
@@ -463,6 +464,7 @@
   .st-acriar         { background: #fdf3d9; color: #8a6a00; } .st-acriar .status-dot         { background: #e8b930; }
   .st-programada     { background: #f5ede3; color: #7a5025; } .st-programada .status-dot     { background: #c8905a; }
   .st-publicada      { background: #e4f7ee; color: #1a6b40; } .st-publicada .status-dot      { background: #2dbe6c; }
+  .st-em-teste       { background: #fff1db; color: #8a5a0a; } .st-em-teste .status-dot       { background: #e8a445; }
 
   /* ── Analytics ──────────────────────────────────────────────────────── */
   .analytics-topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 13px 26px 13px 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
@@ -1736,6 +1738,17 @@
 
         <div class="agenda-section" style="margin:16px 0 0;">
           <div class="agenda-section-title">🔄 Processo de criação</div>
+          <div class="agenda-kanban-filter" id="gestao-kanban-formatos" role="group" aria-label="Formato dos posts no processo de criação">
+            <button type="button" class="kanban-format-chip active" data-formato="" aria-pressed="true" onclick="setGestaoKanbanFormato(this)">Todos os formatos</button>
+            <button type="button" class="kanban-format-chip" data-formato="Reels" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">🎞️ Reels</button>
+            <button type="button" class="kanban-format-chip" data-formato="Carousel" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">🖼️ Carousel</button>
+            <button type="button" class="kanban-format-chip" data-formato="Foto" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">📷 Foto</button>
+            <button type="button" class="kanban-format-chip" data-formato="Story" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">⭕ Story</button>
+            <button type="button" class="kanban-format-chip" data-formato="Live" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">🔴 Live</button>
+            <button type="button" class="kanban-format-chip" data-formato="Shorts" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">▶️ Shorts</button>
+            <button type="button" class="kanban-format-chip" data-formato="Thread" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">🧵 Thread</button>
+            <button type="button" class="kanban-format-chip" data-formato="Pin" aria-pressed="false" onclick="setGestaoKanbanFormato(this)">📌 Pin</button>
+          </div>
           <div class="agenda-kanban home-kanban" id="gestao-unified-kanban"></div>
         </div>
       </div>
@@ -2863,7 +2876,7 @@
         <div class="nf-meta-grid">
           <div class="form-group" style="margin-bottom:0;">
             <label class="form-label">Status inicial</label>
-            <select class="form-input" id="n-status" onchange="toggleInspWrap()"></select>
+            <select class="form-input" id="n-status" onchange="onNewStatusChange()"></select>
           </div>
           <div class="form-group" style="margin-bottom:0;">
             <label class="form-label">Plataformas</label>
@@ -2875,7 +2888,7 @@
         <div class="form-group nf-platdates-wrap" style="margin-bottom:0;">
           <label class="platdates-toggle-label">
             <input type="checkbox" id="n-platdates-toggle" onchange="togglePlatDatesList()" />
-            Publicado em dias diferentes por plataforma
+            Datas e status diferentes por plataforma
           </label>
           <div class="platdates-list" id="n-platdates-list" style="display:none;"></div>
         </div>
@@ -3418,6 +3431,7 @@ const ALL_STATUS = [
 ];
 
 const GROUP_LABELS = { todo:'To-do', progress:'In progress', complete:'Complete' };
+const INSTAGRAM_TEST_STATUS = { key:'em_teste', label:'Em teste', cls:'st-em-teste', dot:'#e8a445', group:'complete' };
 const FORMAT_ICON  = { Reels:'🎞️', Carousel:'🖼️', Foto:'📷', Story:'⭕', Live:'🔴', Shorts:'▶️', Thread:'🧵', Pin:'📌' };
 const PLATFORM_LABELS = { ig:'instagram', tt:'tik tok', li:'linkedin', yt:'youtube', pt:'pinterest', tw:'twitter/x' };
 
@@ -3427,6 +3441,7 @@ function syncPlatCheck(key) {
     const cb = document.getElementById(`n-${key}`);
     const label = document.getElementById(`n-${key}-label`);
     if (cb && label) label.classList.toggle(`checked-${key}`, cb.checked);
+    if (key === 'ig') updateNewStatus();
     // keep the per-plataforma dates list (if open) in sync with the checked plataformas
     const toggle = document.getElementById('n-platdates-toggle');
     if (toggle && toggle.checked) renderPlatDatesList();
@@ -3456,19 +3471,21 @@ function renderPlatDatesList(prefillDates, prefillStatuses) {
   });
   list.innerHTML = selectedPlats.map(p => {
     const dateVal   = existingDates[p.key]  || (prefillDates   && prefillDates[p.key])   || mainDate;
-    const statusVal = existingStatus[p.key] || (prefillStatuses && prefillStatuses[p.key]) || mainStatus;
+    const statusVal = existingStatus[p.key] || (prefillStatuses && prefillStatuses[p.key]) || (mainStatus === INSTAGRAM_TEST_STATUS.key && p.key !== 'ig' ? newPostBaseStatus : mainStatus);
     return `
     <div class="platdate-row" data-plat="${p.key}">
       <span class="platdate-label">${buildPlatHtml(p.key, p.labelShort)}</span>
       <input class="form-input n-platdate-input" type="date" value="${dateVal}" />
-      <select class="form-input platstatus-select">${statusOptionsHtml(fmt, statusVal)}</select>
+      <select class="form-input platstatus-select" aria-label="Status de ${p.labelShort}" onchange="onPlatStatusChange('${p.key}', this.value)">${statusOptionsHtml(fmt, statusVal, p.key)}</select>
     </div>
   `;
   }).join('');
 }
 
-function statusOptionsHtml(fmt, selected) {
-  return statusesForFormato(fmt).map(s => `<option value="${s.key}"${s.key===selected?' selected':''}>${s.label}</option>`).join('');
+function statusOptionsHtml(fmt, selected, plat) {
+  const statuses = statusesForFormato(fmt);
+  if (plat === 'ig') statuses.push(INSTAGRAM_TEST_STATUS);
+  return statuses.map(s => `<option value="${s.key}"${s.key===selected?' selected':''}>${s.label}</option>`).join('');
 }
 
 function togglePlatDatesList() {
@@ -3510,6 +3527,28 @@ function platEffectiveDate(p, plat) {
 // plataformasStatus quando existir, senão cai no status principal do post.
 function platEffectiveStatus(p, plat) {
   return (p.plataformasStatus && p.plataformasStatus[plat]) || p.status;
+}
+
+function postWorkflowStatus(p) {
+  return (p.plataformas || []).includes('ig') && platEffectiveStatus(p, 'ig') === INSTAGRAM_TEST_STATUS.key
+    ? INSTAGRAM_TEST_STATUS.key : p.status;
+}
+
+function setPostWorkflowStatus(p, key) {
+  if (key === INSTAGRAM_TEST_STATUS.key) {
+    if (!(p.plataformas || []).includes('ig')) return false;
+    p.plataformasStatus = { ...p.plataformasStatus, ig: key };
+  } else {
+    if (p.plataformasStatus && p.plataformasStatus.ig === INSTAGRAM_TEST_STATUS.key) {
+      const { ig, ...otherStatuses } = p.plataformasStatus;
+      (p.plataformas || []).filter(plat => plat !== 'ig').forEach(plat => {
+        if (!otherStatuses[plat]) otherStatuses[plat] = p.status;
+      });
+      p.plataformasStatus = Object.keys(otherStatuses).length ? otherStatuses : null;
+    }
+    p.status = key;
+  }
+  return true;
 }
 
 // Plataformas de um post cuja data efetiva bate com dStr (usado pelo calendário
@@ -3739,7 +3778,7 @@ function pushStrategyHistorySnapshot(mKey, items, type = 'monthly') {
 let REQUIRED_POSTS = [];
 let ANNUAL_REQUIRED_POSTS = [];
 
-function getStatusMeta(key) { return ALL_STATUS.find(s => s.key === key) || ALL_STATUS[0]; }
+function getStatusMeta(key) { return key === INSTAGRAM_TEST_STATUS.key ? INSTAGRAM_TEST_STATUS : ALL_STATUS.find(s => s.key === key) || ALL_STATUS[0]; }
 
 /* Returns statuses available for a given formato */
 function statusesForFormato(formato) {
@@ -3845,7 +3884,7 @@ function getPostsDueNow() {
       if (!platDiaOk(plat, now)) return;
       if (platEffectiveDate(p, plat) !== todayS) return;
       const st = platEffectiveStatus(p, plat);
-      if (groupOf(st) !== 'complete' || st === 'publicada') return;
+      if ((groupOf(st) !== 'complete' && st !== INSTAGRAM_TEST_STATUS.key) || st === 'publicada') return;
       const [hh, mm] = hora.split(':').map(Number);
       if (nowMin < hh * 60 + mm) return;
       out.push({ post: p, plat, hora, key: p.id + ':' + plat });
@@ -4395,6 +4434,7 @@ let activeFilter    = 'todos';
 const activeTagFilters = new Set();
 let activePlatFilter = null;
 let activeFormatoFilter = null;
+let gestaoKanbanFormato = '';
 let currentView      = 'calendario';
 let weekOffset   = 0;
 let monthOffset  = 0;
@@ -4473,7 +4513,7 @@ function daysLeftFriendly(p) { return daysLeftFriendlyFor(p.data, p.status); }
 
 function updateModalDateField(p) {
   const el = document.getElementById('m-date');
-  if (p.plataformasDatas && Object.keys(p.plataformasDatas).length) {
+  if ((p.plataformasDatas && Object.keys(p.plataformasDatas).length) || (p.plataformasStatus && Object.keys(p.plataformasStatus).length)) {
     const rows = (p.plataformas || []).map(plat => {
       const d = platEffectiveDate(p, plat);
       const dStr = d ? new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) : '—';
@@ -5768,8 +5808,9 @@ function setFilter(f, btn) {
 }
 
 /* ─── Status dropdown (detail modal) ───────────────────────────────────── */
-function buildStatusDropdown(formato, currentKey) {
+function buildStatusDropdown(formato, currentKey, plataformas) {
   const available = statusesForFormato(formato);
+  if ((plataformas || []).includes('ig')) available.push(INSTAGRAM_TEST_STATUS);
   const groups    = ['todo','progress','complete'];
   let html = '';
   groups.forEach((g, gi) => {
@@ -5807,7 +5848,7 @@ function toggleStatusDropdown() {
 function selectStatus(key) {
   const p = posts.find(x => x.id === currentPostId);
   if (!p) return;
-  p.status = key;
+  if (!setPostWorkflowStatus(p, key)) return;
   savePosts();
   document.getElementById('status-dropdown').classList.remove('open');
   refreshTriggerBtn(p);
@@ -5817,7 +5858,7 @@ function selectStatus(key) {
 }
 
 function refreshTriggerBtn(p) {
-  const m   = getStatusMeta(p.status);
+  const m   = getStatusMeta(postWorkflowStatus(p));
   const btn = document.getElementById('status-trigger-btn');
   btn.className = `status-trigger status-pill ${m.cls}`;
   btn.innerHTML = `<span class="status-dot" style="background:${m.dot}"></span>${m.label}`;
@@ -5931,7 +5972,7 @@ function openPost(id) {
 
   renderDetalheCollabs(p);
   refreshTriggerBtn(p);
-  buildStatusDropdown(p.formato, p.status);
+  buildStatusDropdown(p.formato, postWorkflowStatus(p), p.plataformas);
   document.getElementById('detail-modal').classList.add('open');
 }
 
@@ -6431,12 +6472,38 @@ function onFormatoChange() {
 }
 /* ─────────────────────────────────────────────────────────────────────── */
 
+let newPostBaseStatus = 'ideia';
+let initialNewWorkflowStatus = 'ideia';
+
 function updateNewStatus(forceStatus) {
   const fmt = document.getElementById('n-formato').value;
   const sel = document.getElementById('n-status');
   const cur = forceStatus !== undefined ? forceStatus : sel.value;
   const available = statusesForFormato(fmt);
-  sel.innerHTML = available.map(s => `<option value="${s.key}"${s.key===cur?' selected':''}>${s.label}</option>`).join('');
+  const ig = document.getElementById('n-ig');
+  if (ig && ig.checked) available.push(INSTAGRAM_TEST_STATUS);
+  const selected = cur === INSTAGRAM_TEST_STATUS.key && !(ig && ig.checked) ? newPostBaseStatus : cur;
+  sel.innerHTML = available.map(s => `<option value="${s.key}"${s.key===selected?' selected':''}>${s.label}</option>`).join('');
+  sel.dataset.workflowStatus = sel.value;
+  toggleInspWrap();
+}
+
+function onNewStatusChange() {
+  const sel = document.getElementById('n-status');
+  const status = sel.value;
+  if (status !== INSTAGRAM_TEST_STATUS.key) newPostBaseStatus = status;
+  const igStatus = document.querySelector('#n-platdates-list .platdate-row[data-plat="ig"] .platstatus-select');
+  if (igStatus && (status === INSTAGRAM_TEST_STATUS.key || sel.dataset.workflowStatus === INSTAGRAM_TEST_STATUS.key)) igStatus.value = status;
+  sel.dataset.workflowStatus = status;
+  toggleInspWrap();
+}
+
+function onPlatStatusChange(plat, status) {
+  if (plat !== 'ig') return;
+  const sel = document.getElementById('n-status');
+  if (status === INSTAGRAM_TEST_STATUS.key) sel.value = status;
+  else if (sel.value === INSTAGRAM_TEST_STATUS.key) sel.value = newPostBaseStatus;
+  sel.dataset.workflowStatus = sel.value;
   toggleInspWrap();
 }
 
@@ -6562,19 +6629,21 @@ function openNewModal(prefill = {}) {
   document.getElementById('n-formato').value = prefill.formato || 'Reels';
   document.getElementById('n-dificuldade').value = difLevel(prefill.dificuldade) || '';
   renderDifPicker('n-dificuldade-picker', difLevel(prefill.dificuldade), v => { document.getElementById('n-dificuldade').value = v || ''; });
-  document.getElementById('n-status').value  = prefill.status || 'ideia';
-  updateNewStatus(prefill.status || 'ideia');
   PLAT_META.forEach((p, i) => {
     const cb = document.getElementById('n-' + p.key);
     if (cb) cb.checked = prefill.plataformas ? prefill.plataformas.includes(p.key) : (i === 0);
   });
   syncAllPlatChecks();
+  newPostBaseStatus = prefill.status || 'ideia';
+  initialNewWorkflowStatus = postWorkflowStatus(prefill) || 'ideia';
+  updateNewStatus(initialNewWorkflowStatus);
 
-  const hasPlatDates = !!(prefill.plataformasDatas && Object.keys(prefill.plataformasDatas).length);
-  document.getElementById('n-platdates-toggle').checked = hasPlatDates;
-  document.getElementById('n-platdates-list').style.display = hasPlatDates ? 'flex' : 'none';
-  if (hasPlatDates) renderPlatDatesList(prefill.plataformasDatas, prefill.plataformasStatus);
-  else document.getElementById('n-platdates-list').innerHTML = '';
+  const hasPlatDetails = !!((prefill.plataformasDatas && Object.keys(prefill.plataformasDatas).length) ||
+    (prefill.plataformasStatus && Object.keys(prefill.plataformasStatus).length));
+  document.getElementById('n-platdates-toggle').checked = hasPlatDetails;
+  document.getElementById('n-platdates-list').style.display = hasPlatDetails ? 'flex' : 'none';
+  document.getElementById('n-platdates-list').innerHTML = '';
+  if (hasPlatDetails) renderPlatDatesList(prefill.plataformasDatas, prefill.plataformasStatus);
 
   document.getElementById('n-insp-list').innerHTML = '';
 
@@ -6655,7 +6724,8 @@ function saveNewPost() {
   if (!titulo) { alert('Informe um título.'); return; }
   const plats = PLAT_META.filter(p => { const cb = document.getElementById('n-' + p.key); return cb && cb.checked; }).map(p => p.key);
   if (!plats.length) { alert('Selecione ao menos uma plataforma.'); return; }
-  const status = document.getElementById('n-status').value;
+  const workflowStatus = document.getElementById('n-status').value;
+  const status = workflowStatus === INSTAGRAM_TEST_STATUS.key ? newPostBaseStatus : workflowStatus;
   const formInsp = Array.from(document.querySelectorAll('#n-insp-list .insp-row')).map(row => ({
     creator: row.querySelector('.n-insp-creator').value.trim(),
     link:    row.querySelector('.n-insp-input').value.trim(),
@@ -6671,6 +6741,7 @@ function saveNewPost() {
   if (editingPostId) {
     const post = posts.find(p => p.id === editingPostId);
     if (post) {
+      const previousPost = { ...post };
       const fmtE   = document.getElementById('n-formato').value;
       const isCarE = fmtE === 'Carousel' || fmtE === 'Foto' || fmtE === 'Pin';
       const isScnE = fmtE === 'Reels' || fmtE === 'Story' || fmtE === 'Live' || fmtE === 'Shorts';
@@ -6684,6 +6755,16 @@ function saveNewPost() {
       post.plataformas     = plats;
       post.plataformasDatas = plataformasDatas;
       post.plataformasStatus = plataformasStatus;
+      if (initialNewWorkflowStatus === INSTAGRAM_TEST_STATUS.key && workflowStatus !== INSTAGRAM_TEST_STATUS.key) {
+        const preserved = { ...post.plataformasStatus };
+        plats.filter(plat => plat !== 'ig').forEach(plat => {
+          if (!preserved[plat]) preserved[plat] = platEffectiveStatus(previousPost, plat);
+        });
+        post.plataformasStatus = Object.keys(preserved).length ? preserved : null;
+      }
+      if (workflowStatus === INSTAGRAM_TEST_STATUS.key || initialNewWorkflowStatus === INSTAGRAM_TEST_STATUS.key) {
+        setPostWorkflowStatus(post, workflowStatus);
+      }
       post.formato         = fmtE;
       // O formulário sempre reflete o estado real do post (os campos são pré-preenchidos
       // com prefill.inspiracoes ao abrir o modal), então salvamos o que está nele — mesmo
@@ -6701,7 +6782,7 @@ function saveNewPost() {
     const fmtN   = document.getElementById('n-formato').value;
     const isCarN = fmtN === 'Carousel' || fmtN === 'Foto' || fmtN === 'Pin';
     const isScnN = fmtN === 'Reels' || fmtN === 'Story' || fmtN === 'Live' || fmtN === 'Shorts';
-    posts.push({
+    const post = {
       id: nextId++,
       titulo,
       desc:            document.getElementById('n-desc').value,
@@ -6719,7 +6800,9 @@ function saveNewPost() {
       parceiroId,
       dificuldade:     document.getElementById('n-dificuldade').value,
       eventoId,
-    });
+    };
+    if (workflowStatus === INSTAGRAM_TEST_STATUS.key) setPostWorkflowStatus(post, workflowStatus);
+    posts.push(post);
   }
   savePosts();
   closeNewModal();
@@ -9114,7 +9197,7 @@ function monthHasTrackedPosts(plat, monthLabel) {
 }
 function postsPublishedCountForMonth(plat, monthLabel) {
   const ym = analyticsMonthYm(monthLabel);
-  return posts.filter(p => p.plataformas.includes(plat) && platEffectiveDate(p, plat) && platEffectiveDate(p, plat).slice(0, 7) === ym && p.status === 'publicada').length;
+  return posts.filter(p => p.plataformas.includes(plat) && platEffectiveDate(p, plat) && platEffectiveDate(p, plat).slice(0, 7) === ym && platEffectiveStatus(p, plat) === 'publicada').length;
 }
 
 function getAnalyticsData() {
@@ -10558,10 +10641,23 @@ function onGestaoStageDrop(ev, statusKey) {
   draggedGestaoKanbanId = null;
   if (!id) return;
   const p = posts.find(x => x.id === id);
-  if (!p || p.status === statusKey) return;
-  p.status = statusKey;
+  if (!p || postWorkflowStatus(p) === statusKey) return;
+  if (!setPostWorkflowStatus(p, statusKey)) {
+    alert('O status Em teste está disponível apenas para posts com Instagram.');
+    return;
+  }
   savePosts();
   renderAll();
+}
+
+function setGestaoKanbanFormato(button) {
+  document.querySelectorAll('#gestao-kanban-formatos .kanban-format-chip').forEach(chip => {
+    const active = chip === button;
+    chip.classList.toggle('active', active);
+    chip.setAttribute('aria-pressed', String(active));
+  });
+  gestaoKanbanFormato = button.dataset.formato;
+  renderGestaoKanban();
 }
 
 function renderGestaoKanban() {
@@ -10570,11 +10666,14 @@ function renderGestaoKanban() {
   const filtered = posts.filter(p => {
     if (activePlatFilter && !p.plataformas.includes(activePlatFilter)) return false;
     if (activeFormatoFilter && p.formato !== activeFormatoFilter) return false;
-    return p.status !== 'ideia';
+    if (gestaoKanbanFormato && p.formato !== gestaoKanbanFormato) return false;
+    return postWorkflowStatus(p) !== 'ideia';
   });
-  wrap.innerHTML = ALL_STATUS.filter(s => s.key !== 'ideia').map(s => {
+  const stages = ALL_STATUS.filter(s => s.key !== 'ideia');
+  stages.splice(stages.findIndex(s => s.key === 'pronto'), 0, INSTAGRAM_TEST_STATUS);
+  wrap.innerHTML = stages.map(s => {
     const stageItems = filtered
-      .filter(p => p.status === s.key)
+      .filter(p => postWorkflowStatus(p) === s.key)
       .sort((a,b) => (a.data||'').localeCompare(b.data||''));
     return `<div class="agenda-kanban-col" ondragover="allowDropGestaoStage(event)" ondragleave="this.classList.remove('drop-target')" ondrop="onGestaoStageDrop(event,'${s.key}')">
       <div class="agenda-kanban-head">
