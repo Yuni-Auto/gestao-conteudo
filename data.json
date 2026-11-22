@@ -3134,7 +3134,7 @@
         }
       ],
       "data": "2026-11-07",
-      "status": "publicada",
+      "status": "gravando",
       "plataformas": [
         "ig",
         "tt",
@@ -3157,7 +3157,7 @@
       ],
       "parceiroId": null,
       "dificuldade": "3",
-      "eventoId": null
+      "eventoId": 6
     },
     {
       "id": 108,
@@ -6261,5 +6261,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T14:07:30.621Z"
+  "_updatedAt": "2026-11-22T14:07:51.204Z"
 }
