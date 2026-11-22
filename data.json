@@ -717,7 +717,7 @@
         }
       ],
       "data": "",
-      "status": "gravando",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt"
@@ -1910,7 +1910,7 @@
       ],
       "scenes": [],
       "data": "2026-11-22",
-      "status": "legenda",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -2859,7 +2859,7 @@
     },
     {
       "id": 101,
-      "titulo": "Programa de estágio Novembro",
+      "titulo": "[carousel] Programa de estágio Novembro",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -2871,9 +2871,11 @@
       ],
       "scenes": [],
       "data": "2026-12-01",
-      "status": "pesquisar",
+      "status": "editando",
       "plataformas": [
-        "ig"
+        "ig",
+        "tt",
+        "li"
       ],
       "plataformasDatas": null,
       "plataformasStatus": null,
@@ -2883,7 +2885,8 @@
         "slot3"
       ],
       "parceiroId": null,
-      "eventoId": null
+      "eventoId": null,
+      "dificuldade": "4"
     },
     {
       "id": 102,
@@ -3305,6 +3308,36 @@
         "slot1"
       ],
       "dificuldade": "4"
+    },
+    {
+      "id": 112,
+      "titulo": "[carrousel] Eventos tech/geek anuais que amo ir",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "",
+      "status": "design",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot11"
+      ],
+      "parceiroId": null,
+      "dificuldade": "2",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6266,5 +6299,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T17:31:47.180Z"
+  "_updatedAt": "2026-11-22T17:45:32.753Z"
 }
