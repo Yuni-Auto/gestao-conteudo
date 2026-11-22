@@ -3286,7 +3286,7 @@
       ],
       "scenes": [],
       "data": "2026-11-15",
-      "status": "publicada",
+      "status": "design",
       "plataformas": [
         "li"
       ],
@@ -3295,7 +3295,7 @@
       "formato": "Carousel",
       "inspiracoes": [],
       "parceiroId": null,
-      "eventoId": null,
+      "eventoId": 6,
       "requiredTags": [
         "slot1"
       ],
@@ -3768,7 +3768,7 @@
       "tema": "Apresentadora: IA na prática",
       "evento": "Womakers Code",
       "temaEvento": "Larissa",
-      "status": "realizada",
+      "status": "ensaiando",
       "data": "2026-11-07",
       "hora": "",
       "formato": "Presencial",
@@ -6261,5 +6261,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T14:05:27.488Z"
+  "_updatedAt": "2026-11-22T14:07:30.621Z"
 }
