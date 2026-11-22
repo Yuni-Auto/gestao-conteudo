@@ -2432,7 +2432,18 @@
       "requiredTags": [
         "slot4"
       ],
-      "dificuldade": 3
+      "dificuldade": 3,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 2464,
+          "reach": 1899,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 9,
+          "sends": 8,
+          "saves": 13
+        }
+      }
     },
     {
       "id": 88,
@@ -3280,7 +3291,18 @@
       ],
       "parceiroId": null,
       "dificuldade": "",
-      "eventoId": null
+      "eventoId": null,
+      "analyticsByPlatform": {
+        "ig": {
+          "views": 1911,
+          "reach": 1157,
+          "followers": 0,
+          "comments": 0,
+          "reposts": 6,
+          "sends": 3,
+          "saves": 5
+        }
+      }
     },
     {
       "id": 111,
@@ -6301,5 +6323,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T18:07:27.388Z"
+  "_updatedAt": "2026-11-22T18:17:55.921Z"
 }
