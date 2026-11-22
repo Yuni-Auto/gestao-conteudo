@@ -772,7 +772,7 @@
       ],
       "scenes": [],
       "data": "2026-12-03",
-      "status": "editando",
+      "status": "design",
       "plataformas": [
         "ig",
         "tt",
@@ -3286,7 +3286,7 @@
       ],
       "scenes": [],
       "data": "2026-11-15",
-      "status": "design",
+      "status": "publicada",
       "plataformas": [
         "li"
       ],
@@ -6261,5 +6261,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T15:38:06.518Z"
+  "_updatedAt": "2026-11-22T15:39:14.300Z"
 }
