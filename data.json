@@ -734,7 +734,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-22",
+      "data": "2026-12-01",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1581,7 +1581,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-22",
+      "data": "2026-12-01",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1595,7 +1595,7 @@
         }
       ],
       "plataformasDatas": {
-        "ig": "2026-11-22",
+        "ig": "2026-12-01",
         "tt": "2026-11-24"
       },
       "plataformasStatus": {
@@ -2910,7 +2910,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-12-01",
+      "data": "2026-11-22",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -6350,5 +6350,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T21:27:44.776Z"
+  "_updatedAt": "2026-11-22T21:31:56.425Z"
 }
