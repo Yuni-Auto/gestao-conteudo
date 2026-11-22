@@ -250,7 +250,8 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "requiredTags": [],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": 3
     },
     {
       "id": 14,
@@ -6261,5 +6262,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T16:55:07.381Z"
+  "_updatedAt": "2026-11-22T16:56:54.080Z"
 }
