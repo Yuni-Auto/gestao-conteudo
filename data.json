@@ -1968,7 +1968,7 @@
         {
           "titulo": "Café da manhã",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Música/Notícias da TV",
@@ -6358,5 +6358,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-23T01:12:11.262Z"
+  "_updatedAt": "2026-11-23T11:59:30.433Z"
 }
