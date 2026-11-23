@@ -4323,6 +4323,14 @@
       "y": 625.544921875,
       "color": "coral",
       "rot": -0.7
+    },
+    {
+      "id": 16,
+      "text": "Garotas inteligentes estudam pra TI e investem seu dinheiro",
+      "x": 707.3291015625,
+      "y": 643.4423828125,
+      "color": "orange",
+      "rot": -0.1
     }
   ],
   "inspirations": [
@@ -6374,5 +6382,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-23T17:12:07.255Z"
+  "_updatedAt": "2026-11-23T21:40:35.384Z"
 }
