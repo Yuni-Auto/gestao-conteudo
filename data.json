@@ -4315,6 +4315,14 @@
       "y": 570.0791015625,
       "color": "gray",
       "rot": 2.1
+    },
+    {
+      "id": 15,
+      "text": "Qual é a diferença entre Angular vs React",
+      "x": 418.54296875,
+      "y": 625.544921875,
+      "color": "coral",
+      "rot": -0.7
     }
   ],
   "inspirations": [
@@ -6366,5 +6374,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-23T16:49:12.172Z"
+  "_updatedAt": "2026-11-23T17:12:07.255Z"
 }
