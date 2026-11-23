@@ -2911,14 +2911,22 @@
       ],
       "scenes": [],
       "data": "2026-11-22",
-      "status": "editando",
+      "status": "pronto",
       "plataformas": [
         "ig",
         "tt",
         "li"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-22",
+        "tt": "2026-11-24",
+        "li": "2026-11-23"
+      },
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto",
+        "li": "pronto"
+      },
       "formato": "Carousel",
       "inspiracoes": [],
       "requiredTags": [
@@ -6350,5 +6358,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-22T21:31:56.425Z"
+  "_updatedAt": "2026-11-23T01:10:04.252Z"
 }
