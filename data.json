@@ -3437,7 +3437,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-24",
+      "data": "2026-12-18",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3446,7 +3446,12 @@
       "plataformasDatas": null,
       "plataformasStatus": null,
       "formato": "Carousel",
-      "inspiracoes": [],
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/Df-kC1MmJdd/"
+        }
+      ],
       "requiredTags": [
         "slot12"
       ],
@@ -6438,5 +6443,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T16:38:06.522Z"
+  "_updatedAt": "2026-11-24T16:38:40.408Z"
 }
