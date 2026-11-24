@@ -3567,6 +3567,41 @@
       "parceiroId": null,
       "dificuldade": "4",
       "eventoId": null
+    },
+    {
+      "id": 118,
+      "titulo": "[caroussel] Garota para garota",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-12-27",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DflHVdwFgL3"
+        }
+      ],
+      "requiredTags": [
+        "slot12"
+      ],
+      "parceiroId": null,
+      "dificuldade": "4",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6552,5 +6587,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T19:10:38.954Z"
+  "_updatedAt": "2026-11-24T19:18:18.988Z"
 }
