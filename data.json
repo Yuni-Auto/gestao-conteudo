@@ -3426,7 +3426,7 @@
     },
     {
       "id": 114,
-      "titulo": "[carossel]Coisas que faria diferente se eu começasse a faculdade hoje",
+      "titulo": "[carossel] Coisas que faria diferente se eu começasse a faculdade hoje",
       "desc": "",
       "carouselLegenda": "",
       "slides": [
@@ -3494,6 +3494,78 @@
       ],
       "parceiroId": null,
       "dificuldade": "2",
+      "eventoId": null
+    },
+    {
+      "id": 116,
+      "titulo": "[post] sempre agradeça o privilégio de poder estudar muito",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-12-25",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Foto",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/Dfux4OhBf3h/"
+        }
+      ],
+      "requiredTags": [
+        "slot12"
+      ],
+      "parceiroId": null,
+      "dificuldade": "1",
+      "eventoId": null
+    },
+    {
+      "id": 117,
+      "titulo": "[reels] Não dar meu máximo é jogar meu dom no lixo",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-12-27",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DfAn5SSt5gZ/"
+        }
+      ],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "4",
       "eventoId": null
     }
   ],
@@ -6480,5 +6552,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T16:45:35.886Z"
+  "_updatedAt": "2026-11-24T17:44:36.036Z"
 }
