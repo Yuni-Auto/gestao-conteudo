@@ -3394,6 +3394,35 @@
       "parceiroId": null,
       "dificuldade": "2",
       "eventoId": null
+    },
+    {
+      "id": 113,
+      "titulo": "[post] Campanha de adoção - Dados para virar o jogo",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-26",
+      "status": "legenda",
+      "plataformas": [
+        "ig"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Foto",
+      "inspiracoes": [],
+      "requiredTags": [
+        "custommvzfmp7wggt8"
+      ],
+      "parceiroId": null,
+      "dificuldade": "1",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -3721,11 +3750,13 @@
           "tipo": "collab",
           "data": "2026-12-01",
           "status": "combinada",
-          "contentType": "",
-          "contentId": null
+          "contentType": "post",
+          "contentId": 113
         }
       ],
-      "postIds": [],
+      "postIds": [
+        113
+      ],
       "lectureIds": [],
       "tipo": "collab",
       "data": "2026-12-01"
@@ -6377,5 +6408,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T16:29:10.110Z"
+  "_updatedAt": "2026-11-24T16:35:36.416Z"
 }
