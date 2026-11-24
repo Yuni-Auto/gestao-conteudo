@@ -3423,6 +3423,36 @@
       "parceiroId": null,
       "dificuldade": "1",
       "eventoId": null
+    },
+    {
+      "id": 114,
+      "titulo": "[carossel]Coisas que faria diferente se eu começasse a faculdade hoje",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2026-11-24",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot12"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6408,5 +6438,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T16:36:39.135Z"
+  "_updatedAt": "2026-11-24T16:38:06.522Z"
 }
