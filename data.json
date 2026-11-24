@@ -3602,6 +3602,43 @@
       "parceiroId": null,
       "dificuldade": "4",
       "eventoId": null
+    },
+    {
+      "id": 119,
+      "titulo": "[reels] você é dev e pediram sua playlist motivacional para resolver bug em prod",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-12-29",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DfxvYjrCb2w/"
+        }
+      ],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6587,5 +6624,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T19:18:18.988Z"
+  "_updatedAt": "2026-11-24T19:28:20.604Z"
 }
