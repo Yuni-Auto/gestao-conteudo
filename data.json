@@ -734,7 +734,7 @@
           "feito": false
         }
       ],
-      "data": "2026-12-01",
+      "data": "2026-12-19",
       "status": "gravando",
       "plataformas": [
         "ig",
@@ -1138,7 +1138,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-29",
+      "data": "2026-12-21",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1152,7 +1152,7 @@
         "slot4"
       ],
       "parceiroId": null,
-      "dificuldade": 3,
+      "dificuldade": "3",
       "eventoId": null
     },
     {
@@ -1543,7 +1543,7 @@
           "feito": false
         }
       ],
-      "data": "2026-12-14",
+      "data": "2026-12-15",
       "status": "roteiro",
       "plataformas": [
         "ig",
@@ -2258,7 +2258,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-25",
+      "data": "2026-12-09",
       "status": "publicada",
       "plataformas": [
         "ig",
@@ -2267,8 +2267,8 @@
       ],
       "plataformasDatas": {
         "ig": "2026-10-21",
-        "tt": "2026-12-16",
-        "yt": "2026-12-16"
+        "tt": "2026-12-09",
+        "yt": "2026-12-09"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -3437,7 +3437,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-12-18",
+      "data": "2026-12-17",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -3457,6 +3457,43 @@
       ],
       "parceiroId": null,
       "dificuldade": "3",
+      "eventoId": null
+    },
+    {
+      "id": 115,
+      "titulo": "[reels] nem todas as divas trabalham com beleza, alguém tinha que programar o app do de agendamento do bronze, unha e cabelo",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-12-13",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/Df14JO0u8e1/"
+        }
+      ],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "2",
       "eventoId": null
     }
   ],
@@ -6443,5 +6480,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T16:38:40.408Z"
+  "_updatedAt": "2026-11-24T16:45:35.886Z"
 }
