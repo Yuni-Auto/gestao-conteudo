@@ -2267,8 +2267,8 @@
       ],
       "plataformasDatas": {
         "ig": "2026-10-21",
-        "tt": "2026-11-27",
-        "yt": "2026-11-26"
+        "tt": "2026-12-16",
+        "yt": "2026-12-16"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -2914,18 +2914,15 @@
       "status": "pronto",
       "plataformas": [
         "ig",
-        "tt",
-        "li"
+        "tt"
       ],
       "plataformasDatas": {
         "ig": "2026-11-22",
-        "tt": "2026-11-24",
-        "li": "2026-11-23"
+        "tt": "2026-11-24"
       },
       "plataformasStatus": {
         "ig": "publicada",
-        "tt": "pronto",
-        "li": "pronto"
+        "tt": "pronto"
       },
       "formato": "Carousel",
       "inspiracoes": [],
@@ -3710,22 +3707,20 @@
       "nome": "WomarksCode",
       "perfil": "womakersgram",
       "contato": "Marilia",
-      "status": "ideia",
+      "status": "combinada",
       "seguidores": 36500,
       "plataformas": [
-        "ig",
-        "tt",
-        "li"
+        "ig"
       ],
-      "tema": "",
-      "combinado": "",
-      "notas": "",
+      "tema": "Campanha de dados para virar o jogo",
+      "combinado": "Publicar a arte em colab com a comunidade",
+      "notas": "Oiie, tudo bem? Segue a arte da campanha: https://canva.link/udpuhh33yt31h4w\n\nQuando postar pode colocar a womakerscode em collab por favor 🙂 \nPostar até dia 01/12.\n\nA legenda para as redes sociais é livre, mas segue informações para se basear:\n\nCom a campanha Dados para Virar o Jogo, queremos oferecer 200 bolsas gratuitas em Introdução à Ciência de Dados com Python para mulheres desempregadas e de baixa renda, com pelo menos 50% das vagas destinadas a mulheres negras.\n\nTodo valor arrecadado será revertido em bolsas de estudo gratuitas para um curso introdutório de Ciência de Dados com Python.\n\nLink: https://benfeitoria.com/projeto/womakerscode",
       "itens": [
         {
           "id": 1,
           "tipo": "collab",
-          "data": "",
-          "status": "ideia",
+          "data": "2026-12-01",
+          "status": "combinada",
           "contentType": "",
           "contentId": null
         }
@@ -3733,7 +3728,7 @@
       "postIds": [],
       "lectureIds": [],
       "tipo": "collab",
-      "data": ""
+      "data": "2026-12-01"
     }
   ],
   "lectures": [
@@ -6382,5 +6377,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-23T21:40:35.384Z"
+  "_updatedAt": "2026-11-24T16:29:10.110Z"
 }
