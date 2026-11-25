@@ -1963,7 +1963,7 @@
         {
           "titulo": "Lookinho do dia",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Café da manhã",
@@ -1973,32 +1973,32 @@
         {
           "titulo": "Música/Notícias da TV",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Setup de trabalho",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Almoçinho",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Café da tarde",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Horário de saída",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Hora de estudo",
           "texto": "",
-          "feito": false
+          "feito": true
         },
         {
           "titulo": "Arrumar a casa",
@@ -2008,21 +2008,26 @@
         {
           "titulo": "Ir pra academia",
           "texto": "",
-          "feito": false
+          "feito": true
         }
       ],
       "scenes": [],
       "data": "2026-11-25",
-      "status": "design",
+      "status": "publicada",
       "plataformas": [
         "ig",
-        "tt",
-        "yt"
+        "tt"
       ],
-      "plataformasDatas": null,
+      "plataformasDatas": {
+        "ig": "2026-11-25",
+        "tt": "2026-11-28"
+      },
       "formato": "Carousel",
       "inspiracoes": [],
-      "plataformasStatus": null,
+      "plataformasStatus": {
+        "ig": "publicada",
+        "tt": "pronto"
+      },
       "parceiroId": null,
       "requiredTags": [
         "slot6"
@@ -6624,5 +6629,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-25T16:49:03.498Z"
+  "_updatedAt": "2026-11-25T20:34:58.080Z"
 }
