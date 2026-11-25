@@ -2012,7 +2012,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-24",
+      "data": "2026-11-25",
       "status": "design",
       "plataformas": [
         "ig",
@@ -2910,7 +2910,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-22",
+      "data": "2026-11-25",
       "status": "pronto",
       "plataformas": [
         "ig",
@@ -2918,7 +2918,7 @@
       ],
       "plataformasDatas": {
         "ig": "2026-11-22",
-        "tt": "2026-11-24"
+        "tt": "2026-11-25"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -3277,7 +3277,7 @@
           "feito": false
         }
       ],
-      "data": "2026-11-26",
+      "data": "2026-11-27",
       "status": "editando",
       "plataformas": [
         "ig",
@@ -3408,7 +3408,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-26",
+      "data": "2026-11-27",
       "status": "legenda",
       "plataformas": [
         "ig"
@@ -6624,5 +6624,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-24T19:28:20.604Z"
+  "_updatedAt": "2026-11-25T16:49:03.498Z"
 }
