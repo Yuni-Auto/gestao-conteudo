@@ -2909,9 +2909,29 @@
       "carouselLegenda": "",
       "slides": [
         {
-          "titulo": "",
+          "titulo": "Chamada",
           "texto": "",
-          "feito": false
+          "feito": true
+        },
+        {
+          "titulo": "Inscrições/Benefícios",
+          "texto": "",
+          "feito": true
+        },
+        {
+          "titulo": "Detalhes",
+          "texto": "",
+          "feito": true
+        },
+        {
+          "titulo": "Seleção",
+          "texto": "",
+          "feito": true
+        },
+        {
+          "titulo": "CTA",
+          "texto": "",
+          "feito": true
         }
       ],
       "scenes": [],
@@ -6629,5 +6649,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-25T20:34:58.080Z"
+  "_updatedAt": "2026-11-25T20:38:39.063Z"
 }
