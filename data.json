@@ -791,7 +791,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-12-03",
+      "data": "2026-12-31",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1581,7 +1581,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-27",
+      "data": "2026-12-03",
       "status": "design",
       "plataformas": [
         "ig",
@@ -1595,8 +1595,8 @@
         }
       ],
       "plataformasDatas": {
-        "ig": "2026-12-01",
-        "tt": "2026-11-29"
+        "ig": "2026-12-03",
+        "tt": "2026-12-03"
       },
       "plataformasStatus": {
         "ig": "design",
@@ -6657,5 +6657,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T17:35:11.833Z"
+  "_updatedAt": "2026-11-26T17:36:27.500Z"
 }
