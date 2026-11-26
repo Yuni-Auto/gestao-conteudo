@@ -4351,13 +4351,13 @@
         "clicks": 0
       },
       "Nov 26": {
-        "seguidores": 2,
-        "views": 0,
-        "alcance": 3,
-        "eng": 0,
-        "conteudo": 1,
+        "seguidores": 21,
+        "views": 751,
+        "alcance": 52,
+        "eng": 7,
+        "conteudo": 3,
         "clicks": 0,
-        "followers": 983
+        "followers": 981
       }
     },
     "li": {
@@ -6698,5 +6698,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T23:43:07.624Z"
+  "_updatedAt": "2026-11-26T23:44:39.563Z"
 }
