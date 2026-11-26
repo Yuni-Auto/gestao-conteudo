@@ -4259,12 +4259,12 @@
         "clicks": 10
       },
       "Nov 26": {
-        "seguidores": 8665,
-        "views": 142806,
-        "alcance": 81848,
-        "eng": 12431,
-        "conteudo": 0,
-        "clicks": 0
+        "seguidores": 8620,
+        "views": 40986,
+        "alcance": 18226,
+        "eng": 16622,
+        "conteudo": 10,
+        "clicks": 4
       }
     },
     "tt": {
@@ -6698,5 +6698,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T23:38:35.479Z"
+  "_updatedAt": "2026-11-26T23:43:07.624Z"
 }
