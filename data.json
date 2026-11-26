@@ -863,7 +863,7 @@
           "feito": false
         }
       ],
-      "data": "2026-12-05",
+      "data": "2026-12-23",
       "status": "ideia",
       "plataformas": [
         "ig",
@@ -3578,7 +3578,7 @@
           "feito": false
         }
       ],
-      "data": "2026-12-23",
+      "data": "2026-12-05",
       "status": "pesquisar",
       "plataformas": [
         "ig",
@@ -6692,5 +6692,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T17:41:27.017Z"
+  "_updatedAt": "2026-11-26T17:42:11.449Z"
 }
