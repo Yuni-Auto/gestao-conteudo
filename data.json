@@ -1108,7 +1108,9 @@
       "requiredTags": [
         "slot11"
       ],
-      "parceiroId": null
+      "parceiroId": null,
+      "dificuldade": "",
+      "eventoId": null
     },
     {
       "id": 44,
@@ -1603,7 +1605,8 @@
         "tt": "design"
       },
       "requiredTags": [
-        "slot7"
+        "slot7",
+        "slot8"
       ],
       "parceiroId": null,
       "dificuldade": "3",
@@ -3595,7 +3598,8 @@
         }
       ],
       "requiredTags": [
-        "slot4"
+        "slot4",
+        "slot12"
       ],
       "parceiroId": null,
       "dificuldade": "4",
@@ -3703,7 +3707,9 @@
           "link": "https://www.instagram.com/p/DgKzVBeBHbD/"
         }
       ],
-      "requiredTags": [],
+      "requiredTags": [
+        "slot4"
+      ],
       "parceiroId": null,
       "dificuldade": "2",
       "eventoId": null
@@ -6692,5 +6698,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T17:48:36.690Z"
+  "_updatedAt": "2026-11-26T19:41:47.647Z"
 }
