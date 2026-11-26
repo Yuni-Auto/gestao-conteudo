@@ -2943,7 +2943,7 @@
       ],
       "plataformasDatas": {
         "ig": "2026-11-22",
-        "tt": "2026-11-25"
+        "tt": "2026-11-26"
       },
       "plataformasStatus": {
         "ig": "publicada",
@@ -3303,14 +3303,22 @@
         }
       ],
       "data": "2026-11-27",
-      "status": "editando",
+      "status": "programada",
       "plataformas": [
         "ig",
         "tt",
         "yt"
       ],
-      "plataformasDatas": null,
-      "plataformasStatus": null,
+      "plataformasDatas": {
+        "ig": "2026-11-27",
+        "tt": "2026-11-27",
+        "yt": "2026-11-27"
+      },
+      "plataformasStatus": {
+        "ig": "programada",
+        "tt": "pronto",
+        "yt": "pronto"
+      },
       "formato": "Reels",
       "inspiracoes": [],
       "requiredTags": [
@@ -3434,7 +3442,7 @@
       ],
       "scenes": [],
       "data": "2026-11-27",
-      "status": "legenda",
+      "status": "programada",
       "plataformas": [
         "ig"
       ],
@@ -6649,5 +6657,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-25T20:38:39.063Z"
+  "_updatedAt": "2026-11-26T17:35:11.833Z"
 }
