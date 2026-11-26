@@ -1095,7 +1095,7 @@
         }
       ],
       "scenes": [],
-      "data": "2026-11-28",
+      "data": "2026-12-01",
       "status": "design",
       "plataformas": [
         "ig",
@@ -3671,6 +3671,41 @@
       ],
       "parceiroId": null,
       "dificuldade": "3",
+      "eventoId": null
+    },
+    {
+      "id": 120,
+      "titulo": "[reels] Uma PRISÃO PSICOLÓGICA",
+      "desc": "\"TI não é curso de mulher\"\n\"Mulher que faz TI é masculina\"\n\"TI é pra homem\"\n",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-29",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DgKzVBeBHbD/"
+        }
+      ],
+      "requiredTags": [],
+      "parceiroId": null,
+      "dificuldade": "2",
       "eventoId": null
     }
   ],
@@ -6657,5 +6692,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T17:36:27.500Z"
+  "_updatedAt": "2026-11-26T17:41:27.017Z"
 }
