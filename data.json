@@ -3745,6 +3745,55 @@
       "parceiroId": null,
       "dificuldade": "2",
       "eventoId": null
+    },
+    {
+      "id": 122,
+      "titulo": "[caroussel] os apps que eu uso pra construir meu app sozinha",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "Claude code",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Supabase",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "Expo",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "VS Code",
+          "texto": "",
+          "feito": false
+        },
+        {
+          "titulo": "E foi assim que nasceu o Yuni",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2027-01-04",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [],
+      "requiredTags": [],
+      "parceiroId": null,
+      "dificuldade": "2",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6730,5 +6779,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-27T00:40:19.040Z"
+  "_updatedAt": "2026-11-27T00:43:14.336Z"
 }
