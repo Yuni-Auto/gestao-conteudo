@@ -3713,6 +3713,38 @@
       "parceiroId": null,
       "dificuldade": "2",
       "eventoId": null
+    },
+    {
+      "id": 121,
+      "titulo": "[reels] eu fui a estudante de ti original:",
+      "desc": "- sem Alura\n- sem curso caro\n- sem macbook\n- sem setup de 10k\n- sem Claude pro max\n- sem dois monitores",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "Sentada no PC ou Cena gerada na IA ",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-26",
+      "status": "ideia",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot12"
+      ],
+      "parceiroId": null,
+      "dificuldade": "2",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6698,5 +6730,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-26T23:50:10.080Z"
+  "_updatedAt": "2026-11-27T00:39:20.941Z"
 }
