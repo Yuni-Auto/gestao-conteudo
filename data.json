@@ -3826,6 +3826,42 @@
       "parceiroId": null,
       "dificuldade": "3",
       "eventoId": null
+    },
+    {
+      "id": 124,
+      "titulo": "[caroussel] coisas normais de quem trabalha com tecnologia",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [
+        {
+          "titulo": "",
+          "texto": "",
+          "feito": false
+        }
+      ],
+      "scenes": [],
+      "data": "2027-01-08",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Carousel",
+      "inspiracoes": [
+        {
+          "creator": "",
+          "link": "https://www.instagram.com/p/DgLqkb5lhKS"
+        }
+      ],
+      "requiredTags": [
+        "slot12"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6811,5 +6847,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-27T00:44:50.637Z"
+  "_updatedAt": "2026-11-27T01:28:26.119Z"
 }
