@@ -3794,6 +3794,38 @@
       "parceiroId": null,
       "dificuldade": "2",
       "eventoId": null
+    },
+    {
+      "id": 123,
+      "titulo": "[caroussel] pra estudar programação precisa ter um computador bom",
+      "desc": "",
+      "carouselLegenda": "",
+      "slides": [],
+      "scenes": [
+        {
+          "inicio": 0,
+          "fim": 0,
+          "cena": "",
+          "feito": false
+        }
+      ],
+      "data": "2026-11-29",
+      "status": "pesquisar",
+      "plataformas": [
+        "ig",
+        "tt",
+        "yt"
+      ],
+      "plataformasDatas": null,
+      "plataformasStatus": null,
+      "formato": "Reels",
+      "inspiracoes": [],
+      "requiredTags": [
+        "slot4"
+      ],
+      "parceiroId": null,
+      "dificuldade": "3",
+      "eventoId": null
     }
   ],
   "partners": [
@@ -6779,5 +6811,5 @@
       5
     ]
   },
-  "_updatedAt": "2026-11-27T00:43:14.336Z"
+  "_updatedAt": "2026-11-27T00:44:50.637Z"
 }
